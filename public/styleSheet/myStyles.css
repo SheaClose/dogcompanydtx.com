@@ -1,0 +1,45 @@
+/**{
+  border: 1px solid lightgrey;
+}*/
+body{
+  background-color: black;
+}
+.Store-page-container {
+  width: 100vw;
+  height:100vh;
+  background: radial-gradient(ellipse at center, transparent 25%, rgba(0,0,0,0),
+    rgba(0, 0, 0, 1) 65%), url("../Assets/photos/DogCoAmps.bmp") no-repeat fixed;
+  background-attachment:fixed;
+  background-position: center center;
+  background-size: cover;
+  object-fit: fill;
+  object-position: center;
+  overflow: auto;
+  color: white;
+}
+.Home-page-container {
+  width: 100vw;
+  height:100vh;
+  background: radial-gradient(ellipse at center, transparent 25%, rgba(0,0,0,0),
+    rgba(0, 0, 0, 1) 65%), url("../Assets/photos/DogCoLogo.jpg") no-repeat fixed;
+  background-attachment:fixed;
+  background-position: center center;
+  background-size: cover;
+  object-fit: fill;
+  object-position: center;
+  overflow: auto;
+  color: white
+}
+.shows-page-container {
+  width: 100vw;
+  height:100vh;
+  background: radial-gradient(ellipse at center, transparent 25%, rgba(0,0,0,0),
+    rgba(0, 0, 0, 1) 65%), url("../Assets/photos/DogwMisfits.bmp") no-repeat fixed;
+  background-attachment:fixed;
+  background-position: center center;
+  background-size: cover;
+  object-fit: fill;
+  object-position: center;
+  overflow: auto;
+  color: white
+}
