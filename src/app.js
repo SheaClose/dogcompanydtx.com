@@ -22,4 +22,10 @@ angular.module("app", ["ui.router"])
     url: "/media"
     , templateUrl: "../src/components/media/mediaTmpl.html"
   })
+  .state("admin", {
+    url: "/admin"
+    , controller: "adminCtrl"
+    , templateUrl: "../src/components/admin/adminTmpl.html"
+
+  })
 })
