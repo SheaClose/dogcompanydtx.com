@@ -3,61 +3,57 @@ body{
 }
 .Home-page-container  {
   width: 100vw;
-  height:100vh;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0),
     rgba(0, 0, 0, 1) 70%), url("https://s3-us-west-2.amazonaws.com/dogcompany/DogCoAmps.bmp") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
-  background-size: cover;
+  background-size: 125vh;
   object-fit: fill;
   object-position: center;
-  overflow: auto;
   color: white;
 }
 .about-page-container {
-  height:100%;
+  width: 100vw;
   background: url("https://s3-us-west-2.amazonaws.com/dogcompany/DogCoLogo3.bmp") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
-  background-size: contain;
-  overflow: auto;
+  background-size: 100vh;
   color: white;
 }
-
 .shows-page-container {
   width: 100vw;
-  height:100vh;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0),
     rgba(0, 0, 0, 1) 70%), url("https://s3-us-west-2.amazonaws.com/dogcompany/DogwMisfits.bmp") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
-  background-size: cover;
+  background-size: 125vh;
   object-fit: fill;
   object-position: center;
   overflow: auto;
   color: white
 }
 .Store-page-container {
-  width: 100vw;
-  height:100vh;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0),
     rgba(0, 0, 0, 1) 70%), url("https://s3-us-west-2.amazonaws.com/dogcompany/PastorJoe.bmp") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
-  background-size: cover;
+  background-size: 125vh;
   object-fit: fill;
   object-position: center;
   overflow: auto;
-  color: white
+}
+.Store-page-content-container{
+  width: 100vw;
+  color: white;
+  background-color: rgba(0,0,0,.1)
 }
 .media-page-container {
   width: 100vw;
-  height:100vh;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0),
     rgba(0, 0, 0, 1) 70%), url("https://s3-us-west-2.amazonaws.com/dogcompany/MidwestDogCo.bmp") no-repeat fixed;
   background-attachment:fixed;
   background-position: center 20px;
-  background-size: cover;
+  background-size: 125vh;
   object-fit: fill;
   object-position: center;
   overflow: auto;

@@ -1,14 +1,16 @@
-angular.module("app", ["ui.router"])
+angular.module("app", ["ui.router"/*, "ngSanitize"*/])
 .config(function($stateProvider, $urlRouterProvider){
   $urlRouterProvider.otherwise("/");
   $stateProvider
   .state("home", {
     url: "/"
     , templateUrl: "../src/components/home/homeTmpl.html"
+    , controller: "homeCtrl"
   })
   .state("store", {
     url: "/store"
     , templateUrl: "../src/components/store/storeTmpl.html"
+    , controller: "storeCtrl"
   })
   .state("shows", {
     url: "/shows"

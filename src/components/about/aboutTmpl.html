@@ -44,15 +44,28 @@
           </p> <p>
           Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
           </p>
-          <script>
-          var x;
-          $(window).on('scroll', function() {
-              var x = $(window).scrollTop();
-              var y = x / 5
-              $('.about-page-container').css('background-size', 100 + parseInt(x / 5, 0) + '% ');
 
-          });
-          </script>
         </div>
       </div>
   </div>
+
+  <script>
+  var x;
+  var x;
+  $(window).on('scroll', function() {
+      var x = $(window).scrollTop();
+      function retY() {
+        var y = (($(window).scrollTop() / $(window).height()));
+        if (y < .75){
+          return y
+        }
+        else {
+          return .75
+        }
+      }
+      console.log(100 + parseInt(x / 3))
+      $('.about-page-container').css('background-size', 100 + parseInt(x / 3) + 'vh');
+      $('.about-page-content-container').css('background-color', "rgba(0,0,0, " + retY() + ")");
+
+  });
+  </script>

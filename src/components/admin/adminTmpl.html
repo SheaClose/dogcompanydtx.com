@@ -1,3 +1,4 @@
+
 ///////////////
 //Add Product//
 ///////////////
@@ -5,8 +6,8 @@
   <li>
     <div class="collapsible-header">Add Product</div>
         <div class="collapsible-body">
-        <div class="container admin-tmpl">
-          <div class="container">
+        <div class=" admin-tmpl">
+          <div class="">
           <div class="row">
 
           <form class="col s12">
@@ -82,14 +83,14 @@
   <li>
     <div class="collapsible-header">Edit Product</div>
     <div class="collapsible-body">
-    <div class="container admin-tmpl">
-  <div class="container">
-    <div class="row">
+    <div class=" admin-tmpl">
+  <div class="">
+    <div class="row"><form class="col s12">
       <div class="input-field">
         <input ng-model="objId" id="first_name" type="text" class="validate">
         <label for="first_name">Object Id</label>
       </div>
-
+    </form>
     <form class="col s12">
       <div class="row">
         <div class="input-field col s6">
@@ -163,13 +164,15 @@
   <li>
     <div class="collapsible-header">Delete Product</div>
       <div class="collapsible-body">
-        <div class="container admin-tmpl">
-          <div class="container">
+        <div class=" admin-tmpl">
+          <div class="">
             <div class="row">
-              <div class="input-field">
+              <form class="col s12">
+                <div class="input-field">
                 <input ng-model="objId" id="first_name" type="text" class="validate">
                 <label for="first_name">Object Id</label>
               </div>
+             </form>
             </div>
               <div class="row center-align">
                   <button ng-click="deleteProduct(objId)" class="center-align" type="submit" name="button">Delete</button>
@@ -187,9 +190,10 @@
   <li>
     <div class="collapsible-header">Add New Blog Post</div>
       <div class="collapsible-body">
-        <div class="container admin-tmpl">
-          <div class="container">
+        <div class=" admin-tmpl">
+          <div class="">
             <div class="row">
+              <form class="col s12">
               <div class="input-field">
                 <input ng-model="title" id="first_name" type="text" class="validate">
                 <label for="first_name">Title</label>
@@ -200,6 +204,7 @@
               </div>
                   <button ng-click="addBlogPost(body, title)" class="center-align" type="submit" name="button">Submit</button>
               </div>
+            </form>
             </div>
           </div>
       </div>
@@ -213,9 +218,10 @@
   <li>
     <div class="collapsible-header">Edit Blog Post</div>
       <div class="collapsible-body">
-        <div class="container admin-tmpl">
-          <div class="container">
+        <div class=" admin-tmpl">
+          <div class="">
             <div class="row">
+              <form class="col s12">
               <div class="input-field">
                 <input ng-model="objId" id="first_name" type="text" class="validate">
                 <label for="first_name">ObjectId</label>
@@ -230,6 +236,7 @@
               </div>
                   <button ng-click="editBlogPost(objId, body, title)" class="center-align" type="submit" name="button">Submit</button>
               </div>
+            </form>
             </div>
           </div>
       </div>
@@ -243,14 +250,16 @@
   <li>
     <div class="collapsible-header">Delete Blog Post</div>
       <div class="collapsible-body">
-        <div class="container admin-tmpl">
-          <div class="container">
+        <div class=" admin-tmpl">
+          <div class="">
             <div class="row">
+              <form class="col s12">
               <div class="input-field">
                 <input ng-model="objId" id="first_name" type="text" class="validate">
                 <label for="first_name">Object Id</label>
               </div>
                   <button ng-click="deleteBlog(objId)" class="center-align" type="submit" name="button">Delete</button>
+                </form>
               </div>
             </div>
           </div>
