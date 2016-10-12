@@ -5,7 +5,7 @@ body{
   width: 100vw;
   height:100vh;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-    rgba(0, 0, 0, 1) 70%), url("../Assets/photos/DogCoAmps.bmp") no-repeat fixed;
+    rgba(0, 0, 0, 1) 70%), url("https://s3-us-west-2.amazonaws.com/dogcompany/DogCoAmps.bmp") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
   background-size: cover;
@@ -16,7 +16,7 @@ body{
 }
 .about-page-container {
   height:100%;
-  background: url("../Assets/photos/DogCoLogo3.bmp") no-repeat fixed;
+  background: url("https://s3-us-west-2.amazonaws.com/dogcompany/DogCoLogo3.bmp") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
   background-size: contain;
@@ -28,7 +28,7 @@ body{
   width: 100vw;
   height:100vh;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-    rgba(0, 0, 0, 1) 70%), url("../Assets/photos/DogwMisfits.bmp") no-repeat fixed;
+    rgba(0, 0, 0, 1) 70%), url("https://s3-us-west-2.amazonaws.com/dogcompany/DogwMisfits.bmp") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
   background-size: cover;
@@ -41,7 +41,7 @@ body{
   width: 100vw;
   height:100vh;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-    rgba(0, 0, 0, 1) 70%), url("../Assets/photos/PastorJoe.bmp") no-repeat fixed;
+    rgba(0, 0, 0, 1) 70%), url("https://s3-us-west-2.amazonaws.com/dogcompany/PastorJoe.bmp") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
   background-size: cover;
@@ -54,7 +54,7 @@ body{
   width: 100vw;
   height:100vh;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-    rgba(0, 0, 0, 1) 70%), url("../Assets/photos/MidwestDogCo.bmp") no-repeat fixed;
+    rgba(0, 0, 0, 1) 70%), url("https://s3-us-west-2.amazonaws.com/dogcompany/MidwestDogCo.bmp") no-repeat fixed;
   background-attachment:fixed;
   background-position: center 20px;
   background-size: cover;
