@@ -53,16 +53,18 @@ angular.module("app")
       }
     })
   };
-  $scope.addBlogPost = (bdy, ttl) => {
+  $scope.addBlogPost = (bdy, ttl, img) => {
     const blogObj = {
       title: ttl
       , body: bdy
+      , imgUrl: img
     }
     adminService.addBlogPost(blogObj).then((response)=>{
       console.log(response);
       if (response.status == 200){
         $scope.body = "";
         $scope.title = "";
+        $scope.imgUrl = "";
       }
     })
   }

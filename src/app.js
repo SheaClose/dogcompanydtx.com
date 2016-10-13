@@ -15,6 +15,7 @@ angular.module("app", ["ui.router"/*, "ngSanitize"*/])
   .state("shows", {
     url: "/shows"
     , templateUrl: "../src/components/shows/showsTmpl.html"
+    , controller: "showsCtrl"
   })
   .state("about", {
     url: "/about"

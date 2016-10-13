@@ -1,36 +1,45 @@
 <div class="Home-page-container">
   <div class="home-page-content-container">
-      <ul class="container" ng-repeat="blog in blogs">
+    <div class="container">
+        <div class="valign-wrapper container-center" style="height: 100vh;">
+            <img class="img123 responsive-img valign" style="opacity: .8;" src="./public/Assets/photos/DogCoLogo.svg" alt="" />
+        </div>
+      <ul class="" ng-repeat="blog in blogs">
 
         <p>
-          <li>{{blog.title}}</li>
-          <li>{{blog.date | date: medium}}</li>
+          <u><li class="right-align" style="font-size: 1.7em">{{blog.title}}</li></u>
+          <li style="font-size: .7em" class="right-align">{{blog.date | date: medium}}</li>
+          <div class="center">
+            <img class="responsive-img" style="opacity: .8" ng-if="blog.imgUrl" ng-src="{{blog.imgUrl}}" alt="" />
+          </div>
           <li style="white-space: pre-line;">
             {{blog.body}}
           </li>
+          <hr>
         </p>
       </ul>
+    </div>
   </div>
 </div>
 
 
 <script>
-var x;
-$(window).on('scroll', function() {
-    var x = $(window).scrollTop();
+  var x;
+  $(window).on('scroll', function() {
+      var x = $(window).scrollTop();
 
-    function retY() {
-      var y = (($(window).scrollTop() / $(window).height()));
-      if (y < .75){
-        return y
+      function retY() {
+        var y = (($(window).scrollTop() / $(window).height()));
+        if (y < .75){
+          return y
+        }
+        else {
+          return .75
+        }
       }
-      else {
-        return .75
-      }
-    }
-    console.log($(window).height() / $("div").scrollTop())
-    $('.Home-page-container').css('background-size', 125 + parseInt(x / 5, 0) + 'vh');
-    $('.home-page-content-container').css('background-color', "rgba(0,0,0, " + retY() + ")");
+      console.log($(window).height() / $("div").scrollTop())
+      $('.Home-page-container').css('background-size', 125 + parseInt(x / 5, 0) + 'vh');
+      $('.home-page-content-container').css('background-color', "rgba(0,0,0, " + retY() + ")");
 
-});
+  });
 </script>

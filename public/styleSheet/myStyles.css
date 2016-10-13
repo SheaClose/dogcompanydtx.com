@@ -12,6 +12,11 @@ body{
   object-position: center;
   color: white;
 }
+.container-center {
+display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 .about-page-container {
   width: 100vw;
   background: url("https://s3-us-west-2.amazonaws.com/dogcompany/DogCoLogo3.bmp") no-repeat fixed;
@@ -23,14 +28,28 @@ body{
 .shows-page-container {
   width: 100vw;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-    rgba(0, 0, 0, 1) 70%), url("https://s3-us-west-2.amazonaws.com/dogcompany/DogwMisfits.bmp") no-repeat fixed;
+    rgba(0, 0, 0, 1) 65%), url("https://s3-us-west-2.amazonaws.com/dogcompany/DogwMisfits.bmp") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
   background-size: 125vh;
   object-fit: fill;
   object-position: center;
   overflow: auto;
-  color: white
+  color: white;
+  justify-content: space-around;
+}
+.shows-page-content-container {
+  background-color: transparent;
+  font-family:arial,helvetica,sans-serif;
+  font-size:13px;
+}
+.Past-events-header {
+  margin-top: 50px;
+}
+.centered-object{
+
+  margin-top: 25px;
+
 }
 .Store-page-container {
   background: radial-gradient(ellipse at center, rgba(0,0,0,0),
@@ -61,4 +80,7 @@ body{
 }
 .admin-tmpl {
   background-color: grey;
+}
+table.highlight > tbody > tr:hover {
+  background-color: rgba(0, 150, 136, .3);
 }

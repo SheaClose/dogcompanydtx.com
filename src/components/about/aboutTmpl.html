@@ -50,22 +50,22 @@
   </div>
 
   <script>
-  var x;
-  var x;
-  $(window).on('scroll', function() {
-      var x = $(window).scrollTop();
-      function retY() {
-        var y = (($(window).scrollTop() / $(window).height()));
-        if (y < .75){
-          return y
-        }
-        else {
-          return .75
-        }
-      }
-      console.log(100 + parseInt(x / 3))
-      $('.about-page-container').css('background-size', 100 + parseInt(x / 3) + 'vh');
-      $('.about-page-content-container').css('background-color', "rgba(0,0,0, " + retY() + ")");
 
-  });
+    var x;
+    $(window).on('scroll', function() {
+        var x = $(window).scrollTop();
+        function retY() {
+          var y = (($(window).scrollTop() / $(window).height()));
+          if (y < .75){
+            return y
+          }
+          else {
+            return .75
+          }
+        }
+        console.log(100 + parseInt(x / 3))
+        $('.about-page-container').css('background-size', 100 + parseInt(x / 3) + 'vh');
+        $('.about-page-content-container').css('background-color', "rgba(0,0,0, " + retY() + ")");
+
+    });
   </script>

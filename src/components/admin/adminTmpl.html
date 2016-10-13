@@ -202,7 +202,11 @@
                 <textarea ng-model="body" id="textarea1" class="materialize-textarea"></textarea>
                 <label for="textarea1">Body</label>
               </div>
-                  <button ng-click="addBlogPost(body, title)" class="center-align" type="submit" name="button">Submit</button>
+              <div class="input-field col s12">
+                <input ng-model="imgUrl" id="textarea1" class="validate"></input>
+                <label for="textarea1">imgUrl</label>
+              </div>
+                  <button ng-click="addBlogPost(body, title, imgUrl)" class="" type="submit" name="button">Submit</button>
               </div>
             </form>
             </div>

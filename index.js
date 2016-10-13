@@ -7,6 +7,7 @@ const express = require("express")
       , mongoUri = "mongodb://localhost/dogCompanyEcommerce"
       , masterRoutes = require("./masterRoutes.js")
 
+
 app.use("/", express.static(__dirname));
 mongoose.connect(mongoUri);
 app.use(json());
