@@ -2,13 +2,13 @@
   <div class="home-page-content-container">
     <div class="container">
         <div class="valign-wrapper container-center" style="height: 100vh;">
-            <img class="img123 responsive-img valign" style="opacity: .8;" src="./public/Assets/photos/DogCoLogo.svg" alt="" />
+            <img class="img123 responsive-img valign" style="opacity: .8; height: 70vh;" src="./public/Assets/photos/DogCoLogo.svg" alt="" />
         </div>
       <ul class="" ng-repeat="blog in blogs">
 
         <p>
-          <u><li class="right-align" style="font-size: 1.7em">{{blog.title}}</li></u>
-          <li style="font-size: .7em" class="right-align">{{blog.date | date: medium}}</li>
+          <ul><li class="left" style="font-size: 1.7em">{{blog.title}}</li></u>
+          <li style="font-size: .7em" class="right">{{blog.date | date: medium}}</li>
           <div class="center">
             <img class="responsive-img" style="opacity: .8" ng-if="blog.imgUrl" ng-src="{{blog.imgUrl}}" alt="" />
           </div>
