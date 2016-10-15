@@ -13,7 +13,7 @@ body{
   color: white;
 }
 .container-center {
-display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
   }
@@ -79,6 +79,13 @@ display: flex;
   overflow: auto;
   color: white
 }
+.Album-Art{
+  width: 100%;
+}
+.album-song-title a {
+  color: white;
+}
+
 .admin-tmpl {
   background-color: grey;
 }
@@ -96,7 +103,6 @@ table.highlight > tbody > tr:hover {
   padding: 10px;
   background-color:  rgba(0, 150, 136, .8);
   margin-bottom: -15px;
-  height: 70vh;
   width: 100%;
   overflow: auto;
 }
@@ -104,6 +110,11 @@ table.highlight > tbody > tr:hover {
   display: flex;
   justify-content: space-around;
   margin-top: 20vh;
+}
+.container-fluid2{
+  display: flex;
+  justify-content: space-around;;
+  margin-top: 2vh;
 }
 .timeline ul li {
   list-style-type: none;
