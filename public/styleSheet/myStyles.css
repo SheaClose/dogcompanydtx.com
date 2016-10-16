@@ -4,7 +4,7 @@ body{
 .Home-page-container  {
   width: 100vw;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-    rgba(0, 0, 0, 1) 70%), url("https://s3-us-west-2.amazonaws.com/dogcompany/DogCoAmps.bmp") no-repeat fixed;
+    rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/DogCoAmps.jpg") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
   background-size: 125vh;
@@ -20,7 +20,7 @@ body{
 .about-page-container {
   /*padding-top: 25px;*/
   width: 100vw;
-  background: url("https://s3-us-west-2.amazonaws.com/dogcompany/DogCoLogo3.bmp") no-repeat fixed;
+  background: url("../../public/Assets/photos/DogCoLogo3.jpg") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
   background-size: 70vh;
@@ -29,7 +29,7 @@ body{
 .shows-page-container {
   width: 100vw;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-    rgba(0, 0, 0, 1) 65%), url("https://s3-us-west-2.amazonaws.com/dogcompany/DogwMisfits.bmp") no-repeat fixed;
+    rgba(0, 0, 0, 1) 65%), url("../../public/Assets/photos/DogwMisfits.jpg") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
   background-size: 125vh;
@@ -54,7 +54,7 @@ body{
 }
 .Store-page-container {
   background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-    rgba(0, 0, 0, 1) 70%), url("https://s3-us-west-2.amazonaws.com/dogcompany/PastorJoe.bmp") no-repeat fixed;
+    rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/PastorJoe.jpg") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
   background-size: 125vh;
@@ -70,7 +70,7 @@ body{
 .media-page-container {
   width: 100vw;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-    rgba(0, 0, 0, 1) 70%), url("https://s3-us-west-2.amazonaws.com/dogcompany/MidwestDogCo.bmp") no-repeat fixed;
+    rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/MidwestDogCo.jpg") no-repeat fixed;
   background-attachment:fixed;
   background-position: center 20px;
   background-size: 125vh;
