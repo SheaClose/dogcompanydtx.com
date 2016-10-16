@@ -11,7 +11,7 @@ angular.module("app", ["ui.router"])
   .state("store", {
     url: "/store"
     , templateUrl: "../src/components/store/storeTmpl.html"
-    // , controller: "storeCtrl"
+    , controller: "storeCtrl"
   })
   .state("shows", {
     url: "/shows"
