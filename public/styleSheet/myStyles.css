@@ -18,7 +18,7 @@ body{
     justify-content: center;
   }
 .about-page-container {
-  padding-top: 25px;
+  /*padding-top: 25px;*/
   width: 100vw;
   background: url("https://s3-us-west-2.amazonaws.com/dogcompany/DogCoLogo3.bmp") no-repeat fixed;
   background-attachment:fixed;
@@ -42,7 +42,7 @@ body{
 .shows-page-content-container {
   background-color: transparent;
   font-family:arial,helvetica,sans-serif;
-  font-size:13px;
+
 }
 .Past-events-header {
   margin-top: 50px;
@@ -212,4 +212,18 @@ time {
   transform: none;
   visibility: visible;
   opacity: 1;
+}
+.nav-bar a:link{
+  color: white;
+}
+.nav-bar a:visited {
+  color: white;
+}
+.nav-bar{
+  background: transparent;
+  display: flex;
+  justify-content: space-around;
+  font-family: Fugaz One, cursive, Georgia ;
+  font-size: 2em;
+  margin: 1vh 0vh 5vh;
 }

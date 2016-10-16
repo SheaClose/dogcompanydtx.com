@@ -11,7 +11,7 @@ angular.module("app", ["ui.router"])
   .state("store", {
     url: "/store"
     , templateUrl: "../src/components/store/storeTmpl.html"
-    , controller: "storeCtrl"
+    // , controller: "storeCtrl"
   })
   .state("shows", {
     url: "/shows"
@@ -30,6 +30,10 @@ angular.module("app", ["ui.router"])
     url: "/admin"
     , controller: "adminCtrl"
     , templateUrl: "../src/components/admin/adminTmpl.html"
-
   })
+})
+.directive("navBar", function() {
+  return {
+    templateUrl: "../src/components/navbar/navbar.html"
+  }
 })
