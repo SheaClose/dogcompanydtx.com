@@ -23,7 +23,7 @@ body{
   background: url("https://s3-us-west-2.amazonaws.com/dogcompany/DogCoLogo3.bmp") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
-  background-size: 100vh;
+  background-size: 70vh;
   color: white;
 }
 .shows-page-container {
