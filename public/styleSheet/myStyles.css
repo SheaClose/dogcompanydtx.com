@@ -7,6 +7,9 @@ body{
     rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/DogCoAmps.jpg") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: 125vh;
   object-fit: fill;
   object-position: center;
@@ -23,6 +26,9 @@ body{
   background: url("../../public/Assets/photos/DogCoLogo3.jpg") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: 70vh;
   color: white;
 }
@@ -32,6 +38,9 @@ body{
     rgba(0, 0, 0, 1) 65%), url("../../public/Assets/photos/DogwMisfits.jpg") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: 125vh;
   object-fit: fill;
   object-position: center;
@@ -57,6 +66,9 @@ body{
     rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/PastorJoe.jpg") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: 125vh;
   object-fit: fill;
   object-position: center;
