@@ -70,6 +70,9 @@ body{
 .product-repeat{
   margin-top: 20px;
 }
+.product-text{
+  font-size: 1.5em;
+}
 .media-page-container {
   width: 100vw;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0),
@@ -87,6 +90,9 @@ body{
 }
 .album-song-title a {
   color: white;
+}
+.album-song-title{
+  font-size: 1.5vh;
 }
 
 .admin-tmpl {
@@ -120,6 +126,7 @@ table.highlight > tbody > tr:hover {
   margin-top: 2vh;
 }
 .timeline ul li {
+  font-size: 1.5em;
   list-style-type: none;
   position: relative;
   width: 6px;

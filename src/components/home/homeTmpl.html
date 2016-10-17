@@ -8,12 +8,12 @@
       <ul class="" ng-repeat="blog in blogs">
 
         <p>
-          <ul><li class="left" style="font-size: 1.7em">{{blog.title}}</li></u>
+          <ul><li class="left" style="font-size: 3em">{{blog.title}}</li></u>
           <li style="font-size: .7em" class="right">{{blog.date | date: medium}}</li>
           <div class="center">
             <img class="responsive-img" style="opacity: .8" ng-if="blog.imgUrl" ng-src="{{blog.imgUrl}}" alt="" />
           </div>
-          <li style="white-space: pre-line;">
+          <li style="white-space: pre-line; font-size: 2em;">
             {{blog.body}}
           </li>
           <hr>
