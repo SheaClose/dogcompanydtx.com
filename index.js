@@ -5,7 +5,7 @@ const express = require("express")
       , serverConfig = require("./serverConfig.js")
       , port = serverConfig.port
       , app = express()
-      , mongoUri = "mongodb://localhost/dogCompanyEcommerce"
+      , mongoUri = serverConfig.mongoUri
       , masterRoutes = require("./masterRoutes.js")
 
 

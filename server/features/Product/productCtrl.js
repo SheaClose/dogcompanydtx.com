@@ -1,7 +1,19 @@
 const Product = require("./Product.js")
 
 module.exports= {
-  postProduct: (req, res) => {
+  getProducts: (req,res) => {
+    console.log("productCtrl / getProducts");
+    Product.find({}, (err, suc) => {
+      if (err) {
+        console.log("Error in productCtrl/getProducts");
+        return res.status(500).json(err)}
+      else {
+        console.log("success in productCtrl / getProducts");
+        return res.status(200).json(suc)
+      }
+    })
+  }
+  , postProduct: (req, res) => {
     new Product(req.body).save((err, suc) =>{
       if (err) { return res.status(500).json(err)}
       else {
@@ -21,18 +33,6 @@ module.exports= {
     Product.findByIdAndRemove({_id: req.params.id}, (err, suc) =>{
       if (err) { return res.status(500).json(err)}
       else {
-        return res.status(200).json(suc)
-      }
-    })
-  }
-  , getProducts: (req,res) => {
-    console.log("productCtrl / getProducts");
-    Product.find({}, (err, suc) => {
-      if (err) {
-        console.log("Error in productCtrl/getProducts");
-        return res.status(500).json(err)}
-      else {
-        console.log("success in productCtrl / getProducts");
         return res.status(200).json(suc)
       }
     })

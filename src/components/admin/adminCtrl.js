@@ -16,6 +16,14 @@ angular.module("app")
     };
     adminService.submitNewProduct(product).then(function(response){
         console.log(response);
+        $scope.title = "";
+        $scope.description = "";
+        $scope.price = "";
+        $scope.category = "";
+        $scope.color = "";
+        $scope.imgUrl = "";
+        $scope.url = "";
+        $scope.size = "";
     })
   }
   $scope.editProduct = () => {
