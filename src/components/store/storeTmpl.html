@@ -3,7 +3,7 @@
     <div class="container">
       <nav-bar></nav-bar>
       <div class="row"><!--ng-if="show"-->
-        <div ng-repeat="product in products" class="col s12 m6 l4 center">
+        <div ng-repeat="product in products" class="col s12 m6 l3 center product-repeat">
             <img class="responsive-img" ng-src="{{product.imgUrl}}" alt="" />
             <ul>
             <li>Product: {{product.title}}</li>

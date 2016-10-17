@@ -67,6 +67,9 @@ body{
   color: white;
   background-color: rgba(0,0,0,.1)
 }
+.product-repeat{
+  height: 100vh;;
+}
 .media-page-container {
   width: 100vw;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0),
