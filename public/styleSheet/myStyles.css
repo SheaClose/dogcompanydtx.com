@@ -7,9 +7,6 @@ body{
     rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/DogCoAmps.jpg") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: 125vh;
   object-fit: fill;
   object-position: center;
@@ -26,49 +23,71 @@ body{
   background: url("../../public/Assets/photos/DogCoLogo3.jpg") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: 70vh;
   color: white;
 }
-.shows-page-container {
-  width: 100vw;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-    rgba(0, 0, 0, 1) 65%), url("../../public/Assets/photos/DogwMisfits.jpg") no-repeat fixed;
-  background-attachment:fixed;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: 125vh;
-  object-fit: fill;
-  object-position: center;
-  overflow: auto;
-  color: white;
-  justify-content: space-around;
-}
-.shows-page-content-container {
-  background-color: transparent;
-  font-family:arial,helvetica,sans-serif;
+@media (orientation:landscape) {
+  .shows-page-container {
+    width: 100vw;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0),
+      rgba(0, 0, 0, 1) 65%), url("../../public/Assets/photos/DogwMisfits.jpg") no-repeat fixed;
+    background-attachment:fixed;
+    background-position: center center;
+    background-size: 125vh;
+    object-fit: fill;
+    object-position: center;
+    overflow: auto;
+    color: white;
+    justify-content: space-around;
+  }
+  .shows-page-content-container {
+    background-color: transparent;
+    font-family:arial,helvetica,sans-serif;
 
-}
-.Past-events-header {
-  margin-top: 50px;
-}
-.centered-object{
+  }
+  .Past-events-header {
+    margin-top: 50px;
+  }
+  .centered-object{
 
-  margin-top: 25px;
+    margin-top: 25px;
 
+  }
 }
+@media (orientation:portrait) {
+  .shows-page-container {
+    width: 100vw;
+    /*background: radial-gradient(ellipse at center, rgba(0,0,0,0),
+      rgba(0, 0, 0, 1) 65%), url("../../public/Assets/photos/DogwMisfits.jpg") no-repeat fixed;*/
+    background-attachment:fixed;
+    background-position: center center;
+    background-size: 125vh;
+    object-fit: fill;
+    object-position: center;
+    overflow: auto;
+    color: white;
+    justify-content: space-around;
+  }
+  .shows-page-content-container {
+    background-color: transparent;
+    font-family:arial,helvetica,sans-serif;
+
+  }
+  .Past-events-header {
+    margin-top: 50px;
+  }
+  .centered-object{
+
+    margin-top: 25px;
+
+  }
+}
+
 .Store-page-container {
   background: radial-gradient(ellipse at center, rgba(0,0,0,0),
     rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/PastorJoe.jpg") no-repeat fixed;
   background-attachment:fixed;
   background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: 125vh;
   object-fit: fill;
   object-position: center;
