@@ -26,9 +26,13 @@ module.exports= {
     })
   }
   , getProducts: (req,res) => {
+    console.log("productCtrl / getProducts");
     Product.find({}, (err, suc) => {
-      if (err) { return res.status(500).json(err)}
+      if (err) {
+        console.log("Error in productCtrl/getProducts");
+        return res.status(500).json(err)}
       else {
+        console.log("success in productCtrl / getProducts");
         return res.status(200).json(suc)
       }
     })

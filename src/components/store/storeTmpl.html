@@ -2,11 +2,11 @@
   <div class="Store-page-content-container">
     <div class="container">
       <nav-bar></nav-bar>
-      <div class="row" ng-if="show">
+      <div class="row"><!--ng-if="show"-->
         <div ng-repeat="product in products" class="col s12 m6 l4 center">
-            <img class="responsive-img" src="{{product.imgUrl}}" alt="" />
+            <img class="responsive-img" ng-src="{{product.imgUrl}}" alt="" />
             <ul>
-            <li>Product: {{product.title</li>
+            <li>Product: {{product.title}}</li>
             <li>Size: {{product.size}}</li>
             <li>Price: ${{product.price}}</li>
             <li>Color: {{product.color}}</li>
