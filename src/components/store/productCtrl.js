@@ -13,6 +13,7 @@ angular.module("app")
     })
   };
   $scope.addToCart = (title, size) =>{
+    console.log(size);
     storeService.addToCart(title, size).then((response)=>{
       console.log(response);
     })
