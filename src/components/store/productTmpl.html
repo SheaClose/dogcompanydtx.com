@@ -3,7 +3,7 @@
     <div class="container">
       <nav-bar></nav-bar>
       <div class="row">
-        <div ng-repeat="product in products" class="product-page">
+        <div class="product-page">
           <div class="col s12 m12 l8 center">
               <img class="responsive-img" ng-src="{{product.imgUrl}}" alt="" />
           </div>
@@ -12,7 +12,7 @@
               <div style="padding-top: 10px; white-space: pre-line;">  <u>Description</u>:             {{product.description}}</div>
               <div style="padding-top: 10px; white-space: pre-line;"><u>Color</u>:             {{product.color}}</div>
               <div style="padding-top: 10px; white-space: pre-line;">  <u>Price</u>:             ${{product.price}}</div>
-              <div style="padding-top: 10px;">
+              <div ng-if="product.size" style="padding-top: 10px;">
                 <select ng-model="size" class="browser-default black">
                   <option value="" disabled selected>Choose your option</option>
                   <option value="small">Small</option>

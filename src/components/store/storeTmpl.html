@@ -3,13 +3,12 @@
     <div class="container">
       <nav-bar></nav-bar>
       <div class="row">
-        <div ng-repeat="product in products" class="col s12 m12 l4 center product-repeat">
+        <div ng-click="goTo(product._id)"  ng-repeat="product in products" class="col s12 m12 l4 center product-repeat">
             <img class="product-img" ng-src="{{product.imgUrl}}" alt="" />
             <ul class="product-text">
             <li>{{product.title}}</li>
+            <li>${{product.price}}</li>
             </ul>
-
-            <button type="button" class="button teal" ng-click="goTo(product._id)" name="button">View Merch</button>
         </div>
       </div>
     </div>
