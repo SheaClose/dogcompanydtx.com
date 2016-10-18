@@ -1,12 +1,11 @@
 angular.module("app")
 .controller("productCtrl", function($scope, $state, storeService){
+  $scope.toggle = false
   const getAllProducts = () => {
     storeService.getAllProducts().then((response) => {
       let product = response.data;
-      // $scope.products = [];
       product.forEach((cv, i, a)=>{
         if (cv._id === $state.params.id) {
-          // console.log(cv);
           $scope.product = {
             _id: cv._id
             , category: cv.category
@@ -19,8 +18,10 @@ angular.module("app")
           if (cv.category !== "merch"){
             $scope.product.size = cv.size;
           }
-          console.log($scope.product);
-          // $scope.products.push(cv)
+          if (cv.category == "merch"){
+            $scope.toggle = true;
+          }
+          // console.log($scope.product);
         }
       })
     })

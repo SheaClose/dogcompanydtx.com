@@ -1,18 +1,25 @@
 const Cart = require("./Cart.js")
       , Product = require("../Product/Product.js")
+      , request = require("request")
+      , User = require("../User/User.js")
+
 module.exports = {
   addToCart: (req, res) => {
-    Product.find(req.body, (err,suc)=>{
-      if (err){ return res.status(500).json(err)}
+    User.find({_id: req.sessionID}, (err, suc) => {
+      if (err){
+        new User({sessionID: req.sessionID}).save((err, suc) =>{
+          if (err){ return res.status(500).json(err)}
+          else{
+            return res.status(200).json(suc)
+          }
+        })
+      }
       else {
-        res.status(200).json(suc)
-        // new Cart({$push: {products: suc}}).save((err, suc) => {
-        //   if (err){ return res.status(500).json(err)}
-        //   else {
-        //     return res.status(200).json(suc)
-        //   }
-        // })
+        return res.status(200).json(suc)
       }
     })
   }
+  // , authenticate: (req, res) => {
+  //   window.location = "http://localhost:4000/auth/facebook";
+  // }
 }

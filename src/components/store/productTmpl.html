@@ -12,7 +12,7 @@
               <div style="padding-top: 10px; white-space: pre-line;">  <u>Description</u>:             {{product.description}}</div>
               <div style="padding-top: 10px; white-space: pre-line;"><u>Color</u>:             {{product.color}}</div>
               <div style="padding-top: 10px; white-space: pre-line;">  <u>Price</u>:             ${{product.price}}</div>
-              <div ng-if="product.size" style="padding-top: 10px;">
+              <div ng-hide="toggle" style="padding-top: 10px;">
                 <select ng-model="size" class="browser-default black">
                   <option value="" disabled selected>Choose your option</option>
                   <option value="small">Small</option>
@@ -51,9 +51,5 @@ $(window).on('scroll', function() {
     console.log(100 + parseInt(x / 3))
     $('.Store-page-container').css('background-size', 125 + parseInt(x / 3) + 'vh');
     $('.Store-page-content-container').css('background-color', "rgba(0,0,0, " + retY() + ")");
-
 });
-
-
-
 </script>
