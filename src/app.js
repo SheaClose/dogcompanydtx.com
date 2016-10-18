@@ -13,6 +13,14 @@ angular.module("app", ["ui.router"])
     , templateUrl: "../src/components/store/storeTmpl.html"
     , controller: "storeCtrl"
   })
+  .state('product', {
+  url: "/product"
+  , templateUrl: "../src/components/store/productTmpl.html"
+  , controller: "productCtrl"
+  , params: {
+    'id': '',
+  }
+})
   .state("shows", {
     url: "/shows"
     , templateUrl: "../src/components/shows/showsTmpl.html"

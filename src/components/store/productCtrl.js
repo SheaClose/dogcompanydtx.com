@@ -1,23 +1,21 @@
 angular.module("app")
-.controller("storeCtrl", function($scope, $stateParams, $state, storeService){
+.controller("productCtrl", function($scope, $state, storeService){
   const getAllProducts = () => {
     storeService.getAllProducts().then((response) => {
       let product = response.data;
-      // console.log(product);
       $scope.products = [];
       product.forEach((cv, i, a)=>{
-        if (cv.size === "small") {
+        if (cv._id === $state.params.id) {
+          console.log(cv);
           $scope.products.push(cv)
         }
       })
     })
   };
-  $scope.goTo = (id) => {
-    $state.go('product', {'id': id});
+  $scope.addToCart = (title, size) =>{
+    storeService.addToCart(title, size).then((response)=>{
+      console.log(response);
+    })
   }
-
 getAllProducts();
-
-
-
 })

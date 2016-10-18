@@ -105,13 +105,27 @@ body{
     color: white;
     background-color: rgba(0,0,0,.1)
   }
+  .product-img {
+    height: 35vh;
+  }
   .product-repeat{
     margin-top: 20px;
   }
   .product-text{
     font-size: 1.5em;
   }
+  .product-page{
+    height: 80vh;
+    font-size: 1.5em;
+  }
+  .product-page-img{
+    height: 80vh;
+  }
+  .product-page-text{
+    text-align: center;
+  }
 }
+
 @media (orientation:landscape) {
   .Store-page-container {
     background: radial-gradient(ellipse at center, rgba(0,0,0,0),
@@ -123,15 +137,27 @@ body{
     object-position: center;
   }
   .Store-page-content-container{
-    width: 100vw;
     color: white;
     background-color: rgba(0,0,0,.1)
   }
   .product-repeat{
     margin-top: 20px;
   }
+  .product-img {
+    height: 35vh;
+  }
   .product-text{
     font-size: 1.5em;
+  }
+  .product-page{
+    height: 80vh;
+    font-size: 1.5em;
+  }
+  .product-page-img{
+    height: 80vh;
+  }
+  .product-page-text{
+
   }
 }
 @media (orientation:landscape) {

@@ -4,17 +4,12 @@
       <nav-bar></nav-bar>
       <div class="row">
         <div ng-repeat="product in products" class="col s12 m12 l4 center product-repeat">
-            <img class="responsive-img" ng-src="{{product.imgUrl}}" alt="" />
+            <img class="product-img" ng-src="{{product.imgUrl}}" alt="" />
             <ul class="product-text">
-            <li>Product: {{product.title}}</li>
-            <li>Size: {{product.size}}</li>
-            <li>Price: ${{product.price}}</li>
-            <li>Color: {{product.color}}</li>
-            <li>Description: {{product.description}}</li>
-
+            <li>{{product.title}}</li>
             </ul>
 
-            <button type="button" class="button teal" name="button">Buy Now</button>
+            <button type="button" class="button teal" ng-click="goTo(product._id)" name="button">View Merch</button>
         </div>
       </div>
     </div>
@@ -39,20 +34,3 @@
 
   });
 </script>
-
-
-<!--         <div class="col s12 m6 l3">
-            <img src="./public/Assets/photos/Dog Co Merch/BlackCrest.png" alt="" />
-            <button type="button" class="button teal" name="button">Buy Now</button>
-        </div>
-        <div class="col s12 m6 l3">
-            <img src="./public/Assets/photos/Dog Co Merch/DogCoTxt.png" alt="" />
-            <button type="button" class="button teal" name="button">Buy Now</button>
-        </div>
-        <div class="col s12 m6 l3">
-            <img src="./public/Assets/photos/Dog Co Merch/ElectedEnemy.png" alt="" />
-            <button type="button" class="button teal" name="button">Buy Now</button>
-        </div>
-        <div class="col s12 m6 l3">
-            <img src="./public/Assets/photos/Dog Co Merch/SeanFlynn.png" alt="" />
-            <button type="button" class="button teal" name="button">Buy Now</button> -->
