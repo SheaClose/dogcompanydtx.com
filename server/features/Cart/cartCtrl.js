@@ -31,7 +31,6 @@ module.exports = {
                 return res.status(200).json(foundUser);
               }
             }
-            console.log("repeat");
             foundUser.cart.push({product: prodObj._id});
             foundUser.save();
             return res.status(200).json(foundUser);

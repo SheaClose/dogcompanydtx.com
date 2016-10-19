@@ -11,11 +11,4 @@ angular.module("app")
     $window.location.href = url
   };
   getShows()
-})
-// if (navigator.geolocation) {
-//   navigator.geolocation.getCurrentPosition(function(position){
-//     $scope.$apply(function(){
-//       $scope.position = position;
-//     });
-//   });
-// };
+});

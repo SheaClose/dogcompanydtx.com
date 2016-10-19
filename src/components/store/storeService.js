@@ -6,7 +6,6 @@ angular.module("app")
     })
   }
   this.addToCart = (ttl, sz) => {
-    return $http.post("/api/cart", {title: ttl, size: sz})
+    return $http.post("/api/cart", {title: ttl, size: sz});
   }
-
 })

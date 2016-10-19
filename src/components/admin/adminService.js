@@ -10,7 +10,6 @@ angular.module("app")
     return $http.delete(`/api/products/${objId}`)
   }
   this.addBlogPost = (blogObj) => {
-    console.log(blogObj);
     return $http.post("/api/blogs", blogObj)
   };
   this.editBlogPost = (blogObj) => {

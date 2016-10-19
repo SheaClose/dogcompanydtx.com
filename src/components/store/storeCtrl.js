@@ -3,7 +3,6 @@ angular.module("app")
   const getAllProducts = () => {
     storeService.getAllProducts().then((response) => {
       let product = response.data;
-      // console.log(product);
       $scope.products = [];
       product.forEach((cv, i, a)=>{
         if (cv.size === "small") {
@@ -15,9 +14,5 @@ angular.module("app")
   $scope.goTo = (id) => {
     $state.go('product', {'id': id});
   }
-
 getAllProducts();
-
-
-
 })

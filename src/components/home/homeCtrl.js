@@ -5,10 +5,5 @@ angular.module("app")
       $scope.blogs = response
       })
   }
-
-
-
-
-
   getBlogs()
 })

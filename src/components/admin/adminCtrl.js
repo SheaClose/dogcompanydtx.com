@@ -15,7 +15,6 @@ angular.module("app")
     , size: $scope.size
     };
     adminService.submitNewProduct(product).then(function(response){
-        console.log(response);
         $scope.title = "";
         $scope.description = "";
         $scope.price = "";
@@ -40,7 +39,6 @@ angular.module("app")
       if ($scope.size){ product.size = $scope.size};
 
     adminService.editProduct(product).then(response => {
-      console.log(response);
       if (response.status == 200){$scope.title = ""
       $scope.description = ""
       $scope.price = ""
@@ -55,7 +53,6 @@ angular.module("app")
   };
   $scope.deleteProduct = (objId) => {
     adminService.deleteProduct(objId).then((response)=>{
-      console.log(response);
       if (response.status == 200){
         $scope.objId = ""
       }
@@ -68,7 +65,6 @@ angular.module("app")
       , imgUrl: img
     }
     adminService.addBlogPost(blogObj).then((response)=>{
-      console.log(response);
       if (response.status == 200){
         $scope.body = "";
         $scope.title = "";
@@ -83,7 +79,6 @@ angular.module("app")
       , objId: id
       }
       adminService.editBlogPost(blogObj).then((response) => {
-        console.log(response);
         if (response.status == 200){
           $scope.body = "";
           $scope.title = "";
@@ -93,9 +88,7 @@ angular.module("app")
     };
     $scope.deleteBlog = (objId) =>{
       adminService.deleteBlog(objId).then((response) => {
-        console.log(response);
         $scope.objId = "";
       })
     }
-
 })

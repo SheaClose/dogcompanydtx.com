@@ -21,7 +21,6 @@ angular.module("app")
           if (cv.category == "merch"){
             $scope.toggle = true;
           }
-          // console.log($scope.product);
         }
       })
     })
@@ -31,7 +30,6 @@ angular.module("app")
       size = "small"
     }
     storeService.addToCart(title, size).then((response)=>{
-      console.log(response.data);
     })
   }
 getAllProducts();

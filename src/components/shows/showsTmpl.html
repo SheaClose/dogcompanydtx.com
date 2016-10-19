@@ -53,7 +53,6 @@
 
   var x;
   $(window).on('scroll', function() {
-console.log($(window).scrollTop());
       var x = $(window).scrollTop();
       function retY() {
         var y = (($(window).scrollTop() / $(window).height()) * 2);
@@ -66,6 +65,5 @@ console.log($(window).scrollTop());
       }
       $('.shows-page-container').css('background-size', 125 + parseInt(x / 3) + 'vh');
       $('.shows-page-content-container').css('background-color', "rgba(0,0,0, " + retY() + ")");
-
   });
 </script>
