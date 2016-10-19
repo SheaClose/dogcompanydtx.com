@@ -30,6 +30,8 @@ angular.module("app")
       size = "small"
     }
     storeService.addToCart(title, size).then((response)=>{
+      $scope.user = response.data
+      console.log($scope.user);
     })
   }
 getAllProducts();

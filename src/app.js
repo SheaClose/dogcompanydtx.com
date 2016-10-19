@@ -39,9 +39,29 @@ angular.module("app", ["ui.router"])
     , controller: "adminCtrl"
     , templateUrl: "../src/components/admin/adminTmpl.html"
   })
+  .state("cart", {
+    url: "/cart"
+    , controller: "cartCtrl"
+    , templateUrl: "../src/components/cart/cartTmpl.html"
+  })
 })
 .directive("navBar", function() {
   return {
     templateUrl: "../src/components/navbar/navbar.html"
+    , scope: {
+      user: "="
+    }
+    , controller: function($http, $scope){
+      const getCart = () => {
+        return $http.get("/api/cart").then((response)=>{
+          response.data.forEach((cv, i , arr)=>{
+            $scope.user = cv
+          })
+          console.log($scope.user);
+        })
+      }
+      getCart();
+    }
   }
+
 })

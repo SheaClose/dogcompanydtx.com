@@ -39,4 +39,12 @@ module.exports = {
       }
     })
   }
+  , getCart: (req, res) => {
+    User.find({sessionID: req.sessionID}, (err, user)=>{
+      if (err){return res.status(500).json(err)}
+      else{
+        return res.status(200).json(user)
+      }
+    })
+  }
 }
