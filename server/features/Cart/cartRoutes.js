@@ -7,5 +7,6 @@ const cartCtrl = require("./cartCtrl.js")
 // }
 module.exports = app =>{
     app.post("/api/cart", /*requireAuth, */cartCtrl.addToCart);
-    app.get("/api/cart", cartCtrl.getCart)
+    app.get("/api/cart/", cartCtrl.getCart)
+    app.get("/api/cart/:id", cartCtrl.fillCart)
 }

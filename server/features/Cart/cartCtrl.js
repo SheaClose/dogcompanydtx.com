@@ -47,4 +47,18 @@ module.exports = {
       }
     })
   }
+  , fillCart: (req, res) => {
+    console.log(req.params.id);
+    User.findById({_id: req.params.id})
+        .populate("cart.product")
+        .exec(function(err, suc){
+          var user = suc;
+          if (err){
+            res.json(err)
+          }
+      else{
+        return res.status(200).json(user)
+      }
+    })
+  }
 }

@@ -1,1 +1,31 @@
-<h1 style="color:white;">Hi!</h1>
+<div class="container">
+  <nav-bar user="user"></nav-bar>
+  <div class=" grey darken-2 cart-title"><h3>Your Cart</h3></div>
+    <div class="container">
+      <div>
+        <ul class="row">
+          <li class="col s12 m2 l2">Image:</li>
+          <li class="col s12 m2 l2">Title:</li>
+          <li class="col s12 m4 l4">Description:</li>
+          <li class="col s12 m1 l1">Price:</li>
+          <li class="col s12 m1 l1">Size:</li>
+          <li class="col s12 m2 l2 center">Quantity:</li>
+        </ul>
+        <hr>
+        <ul class="row" ng-repeat="product in cart">
+          <li class="col s12 m2 l2"><img class="hide-on-small-only responsive-img" style="height: 10vh" ng-src="{{product.product.imgUrl}}"/></li>
+          <li class="col s12 m2 l2">{{product.product.title}}</li>
+          <li class="col s12 m4 l4">{{product.product.description}}</li>
+          <li class="col s12 m1 l1">{{product.product.price}}</li>
+          <li class="col s12 m1 l1">{{product.product.size}}</li>
+          <div class="col s12 m2 l2 center">
+            <div >
+              {{product.quantity}}
+            </div>
+              <i  ng-click="increaseQuantity()" class="material-icons">add</i>
+              <i class="material-icons">delete</i>
+          </div>
+        </ul>
+      </div>
+    </div>
+</div>

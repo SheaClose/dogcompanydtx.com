@@ -1,5 +1,6 @@
 body{
   background-color: black;
+  color: white;
 }
 @media (orientation:landscape) {
   .Home-page-container  {
@@ -222,6 +223,12 @@ table.highlight > tbody > tr:hover {
   justify-content: space-around;;
   margin-top: 2vh;
 }
+.cart-title{
+  border-radius: 5px;
+  color:white;
+  padding: 1vw;
+}
+
 .timeline ul li {
   font-size: 1.5em;
   list-style-type: none;
