@@ -32,7 +32,6 @@
           </thead>
 
           <tbody ng-repeat="show in shows">
-
               <tr ng-click="goToThere(show.facebook_rsvp_url)">
               <td style="width: 1.5vw"></td>
               <td style="width: 4.4vw" class="date-data">{{show.datetime | date:'MMM'}}<br>{{show.datetime | date:'d'}}</br></td>
@@ -41,7 +40,6 @@
               <td style="width: 4vw"></td>
               <td style="width: 5.3vw"><a href="{{show.facebook_rsvp_url}}">More<br>Info</a></td>
               <td style="width: 5.3vw">{{show.datetime | date:'yyyy'}}</td>
-
             </tr>
           </tbody>
         </table>

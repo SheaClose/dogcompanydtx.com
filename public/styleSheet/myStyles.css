@@ -193,6 +193,9 @@ body{
 .album-song-title{
   font-size: 1.5vh;
 }
+.material-icons-music{
+  font-size: 1.1em;
+}
 
 .admin-tmpl {
   background-color: grey;
@@ -340,4 +343,7 @@ time {
   font-family: Fugaz One, cursive, Georgia ;
   font-size: 2em;
   margin: 1vh 0vh 5vh;
+}
+.pointer {
+  cursor: pointer;
 }

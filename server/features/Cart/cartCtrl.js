@@ -48,7 +48,6 @@ module.exports = {
     })
   }
   , fillCart: (req, res) => {
-    console.log(req.params.id);
     User.findById({_id: req.params.id})
         .populate("cart.product")
         .exec(function(err, suc){
@@ -57,6 +56,20 @@ module.exports = {
             res.json(err)
           }
       else{
+        return res.status(200).json(user)
+      }
+    })
+  }
+  , deleteItem: (req, res) => {
+    User.findById({_id: req.params.id}, (err, user)=>{
+      if (err){ return res.status(500).json(err)}
+      else{
+        user.cart.forEach((cv, i, arr)=>{
+          if (cv.product.toString() === req.body._id.toString() ){
+            user.cart.splice(i, 1)
+          }
+        })
+        user.save();
         return res.status(200).json(user)
       }
     })

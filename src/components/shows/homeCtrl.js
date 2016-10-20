@@ -7,7 +7,6 @@ angular.module("app")
     })
   };
   $scope.goToThere = (url) => {
-
     $window.location.href = url
   };
   getShows()
