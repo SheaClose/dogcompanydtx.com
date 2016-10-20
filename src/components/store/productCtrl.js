@@ -1,6 +1,7 @@
 angular.module("app")
 .controller("productCtrl", function($scope, $state, storeService){
   $scope.toggle = false
+  $scope.img2Toggle = false;
   const getAllProducts = () => {
     storeService.getAllProducts().then((response) => {
       let product = response.data;
@@ -14,6 +15,13 @@ angular.module("app")
             , imgUrl: cv.imgUrl
             , price: cv.price
             , title: cv.title
+          }
+          if (cv.imgUrl2){
+            $scope.product.imgUrl2 =  cv.imgUrl2
+            $scope.img2Toggle = true;
+          }
+          if (cv.imgUrl3) {
+            $scope.product.imgUrl3 = cv.imgUrl3
           }
           if (cv.category !== "merch"){
             $scope.product.size = cv.size;

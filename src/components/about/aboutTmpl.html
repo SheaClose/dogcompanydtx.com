@@ -103,11 +103,11 @@
       var x = $(window).scrollTop();
       function retY() {
         var y = (($(window).scrollTop() / $(window).height()));
-        if (y < .75){
+        if (y < .85){
           return y
         }
         else {
-          return .75
+          return .85
         }
       }
       $('.about-page-container').css('background-size', 70 + parseInt(x / 3) + 'vh');
@@ -131,8 +131,8 @@
           }
         }
       }
-window.addEventListener("load", callbackFunc);
-window.addEventListener("resize", callbackFunc);
-window.addEventListener("scroll", callbackFunc);
-})();
+  window.addEventListener("load", callbackFunc);
+  window.addEventListener("resize", callbackFunc);
+  window.addEventListener("scroll", callbackFunc);
+  })();
 </script>

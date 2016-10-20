@@ -14,17 +14,62 @@
     </div>
   </div>
 </div>
+<!-- ORDER COMPLETION CONFIRMATION -->
+<div id="modal1" class="modal modal-fixed-footer grey darken-4">
+  <div class="modal-content grey darken-2">
+    <h4>Order Complete!</h4>
+    <p>Thank you for placing an order with Dog Company. We have now received your order. Due to frequently changing availability of inventory, we must first verify we can fulfill your order. Please allow us a day or two to check inventory and we will contact you with confirmation and a payment request.</p>
+    <p>
+    You should recieve an e-mail shortly. Please hold on to this as confirmation of your order until you have received and are happy with your order. Should a problem arise, the Order Number will greatly assist us in locating your order.</p>
+    <hr>
+
+    <p>
+      Order Number: {{currentUserOrderInformation._id}}
+      <br>
+      Order Total (before shipping): ${{currentUserOrderInformation.total}}
+      <br>
+      Order Date: {{currentUserOrderInformation.date | date:'medium'}}
+      <p>
+        <h5>Order:</h5>
+      </p>
+      <hr>
+      <p>
+        <ul ng-repeat="cartItem in currentUserOrderInformation.cart">
+          <li>Quantity: {{cartItem.quantity}}</li>
+          <li>Size: {{cartItem.product.size}}</li>
+          <li>Color: {{cartItem.product.color}}</li>
+          <li>Product: {{cartItem.product.title}}</li>
+          <li style="border-bottom: 1px solid black;">Unit Price: ${{cartItem.product.price}}</li>
+        </ul>
+      </p>
+      <p>
+        <ul>
+          <h5>Confirm User Data:</h5>
+          <hr>
+          <li>Name: {{currentUserOrderInformation.user.last_name}}, {{currentUserOrderInformation.user.first_name}}</li>
+          <li>Adress: {{currentUserOrderInformation.user.street}}, {{currentUserOrderInformation.user.city}}, {{currentUserOrderInformation.user.state}} {{currentUserOrderInformation.user.zipcode}}</li>
+          <li>Email: {{currentUserOrderInformation.user.email}}</li>
+        </ul>
+      </p>
+
+    </p>
+  </div>
+  <div class="modal-footer grey">
+    <a class="modal-action modal-close waves-effect waves-green btn-flat grey lighten-2">Dismiss</a>
+  </div>
+</div>
+
 <script>
   var x;
   $(window).on('scroll', function() {
       var x = $(window).scrollTop();
       function retY() {
         var y = (($(window).scrollTop() / $(window).height()));
-        if (y < .75){
+        if (y < .85){
           return y
         }
         else {
-          return .75
+          return .85
         }
       }
       $('.Store-page-container').css('background-size', 125 + parseInt(x / 3) + 'vh');

@@ -14,5 +14,10 @@ angular.module("app")
   $scope.goTo = (id) => {
     $state.go('product', {'id': id});
   }
-getAllProducts();
+  getAllProducts();
+  if (window.currentUserOrderInformation) {
+    $scope.currentUserOrderInformation = window.currentUserOrderInformation;
+    $('#modal1').openModal();
+    window.currentUserOrderInformation = null;
+  }
 })

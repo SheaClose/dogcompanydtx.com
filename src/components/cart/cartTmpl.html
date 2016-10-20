@@ -1,4 +1,4 @@
-<div style="height: 90vh;" class="Store-page-container">
+<div class="Store-page-container">
   <div class="Store-page-content-container">
     <div class="container">
       <nav-bar user="user"></nav-bar>
@@ -43,7 +43,7 @@
           Total: ${{total}}
         </div>
         <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn modal-trigger grey darken-2 right" href="#modal1">Submit Order</a>
+        <a class="waves-effect waves-light btn modal-trigger grey darken-2 right" href="#modal1">Check Out</a>
         <!-- Modal1 -->
         <div  id="modal1" class="modal modal-fixed-footer grey darken-4">
           <div  class="modal-content grey darken-2">
@@ -90,8 +90,7 @@
           </div>
           <div class="modal-footer grey">
             <a ng-click="submitOrder()"
-            href="#modal2"
-            class=" modal-action modal-close waves-effect waves-green btn-flat grey lighten-2">Agree</a>
+            class=" modal-action modal-close waves-effect waves-green btn-flat grey lighten-2">Submit Order</a>
           </div>
         </div>
     </div>
@@ -105,11 +104,11 @@
       var x = $(window).scrollTop();
       function retY() {
         var y = (($(window).scrollTop() / $(window).height()));
-        if (y < .75){
+        if (y < .85){
           return y
         }
         else {
-          return .75
+          return .85
         }
       }
       $('.Store-page-container').css('background-size', 125 + parseInt(x / 3) + 'vh');

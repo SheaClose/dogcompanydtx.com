@@ -6,7 +6,12 @@
         <div class="product-page">
           <div class="col s12 m12 l8 center">
               <img class="responsive-img" ng-src="{{product.imgUrl}}" alt="" />
+              <div class="carousel">
+                <a class="carousel-item"><img ng-src="{{product.imgUrl2}}"></a>
+                <a class="carousel-item"><img ng-src="{{product.imgUrl3}}"></a>
+              </div>
           </div>
+
           <div class="col s12 m12 l4  product-page-text">
               <div style="padding-top: 10px; white-space: pre-line;">  <u>Product</u>:             {{product.title}}</div>
               <div style="padding-top: 10px; white-space: pre-line;">  <u>Description</u>:             {{product.description}}</div>
@@ -33,6 +38,9 @@
   </div>
 </div>
 <script>
+$(window).ready(function(){
+  $('.carousel').carousel();
+});
 $(document).ready(function() {
   $('select').material_select();
 });
@@ -41,14 +49,16 @@ $(window).on('scroll', function() {
     var x = $(window).scrollTop();
     function retY() {
       var y = (($(window).scrollTop() / $(window).height()));
-      if (y < .75){
+      if (y < .85){
         return y
       }
       else {
-        return .75
+        return .85
       }
     }
     $('.Store-page-container').css('background-size', 125 + parseInt(x / 3) + 'vh');
     $('.Store-page-content-container').css('background-color', "rgba(0,0,0, " + retY() + ")");
 });
+
+
 </script>
