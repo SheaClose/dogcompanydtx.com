@@ -23,7 +23,8 @@
     "mongoose": "^4.6.3",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
-    "request": "^2.75.0"
+    "request": "^2.75.0",
+    "sendgrid": "^4.7.0"
   },
   "devDependencies": {},
   "repository": {
