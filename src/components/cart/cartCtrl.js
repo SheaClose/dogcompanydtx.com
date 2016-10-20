@@ -55,12 +55,12 @@ angular.module("app")
     })
   };
   $scope.submitOrder = () => {
-//     if ($scope.first_name === undefined || $scope.last_name === undefined || $scope.email === undefined || $scope.street === undefined || $scope.city === undefined || $scope.state === undefined || $scope.zipcode === undefined) {
-//       alert(`Please ensure all fields are complete. We can not complete your order without this information.
-//
-// If you are having trouble completing an order, Please contact us at DogCompanyDtx@gmail.com`);
-//       return;
-//     }
+    if ($scope.first_name === undefined || $scope.last_name === undefined || $scope.email === undefined || $scope.street === undefined || $scope.city === undefined || $scope.state === undefined || $scope.zipcode === undefined) {
+      alert(`Please ensure all fields are complete. We can not complete your order without this information.
+
+If you are having trouble completing an order, Please contact us at DogCompanyDtx@gmail.com`);
+      return;
+    }
     const userInfo =  {
       first_name: $scope.first_name
       , last_name: $scope.last_name
@@ -76,12 +76,13 @@ angular.module("app")
       , user: userInfo
     };
     cartService.submitOrder(order).then((response)=>{
+      window.currentUserOrderInformation = response.data
       cartService.deleteUser().then((response) => {
         ///////////////////////////////////////////////////////
         ///This Needs to be updated when everything Goes Live//
         ///////////////////////////////////////////////////////
         $window.location.href = "http://localhost:4000/#/store"
-      })  
+      })
     })
   }
   getCart();

@@ -68,7 +68,7 @@
                 <li class="album-song-title"><a href="https://youtu.be/JybQ7YH4Fe8">We Are The Invisible<i class="material-icons material-icons-music">headset</i></a></li>
                 <li class="album-song-title"><a href="https://youtu.be/Z1x-S-0jrbA">A Bullet For Every Lie <i class="material-icons material-icons-music">headset</i></a></li>
                 <li class="album-song-title"><a href="https://youtu.be/3E2FczOhN7M">Change What Change?<i class="material-icons material-icons-music">headset</i></a></li>
-                <li class="album-song-title"><a href="https://youtu.be/Iw_uKHwb0Yw">Closer Than You Think</a>	</li>
+                <li class="album-song-title"><a href="https://youtu.be/Iw_uKHwb0Yw">Closer Than You Think<i class="material-icons material-icons-music">headset</i></a>	</li>
                 <li class="album-song-title"><a href="https://youtu.be/yoQZkzqc_8Q">Che<i class="material-icons material-icons-music">headset</i></a></li>
                 <li class="album-song-title"><a href="https://youtu.be/-89lgjIDzAM">Magic Pill<i class="material-icons material-icons-music">headset</i></a></li>
                 <li class="album-song-title"><a href="https://youtu.be/29LElTmnpfM">Germs<i class="material-icons material-icons-music">headset</i></a></li>
@@ -270,11 +270,11 @@
       var x = $(window).scrollTop();
       function retY() {
         var y = (($(window).scrollTop() / $(window).height()));
-        if (y < .75){
+        if (y < .85){
           return y
         }
         else {
-          return .75
+          return .85
         }
       }
       $('.media-page-container').css('background-size', 125 + parseInt(x / 3) + 'vh');

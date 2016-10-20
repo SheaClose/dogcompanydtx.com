@@ -53,12 +53,12 @@
   $(window).on('scroll', function() {
       var x = $(window).scrollTop();
       function retY() {
-        var y = (($(window).scrollTop() / $(window).height()) * 2);
-        if (y < .75){
+        var y = (($(window).scrollTop() / $(window).height()) * 1.25);
+        if (y < .85){
           return y
         }
         else {
-          return .75
+          return .85
         }
       }
       $('.shows-page-container').css('background-size', 125 + parseInt(x / 3) + 'vh');
