@@ -82,7 +82,7 @@ If you are having trouble completing an order, Please contact us at DogCompanyDt
         ///This Needs to be updated when everything Goes Live//
         ///////////////////////////////////////////////////////
        // $window.location.href = "http://localhost:4000/#/store"
-        $window.location.href = "http://107.170.40.18/#/store"
+        $window.location.href = "http://dogcompanydtx.com/#/store"
       })
     })
   }
