@@ -29,7 +29,8 @@
                 </select>
               </div>
               <div style="padding-top: 10px;">
-                <button ng-click="addToCart(product.title, size)" type="button" class="button black" name="button">Add to cart</button>
+                <!-- <button ng-click="addToCart(product.title, size)" type="button" class="button black" name="button">Add to cart</button> -->
+                <button ng-click="addToCart(product.title, size)" type="button" class="button black"  name="button" onclick="Materialize.toast('Item added to cart', 3000, 'teal rounded')" >Add to Cart</button>
               </div>
           </div>
         </div>
@@ -38,27 +39,26 @@
   </div>
 </div>
 <script>
-$(window).ready(function(){
-  $('.carousel').carousel();
-});
-$(document).ready(function() {
-  $('select').material_select();
-});
-var x;
-$(window).on('scroll', function() {
-    var x = $(window).scrollTop();
-    function retY() {
-      var y = (($(window).scrollTop() / $(window).height()));
-      if (y < .85){
-        return y
+  $(window).ready(function(){
+    $('.carousel').carousel();
+  });
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+  var x;
+  $(window).on('scroll', function() {
+      var x = $(window).scrollTop();
+      function retY() {
+        var y = (($(window).scrollTop() / $(window).height()));
+        if (y < .85){
+          return y
+        }
+        else {
+          return .85
+        }
       }
-      else {
-        return .85
-      }
-    }
-    $('.Store-page-container').css('background-size', 125 + parseInt(x / 3) + 'vh');
-    $('.Store-page-content-container').css('background-color', "rgba(0,0,0, " + retY() + ")");
-});
-
+      $('.Store-page-container').css('background-size', 125 + parseInt(x / 3) + 'vh');
+      $('.Store-page-content-container').css('background-color', "rgba(0,0,0, " + retY() + ")");
+  });
 
 </script>
