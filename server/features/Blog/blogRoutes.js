@@ -5,5 +5,4 @@ module.exports = app => {
   app.get("/api/blogs/:id", blogCtrl.getBlog);
   app.put("/api/blogs/:id", blogCtrl.editBlog);
   app.delete("/api/blogs/:id", blogCtrl.deleteBlog);
-
 }
