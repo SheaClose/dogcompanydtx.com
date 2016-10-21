@@ -1,16 +1,13 @@
 <div class="nav-bar">
-  <div style="padding: 2vh 0vw 2vh 4vw" ui-sref="home" class="card transparent"><a href="#">Home</a> </div>
-  <div style="padding: 2vh 0vw 2vh 4vw" ui-sref="home" class="card transparent"><a href="#">/</a> </div>
-  <div style="padding: 2vh 0vw 2vh 4vw" ui-sref="store" class="card transparent"><a href="#">Store</a></div>
-  <div style="padding: 2vh 0vw 2vh 4vw" ui-sref="store" class="card transparent"><a href="#">/</a> </div>
-  <div style="padding: 2vh 0vw 2vh 4vw" ui-sref="shows" class="card transparent"><a href="#">Shows</a> </div>
-  <div style="padding: 2vh 0vw 2vh 4vw" ui-sref="shows" class="card transparent"><a href="#">/</a> </div>
-  <div style="padding: 2vh 0vw 2vh 4vw" ui-sref="about" class="card transparent"><a href="#">About</a> </div>
-  <div style="padding: 2vh 0vw 2vh 4vw" ui-sref="about" class="card transparent"><a href="#">/</a> </div>
-  <div style="padding: 2vh 0vw 2vh 4vw" ui-sref="media" class="card transparent"><a href="#">Media</a></div>
+  <div ui-sref="home" class="card transparent"><a class="pointer">Home</a> </div>
+  <div class="card transparent"><a class="pointer">/</a> </div>
+  <div  class="card transparent"><a ui-sref="store">Store</a>  <span ui-sref="cart" ng-if="user.cart.length >= 1" style="margin-left: 2vw" class="pointer valign-wrapper"><i class="material-icons">shopping_cart</i><span style="font-size:.8em;" class="valign">{{user.cart.length}} </span></span></div>
 
-  <div ui-sref="cart" ng-if="user.cart.length >= 1" class="right"><span style="font-size: 1.25em;" class="badge pointer"><i style="font-size: 1.25em;" class="material-icons">shopping_cart</i>{{user.cart.length}} </span></div>
-
-
+  <div class="card transparent"><a class="pointer">/</a> </div>
+  <div ui-sref="shows" class="card transparent"><a class="pointer">Shows</a> </div>
+  <div class="card transparent"><a class="pointer">/</a> </div>
+  <div ui-sref="about" class="card transparent"><a class="pointer">About</a> </div>
+  <div class="card transparent"><a class="pointer">/</a> </div>
+  <div ui-sref="media" class="card transparent"><a class="pointer">Media</a></div>
 </div>
 <!-- <a ui-sref="admin">admin</a> -->
