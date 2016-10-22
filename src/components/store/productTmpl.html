@@ -11,7 +11,6 @@
                 <a class="carousel-item"><img ng-src="{{product.imgUrl3}}"></a>
               </div>
           </div>
-
           <div class="col s12 m12 l4  product-page-text">
               <div style="padding-top: 10px; white-space: pre-line;">  <u>Product</u>:             {{product.title}}</div>
               <div style="padding-top: 10px; white-space: pre-line;">  <u>Description</u>:             {{product.description}}</div>
@@ -29,7 +28,6 @@
                 </select>
               </div>
               <div style="padding-top: 10px;">
-                <!-- <button ng-click="addToCart(product.title, size)" type="button" class="button black" name="button">Add to cart</button> -->
                 <button ng-click="addToCart(product.title, size)" type="button" class="button black"  name="button" onclick="Materialize.toast('Item added to cart', 3000, 'teal rounded')" >Add to Cart</button>
               </div>
           </div>

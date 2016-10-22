@@ -57,7 +57,6 @@ angular.module("app", ["ui.router"])
           response.data.forEach((cv, i , arr)=>{
             $scope.user = cv
           })
-          // console.log($scope.user);
         })
       }
       getCart();
