@@ -39,7 +39,6 @@ angular.module("app")
     }
     storeService.addToCart(title, size).then((response)=>{
       $scope.user = response.data
-      // console.log($scope.user);
     })
   }
 getAllProducts();
