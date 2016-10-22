@@ -17,7 +17,7 @@ body{
 }
 @media (orientation:portrait) {
   .Home-page-container  {
-    /*
+/*    background: black;
     background: url("../../public/Assets/photos/DogCoAmps.jpg") no-repeat fixed;
     background-attachment:fixed;
     background-position: center center;
@@ -32,7 +32,7 @@ body{
   }
 @media (orientation:landscape) {
   .about-page-container {
-
+    background: black;
     background: url("../../public/Assets/photos/DogCoLogo3.jpg") no-repeat fixed;
     background-attachment:fixed;
     background-position: center center;
