@@ -2,123 +2,50 @@ body{
   background-color: black;
   color: white;
 }
-@media (orientation:landscape) {
-  .Home-page-container  {
-    background: black;
-    background: -webkit-radial-gradient(center,
-      ellipse, rgba(0,0,0,0),
-      rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/DogCoAmps.jpg") no-repeat fixed;
-    background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-      rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/DogCoAmps.jpg") no-repeat fixed;
-    background-attachment:fixed;
-    background-position: center center;
-    background-size: 125vh;
-    color: white;
-  }
-}
-@media (orientation:portrait) {
-  .Home-page-container  {
-    color: white;
-  }
+.Home-page-container  {
+  background: black;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0),
+    rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/DogCoAmps.jpg") no-repeat fixed;
+  background-attachment:fixed;
+  background-position: center center;
+  background-size: 125vh;
+  color: white;
 }
 .container-center {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    align-items: center;
+    justify-content: center;
   }
-@media (orientation:landscape) {
-  .about-page-container {
-    background: black;
-    background: url("../../public/Assets/photos/DogCoLogo3.jpg") no-repeat fixed;
-    background-attachment:fixed;
-    background-position: center center;
-    background-size: 70vh;
-    color: white;
-  }
+.about-page-container {
+  background: black;
+  background: url("../../public/Assets/photos/DogCoLogo3.jpg") no-repeat fixed;
+  background-attachment:fixed;
+  background-position: center center;
+  background-size: 70vh;
+  color: white;
 }
-@media (orientation:portrait) {
-  .about-page-container {
-    color: white;
-  }
+.shows-page-container {
+  background: black;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0),
+    rgba(0, 0, 0, 1) 65%), url("../../public/Assets/photos/DogwMisfits.jpg") no-repeat fixed;
+  background-attachment:fixed;
+  background-position: center center;
+  background-size: 125vh;
+  object-fit: fill;
+  object-position: center;
+  color: white;
+  justify-content: space-around;
 }
-@media (orientation:landscape) {
-  .shows-page-container {
-    background: black;
-    background: -webkit-radial-gradient(center,
-      ellipse, rgba(0,0,0,0),
-      rgba(0, 0, 0, 1) 65%), url("../../public/Assets/photos/DogwMisfits.jpg") no-repeat fixed;
-    background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-      rgba(0, 0, 0, 1) 65%), url("../../public/Assets/photos/DogwMisfits.jpg") no-repeat fixed;
-    background-attachment:fixed;
-    background-position: center center;
-    background-size: 125vh;
-    -o-object-fit: fill;
-       object-fit: fill;
-    -o-object-position: center;
-       object-position: center;
-    color: white;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-  }
-  .shows-page-content-container {
-    background-color: transparent;
-    font-family:arial,helvetica,sans-serif;
+.shows-page-content-container {
+  background-color: transparent;
+  font-family:arial,helvetica,sans-serif;
 
-  }
-  .Past-events-header {
-    margin-top: 50px;
-  }
-  .centered-object{
-    margin-top: 25px;
-  }
 }
-@media (orientation:portrait) {
-  .shows-page-container {
-    color: white;
-  }
-  .shows-page-content-container {
-    background-color: transparent;
-    font-family:arial,helvetica,sans-serif;
-  }
-  .Past-events-header {
-    margin-top: 50px;
-  }
-  .centered-object{
-    margin-top: 25px;
-  }
+.Past-events-header {
+  margin-top: 50px;
 }
-@media (orientation:portrait) {
-  .Store-page-container {
-  }
-  .Store-page-content-container{
-    color: white;
-    background-color: rgba(0,0,0,.1)
-  }
-  .product-img {
-    height: 35vh;
-  }
-  .product-repeat{
-    margin-top: 20px;
-  }
-  .product-text{
-    font-size: 1.5em;
-  }
-  .product-page{
-    height: 80vh;
-    font-size: 1.5em;
-  }
-  .product-page-img{
-    height: 80vh;
-  }
-  .product-page-text{
-    text-align: center;
-  }
+.centered-object{
+  margin-top: 25px;
 }
 #toast-container {
   top: auto !important;
@@ -126,65 +53,49 @@ body{
   bottom: 10%;
   right: 1%;
 }
-@media (orientation:landscape) {
-  .Store-page-container {
-    background: black;
-    background: -webkit-radial-gradient(center,
-      ellipse, rgba(0,0,0,0),
-      rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/PastorJoe.jpg") no-repeat fixed;
-    background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-      rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/PastorJoe.jpg") no-repeat fixed;
-    background-attachment:fixed;
-    background-position: center center;
-    background-size: 125vh;
-    -o-object-fit: fill;
-       object-fit: fill;
-    -o-object-position: center;
-       object-position: center;
-  }
-  .Store-page-content-container{
-    color: white;
-    background-color: rgba(0,0,0,.1)
-  }
-  .product-repeat{
-    margin-top: 20px;
-  }
-  .product-img {
-    height: 35vh;
-  }
-  .product-text{
-    font-size: 1.5em;
-  }
-  .product-page{
-    height: 80vh;
-    font-size: 1.5em;
-  }
-  .product-page-img{
-    height: 80vh;
-  }
+.Store-page-container {
+  background: black;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0),
+    rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/PastorJoe.jpg") no-repeat fixed;
+  background-attachment:fixed;
+  background-position: center center;
+  background-size: 125vh;
+  object-fit: fill;
+  object-position: center;
 }
-@media (orientation:landscape) {
-  .media-page-container {
-    background: black;
-    background: -webkit-radial-gradient(center,
-      ellipse, rgba(0,0,0,0),
-      rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/MidwestDogCo.jpg") no-repeat fixed;
-    background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-      rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/MidwestDogCo.jpg") no-repeat fixed;
-    background-attachment:fixed;
-    background-position: center 20px;
-    background-size: 125vh;
-    -o-object-fit: fill;
-       object-fit: fill;
-    -o-object-position: center;
-       object-position: center;
-    color: white
-  }
+.Store-page-content-container{
+  color: white;
+  background-color: rgba(0,0,0,.1)
 }
-@media (orientation:portrait) {
-  .media-page-container {
-    color: white
-  }
+.product-repeat{
+  margin-top: 20px;
+}
+.product-img {
+  height: 35vh;
+}
+.product-text{
+  font-size: 1.5em;
+}
+.product-page{
+  height: 80vh;
+  font-size: 1.5em;
+}
+.product-page-img{
+  height: 80vh;
+}
+.product-page-text{
+
+}
+.media-page-container {
+  background: black;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0),
+    rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/MidwestDogCo.jpg") no-repeat fixed;
+  background-attachment:fixed;
+  background-position: center 20px;
+  background-size: 125vh;
+  object-fit: fill;
+  object-position: center;
+  color: white
 }
 .Album-Art{
   width: 100%;
@@ -206,7 +117,7 @@ table.highlight > tbody > tr:hover {
   background-color: rgba(0, 150, 136, .8);
 }
 .timeline ul {
-  background: transparent;
+  background: transparent
   padding: 50px 0;
 }
 .about-body{
@@ -219,19 +130,13 @@ table.highlight > tbody > tr:hover {
   width: 100%;
 }
 .container-fluid{
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   margin-top: 20vh;
 }
 .container-fluid2{
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;;
+  justify-content: space-around;;
   margin-top: 2vh;
 }
 .cart-title{
@@ -255,8 +160,7 @@ table.highlight > tbody > tr:hover {
   position: absolute;
   left: 50%;
   bottom: 0;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -308,8 +212,11 @@ time {
   margin-bottom: 8px;
 }
 
+
+/* EFFECTS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 .timeline ul li::after {
-  -webkit-transition: background .5s ease-in-out;
   transition: background .5s ease-in-out;
 }
 
@@ -320,23 +227,19 @@ time {
 .timeline ul li div {
   visibility: hidden;
   opacity: 0;
-  -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
 }
 
 .timeline ul li:nth-child(odd) div {
-  -webkit-transform: translate3d(200px, 0, 0);
-          transform: translate3d(200px, 0, 0);
+  transform: translate3d(200px, 0, 0);
 }
 
 .timeline ul li:nth-child(even) div {
-  -webkit-transform: translate3d(-200px, 0, 0);
-          transform: translate3d(-200px, 0, 0);
+  transform: translate3d(-200px, 0, 0);
 }
 
 .timeline ul li.in-view div {
-  -webkit-transform: none;
-          transform: none;
+  transform: none;
   visibility: visible;
   opacity: 1;
 }
@@ -348,11 +251,8 @@ time {
 }
 .nav-bar{
   background: transparent;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   font-family: Fugaz One, cursive, Georgia ;
   font-size: 2em;
   margin: 1vh 0vh 5vh;
