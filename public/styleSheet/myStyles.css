@@ -1,6 +1,8 @@
 body{
   background-color: black;
   color: white;
+  -webkit-background-color: black;
+  -webkit-color: white;
 }
 @media (orientation:landscape) {
   .Home-page-container  {
@@ -13,6 +15,16 @@ body{
     /*object-fit: fill;
     object-position: center;*/
     color: white;
+
+    -webkit-background: black;
+    -webkit-background: radial-gradient(ellipse at center, rgba(0,0,0,0),
+      rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/DogCoAmps.jpg") no-repeat fixed;
+    -webkit-background-attachment:fixed;
+    -webkit-background-position: center center;
+    -webkit-background-size: 125vh;
+    /*object-fit: fill;
+    object-position: center;*/
+    -webkit-color: white;
   }
 }
 @media (orientation:portrait) {
@@ -23,12 +35,18 @@ body{
     background-position: center center;
     background-size: 125vh;*/
     color: white;
+    -webkit-color: white;
   }
 }
 .container-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  -webkit-display: flex;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
+
   }
 @media (orientation:landscape) {
   .about-page-container {
@@ -38,6 +56,12 @@ body{
     background-position: center center;
     background-size: 70vh;
     color: white;
+    -webkit-background: black;
+    -webkit-background: url("../../public/Assets/photos/DogCoLogo3.jpg") no-repeat fixed;
+    -webkit-background-attachment:fixed;
+    -webkit-background-position: center center;
+    -webkit-background-size: 70vh;
+    -webkit-color: white;
   }
 }
 @media (orientation:portrait) {
@@ -48,6 +72,7 @@ body{
     background-position: center center;
     background-size: 70vh;*/
     color: white;
+    -webkit-color: white;
   }
 }
 @media (orientation:landscape) {
@@ -63,18 +88,34 @@ body{
     object-position: center;
     color: white;
     justify-content: space-around;
+
+    -webkit-background: black;
+    -webkit-background: radial-gradient(ellipse at center, rgba(0,0,0,0),
+      rgba(0, 0, 0, 1) 65%), url("../../public/Assets/photos/DogwMisfits.jpg") no-repeat fixed;
+    -webkit-background-attachment:fixed;
+    -webkit-background-position: center center;
+    -webkit-background-size: 125vh;
+    -webkit-object-fit: fill;
+    -webkit-object-position: center;
+    -webkit-color: white;
+    -webkit-justify-content: space-around;
   }
   .shows-page-content-container {
     background-color: transparent;
     font-family:arial,helvetica,sans-serif;
 
+    -webkit-background-color: transparent;
+    -webkit-font-family:arial,helvetica,sans-serif;
+
   }
   .Past-events-header {
     margin-top: 50px;
+    -webkit-margin-top: 50px;
   }
   .centered-object{
 
     margin-top: 25px;
+    -webkit-margin-top: 25px;
 
   }
 }
@@ -84,16 +125,23 @@ body{
     background-position: center center;
     background-size: 125vh;*/
     color: white;
+    -webkit-color: white;
   }
   .shows-page-content-container {
     background-color: transparent;
     font-family:arial,helvetica,sans-serif;
+
+    -webkit-background-color: transparent;
+    -webkit-font-family:arial,helvetica,sans-serif;
+
   }
   .Past-events-header {
     margin-top: 50px;
+    -webkit-margin-top: 50px;
   }
   .centered-object{
     margin-top: 25px;
+    -webkit-margin-top: 25px;
   }
 }
 @media (orientation:portrait) {
@@ -105,33 +153,48 @@ body{
   .Store-page-content-container{
 
     color: white;
-    background-color: rgba(0,0,0,.1)
+    background-color: rgba(0,0,0,.1);
+
+    -webkit-color: white;
+    -webkit-background-color: rgba(0,0,0,.1);
   }
   .product-img {
     height: 35vh;
+    -webkit-height: 35vh;
   }
   .product-repeat{
     margin-top: 20px;
+    -webkit-margin-top: 20px;
   }
   .product-text{
     font-size: 1.5em;
+    -webkit-font-size: 1.5em;
   }
   .product-page{
     height: 80vh;
     font-size: 1.5em;
+
+    -webkit-height: 80vh;
+    -webkit-font-size: 1.5em;
   }
   .product-page-img{
     height: 80vh;
+    -webkit-height: 80vh;
   }
   .product-page-text{
     text-align: center;
+    -webkit-text-align: center;
   }
 }
 #toast-container {
   top: auto !important;
   left: auto !important;
-  bottom: 10%;
+  bottom: 15%;
   right: 1%;
+  -webkit-top: auto !important;
+  -webkit-left: auto !important;
+  -webkit-bottom: 15%;
+  -webkit-right: 1%;
 }
 @media (orientation:landscape) {
   .Store-page-container {
@@ -143,25 +206,44 @@ body{
     background-size: 125vh;
     object-fit: fill;
     object-position: center;
+
+    -webkit-background: black;
+    -webkit-background: radial-gradient(ellipse at center, rgba(0,0,0,0),
+      rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/PastorJoe.jpg") no-repeat fixed;
+    -webkit-background-attachment:fixed;
+    -webkit-background-position: center center;
+    -webkit-background-size: 125vh;
+    -webkit-object-fit: fill;
+    -webkit-object-position: center;
   }
   .Store-page-content-container{
     color: white;
-    background-color: rgba(0,0,0,.1)
+    background-color: rgba(0,0,0,.1);
+
+    -webkit-color: white;
+    -webkit-background-color: rgba(0,0,0,.1);
   }
   .product-repeat{
     margin-top: 20px;
+
+    -webkit-margin-top: 20px;
   }
   .product-img {
+    -webkit-height: 35vh;
     height: 35vh;
   }
   .product-text{
+    -webkit-font-size: 1.5em;
     font-size: 1.5em;
   }
   .product-page{
+    -webkit-height: 80vh;
     height: 80vh;
+    -webkit-font-size: 1.5em;
     font-size: 1.5em;
   }
   .product-page-img{
+    -webkit-height: 80vh;
     height: 80vh;
   }
   .product-page-text{
@@ -171,14 +253,23 @@ body{
 @media (orientation:landscape) {
   .media-page-container {
 
+    -webkit-background: black;
     background: black;
+    -webkit-background: radial-gradient(ellipse at center, rgba(0,0,0,0),
+      rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/MidwestDogCo.jpg") no-repeat fixed;
     background: radial-gradient(ellipse at center, rgba(0,0,0,0),
       rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/MidwestDogCo.jpg") no-repeat fixed;
+    -webkit-background-attachment:fixed;
     background-attachment:fixed;
+    -webkit-background-position: center 20px;
     background-position: center 20px;
+    -webkit-background-size: 125vh;
     background-size: 125vh;
+    -webkit-object-fit: fill;
     object-fit: fill;
+    -webkit-object-position: center;
     object-position: center;
+    -webkit-color: white
     color: white
   }
 }
@@ -189,121 +280,186 @@ body{
     background-attachment:fixed;
     background-position: center 20px;
     background-size: 125vh;*/
+    -webkit-color: white
     color: white
   }
 }
 .Album-Art{
+  -webkit-width: 100%;
   width: 100%;
 }
 .album-song-title a {
+  -webkit-color: white;
   color: white;
 }
 .album-song-title{
+  -webkit-font-size: 1.5vh;
   font-size: 1.5vh;
 }
 .material-icons-music{
+  -webkit-font-size: 1.1em;
   font-size: 1.1em;
 }
 
 .admin-tmpl {
+  -webkit-background-color: grey;
   background-color: grey;
 }
 table.highlight > tbody > tr:hover {
+  -webkit-background-color: rgba(0, 150, 136, .8);
   background-color: rgba(0, 150, 136, .8);
 }
 .timeline ul {
+  -webkit-background: transparent
   background: transparent
+  -webkit-padding: 50px 0;
   padding: 50px 0;
 }
 .about-body{
+  -webkit-border-radius: 15px;
   border-radius: 15px;
+  -webkit-color: white;
   color: white;
+  -webkit-font-family: monospace sans-serif;
   font-family: monospace sans-serif;
+  -webkit-padding: 10px;
   padding: 10px;
+  -webkit-background-color:  rgba(0, 150, 136, .8);
   background-color:  rgba(0, 150, 136, .8);
+  -webkit-margin-bottom: -15px;
   margin-bottom: -15px;
+  -webkit-width: 100%;
   width: 100%;
 }
 .container-fluid{
+  -webkit-display: flex;
   display: flex;
+  -webkit-justify-content: space-around;
   justify-content: space-around;
+  -webkit-margin-top: 20vh;
   margin-top: 20vh;
 }
 .container-fluid2{
+  -webkit-display: flex;
   display: flex;
+  -webkit-justify-content: space-around;;
   justify-content: space-around;;
+  -webkit-margin-top: 2vh;
   margin-top: 2vh;
 }
 .cart-title{
+  -webkit-border-radius: 5px;
   border-radius: 5px;
+  -webkit-color:white;
   color:white;
+  -webkit-padding: 1vw;
   padding: 1vw;
 }
 
 .timeline ul li {
+  -webkit-font-size: 1.5em;
   font-size: 1.5em;
+  -webkit-list-style-type: none;
   list-style-type: none;
+  -webkit-position: relative;
   position: relative;
+  -webkit-width: 6px;
   width: 6px;
+  -webkit-margin: 0 auto;
   margin: 0 auto;
+  -webkit-padding-top: 50px;
   padding-top: 50px;
+  -webkit-background: rgba(0, 150, 136, .8);
   background: rgba(0, 150, 136, .8);
 }
 
 .timeline ul li::after {/*timeline dots*/
+  -webkit-content: '';
   content: '';
+  -webkit-position: absolute;
   position: absolute;
+  -webkit-left: 50%;
   left: 50%;
+  -webkit-bottom: 0;
   bottom: 0;
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+  -webkit-width: 30px;
   width: 30px;
+  -webkit-height: 30px;
   height: 30px;
+  -webkit-border-radius: 50%;
   border-radius: 50%;
+  -webkit-background: inherit;
   background: inherit;
 }
 
 .timeline ul li div { /* card boxes */
+  -webkit-border-radius: 5px;
   border-radius: 5px;
+  -webkit-position: relative;
   position: relative;
+  -webkit-bottom: 0;
   bottom: 0;
+  -webkit-width: 30vw;
   width: 30vw;
+  -webkit-padding: 15px;
   padding: 15px;
+  -webkit-background: rgba(0, 150, 136, .8);
   background: rgba(0, 150, 136, .8);
 }
 
 .timeline ul li div::before {
+  -webkit-content: '';
   content: '';
+  -webkit-position: absolute;
   position: absolute;
+  -webkit-bottom: 7px;
   bottom: 7px;
+  -webkit-width: 0;
   width: 0;
+  -webkit-height: 0;
   height: 0;
+  -webkit-border-style: solid;
   border-style: solid;
 }
 
 .timeline ul li:nth-child(odd) div {
+  -webkit-left: 3.55vw;
   left: 3.55vw;
 }
 
 .timeline ul li:nth-child(odd) div::before {
+  -webkit-left: -15px;
   left: -15px;
+  -webkit-border-width: 8px 16px 8px 0;
   border-width: 8px 16px 8px 0;
+  -webkit-border-color: transparent rgba(200,0,0, 1) transparent transparent;
   border-color: transparent rgba(200,0,0, 1) transparent transparent;
 }
 
 .timeline ul li:nth-child(even) div {
+  -webkit-left: -33.3vw;
   left: -33.3vw;
 }
 
 .timeline ul li:nth-child(even) div::before {
+  -webkit-right: -15px;
   right: -15px;
+  -webkit-border-width: 8px 0 8px 16px;
   border-width: 8px 0 8px 16px;
+  -webkit-border-color: transparent transparent transparent rgba(200,0,0, 1);
   border-color: transparent transparent transparent rgba(200,0,0, 1);
 }
 
 time {
+  -webkit-display: block;
   display: block;
+  -webkit-font-size: 1.2rem;
   font-size: 1.2rem;
+  -webkit-font-weight: bold;
   font-weight: bold;
+  -webkit-margin-bottom: 8px;
   margin-bottom: 8px;
 }
 
@@ -312,49 +468,69 @@ time {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .timeline ul li::after {
+  -webkit-transition: background .5s ease-in-out;
   transition: background .5s ease-in-out;
 }
 
 .timeline ul li.in-view::after {
+  -webkit-background: rgb(200,0,0);
   background: rgb(200,0,0);
 }
 
 .timeline ul li div {
+  -webkit-visibility: hidden;
   visibility: hidden;
+  -webkit-opacity: 0;
   opacity: 0;
+  -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
 }
 
 .timeline ul li:nth-child(odd) div {
+  -webkit-transform: translate3d(200px, 0, 0);
   transform: translate3d(200px, 0, 0);
 }
 
 .timeline ul li:nth-child(even) div {
+  -webkit-transform: translate3d(-200px, 0, 0);
   transform: translate3d(-200px, 0, 0);
 }
 
 .timeline ul li.in-view div {
+  -webkit-transform: none;
   transform: none;
+  -webkit-visibility: visible;
   visibility: visible;
+  -webkit-opacity: 1;
   opacity: 1;
 }
 .nav-bar a:link{
+  -webkit-color: white;
   color: white;
 }
 .nav-bar a:visited {
+  -webkit-color: white;
   color: white;
 }
 .nav-bar{
+  -webkit-background: transparent;
   background: transparent;
+  -webkit-display: flex;
   display: flex;
+  -webkit-justify-content: space-around;
   justify-content: space-around;
+  -webkit-font-family: Fugaz One, cursive, Georgia ;
   font-family: Fugaz One, cursive, Georgia ;
+  -webkit-font-size: 2em;
   font-size: 2em;
+  -webkit-margin: 1vh 0vh 5vh;
   margin: 1vh 0vh 5vh;
 }
 .nav-bar a{
+  -webkit-color: white;
   color: white;
 }
 .pointer {
+  -webkit-cursor: pointer;
   cursor: pointer;
 }
