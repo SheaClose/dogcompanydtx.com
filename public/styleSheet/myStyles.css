@@ -4,8 +4,8 @@ body{
 }
 .Home-page-container  {
   background: black;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-    rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/DogCoAmps.jpg") no-repeat fixed;
+  /*background: radial-gradient(ellipse at center, rgba(0,0,0,0),
+    rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/DogCoAmps.jpg") no-repeat fixed;*/
   background-attachment:fixed;
   background-position: center center;
   background-size: 125vh;
@@ -18,7 +18,7 @@ body{
   }
 .about-page-container {
   background: black;
-  background: url("../../public/Assets/photos/DogCoLogo3.jpg") no-repeat fixed;
+  /*background: url("../../public/Assets/photos/DogCoLogo3.jpg") no-repeat fixed;*/
   background-attachment:fixed;
   background-position: center center;
   background-size: 70vh;
@@ -26,8 +26,8 @@ body{
 }
 .shows-page-container {
   background: black;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-    rgba(0, 0, 0, 1) 65%), url("../../public/Assets/photos/DogwMisfits.jpg") no-repeat fixed;
+  /*background: radial-gradient(ellipse at center, rgba(0,0,0,0),
+    rgba(0, 0, 0, 1) 65%), url("../../public/Assets/photos/DogwMisfits.jpg") no-repeat fixed;*/
   background-attachment:fixed;
   background-position: center center;
   background-size: 125vh;
@@ -55,8 +55,8 @@ body{
 }
 .Store-page-container {
   background: black;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-    rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/PastorJoe.jpg") no-repeat fixed;
+  /*background: radial-gradient(ellipse at center, rgba(0,0,0,0),
+    rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/PastorJoe.jpg") no-repeat fixed;*/
   background-attachment:fixed;
   background-position: center center;
   background-size: 125vh;
@@ -88,8 +88,8 @@ body{
 }
 .media-page-container {
   background: black;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-    rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/MidwestDogCo.jpg") no-repeat fixed;
+  /*background: radial-gradient(ellipse at center, rgba(0,0,0,0),
+    rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/MidwestDogCo.jpg") no-repeat fixed;*/
   background-attachment:fixed;
   background-position: center 20px;
   background-size: 125vh;
@@ -262,4 +262,7 @@ time {
 }
 .pointer {
   cursor: pointer;
+}
+@-ms-viewport{
+  width: device-width;
 }
