@@ -13,18 +13,11 @@ body{
     background-attachment:fixed;
     background-position: center center;
     background-size: 125vh;
-    /*object-fit: fill;
-    object-position: center;*/
     color: white;
   }
 }
 @media (orientation:portrait) {
   .Home-page-container  {
-/*    background: black;
-    background: url("../../public/Assets/photos/DogCoAmps.jpg") no-repeat fixed;
-    background-attachment:fixed;
-    background-position: center center;
-    background-size: 125vh;*/
     color: white;
   }
 }
@@ -51,17 +44,11 @@ body{
 }
 @media (orientation:portrait) {
   .about-page-container {
-    /*
-    background: url("../../public/Assets/photos/DogCoLogo3.jpg") no-repeat fixed;
-    background-attachment:fixed;
-    background-position: center center;
-    background-size: 70vh;*/
     color: white;
   }
 }
 @media (orientation:landscape) {
   .shows-page-container {
-
     background: black;
     background: -webkit-radial-gradient(center,
       ellipse, rgba(0,0,0,0),
@@ -88,16 +75,11 @@ body{
     margin-top: 50px;
   }
   .centered-object{
-
     margin-top: 25px;
-
   }
 }
 @media (orientation:portrait) {
   .shows-page-container {
-    /*background: url("../../public/Assets/photos/DogwMisfits.jpg") no-repeat fixed;
-    background-position: center center;
-    background-size: 125vh;*/
     color: white;
   }
   .shows-page-content-container {
@@ -113,12 +95,8 @@ body{
 }
 @media (orientation:portrait) {
   .Store-page-container {
-    /*background: url("../../public/Assets/photos/PastorJoe.jpg") no-repeat fixed;
-    background-position: center center;
-    background-size: 125vh;*/
   }
   .Store-page-content-container{
-
     color: white;
     background-color: rgba(0,0,0,.1)
   }
@@ -184,13 +162,9 @@ body{
   .product-page-img{
     height: 80vh;
   }
-  .product-page-text{
-
-  }
 }
 @media (orientation:landscape) {
   .media-page-container {
-
     background: black;
     background: -webkit-radial-gradient(center,
       ellipse, rgba(0,0,0,0),
@@ -209,11 +183,6 @@ body{
 }
 @media (orientation:portrait) {
   .media-page-container {
-    /*
-    background: url("../../public/Assets/photos/MidwestDogCo.jpg") no-repeat fixed;
-    background-attachment:fixed;
-    background-position: center 20px;
-    background-size: 125vh;*/
     color: white
   }
 }
@@ -338,10 +307,6 @@ time {
   font-weight: bold;
   margin-bottom: 8px;
 }
-
-
-/* EFFECTS
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .timeline ul li::after {
   -webkit-transition: background .5s ease-in-out;
