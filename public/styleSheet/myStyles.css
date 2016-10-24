@@ -230,7 +230,7 @@ table.highlight > tbody > tr:hover {
 }
 
 .timeline ul li {
-  font-size: .75em;
+  font-size: 1em;
   list-style-type: none;
   position: relative;
   width: 6px;
