@@ -77,8 +77,8 @@ If you are having trouble completing an order, Please contact us at DogCompanyDt
     cartService.submitOrder(order).then((response)=>{
       window.currentUserOrderInformation = response.data
       cartService.deleteUser().then((response) => {
-        // $window.location.href = "http://dogcompanydtx.com/#/store"
-        $window.location.href = "http://localhost:4000/#/store"
+        $window.location.href = "http://dogcompanydtx.com/#/store"
+        // $window.location.href = "http://localhost:4000/#/store"
       })
     })
   }
