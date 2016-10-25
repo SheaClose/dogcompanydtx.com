@@ -1,5 +1,4 @@
-angular.module("app")
-.service("adminService", function($http){
+function adminService ($http){
   this.submitNewProduct = (productObj) => {
   return $http.post("/api/products", productObj)
   };
@@ -18,4 +17,5 @@ angular.module("app")
   this.deleteBlog = (objId) => {
     return $http.delete(`/api/blogs/${objId}`)
   }
-})
+}
+export default adminService;

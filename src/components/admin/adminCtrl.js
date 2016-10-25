@@ -1,5 +1,4 @@
-angular.module("app")
-.controller("adminCtrl", function($scope, adminService){
+function adminCtrl ($scope, adminService){
   $scope.submitNewProduct = () => {
     if ($scope.title === undefined || $scope.price === undefined){
       return alert("Please ensure the title and price fields are complete")
@@ -91,4 +90,5 @@ angular.module("app")
         $scope.objId = "";
       })
     }
-})
+}
+export default adminCtrl;

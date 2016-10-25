@@ -1,5 +1,4 @@
-angular.module("app")
-.controller("productCtrl", function($scope, $state, storeService){
+function productCtrl ($scope, $state, storeService){
   $scope.toggle = false
   $scope.img2Toggle = false;
   const getAllProducts = () => {
@@ -42,4 +41,5 @@ angular.module("app")
     })
   }
 getAllProducts();
-})
+}
+export default productCtrl;
