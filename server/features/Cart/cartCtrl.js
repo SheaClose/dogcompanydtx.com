@@ -14,7 +14,7 @@ module.exports = {
         prod.forEach((cv, i , arr)=>{prodObj = cv})
         User.findOne({sessionID: req.sessionID}, (err, foundUser) => {
           if (!foundUser){
-            new User({sessionID: req.sessionID, cart:{product: prodObj._id }}).save((req, newUser) => {
+            new User({sessionID: req.sessionID, cart:{product: prodObj._id }}).save((err, newUser) => {
               if (err) {
                 return res.status(500).json(err);
               }

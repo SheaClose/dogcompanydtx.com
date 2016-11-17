@@ -4,11 +4,11 @@
       <nav-bar user="user"></nav-bar>
       <div class="row">
         <div class="product-page">
-          <div class="col s12 m12 l8 center">
-              <img class="responsive-img" ng-src="{{product.imgUrl}}" alt="" />
-              <div class="carousel">
-                <a class="carousel-item"><img ng-src="{{product.imgUrl2}}"></a>
-                <a class="carousel-item"><img ng-src="{{product.imgUrl3}}"></a>
+          <div class="col s12 m12 l8 center ">
+              <img class="responsive-img center" ng-src="{{product.imgUrl}}" alt="" />
+              <div ng-hide="img2Toggle" class="col s12 m12 l8 center carousel">
+                <a class="carousel-item center"><img ng-src="{{product.imgUrl2}}"></a>
+                <a class="carousel-item center"><img ng-src="{{product.imgUrl3}}"></a>
               </div>
           </div>
           <div class="col s12 m12 l4  product-page-text">

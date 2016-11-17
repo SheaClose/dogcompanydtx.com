@@ -162,12 +162,12 @@ body{
   .media-page-container {
     background: -webkit-radial-gradient(center,
       ellipse, rgba(0,0,0,0),
-      rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/MidwestDogCo.jpg") no-repeat fixed;
+      rgba(255, 0, 0, 1) 70%), url("../../public/Assets/photos/MidwestDogCo.jpg") no-repeat fixed;
     background: radial-gradient(ellipse at center, rgba(0,0,0,0),
-      rgba(0, 0, 0, 1) 70%), url("../../public/Assets/photos/MidwestDogCo.jpg") no-repeat fixed;
+      rgba(255, 0, 0, 1) 70%), url("../../public/Assets/photos/MidwestDogCo.jpg") no-repeat fixed;
       background-attachment:fixed;
       background-position: center 20px;
-      background-size: 125vh;
+      background-size: 100vh;
       -o-object-fit: fill;
          object-fit: fill;
       -o-object-position: center;

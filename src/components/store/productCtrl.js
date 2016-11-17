@@ -1,4 +1,5 @@
 function productCtrl ($scope, $state, storeService){
+	console.log("here");
   $scope.toggle = false
   $scope.img2Toggle = false;
   const getAllProducts = () => {
@@ -32,6 +33,7 @@ function productCtrl ($scope, $state, storeService){
       })
     })
   };
+
   $scope.addToCart = (title, size) =>{
     if (!size) {
       size = "small"

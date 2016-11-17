@@ -3,7 +3,6 @@ module.exports = {
 	// the entry point (index.js) of our application
 	entry: [
 		// first element is only necessary for webpack dev server
-		"webpack-dev-server/client?http://localhost:8080"
 		, "./src/app.js"
 	]
 	, module: {
