@@ -1,11 +1,12 @@
-angular.module("app")
-.controller("productCtrl", function($scope, $state, storeService){
+function productCtrl ($scope, $state, storeService){
+	console.log("here");
   $scope.toggle = false
   $scope.img2Toggle = false;
   const getAllProducts = () => {
     storeService.getAllProducts().then((response) => {
       let product = response.data;
       product.forEach((cv, i, a)=>{
+				console.log(cv.imgUrl2, $scope.img2Toggle);
         if (cv._id === $state.params.id) {
           $scope.product = {
             _id: cv._id
@@ -30,17 +31,19 @@ angular.module("app")
             $scope.toggle = true;
           }
         }
+				console.log(cv.imgUrl2, $scope.img2Toggle);
       })
     })
   };
+
   $scope.addToCart = (title, size) =>{
     if (!size) {
       size = "small"
     }
     storeService.addToCart(title, size).then((response)=>{
       $scope.user = response.data
-      // console.log($scope.user);
     })
   }
 getAllProducts();
-})
+}
+export default productCtrl;

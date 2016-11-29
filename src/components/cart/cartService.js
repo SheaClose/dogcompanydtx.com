@@ -1,5 +1,4 @@
-angular.module("app")
-.service("cartService", function($http){
+function cartService ($http){
   this.fillCart = (id) =>{
     return $http.get(`/api/cart/${id}`)
   };
@@ -15,5 +14,6 @@ angular.module("app")
   this.deleteUser = () => {
     return $http.delete("/api/User")
   }
+}
 
-})
+export default cartService;

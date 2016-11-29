@@ -1,6 +1,6 @@
-angular.module("app")
-.service("showsService", function($http){
+function showsService ($http){
   this.getShows = () => {
     return $http.get("/api/shows")
   }
-})
+}
+export default showsService;
