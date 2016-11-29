@@ -77,15 +77,8 @@ function cartCtrl ($scope, $window, cartService){
     cartService.submitOrder(order).then((response)=>{
       window.currentUserOrderInformation = response.data
       cartService.deleteUser().then((response) => {
-// <<<<<<< HEAD
         $window.location.href = "http://dogcompanydtx.com/#/store"
         // $window.location.href = "http://localhost:4000/#/store"
-// =======
-//         ///////////////////////////////////////////////////////
-//         ///This Needs to be updated when everything Goes Live//
-//         ///////////////////////////////////////////////////////
-//        $window.location.href = "http://107.170.40.18/#/store"
-// >>>>>>> master
       })
     })
   }
