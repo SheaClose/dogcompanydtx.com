@@ -78,9 +78,6 @@ angular.module("app")
     cartService.submitOrder(order).then((response)=>{
       window.currentUserOrderInformation = response.data
       cartService.deleteUser().then((response) => {
-        ///////////////////////////////////////////////////////
-        ///This Needs to be updated when everything Goes Live//
-        ///////////////////////////////////////////////////////
        $window.location.href = "http://107.170.40.18/#/store"
       })
     })
