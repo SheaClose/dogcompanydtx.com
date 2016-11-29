@@ -6,6 +6,7 @@ function productCtrl ($scope, $state, storeService){
     storeService.getAllProducts().then((response) => {
       let product = response.data;
       product.forEach((cv, i, a)=>{
+				console.log(cv.imgUrl2, $scope.img2Toggle);
         if (cv._id === $state.params.id) {
           $scope.product = {
             _id: cv._id
@@ -30,6 +31,7 @@ function productCtrl ($scope, $state, storeService){
             $scope.toggle = true;
           }
         }
+				console.log(cv.imgUrl2, $scope.img2Toggle);
       })
     })
   };
