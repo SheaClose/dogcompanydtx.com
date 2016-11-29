@@ -1,5 +1,4 @@
-angular.module("app")
-.controller("showsCtrl", function ($scope, $window, showsService){
+function showsCtrl ($scope, $window, showsService){
   const getShows = () => {
     showsService.getShows().then((response)=> {
       let showlist = response.data.slice(1, 49)
@@ -10,4 +9,5 @@ angular.module("app")
     $window.location.href = url
   };
   getShows()
-});
+}
+export default showsCtrl;

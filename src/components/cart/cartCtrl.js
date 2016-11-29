@@ -1,6 +1,5 @@
-angular.module("app")
-.controller("cartCtrl", function($scope, $window, cartService){
-  fillCart =  (id) => {
+function cartCtrl ($scope, $window, cartService){
+  const fillCart = (id) => {
     cartService.fillCart(id).then(function(response){
       $scope.cart = []
       response.data.cart.forEach((cv, i, arr)=>{
@@ -14,7 +13,7 @@ angular.module("app")
       getOrderTotal();
     })
   }
-  getCart = () =>{
+  const getCart = () =>{
     cartService.getCart().then(function(response){
       response.data.forEach(function(cv, i , arr){
         $scope.user = cv
@@ -43,7 +42,7 @@ angular.module("app")
     })
     getOrderTotal();
   };
-  getOrderTotal = () => {
+  const getOrderTotal = () => {
     $scope.total = 0
     $scope.cart.forEach((cv, i, arr) => {
       $scope.total += cv.total;
@@ -78,9 +77,14 @@ angular.module("app")
     cartService.submitOrder(order).then((response)=>{
       window.currentUserOrderInformation = response.data
       cartService.deleteUser().then((response) => {
+<<<<<<< HEAD
        $window.location.href = "http://107.170.40.18/#/store"
+=======
+        $window.location.href = "http://dogcompanydtx.com/#/store"
+>>>>>>> 4c5e934759662db0a4ae4d8d4623bd024df6acb3
       })
     })
   }
   getCart();
-})
+}
+export default cartCtrl;

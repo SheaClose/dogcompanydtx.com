@@ -2,16 +2,17 @@
   <div class="home-page-content-container">
     <div class="container">
       <nav-bar></nav-bar>
-        <div class="valign-wrapper container-center" style="height: 77vh;">
-            <img class="responsive-img valign" style="opacity: .8; height: 70vh;" src="./public/Assets/photos/DogCoLogo.svg" alt="" />
+        <div class="valign-wrapper container-center" style="height: 70vh;">
+            <img class="responsive-img valign" style="opacity: .8; height: 100%;"
+             ng-src="./public/Assets/photos/DogCoLogo.png" alt="" />
+             <!-- <img class="responsive-img valign" style="opacity: .8; height: 100%;" ng-src="loadImage('DogCoLogo.png')" /> -->
         </div>
       <ul class="" ng-repeat="blog in blogs">
-
         <p>
           <ul class="">
             <div class="valign-wrapper row">
-              <li class="col s10 m10 l10 valign" style="font-size: 3em"><u>{{blog.title}}</u></li></u>
-              <li style="font-size: 1.5em" class=" col s2 m2 l2 right">{{blog.date | date: medium}}
+              <li class="col s10 m10 l10 valign" style="font-size: 2em"><u>{{blog.title}}</u></li></u>
+              <li style="font-size: 1.25em" class=" col s2 m2 l2 right">{{blog.date | date: medium}}
               </li>
             </div>
 
@@ -22,7 +23,7 @@
               </div>
             </li>
             <br>
-            <li style="white-space: pre-line; font-size: 2em;">
+            <li style="white-space: pre-line; font-size: 1.5em;">
               {{blog.body}}
             </li>
           <hr>

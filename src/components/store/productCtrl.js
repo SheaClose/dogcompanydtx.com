@@ -1,5 +1,4 @@
-angular.module("app")
-.controller("productCtrl", function($scope, $state, storeService){
+function productCtrl ($scope, $state, storeService){
   $scope.toggle = false
   $scope.img2Toggle = false;
   const getAllProducts = () => {
@@ -39,8 +38,8 @@ angular.module("app")
     }
     storeService.addToCart(title, size).then((response)=>{
       $scope.user = response.data
-      // console.log($scope.user);
     })
   }
 getAllProducts();
-})
+}
+export default productCtrl;
