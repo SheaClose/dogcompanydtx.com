@@ -1,5 +1,4 @@
-angular.module("app")
-.service("homeService", function($http){
+function homeService ($http){
   this.getBlogs = ()=> {
     return $http.get("/api/blogs")
     .then(function(response){
@@ -11,4 +10,6 @@ angular.module("app")
       return blogs;
     })
   }
-})
+}
+
+export default homeService;

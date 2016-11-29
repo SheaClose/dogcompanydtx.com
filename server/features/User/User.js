@@ -7,7 +7,6 @@ const User = new mongoose.Schema({
     , quantity: {type: Number, default: 1}
   }]
   , orders   : []
-
 })
 
 module.exports = mongoose.model('User', User)

@@ -1,5 +1,4 @@
-angular.module("app")
-.controller("storeCtrl", function($scope, $stateParams, $state, storeService){
+function storeCtrl ($scope, $stateParams, $state, storeService){
   const getAllProducts = () => {
     storeService.getAllProducts().then((response) => {
       let product = response.data;
@@ -20,4 +19,5 @@ angular.module("app")
     $('#modal1').openModal();
     window.currentUserOrderInformation = null;
   }
-})
+}
+export default storeCtrl;
