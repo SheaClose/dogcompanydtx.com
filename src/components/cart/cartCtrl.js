@@ -77,11 +77,7 @@ function cartCtrl ($scope, $window, cartService){
     cartService.submitOrder(order).then((response)=>{
       window.currentUserOrderInformation = response.data
       cartService.deleteUser().then((response) => {
-<<<<<<< HEAD
-       $window.location.href = "http://107.170.40.18/#/store"
-=======
         $window.location.href = "http://dogcompanydtx.com/#/store"
->>>>>>> 4c5e934759662db0a4ae4d8d4623bd024df6acb3
       })
     })
   }

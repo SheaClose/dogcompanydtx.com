@@ -2,6 +2,7 @@ function productCtrl ($scope, $state, storeService){
   $scope.toggle = false
   $scope.img2Toggle = false;
   const getAllProducts = () => {
+		console.log("updays");
     storeService.getAllProducts().then((response) => {
       let product = response.data;
       product.forEach((cv, i, a)=>{
