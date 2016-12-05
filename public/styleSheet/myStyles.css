@@ -359,3 +359,6 @@ time {
 @-ms-viewport{
   width: device-width;
 }
+.prodrow{
+	max-height: 50vh;
+}
