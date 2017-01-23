@@ -10,7 +10,14 @@ module.exports = {
         return res.status(500).json(err)
       }
       else {
-        console.log(order);
+				let address = ``;
+				if (req.body.user.nonUSAddress) {
+					console.log(req.body.user.nonUSAddress);
+					address = req.body.user.nonUSAddress;
+				}
+				else {
+					address = `${req.body.user.street}, ${req.body.user.city}, ${req.body.user.state} ${req.body.user.zipcode}`;
+				}
         const orderProductArray = [];
         req.body.cart.forEach((c,i,a)=>{
           let tempProduct =
@@ -41,7 +48,7 @@ Total: ${c.total}
             ],
             from: {
               email: 'DogCompanyDtx@gmail.com',
-            },
+            }, 
             content: [
               {
                 type: 'text/plain',
@@ -54,7 +61,7 @@ Order Details:
   Order Number: ${order._id}
   Name: ${req.body.user.first_name} ${req.body.user.last_name}
   Email: ${req.body.user.email}
-  Address: ${req.body.user.street}, ${req.body.user.city}, ${req.body.user.state} ${req.body.user.zipcode}
+  Address: ${address}
   Total: $${req.body.total}
   Cart:
   ${orderProductString}`,

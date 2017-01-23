@@ -63,9 +63,20 @@
                   <div class="input-field col s12">
                     <input ng-model="email" id="email" type="email" class="validate">
                     <label for="email">Email</label>
+                  </div> 
+                </div>
+								<div class="row">
+									<div class="input-field col s12">
+										<input type="button" ng-click="click()">Address not located in the United States?</input>
+									</div>
+								</div>
+								<div class="row">
+                  <div class="input-field col s12">
+										<input type="text" ng-show="!unitedStatesAddress" ng-model="nonUsAddress" id="nonUsAddress">
+										<label ng-show="!unitedStatesAddress" for="nonUsAddress">Input Non-United States Address</label>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row" ng-show="unitedStatesAddress">
                   <div class="input-field col s6">
                     <input ng-model="street" id="street" type="text" class="validate">
                     <label for="street">Street</label>
@@ -75,7 +86,7 @@
                     <label for="city">City</label>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row" ng-show="unitedStatesAddress">
                   <div class="input-field col s6">
                     <input ng-model="state" id="state" type="text" class="validate">
                     <label for="state">State</label>

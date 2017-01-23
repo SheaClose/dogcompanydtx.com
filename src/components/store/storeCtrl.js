@@ -1,4 +1,5 @@
 function storeCtrl ($scope, $stateParams, $state, storeService){
+	$scope.nonUSAddress = false;
   const getAllProducts = () => {
     storeService.getAllProducts().then((response) => {
       let product = response.data;
@@ -15,7 +16,10 @@ function storeCtrl ($scope, $stateParams, $state, storeService){
   }
   getAllProducts();
   if (window.currentUserOrderInformation) {
-    $scope.currentUserOrderInformation = window.currentUserOrderInformation;
+		if (window.currentUserOrderInformation.user.nonUSAddress) {
+			$scope.nonUSAddress = true;
+		}
+		$scope.currentUserOrderInformation = window.currentUserOrderInformation;
     $('#modal1').openModal();
     window.currentUserOrderInformation = null;
   }

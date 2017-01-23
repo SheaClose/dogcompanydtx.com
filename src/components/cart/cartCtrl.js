@@ -1,4 +1,5 @@
 function cartCtrl ($scope, $window, cartService){
+	$scope.unitedStatesAddress = true;
   const fillCart = (id) => {
     cartService.fillCart(id).then(function(response){
       $scope.cart = []
@@ -13,6 +14,9 @@ function cartCtrl ($scope, $window, cartService){
       getOrderTotal();
     })
   }
+	$scope.click = () => {
+		$scope.unitedStatesAddress = !$scope.unitedStatesAddress;
+	}
   const getCart = () =>{
     cartService.getCart().then(function(response){
       response.data.forEach(function(cv, i , arr){
@@ -54,21 +58,32 @@ function cartCtrl ($scope, $window, cartService){
     })
   };
   $scope.submitOrder = () => {
-     if ($scope.first_name === undefined || $scope.last_name === undefined || $scope.email === undefined || $scope.street === undefined || $scope.city === undefined || $scope.state === undefined || $scope.zipcode === undefined) {
-       alert(`Please ensure all fields are complete. We can not complete your order without this information.
+		let userInfo = {};
+		if ($scope.unitedStatesAddress) {
+			if ($scope.first_name === undefined || $scope.last_name === undefined || $scope.email === undefined || $scope.street === undefined || $scope.city === undefined || $scope.state === undefined || $scope.zipcode === undefined) {
+				alert(`Please ensure all fields are complete. We can not complete your order without this information.
 
- If you are having trouble completing an order, Please contact us at DogCompanyDtx@gmail.com`);
-       return;
-     }
-    const userInfo =  {
-      first_name: $scope.first_name
-      , last_name: $scope.last_name
-      , email: $scope.email
-      , street: $scope.street
-      , city: $scope.city
-      , state: $scope.state
-      , zipcode: $scope.zipcode
-    }
+					If you are having trouble completing an order, Please contact us at DogCompanyDtx@gmail.com`);
+					return;
+			}
+			userInfo =  {
+				first_name: $scope.first_name
+				, last_name: $scope.last_name
+				, email: $scope.email
+				, street: $scope.street
+				, city: $scope.city
+				, state: $scope.state
+				, zipcode: $scope.zipcode
+			}
+		}
+		else {
+			userInfo = {
+				first_name: $scope.first_name
+				, last_name: $scope.last_name
+				, email: $scope.email
+				, nonUSAddress: $scope.nonUsAddress
+			}
+		}
     const order = {
       cart: $scope.cart
       , total: $scope.total
@@ -77,7 +92,8 @@ function cartCtrl ($scope, $window, cartService){
     cartService.submitOrder(order).then((response)=>{
       window.currentUserOrderInformation = response.data
       cartService.deleteUser().then((response) => {
-        $window.location.href = "http://dogcompanydtx.com/#/store"
+        // $window.location.href = "http://dogcompanydtx.com/#/store"
+				$window.location.href = "http://127.0.0.1:8080/#/store";
       })
     })
   }

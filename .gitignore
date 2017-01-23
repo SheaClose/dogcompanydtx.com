@@ -1,7 +1,4 @@
 node_modules
 serverConfig.js
 private
-bundle.js
-bundle.js.map
-.babelrc
 webpack.config.js
