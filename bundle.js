@@ -44733,8 +44733,8 @@
 	    cartService.submitOrder(order).then(function (response) {
 	      window.currentUserOrderInformation = response.data;
 	      cartService.deleteUser().then(function (response) {
-	        // $window.location.href = "http://dogcompanydtx.com/#/store"
-	        $window.location.href = "http://127.0.0.1:8080/#/store";
+	        $window.location.href = "http://dogcompanydtx.com/#/store";
+	        // $window.location.href = "http://127.0.0.1:8080/#/store";
 	      });
 	    });
 	  };
