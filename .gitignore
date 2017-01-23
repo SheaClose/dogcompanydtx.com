@@ -1,5 +1,4 @@
 node_modules
 serverConfig.js
 private
-bundle.js
 webpack.config.js
