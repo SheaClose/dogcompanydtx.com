@@ -19,19 +19,20 @@
               <div style="padding-top: 10px; white-space: pre-line;">  <u>Description</u>:             {{product.description}}</div>
               <div style="padding-top: 10px; white-space: pre-line;"><u>Color</u>:             {{product.color}}</div>
               <div style="padding-top: 10px; white-space: pre-line;">  <u>Price</u>:             ${{product.price}}</div>
+							<div ng-hide="toggle" style="padding-top: 10px; white-space: pre-line;">  <u>Size</u>:
+							</div>
               <div ng-hide="toggle" style="padding-top: 10px;">
                 <select ng-model="size" class="browser-default black">
-                  <option value="" disabled selected>Choose your option</option>
-                  <option value="small">Small</option>
-                  <option value="medium">Medium</option>
-                  <option value="large">Large</option>
-                  <option value="x-large">X-Large</option>
-                  <option value="xx-large">XX-Large</option>
-                  <option value="xxx-large">XXX-Large</option>
+									<option ng-show="size.small" value="small">Small</option>
+									<option ng-show="size.medium" value="medium">Medium</option>
+									<option ng-show="size.large" value="large">Large</option>
+									<option ng-show="size.xLarge" value="xLarge">X-Large</option>
+									<option ng-show="size.xxLarge" value="xxLarge">XX-Large</option>
+									<option ng-show="size.xxxLarge" value="xxxLarge">XXX-Large</option>
                 </select>
               </div>
               <div style="padding-top: 10px;">
-                <button ng-click="addToCart(product.title, size)" type="button" class="button black"  name="button" onclick="Materialize.toast('Item added to cart', 3000, 'teal rounded')">Add to Cart</button>
+                <button ng-click="addToCart(product.title, size)" type="button" class="button black"  name="button" onclick="Materialize.toast('Item added to cart', 2000, 'teal rounded')">Add to Cart</button>
               </div>
           </div>
         </div>

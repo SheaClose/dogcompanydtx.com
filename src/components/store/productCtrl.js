@@ -1,11 +1,19 @@
 function productCtrl ($scope, $state, storeService){
   $scope.toggle = false
   $scope.img2Toggle = false;
-  const getAllProducts = () => {
+	$scope.size = {small:false, medium:false, large:false, xLarge:false, xxLarge:false, xxxLarge:false};
+  (() => {
     storeService.getAllProducts().then((response) => {
       let product = response.data;
       product.forEach((cv, i, a)=>{
-        if (cv._id === $state.params.id) {
+        if (cv.title === $state.params.id) {
+					for (var key in $scope.size) {
+						var num = 0
+						if (key === cv.size) {
+							$scope.size[key] = cv.available
+							console.log($scope.size);
+						}
+					}
           $scope.product = {
             _id: cv._id
             , category: cv.category
@@ -31,7 +39,7 @@ function productCtrl ($scope, $state, storeService){
         }
       })
     })
-  };
+  })();
   $scope.addToCart = (title, size) =>{
     if (!size) {
       size = "small"
@@ -40,6 +48,6 @@ function productCtrl ($scope, $state, storeService){
       $scope.user = response.data
     })
   }
-getAllProducts();
+// getAllProducts();
 }
 export default productCtrl;
