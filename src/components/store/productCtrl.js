@@ -1,17 +1,16 @@
 function productCtrl ($scope, $state, storeService){
   $scope.toggle = false
   $scope.img2Toggle = false;
-	$scope.size = {small:false, medium:false, large:false, xLarge:false, xxLarge:false, xxxLarge:false};
+	$scope.sizes = {small:false, medium:false, large:false, xLarge:false, xxLarge:false, xxxLarge:false};
   (() => {
     storeService.getAllProducts().then((response) => {
       let product = response.data;
       product.forEach((cv, i, a)=>{
         if (cv.title === $state.params.id) {
-					for (var key in $scope.size) {
+					for (var key in $scope.sizes) {
 						var num = 0
 						if (key === cv.size) {
-							$scope.size[key] = cv.available
-							console.log($scope.size);
+							$scope.sizes[key] = cv.available
 						}
 					}
           $scope.product = {

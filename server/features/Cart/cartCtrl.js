@@ -7,6 +7,7 @@ module.exports = {
   addToCart: (req, res) => {
     let prodObj = {};
     const product = req.body
+		console.log(product);
     Product.find({title: product.title, size: product.size}, (err, prod)=>{
       if (err){
         return res.status(500).json(err)}
