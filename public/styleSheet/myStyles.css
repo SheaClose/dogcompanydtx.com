@@ -95,7 +95,7 @@ body{
 #toast-container {
   top: auto !important;
   left: auto !important;
-  bottom: 10%;
+  bottom: 15vh;
   right: 1%;
 }
 .Store-page-container {
