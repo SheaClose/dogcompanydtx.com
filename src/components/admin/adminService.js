@@ -17,5 +17,8 @@ function adminService ($http){
   this.deleteBlog = (objId) => {
     return $http.delete(`/api/blogs/${objId}`)
   }
+	this.checkPass = (user, pass) => {
+		return $http.get(`/api/admin/?user=${user}&pass=${pass}`)
+	}
 }
 export default adminService;

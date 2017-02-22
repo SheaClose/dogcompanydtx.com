@@ -1,4 +1,12 @@
-function adminCtrl ($scope, adminService){
+function adminCtrl ($scope, adminService,$state,$location){
+	$scope.userIsAdmin = false;
+	console.log($state.params.adminId, $state.params.pass);
+	if ( !$state.params.adminId || !$state.params.pass ) {
+		$location.path('/')
+	}
+	else {
+		checkPass($state.params.adminId, $state.params.pass)
+	}
   $scope.submitNewProduct = () => {
     if ($scope.title === undefined || $scope.price === undefined){
       return alert("Please ensure the title and price fields are complete")
@@ -90,5 +98,10 @@ function adminCtrl ($scope, adminService){
         $scope.objId = "";
       })
     }
+		function checkPass(user, pass){
+			adminService.checkPass(user, pass).then(res => {
+					$scope.userIsAdmin = res.data !== "false"
+			})
+		}
 }
 export default adminCtrl;

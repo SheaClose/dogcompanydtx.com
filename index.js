@@ -15,4 +15,12 @@ mongoose.connect(mongoUri);
 app.use(json());
 app.use(cors());
 masterRoutes(app);
+app.get(`/api/admin`, function (req, res){
+	if ( req.query.user !== serverConfig.admin ||  req.query.pass !== serverConfig.pass ) {
+		return res.status(200).json("false")
+	}
+	else {
+		return res.status(200).json("true")
+	}
+})
 app.listen(port, () => {console.log(`This is Dr. Crane... I'm listening. Port:${port}`)})
