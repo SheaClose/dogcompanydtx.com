@@ -5,9 +5,12 @@ function storeCtrl ($scope, $stateParams, $state, storeService){
       let product = response.data;
       $scope.products = [];
       product.forEach((cv, i, a)=>{
-        if (cv.size === "small") {
-          $scope.products.push(cv)
+        if (cv.size === "small" && cv.category === "apparel") {
+          $scope.products.unshift(cv)
         }
+				else if (cv.size === "small"){
+					$scope.products.push(cv)
+				}
       })
     })
   };
