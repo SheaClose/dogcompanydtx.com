@@ -11,9 +11,14 @@ module.exports= {
     })
   }
   , postProduct: (req, res) => {
+		console.log(req.body);
     new Product(req.body).save((err, suc) =>{
-      if (err) { return res.status(500).json(err)}
+      if (err) {
+				console.log(err);
+				return res.status(500).json(err)
+			}
       else {
+				console.log(suc);
         return res.status(200).json(suc)
       }
     })

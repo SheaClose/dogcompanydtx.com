@@ -9,7 +9,7 @@ const Product = new mongoose.Schema({
   , imgUrl: {type: String, trim: true, default: "https://http.cat/404"}
   , url: {type: String, trim: true}
   , size: {type: String, enum: ["small", "medium", "large", "xLarge", "xxLarge", "xxxLarge"]}
-	, available: {type: Boolean}
+	, available: {type: Boolean, default: true}
 })
 
 module.exports = mongoose.model("Product", Product)

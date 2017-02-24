@@ -79,7 +79,8 @@ angular.module("app", ["ui.router"])
     , template: mediaTmpl
   })
   .state("admin", {
-    url: "/admin"
+		//url: "/map/:lat/:lng"
+    url: "/admin/:adminId/:pass"
     , controller: adminCtrl
     , template: adminTmpl
   })
