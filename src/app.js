@@ -58,12 +58,10 @@ angular.module("app", ["ui.router"])
     , controller: storeCtrl
   })
   .state('product', {
-  url: "/product"
+  url: "/product/:id"
   , template: productTmpl
   , controller: productCtrl
-  , params: {
-    'id': '',
-  }
+
 })
   .state("shows", {
     url: "/shows"
