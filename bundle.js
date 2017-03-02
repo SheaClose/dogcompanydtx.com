@@ -8092,12 +8092,10 @@
 	    template: _storeTmpl2.default,
 	    controller: _storeCtrl2.default
 	  }).state('product', {
-	    url: "/product",
+	    url: "/product/:id",
 	    template: _productTmpl2.default,
-	    controller: _productCtrl2.default,
-	    params: {
-	      'id': ''
-	    }
+	    controller: _productCtrl2.default
+	
 	  }).state("shows", {
 	    url: "/shows",
 	    template: _showsTmpl2.default,
@@ -44819,6 +44817,7 @@
 	  value: true
 	});
 	function productCtrl($scope, $state, storeService) {
+	  console.log($state.params);
 	  $scope.toggle = false;
 	  $scope.img2Toggle = false;
 	  $scope.sizes = { small: false, medium: false, large: false, xLarge: false, xxLarge: false, xxxLarge: false };
@@ -44826,6 +44825,7 @@
 	    storeService.getAllProducts().then(function (response) {
 	      var product = response.data;
 	      product.forEach(function (cv, i, a) {
+	        console.log(cv._id == $state.params.id);
 	        if (cv.title === $state.params.id) {
 	          for (var key in $scope.sizes) {
 	            var num = 0;

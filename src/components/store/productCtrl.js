@@ -1,4 +1,5 @@
 function productCtrl ($scope, $state, storeService){
+	console.log($state.params);
   $scope.toggle = false
   $scope.img2Toggle = false;
 	$scope.sizes = {small:false, medium:false, large:false, xLarge:false, xxLarge:false, xxxLarge:false};
@@ -6,6 +7,7 @@ function productCtrl ($scope, $state, storeService){
     storeService.getAllProducts().then((response) => {
       let product = response.data;
       product.forEach((cv, i, a)=>{
+				console.log(cv._id == $state.params.id);
         if (cv.title === $state.params.id) {
 					for (var key in $scope.sizes) {
 						var num = 0
