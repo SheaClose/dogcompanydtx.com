@@ -35,10 +35,10 @@
       <hr>
       <p>
         <ul ng-repeat="cartItem in currentUserOrderInformation.cart">
+					<li>Product: {{cartItem.product.title}}</li>
           <li>Quantity: {{cartItem.quantity}}</li>
-          <li>Size: {{cartItem.product.size}}</li>
-          <li>Color: {{cartItem.product.color}}</li>
-          <li>Product: {{cartItem.product.title}}</li>
+          <li ng-hide="cartItem.product.category !== 'apparel'">Size: {{cartItem.product.size}}</li>
+          <li ng-hide="cartItem.product.category !== 'apparel'">Color: {{cartItem.product.color}}</li>
           <li style="border-bottom: 1px solid black;">Unit Price: ${{cartItem.product.price}}</li>
         </ul>
       </p>

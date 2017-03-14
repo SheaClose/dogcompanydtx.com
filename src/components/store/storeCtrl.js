@@ -19,6 +19,7 @@ function storeCtrl ($scope, $stateParams, $state, storeService){
   }
   getAllProducts();
   if (window.currentUserOrderInformation) {
+		console.log(window.currentUserOrderInformation);
 		if (window.currentUserOrderInformation.user.nonUSAddress) {
 			$scope.nonUSAddress = true;
 		}

@@ -20,15 +20,26 @@ module.exports = {
 				}
         const orderProductArray = [];
         req.body.cart.forEach((c,i,a)=>{
-          let tempProduct =
-`
-Product: ${c.product.title},
-Price: ${c.product.price},
-Color: ${c.product.color},
-Size: ${c.product.size},
-Quantity: ${c.quantity},
-Total: ${c.total}
-\n`
+          let tempProduct;
+					if (c.product.category === "apparel") {
+						tempProduct = `
+						Product: ${c.product.title},
+						Price: ${c.product.price},
+						Color: ${c.product.color},
+						Size: ${c.product.size},
+						Quantity: ${c.quantity},
+						Total: ${c.total}
+						\n`
+					}
+					else {
+						tempProduct = `
+						Product: ${c.product.title},
+						Price: ${c.product.price},
+						Quantity: ${c.quantity},
+						Total: ${c.total}
+						\n`
+					}
+
           orderProductArray.push(tempProduct)
         })
         let orderProductString = orderProductArray.join(" ")
@@ -48,7 +59,7 @@ Total: ${c.total}
             ],
             from: {
               email: 'DogCompanyDtx@gmail.com',
-            }, 
+            },
             content: [
               {
                 type: 'text/plain',
