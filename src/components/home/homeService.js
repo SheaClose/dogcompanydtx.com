@@ -1,15 +1,14 @@
-function homeService ($http){
-  this.getBlogs = ()=> {
-    return $http.get("/api/blogs")
-    .then(function(response){
-      response.data.reverse()
-      const blogs = []
-      response.data.forEach((cv, i, arr)=>{
-      blogs.push(arr[i])
-      })
+function homeService($http) {
+  this.getBlogs = () => {
+    return $http.get('/api/blogs').then(function(response) {
+      response.data.sort((a, b) => a.date < b.date);
+      const blogs = [];
+      response.data.forEach((cv, i, arr) => {
+        blogs.push(arr[i]);
+      });
       return blogs;
-    })
-  }
+    });
+  };
 }
 
 export default homeService;
