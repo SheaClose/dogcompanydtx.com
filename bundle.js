@@ -44991,15 +44991,17 @@
   \********************************************/
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	function homeService($http) {
 	  this.getBlogs = function () {
-	    return $http.get("/api/blogs").then(function (response) {
-	      response.data.reverse();
+	    return $http.get('/api/blogs').then(function (response) {
+	      response.data.sort(function (a, b) {
+	        return a.date < b.date;
+	      });
 	      var blogs = [];
 	      response.data.forEach(function (cv, i, arr) {
 	        blogs.push(arr[i]);
