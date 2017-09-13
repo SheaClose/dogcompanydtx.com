@@ -26,11 +26,11 @@ app.get(`/api/admin`, function(req, res) {
     return res.status(200).json('true');
   }
 });
-app.get('/api/proxyServer', function(req, res) {
+app.post('/api/proxyServer', function(req, res) {
   axios
-    .get(req.headers.base_url + req.headers.query_string, {
+    .get(req.body.base_url + req.body.query_string, {
       headers: {
-        Authorization: req.headers.access_token
+        Authorization: req.body.access_token
       }
     })
     .then(function(response) {
