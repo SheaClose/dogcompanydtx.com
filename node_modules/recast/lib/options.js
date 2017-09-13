@@ -60,10 +60,29 @@ var defaults = {
     // Otherwise, double quotes are used.
     quote: null,
 
-    // If you want to print trailing commas in object literals,
-    // array expressions, functions calls and function definitions pass true
-    // for this option.
+    // Controls the printing of trailing commas in object literals,
+    // array expressions and function parameters.
+    //
+    // This option could either be:
+    // * Boolean - enable/disable in all contexts (objects, arrays and function params).
+    // * Object - enable/disable per context.
+    //
+    // Example:
+    // trailingComma: {
+    //   objects: true,
+    //   arrays: true,
+    //   parameters: false,
+    // }
     trailingComma: false,
+
+    // Controls the printing of spaces inside array brackets.
+    // See: http://eslint.org/docs/rules/array-bracket-spacing
+    arrayBracketSpacing: false,
+
+    // Controls the printing of spaces inside object literals,
+    // destructuring assignments, and import/export specifiers.
+    // See: http://eslint.org/docs/rules/object-curly-spacing
+    objectCurlySpacing: true,
 
     // If you want parenthesis to wrap single-argument arrow function parameter
     // lists, pass true for this option.
@@ -100,6 +119,8 @@ exports.normalize = function(options) {
         tolerant: get("tolerant"),
         quote: get("quote"),
         trailingComma: get("trailingComma"),
+        arrayBracketSpacing: get("arrayBracketSpacing"),
+        objectCurlySpacing: get("objectCurlySpacing"),
         arrowParensAlways: get("arrowParensAlways"),
         flowObjectCommas: get("flowObjectCommas"),
     };

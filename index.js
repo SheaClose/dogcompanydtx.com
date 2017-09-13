@@ -1,26 +1,45 @@
-const express = require("express")
-      , {json} = require("body-parser")
-      , cors = require("cors")
-      , mongoose = require("mongoose")
-      , serverConfig = require("./serverConfig.js")
-      , port = serverConfig.port
-      , app = express()
-      , mongoUri = serverConfig.mongoUri
-      , masterRoutes = require("./masterRoutes.js")
-      , session = require('express-session')
+const express = require('express'),
+  { json } = require('body-parser'),
+  cors = require('cors'),
+  mongoose = require('mongoose'),
+  serverConfig = require('./serverConfig.js'),
+  port = serverConfig.port,
+  app = express(),
+  mongoUri = serverConfig.mongoUri,
+  masterRoutes = require('./masterRoutes.js'),
+  session = require('express-session'),
+  axios = require('axios');
 
-app.use(session({secret: serverConfig.secret}));
-app.use("/", express.static(__dirname));
+app.use(session({ secret: serverConfig.secret }));
+app.use('/', express.static(__dirname));
 mongoose.connect(mongoUri);
 app.use(json());
 app.use(cors());
 masterRoutes(app);
-app.get(`/api/admin`, function (req, res){
-	if ( req.query.user !== serverConfig.admin ||  req.query.pass !== serverConfig.pass ) {
-		return res.status(200).json("false")
-	}
-	else {
-		return res.status(200).json("true")
-	}
-})
-app.listen(port, () => {console.log(`This is Dr. Crane... I'm listening. Port:${port}`)})
+app.get(`/api/admin`, function(req, res) {
+  if (
+    req.query.user !== serverConfig.admin ||
+    req.query.pass !== serverConfig.pass
+  ) {
+    return res.status(200).json('false');
+  } else {
+    return res.status(200).json('true');
+  }
+});
+app.get('/api/proxyServer', function(req, res) {
+  axios
+    .get(req.headers.base_url + req.headers.query_string, {
+      headers: {
+        Authorization: req.headers.access_token
+      }
+    })
+    .then(function(response) {
+      return res.send(response.data);
+    })
+    .catch(err => {
+      return res.send(err);
+    });
+});
+app.listen(port, () => {
+  console.log(`This is Dr. Crane... I'm listening. Port:${port}`);
+});
