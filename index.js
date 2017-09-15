@@ -40,6 +40,18 @@ app.post('/api/proxyServer', function(req, res) {
       return res.send(err);
     });
 });
+app.put('/api/proxyServer', (req, res) => {
+  axios
+    .get(req.body.base_url)
+    .then(response => {
+      console.log(response);
+      return res.json(response.data);
+    })
+    .catch(err => {
+      console.log(err);
+      return res.json(err);
+    });
+});
 app.listen(port, () => {
   console.log(`This is Dr. Crane... I'm listening. Port:${port}`);
 });
