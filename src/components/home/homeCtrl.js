@@ -1,12 +1,9 @@
-function homeCtrl ($scope, homeService){
+function homeCtrl($scope, homeService) {
   const getBlogs = () => {
-    homeService.getBlogs().then(function(response){
-      $scope.blogs = response
-      })
-  }
-  // $scope.loadImage = (image) => {
-  //   return require(`../../../public/Assets/photos/${image}`);
-  // };
-  getBlogs()
+    homeService.getBlogs().then(function(response) {
+      $scope.blogs = response;
+    });
+  };
+  getBlogs();
 }
 export default homeCtrl;

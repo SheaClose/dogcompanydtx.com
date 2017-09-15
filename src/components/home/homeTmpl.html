@@ -19,7 +19,7 @@
             <br>
             <li>
               <div class="center">
-              <img class="responsive-img" style="opacity: .8" ng-if="blog.imgUrl" ng-src="{{blog.imgUrl}}" alt="" />
+              <img class="responsive-img" style="opacity: .8; max-width: 80%" ng-if="blog.imgUrl" ng-src="{{blog.imgUrl}}" alt="" />
               </div>
             </li>
             <br>
@@ -35,19 +35,24 @@
 
 
 <script>
-  var x;
-  $(window).on('scroll', function() {
-      var x = $(window).scrollTop();
-      function retY() {
-        var y = (($(window).scrollTop() / $(window).height()));
-        if (y < .85){
-          return y
-        }
-        else {
-          return .85
-        }
-      }
-      $('.Home-page-container').css('background-size', 125 + parseInt(x / 5, 0) + 'vh');
-      $('.home-page-content-container').css('background-color', "rgba(0,0,0, " + retY() + ")");
-  });
+var x;
+$(window).on('scroll', function() {
+  var x = $(window).scrollTop();
+  function retY() {
+    var y = $(window).scrollTop() / $(window).height();
+    if (y < 0.85) {
+      return y;
+    } else {
+      return 0.85;
+    }
+  }
+  $('.Home-page-container').css(
+    'background-size',
+    125 + parseInt(x / 5, 0) + 'vh'
+  );
+  $('.home-page-content-container').css(
+    'background-color',
+    'rgba(0,0,0, ' + retY() + ')'
+  );
+});
 </script>
