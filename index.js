@@ -11,7 +11,7 @@ const express = require('express'),
   axios = require('axios');
 
 app.use(session({ secret: serverConfig.secret }));
-app.use('/', express.static(__dirname));
+app.use('/', express.static(__dirname + '/public'));
 mongoose.connect(mongoUri);
 app.use(json());
 app.use(cors());
