@@ -12,7 +12,16 @@ const express = require('express'),
 
 app.use(session({ secret: serverConfig.secret }));
 app.use('/', express.static(__dirname + '/public'));
-mongoose.connect(mongoUri);
+mongoose
+  .connect(mongoUri)
+  .then(response => {
+    console.log(response);
+  })
+  .catch(err => {
+    console.log('////////////////////////');
+    console.log(err);
+    console.log('////////////////////////');
+  });
 app.use(json());
 app.use(cors());
 masterRoutes(app);
@@ -44,11 +53,9 @@ app.put('/api/proxyServer', (req, res) => {
   axios
     .get(req.body.base_url)
     .then(response => {
-      console.log(response);
       return res.json(response.data);
     })
     .catch(err => {
-      console.log(err);
       return res.json(err);
     });
 });

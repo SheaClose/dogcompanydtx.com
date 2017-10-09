@@ -8104,6 +8104,18 @@
 	
 	var _storeCtrl2 = _interopRequireDefault(_storeCtrl);
 	
+	var _apparelDir = __webpack_require__(/*! ./components/directives/apparelDir/apparelDir.js */ 99);
+	
+	var _apparelDir2 = _interopRequireDefault(_apparelDir);
+	
+	var _bundleDir = __webpack_require__(/*! ./components/directives/bundleDir/bundleDir.js */ 100);
+	
+	var _bundleDir2 = _interopRequireDefault(_bundleDir);
+	
+	var _merchDir = __webpack_require__(/*! ./components/directives/merchDir/merchDir.js */ 101);
+	
+	var _merchDir2 = _interopRequireDefault(_merchDir);
+	
 	var _adminService = __webpack_require__(/*! ./components/admin/adminService.js */ 85);
 	
 	var _adminService2 = _interopRequireDefault(_adminService);
@@ -8164,10 +8176,6 @@
 	
 	// import myStyles from "../public/styleSheet/myStyles.css"
 	
-	// import jquery from "../jquery.js"
-	
-	// import $ from "jquery";
-	// import materialize from "materialize-css";
 	_angular2.default.module('app', ['ui.router']).service('adminService', _adminService2.default).service('cartService', _cartService2.default).service('homeService', _homeService2.default).service('showsService', _homeService4.default).service('storeService', _storeService2.default).controller('adminCtrl', _adminCtrl2.default).controller('cartCtrl', _cartCtrl2.default).controller('homeCtrl', _homeCtrl2.default).controller('showsCtrl', _homeCtrl4.default).controller('productCtrl', _productCtrl2.default).controller('storeCtrl', _storeCtrl2.default).config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
 	  $compileProvider.debugInfoEnabled(false);
 	  $urlRouterProvider.otherwise('/');
@@ -8203,7 +8211,7 @@
 	    controller: _cartCtrl2.default,
 	    template: _cartTmpl2.default
 	  });
-	}).directive('navBar', function () {
+	}).directive('apparelDir', _apparelDir2.default).directive('bundleDir', _bundleDir2.default).directive('merchDir', _merchDir2.default).directive('navBar', function () {
 	  return {
 	    template: _navbar2.default,
 	    scope: {
@@ -8216,6 +8224,11 @@
 	    }
 	  };
 	});
+	
+	// import jquery from "../jquery.js"
+	
+	// import $ from "jquery";
+	// import materialize from "materialize-css";
 
 /***/ }),
 /* 76 */
@@ -46749,14 +46762,13 @@
   \**************************************************/
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	function adminCtrl($scope, adminService, $state, $location) {
 	  $scope.userIsAdmin = false;
-	  console.log($state.params.adminId, $state.params.pass);
 	  if (!$state.params.adminId || !$state.params.pass) {
 	    $location.path('/');
 	  } else {
@@ -46764,7 +46776,7 @@
 	  }
 	  $scope.submitNewProduct = function () {
 	    if ($scope.title === undefined || $scope.price === undefined) {
-	      return alert("Please ensure the title and price fields are complete");
+	      return alert('Please ensure the title and price fields are complete');
 	    }
 	    var product = {
 	      title: $scope.title,
@@ -46777,14 +46789,14 @@
 	      size: $scope.size
 	    };
 	    adminService.submitNewProduct(product).then(function (response) {
-	      $scope.title = "";
-	      $scope.description = "";
-	      $scope.price = "";
-	      $scope.category = "";
-	      $scope.color = "";
-	      $scope.imgUrl = "";
-	      $scope.url = "";
-	      $scope.size = "";
+	      $scope.title = '';
+	      $scope.description = '';
+	      $scope.price = '';
+	      $scope.category = '';
+	      $scope.color = '';
+	      $scope.imgUrl = '';
+	      $scope.url = '';
+	      $scope.size = '';
 	    });
 	  };
 	  $scope.editProduct = function () {
@@ -46793,47 +46805,47 @@
 	    };
 	    if ($scope.title) {
 	      product.title = $scope.title;
-	    };
+	    }
 	    if ($scope.description) {
 	      product.description = $scope.description;
-	    };
+	    }
 	    if ($scope.price) {
 	      product.price = $scope.price;
-	    };
+	    }
 	    if ($scope.category) {
 	      product.category = $scope.category;
-	    };
+	    }
 	    if ($scope.color) {
 	      product.color = $scope.color;
-	    };
+	    }
 	    if ($scope.imgUrl) {
 	      product.imgUrl = $scope.imgUrl;
-	    };
+	    }
 	    if ($scope.url) {
 	      product.url = $scope.url;
-	    };
+	    }
 	    if ($scope.size) {
 	      product.size = $scope.size;
-	    };
+	    }
 	
 	    adminService.editProduct(product).then(function (response) {
 	      if (response.status == 200) {
-	        $scope.title = "";
-	        $scope.description = "";
-	        $scope.price = "";
-	        $scope.category = "";
-	        $scope.color = "";
-	        $scope.imgUrl = "";
-	        $scope.url = "";
-	        $scope.size = "";
-	        $scope.objId = "";
+	        $scope.title = '';
+	        $scope.description = '';
+	        $scope.price = '';
+	        $scope.category = '';
+	        $scope.color = '';
+	        $scope.imgUrl = '';
+	        $scope.url = '';
+	        $scope.size = '';
+	        $scope.objId = '';
 	      }
 	    });
 	  };
 	  $scope.deleteProduct = function (objId) {
 	    adminService.deleteProduct(objId).then(function (response) {
 	      if (response.status == 200) {
-	        $scope.objId = "";
+	        $scope.objId = '';
 	      }
 	    });
 	  };
@@ -46845,9 +46857,9 @@
 	    };
 	    adminService.addBlogPost(blogObj).then(function (response) {
 	      if (response.status == 200) {
-	        $scope.body = "";
-	        $scope.title = "";
-	        $scope.imgUrl = "";
+	        $scope.body = '';
+	        $scope.title = '';
+	        $scope.imgUrl = '';
 	      }
 	    });
 	  };
@@ -46859,20 +46871,20 @@
 	    };
 	    adminService.editBlogPost(blogObj).then(function (response) {
 	      if (response.status == 200) {
-	        $scope.body = "";
-	        $scope.title = "";
-	        $scope.objId = "";
+	        $scope.body = '';
+	        $scope.title = '';
+	        $scope.objId = '';
 	      }
 	    });
 	  };
 	  $scope.deleteBlog = function (objId) {
 	    adminService.deleteBlog(objId).then(function (response) {
-	      $scope.objId = "";
+	      $scope.objId = '';
 	    });
 	  };
 	  function checkPass(user, pass) {
 	    adminService.checkPass(user, pass).then(function (res) {
-	      $scope.userIsAdmin = res.data !== "false";
+	      $scope.userIsAdmin = res.data !== 'false';
 	    });
 	  }
 	}
@@ -46885,7 +46897,7 @@
   \************************************************/
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -46952,7 +46964,7 @@
 	    var userInfo = {};
 	    if ($scope.unitedStatesAddress) {
 	      if ($scope.first_name === undefined || $scope.last_name === undefined || $scope.email === undefined || $scope.street === undefined || $scope.city === undefined || $scope.state === undefined || $scope.zipcode === undefined) {
-	        alert("Please ensure all fields are complete. We can not complete your order without this information.\n\n\t\t\t\t\tIf you are having trouble completing an order, Please contact us at DogCompanyDtx@gmail.com");
+	        alert('Please ensure all fields are complete. We can not complete your order without this information.\n\n\t\t\t\t\tIf you are having trouble completing an order, Please contact us at DogCompanyDtx@gmail.com');
 	        return;
 	      }
 	      userInfo = {
@@ -46978,10 +46990,9 @@
 	      user: userInfo
 	    };
 	    cartService.submitOrder(order).then(function (response) {
-	      console.log(response);
 	      window.currentUserOrderInformation = response.data;
 	      cartService.deleteUser().then(function (response) {
-	        $window.location.href = "http://dogcompanydtx.com/#/store";
+	        $window.location.href = 'http://dogcompanydtx.com/#/store';
 	        // $window.location.href = "http://127.0.0.1:4000/#/store";
 	      });
 	    });
@@ -47045,21 +47056,26 @@
   \****************************************************/
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	function productCtrl($scope, $state, storeService) {
-	  console.log($state.params);
 	  $scope.toggle = false;
 	  $scope.img2Toggle = false;
-	  $scope.sizes = { small: false, medium: false, large: false, xLarge: false, xxLarge: false, xxxLarge: false };
+	  $scope.sizes = {
+	    small: false,
+	    medium: false,
+	    large: false,
+	    xLarge: false,
+	    xxLarge: false,
+	    xxxLarge: false
+	  };
 	  (function () {
 	    storeService.getAllProducts().then(function (response) {
 	      var product = response.data;
 	      product.forEach(function (cv, i, a) {
-	        console.log(cv._id == $state.params.id);
 	        if (cv.title === $state.params.id) {
 	          for (var key in $scope.sizes) {
 	            var num = 0;
@@ -47076,6 +47092,7 @@
 	            price: cv.price,
 	            title: cv.title
 	          };
+	          console.log(cv.imgUrl2, cv.imgUrl);
 	          if (cv.imgUrl2) {
 	            $scope.product.imgUrl2 = cv.imgUrl2;
 	            $scope.img2Toggle = true;
@@ -47083,25 +47100,27 @@
 	          if (cv.imgUrl3) {
 	            $scope.product.imgUrl3 = cv.imgUrl3;
 	          }
-	          if (cv.category !== "merch") {
+	          if (cv.category !== 'merch') {
 	            $scope.product.size = cv.size;
 	          }
-	          if (cv.category == "merch") {
+	          if (cv.category == 'merch') {
 	            $scope.toggle = true;
 	          }
 	        }
 	      });
 	    });
 	  })();
-	  $scope.addToCart = function (title, size) {
+	  $scope.addToCart = function (_ref) {
+	    var title = _ref.title,
+	        size = _ref.size;
+	
 	    if (!size) {
-	      size = "small";
+	      size = 'small';
 	    }
 	    storeService.addToCart(title, size).then(function (response) {
 	      $scope.user = response.data;
 	    });
 	  };
-	  // getAllProducts();
 	}
 	exports.default = productCtrl;
 
@@ -47112,7 +47131,7 @@
   \**************************************************/
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -47124,20 +47143,19 @@
 	      var product = response.data;
 	      $scope.products = [];
 	      product.forEach(function (cv, i, a) {
-	        if (cv.size === "small" && cv.category === "apparel") {
+	        if (cv.size === 'small' && cv.category === 'apparel') {
 	          $scope.products.unshift(cv);
-	        } else if (cv.size === "small") {
+	        } else if (cv.size === 'small') {
 	          $scope.products.push(cv);
 	        }
 	      });
 	    });
 	  };
 	  $scope.goTo = function (id) {
-	    $state.go('product', { 'id': id });
+	    $state.go('product', { id: id });
 	  };
 	  getAllProducts();
 	  if (window.currentUserOrderInformation) {
-	    console.log(window.currentUserOrderInformation);
 	    if (window.currentUserOrderInformation.user.nonUSAddress) {
 	      $scope.nonUSAddress = true;
 	    }
@@ -47368,7 +47386,85 @@
   \******************************************************/
 /***/ (function(module, exports) {
 
-	module.exports = "<div class=\"Store-page-container\">\n  <div class=\"Store-page-content-container\">\n    <div class=\"container\">\n      <nav-bar user=\"user\"></nav-bar>\n      <div class=\"row\">\n        <div class=\"product-page\">\n          <div class=\"col s12 m12 l8 center\">\n              <img class=\"responsive-img\" ng-src=\"{{product.imgUrl}}\" alt=\"\" />\n\t\t\t\t\t\t\t<div ng-if=\"img2Toggle\">\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<img class=\"col s12 m12 l12 responsive-img\" ng-src=\"{{product.imgUrl2}}\">\n\t\t\t\t\t\t\t\t\t<img class=\"col s12 m12 l12 responsive-img\" ng-src=\"{{product.imgUrl3}}\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n          </div>\n          <div class=\"col s12 m12 l4  product-page-text\">\n              <div style=\"padding-top: 10px; white-space: pre-line;\">  <u>Product</u>:             {{product.title}}</div>\n              <div style=\"padding-top: 10px; white-space: pre-line;\">  <u>Description</u>:             {{product.description}}</div>\n              <div style=\"padding-top: 10px; white-space: pre-line;\"><u>Color</u>:             {{product.color}}</div>\n              <div style=\"padding-top: 10px; white-space: pre-line;\">  <u>Price</u>:             ${{product.price}}</div>\n\t\t\t\t\t\t\t<div ng-hide=\"toggle\" style=\"padding-top: 10px; white-space: pre-line;\">  <u>Size</u>:\n\t\t\t\t\t\t\t</div>\n              <div ng-hide=\"toggle\" style=\"padding-top: 10px;\">\n                <select ng-model=\"size\" class=\"browser-default black\">\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.small\" value=\"small\">Small</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.medium\" value=\"medium\">Medium</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.large\" value=\"large\">Large</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.xLarge\" value=\"xLarge\">X-Large</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.xxLarge\" value=\"xxLarge\">XX-Large</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.xxxLarge\" value=\"xxxLarge\">XXX-Large</option>\n                </select>\n              </div>\n              <div style=\"padding-top: 10px;\">\n                <button ng-click=\"addToCart(product.title, size)\" type=\"button\" class=\"button black\"  name=\"button\" onclick=\"Materialize.toast('Item added to cart', 2000, 'teal rounded')\">Add to Cart</button>\n              </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<script>\n  $(window).ready(function(){\n    $('.carousel').carousel();\n  });\n  $(document).ready(function() {\n    $('select').material_select();\n  });\n  var x;\n  $(window).on('scroll', function() {\n      var x = $(window).scrollTop();\n      function retY() {\n        var y = (($(window).scrollTop() / $(window).height()));\n        if (y < .85){\n          return y\n        }\n        else {\n          return .85\n        }\n      }\n      $('.Store-page-container').css('background-size', 125 + parseInt(x / 3) + 'vh');\n      $('.Store-page-content-container').css('background-color', \"rgba(0,0,0, \" + retY() + \")\");\n  });\n\n</script>\n";
+	module.exports = "<div class=\"Store-page-container\">\n  <div class=\"Store-page-content-container\">\n    <div class=\"container\">\n      <nav-bar user=\"user\"></nav-bar>\n      <div class=\"row\">\n        <div class=\"product-page\">\n          <div class=\"col s12 m12 l8 center\">\n              <img class=\"responsive-img\" ng-src=\"{{product.imgUrl}}\" alt=\"\" />\n\t\t\t\t\t\t\t<div ng-if=\"img2Toggle\">\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<img class=\"col s12 m12 l12 responsive-img\" ng-src=\"{{product.imgUrl2}}\">\n\t\t\t\t\t\t\t\t\t<img class=\"col s12 m12 l12 responsive-img\" ng-src=\"{{product.imgUrl3}}\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n          </div>\n          <apparel-dir\n          ng-if=\"product.category == 'apparel'\"\n          product=\"product\"\n          add=\"addToCart(title,size)\"\n          sizes=\"sizes\">\n          </apparel-dir>\n          <merch-dir\n          ng-if=\"product.category == 'merch'\"\n          product=\"product\"\n          add=\"addToCart\"\n          sizes=\"sizes\">\n        </merch-dir>\n        <bundle-dir\n        ng-if=\"product.category == 'bundle'\"\n        product=\"product\"\n        add=\"addToCart\"\n        sizes=\"sizes\">\n      </bundle-dir>\n          <!-- <div class=\"col s12 m12 l4  product-page-text\">\n              <div style=\"padding-top: 10px; white-space: pre-line;\">  <u>Product</u>:             {{product.title}}</div>\n              <div style=\"padding-top: 10px; white-space: pre-line;\">  <u>Description</u>:             {{product.description}}</div>\n              <div style=\"padding-top: 10px; white-space: pre-line;\"><u>Color</u>:             {{product.color}}</div>\n              <div style=\"padding-top: 10px; white-space: pre-line;\">  <u>Price</u>:             ${{product.price}}</div>\n\t\t\t\t\t\t\t<div ng-hide=\"toggle\" style=\"padding-top: 10px; white-space: pre-line;\">  <u>Size</u>:\n\t\t\t\t\t\t\t</div>\n              <div ng-hide=\"toggle\" style=\"padding-top: 10px;\">\n                <select ng-model=\"size\" class=\"browser-default black\">\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.small\" value=\"small\">Small</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.medium\" value=\"medium\">Medium</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.large\" value=\"large\">Large</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.xLarge\" value=\"xLarge\">X-Large</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.xxLarge\" value=\"xxLarge\">XX-Large</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.xxxLarge\" value=\"xxxLarge\">XXX-Large</option>\n                </select>\n              </div>\n              <div style=\"padding-top: 10px;\">\n                <button ng-click=\"addToCart(product.title, size)\" type=\"button\" class=\"button black\"  name=\"button\" onclick=\"Materialize.toast('Item added to cart', 2000, 'teal rounded')\">Add to Cart</button>\n              </div>\n          </div> -->\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<script>\n$(window).ready(function() {\n  $('.carousel').carousel();\n});\n$(document).ready(function() {\n  $('select').material_select();\n});\nvar x;\n$(window).on('scroll', function() {\n  var x = $(window).scrollTop();\n  function retY() {\n    var y = $(window).scrollTop() / $(window).height();\n    if (y < 0.85) {\n      return y;\n    } else {\n      return 0.85;\n    }\n  }\n  $('.Store-page-container').css(\n    'background-size',\n    125 + parseInt(x / 3) + 'vh'\n  );\n  $('.Store-page-content-container').css(\n    'background-color',\n    'rgba(0,0,0, ' + retY() + ')'\n  );\n});\n</script>\n";
+
+/***/ }),
+/* 99 */
+/*!*******************************************************************!*\
+  !*** ./public/src/components/directives/apparelDir/apparelDir.js ***!
+  \*******************************************************************/
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = apparelDir;
+	function apparelDir() {
+	  return {
+	    template: templ,
+	    scope: {
+	      add: '&',
+	      product: '=',
+	      sizes: '='
+	    },
+	    controller: function controller($scope) {},
+	    link: function link(scope, element, attrs) {}
+	  };
+	}
+	
+	var templ = '<div class="col s12 m12 l4  product-page-text">\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Product</u>:             {{product.title}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Description</u>:             {{product.description}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;"><u>Color</u>:             {{product.color}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Price</u>:             ${{product.price}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Size</u>:\n    </div>\n    <div style="padding-top: 10px;">\n      <select ng-model="size" class="browser-default black">\n        <option ng-show="sizes.small" value="small">Small</option>\n        <option ng-show="sizes.medium" value="medium">Medium</option>\n        <option ng-show="sizes.large" value="large">Large</option>\n        <option ng-show="sizes.xLarge" value="xLarge">X-Large</option>\n        <option ng-show="sizes.xxLarge" value="xxLarge">XX-Large</option>\n        <option ng-show="sizes.xxxLarge" value="xxxLarge">XXX-Large</option>\n      </select>\n    </div>\n    <div style="padding-top: 10px;">\n      <button ng-click="add({title: product.title, size: size})" type="button" class="button black"  name="button" onclick="Materialize.toast(\'Item added to cart\', 2000, \'teal rounded\')">Add to Cart</button>\n    </div>\n</div>\n';
+
+/***/ }),
+/* 100 */
+/*!*****************************************************************!*\
+  !*** ./public/src/components/directives/bundleDir/bundleDir.js ***!
+  \*****************************************************************/
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = bundleDir;
+	function bundleDir() {
+	  return {
+	    templateUrl: './bundleTmpl.html',
+	    scope: {},
+	    controller: function controller($scope) {},
+	    link: function link(scope, element, attrs) {}
+	  };
+	}
+
+/***/ }),
+/* 101 */
+/*!***************************************************************!*\
+  !*** ./public/src/components/directives/merchDir/merchDir.js ***!
+  \***************************************************************/
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = merchDir;
+	function merchDir() {
+	  return {
+	    template: templ,
+	    scope: {
+	      add: '=',
+	      product: '=',
+	      sizes: '='
+	    },
+	    controller: function controller($scope) {},
+	    link: function link(scope, element, attrs) {}
+	  };
+	}
+	
+	var templ = '<div class="col s12 m12 l4  product-page-text">\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Product</u>:             {{product.title}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Description</u>:             {{product.description}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;"><u>Color</u>:             {{product.color}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Price</u>:             ${{product.price}}</div>\n    <div style="padding-top: 10px;">\n      <button ng-click="add({title: product.title, size: size})" type="button" class="button black"  name="button" onclick="Materialize.toast(\'Item added to cart\', 2000, \'teal rounded\')">Add to Cart</button>\n    </div>\n</div>\n';
 
 /***/ })
 /******/ ]);

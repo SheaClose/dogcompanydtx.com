@@ -1,42 +1,40 @@
-const Product = require("./Product.js")
+const Product = require('./Product.js');
 
-module.exports= {
-  getProducts: (req,res) => {
+module.exports = {
+  getProducts: (req, res) => {
     Product.find({}, (err, suc) => {
       if (err) {
-        return res.status(500).json(err)}
-      else {
-        return res.status(200).json(suc)
+        return res.status(500).json(err);
+      } else {
+        return res.status(200).json(suc);
       }
-    })
-  }
-  , postProduct: (req, res) => {
-		console.log(req.body);
-    new Product(req.body).save((err, suc) =>{
+    });
+  },
+  postProduct: (req, res) => {
+    new Product(req.body).save((err, suc) => {
       if (err) {
-				console.log(err);
-				return res.status(500).json(err)
-			}
-      else {
-				console.log(suc);
-        return res.status(200).json(suc)
+        return res.status(500).json(err);
+      } else {
+        return res.status(200).json(suc);
       }
-    })
-  }
-  , editProduct: (req, res) => {
-    Product.findByIdAndUpdate({_id: req.params.id}, req.body, (err, suc) =>{
-      if (err) { return res.status(500).json(err)}
-      else {
-        return res.status(200).json(suc)
+    });
+  },
+  editProduct: (req, res) => {
+    Product.findByIdAndUpdate({ _id: req.params.id }, req.body, (err, suc) => {
+      if (err) {
+        return res.status(500).json(err);
+      } else {
+        return res.status(200).json(suc);
       }
-    })
-  }
-  , deleteProduct: (req, res) => {
-    Product.findByIdAndRemove({_id: req.params.id}, (err, suc) =>{
-      if (err) { return res.status(500).json(err)}
-      else {
-        return res.status(200).json(suc)
+    });
+  },
+  deleteProduct: (req, res) => {
+    Product.findByIdAndRemove({ _id: req.params.id }, (err, suc) => {
+      if (err) {
+        return res.status(500).json(err);
+      } else {
+        return res.status(200).json(suc);
       }
-    })
+    });
   }
-}
+};
