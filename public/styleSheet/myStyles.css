@@ -2,6 +2,7 @@ body {
   background-color: black;
   color: white;
 }
+
 .Home-page-container {
   background: black;
   background-attachment: fixed;
@@ -9,6 +10,7 @@ body {
   background-size: 125vh;
   color: white;
 }
+
 @media only screen and (min-width: 960px) {
   .Home-page-container {
     background: -webkit-radial-gradient(
@@ -30,6 +32,7 @@ body {
     color: white;
   }
 }
+
 .container-center {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -41,6 +44,7 @@ body {
   -ms-flex-pack: center;
   justify-content: center;
 }
+
 .about-page-container {
   background: black;
   background-attachment: fixed;
@@ -48,6 +52,7 @@ body {
   background-size: 70vh;
   color: white;
 }
+
 @media only screen and (min-width: 960px) {
   .about-page-container {
     background: url('../../Assets/photos/DogCoLogo3.jpg') no-repeat fixed;
@@ -57,6 +62,7 @@ body {
     color: white;
   }
 }
+
 .shows-page-container {
   background: black;
   background-attachment: fixed;
@@ -70,6 +76,7 @@ body {
   -ms-flex-pack: distribute;
   justify-content: space-around;
 }
+
 @media only screen and (min-width: 960px) {
   .shows-page-container {
     background: -webkit-radial-gradient(
@@ -97,22 +104,27 @@ body {
     justify-content: space-around;
   }
 }
+
 .shows-page-content-container {
   background-color: transparent;
   font-family: arial, helvetica, sans-serif;
 }
+
 .Past-events-header {
   margin-top: 50px;
 }
+
 .centered-object {
   margin-top: 25px;
 }
+
 #toast-container {
   top: auto !important;
   left: auto !important;
   bottom: 15vh;
   right: 1%;
 }
+
 .Store-page-container {
   background: black;
   background-attachment: fixed;
@@ -123,6 +135,7 @@ body {
   -o-object-position: center;
   object-position: center;
 }
+
 @media only screen and (min-width: 960px) {
   .Store-page-container {
     background: -webkit-radial-gradient(
@@ -147,28 +160,37 @@ body {
     object-position: center;
   }
 }
+
 .Store-page-content-container {
   color: white;
   background-color: rgba(0, 0, 0, 0.1);
 }
+
 .product-repeat {
   margin-top: 20px;
 }
+
 .product-img {
   height: 35vh;
+  max-width: 100%;
 }
+
 .product-text {
   font-size: 1.5em;
 }
+
 .product-page {
   height: 80vh;
   font-size: 1.5em;
 }
+
 .product-page-img {
   height: 80vh;
 }
+
 .product-page-text {
 }
+
 .media-page-container {
   background: black;
   background-attachment: fixed;
@@ -180,6 +202,7 @@ body {
   object-position: center;
   color: white;
 }
+
 @media only screen and (min-width: 960px) {
   .media-page-container {
     background: -webkit-radial-gradient(
@@ -205,15 +228,19 @@ body {
     color: white;
   }
 }
+
 .Album-Art {
   width: 100%;
 }
+
 .album-song-title a {
   color: white;
 }
+
 .album-song-title {
   font-size: 1.5vh;
 }
+
 .material-icons-music {
   font-size: 1.1em;
 }
@@ -221,13 +248,16 @@ body {
 .admin-tmpl {
   background-color: grey;
 }
+
 table.highlight > tbody > tr:hover {
   background-color: rgba(0, 150, 136, 0.8);
 }
+
 .timeline ul {
   background: transparent;
   padding: 35px 0;
 }
+
 .about-body {
   border-radius: 15px;
   color: white;
@@ -237,6 +267,7 @@ table.highlight > tbody > tr:hover {
   margin-bottom: -50px;
   width: 100%;
 }
+
 .container-fluid {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -245,6 +276,7 @@ table.highlight > tbody > tr:hover {
   justify-content: space-around;
   margin-top: 20vh;
 }
+
 .container-fluid2 {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -253,6 +285,7 @@ table.highlight > tbody > tr:hover {
   justify-content: space-around;
   margin-top: 2vh;
 }
+
 .cart-title {
   border-radius: 5px;
   color: white;
@@ -364,12 +397,15 @@ time {
   visibility: visible;
   opacity: 1;
 }
+
 .nav-bar a:link {
   color: white;
 }
+
 .nav-bar a:visited {
   color: white;
 }
+
 .nav-bar {
   background: transparent;
   display: -webkit-box;
@@ -381,15 +417,24 @@ time {
   font-size: 2em;
   margin: 1vh 0vh 5vh;
 }
+
 .nav-bar a {
   color: white;
 }
+
 .pointer {
   cursor: pointer;
 }
+
 @-ms-viewport {
   width: device-width;
 }
+
 .prodrow {
   max-height: 50vh;
+}
+
+.t_shirt_select {
+  display: block;
+  background-color: #444;
 }

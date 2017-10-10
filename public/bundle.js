@@ -47072,52 +47072,44 @@
 	    xxLarge: false,
 	    xxxLarge: false
 	  };
-	  (function () {
-	    storeService.getAllProducts().then(function (response) {
-	      var product = response.data;
-	      product.forEach(function (cv, i, a) {
-	        if (cv.title === $state.params.id) {
-	          for (var key in $scope.sizes) {
-	            var num = 0;
-	            if (key === cv.size) {
-	              $scope.sizes[key] = cv.available;
-	            }
-	          }
-	          $scope.product = {
-	            _id: cv._id,
-	            category: cv.category,
-	            color: cv.color,
-	            description: cv.description,
-	            imgUrl: cv.imgUrl,
-	            price: cv.price,
-	            title: cv.title
-	          };
-	          console.log(cv.imgUrl2, cv.imgUrl);
-	          if (cv.imgUrl2) {
-	            $scope.product.imgUrl2 = cv.imgUrl2;
-	            $scope.img2Toggle = true;
-	          }
-	          if (cv.imgUrl3) {
-	            $scope.product.imgUrl3 = cv.imgUrl3;
-	          }
-	          if (cv.category !== 'merch') {
-	            $scope.product.size = cv.size;
-	          }
-	          if (cv.category == 'merch') {
-	            $scope.toggle = true;
+	  storeService.getAllProducts().then(function (response) {
+	    var product = response.data;
+	    product.forEach(function (cv, i, a) {
+	      if (cv.title === $state.params.id) {
+	        for (var key in $scope.sizes) {
+	          var num = 0;
+	          if (key === cv.size) {
+	            $scope.sizes[key] = cv.available;
 	          }
 	        }
-	      });
+	        $scope.product = {
+	          _id: cv._id,
+	          category: cv.category,
+	          color: cv.color,
+	          description: cv.description,
+	          imgUrl: cv.imgUrl,
+	          price: cv.price,
+	          title: cv.title,
+	          options: cv.options
+	        };
+	        if (cv.imgUrl2) {
+	          $scope.product.imgUrl2 = cv.imgUrl2;
+	          $scope.img2Toggle = true;
+	        }
+	        if (cv.imgUrl3) {
+	          $scope.product.imgUrl3 = cv.imgUrl3;
+	        }
+	        if (cv.category !== 'merch') {
+	          $scope.product.size = cv.size;
+	        }
+	        if (cv.category == 'merch') {
+	          $scope.toggle = true;
+	        }
+	      }
 	    });
-	  })();
-	  $scope.addToCart = function (_ref) {
-	    var title = _ref.title,
-	        size = _ref.size;
-	
-	    if (!size) {
-	      size = 'small';
-	    }
-	    storeService.addToCart(title, size).then(function (response) {
+	  });
+	  $scope.addToCart = function (title, size) {
+	    storeService.addToCart(title, size || 'small').then(function (response) {
 	      $scope.user = response.data;
 	    });
 	  };
@@ -47290,19 +47282,23 @@
   \*****************************************************/
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	function storeService($http) {
+	  var _this = this;
+	
+	  this.products = [];
 	  this.getAllProducts = function () {
-	    return $http.get("/api/products").then(function (response) {
+	    return $http.get('/api/products').then(function (response) {
+	      _this.products = response.data;
 	      return response;
 	    });
 	  };
 	  this.addToCart = function (ttl, sz) {
-	    return $http.post("/api/cart", { title: ttl, size: sz });
+	    return $http.post('/api/cart', { title: ttl, size: sz });
 	  };
 	}
 	exports.default = storeService;
@@ -47377,7 +47373,7 @@
   \****************************************************/
 /***/ (function(module, exports) {
 
-	module.exports = "<div class=\"Store-page-container\">\n  <div class=\"Store-page-content-container\">\n    <div class=\"container\">\n      <nav-bar user=\"user\"></nav-bar>\n      <div class=\"row\">\n        <div ng-click=\"goTo(product.title)\" ng-repeat=\"product in products\" class=\"col s12 m12 l4 center product-repeat pointer prodrow\">\n            <img class=\"product-img\" ng-src=\"{{product.imgUrl}}\" alt=\"\" />\n            <ul class=\"product-text\">\n            <li>{{product.title}}</li>\n            <li>${{product.price}}</li>\n            </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!-- ORDER COMPLETION CONFIRMATION -->\n<div id=\"modal1\" class=\"modal modal-fixed-footer grey darken-4\">\n  <div class=\"modal-content grey darken-2\">\n    <h4>Order Complete!</h4>\n    <p>Thank you for placing an order with Dog Company. We have now received your order. Due to frequently changing availability of inventory, we must first verify we can fulfill your order. Please allow us a day or two to check inventory and we will contact you with confirmation and a payment request.</p>\n    <p>\n    You should recieve an e-mail shortly. Please hold on to this as confirmation of your order until you have received and are happy with your order. Should a problem arise, the Order Number will greatly assist us in locating your order.</p>\n    <hr>\n\n    <p>\n      Order Number: {{currentUserOrderInformation._id}}\n      <br>\n      Order Total (before shipping): ${{currentUserOrderInformation.total}}\n      <br>\n      Order Date: {{currentUserOrderInformation.date | date:'medium'}}\n      <p>\n        <h5>Order:</h5>\n      </p>\n      <hr>\n      <p>\n        <ul ng-repeat=\"cartItem in currentUserOrderInformation.cart\">\n\t\t\t\t\t<li>Product: {{cartItem.product.title}}</li>\n          <li>Quantity: {{cartItem.quantity}}</li>\n          <li ng-hide=\"cartItem.product.category !== 'apparel'\">Size: {{cartItem.product.size}}</li>\n          <li ng-hide=\"cartItem.product.category !== 'apparel'\">Color: {{cartItem.product.color}}</li>\n          <li style=\"border-bottom: 1px solid black;\">Unit Price: ${{cartItem.product.price}}</li>\n        </ul>\n      </p>\n      <p>\n        <ul>\n          <h5>Confirm User Data:</h5>\n          <hr>\n          <li>Name: {{currentUserOrderInformation.user.last_name}}, {{currentUserOrderInformation.user.first_name}}</li>\n          <li ng-hide=\"nonUSAddress\">Adress: {{currentUserOrderInformation.user.street}}, {{currentUserOrderInformation.user.city}}, {{currentUserOrderInformation.user.state}} {{currentUserOrderInformation.user.zipcode}}</li>\n\t\t\t\t\t<li ng-show=\"nonUSAddress\">Adress: {{currentUserOrderInformation.user.nonUSAddress}}</li>\n          <li>Email: {{currentUserOrderInformation.user.email}}</li>\n        </ul>\n      </p>\n    </p>\n  </div>\n  <div class=\"modal-footer grey\">\n    <a class=\"modal-action modal-close waves-effect waves-green btn-flat grey lighten-2\">Dismiss</a>\n  </div>\n</div>\n\n<script>\n  var x;\n  $(window).on('scroll', function() {\n      var x = $(window).scrollTop();\n      function retY() {\n        var y = (($(window).scrollTop() / $(window).height()));\n        if (y < .85){\n          return y\n        }\n        else {\n          return .85\n        }\n      }\n      $('.Store-page-container').css('background-size', 125 + parseInt(x / 3) + 'vh');\n      $('.Store-page-content-container').css('background-color', \"rgba(0,0,0, \" + retY() + \")\");\n  });\n</script>\n";
+	module.exports = "<div class=\"Store-page-container\">\n  <div class=\"Store-page-content-container\">\n    <div class=\"container\">\n      <nav-bar user=\"user\"></nav-bar>\n      <div class=\"row\">\n        <div ng-click=\"goTo(product.title)\" ng-repeat=\"product in products\" class=\"col s12 m12 l4 center product-repeat pointer prodrow\">\n            <img\n              class=\"product-img\" ng-src=\"{{product.imgUrl}}\" alt=\"product.title\" \n            />\n            <ul class=\"product-text\">\n            <li>{{product.title}}</li>\n            <li>${{product.price}}</li>\n            </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!-- ORDER COMPLETION CONFIRMATION -->\n<div id=\"modal1\" class=\"modal modal-fixed-footer grey darken-4\">\n  <div class=\"modal-content grey darken-2\">\n    <h4>Order Complete!</h4>\n    <p>Thank you for placing an order with Dog Company. We have now received your order. Due to frequently changing availability of inventory, we must first verify we can fulfill your order. Please allow us a day or two to check inventory and we will contact you with confirmation and a payment request.</p>\n    <p>\n    You should recieve an e-mail shortly. Please hold on to this as confirmation of your order until you have received and are happy with your order. Should a problem arise, the Order Number will greatly assist us in locating your order.</p>\n    <hr>\n\n    <p>\n      Order Number: {{currentUserOrderInformation._id}}\n      <br>\n      Order Total (before shipping): ${{currentUserOrderInformation.total}}\n      <br>\n      Order Date: {{currentUserOrderInformation.date | date:'medium'}}\n      <p>\n        <h5>Order:</h5>\n      </p>\n      <hr>\n      <p>\n        <ul ng-repeat=\"cartItem in currentUserOrderInformation.cart\">\n\t\t\t\t\t<li>Product: {{cartItem.product.title}}</li>\n          <li>Quantity: {{cartItem.quantity}}</li>\n          <li ng-hide=\"cartItem.product.category !== 'apparel'\">Size: {{cartItem.product.size}}</li>\n          <li ng-hide=\"cartItem.product.category !== 'apparel'\">Color: {{cartItem.product.color}}</li>\n          <li style=\"border-bottom: 1px solid black;\">Unit Price: ${{cartItem.product.price}}</li>\n        </ul>\n      </p>\n      <p>\n        <ul>\n          <h5>Confirm User Data:</h5>\n          <hr>\n          <li>Name: {{currentUserOrderInformation.user.last_name}}, {{currentUserOrderInformation.user.first_name}}</li>\n          <li ng-hide=\"nonUSAddress\">Adress: {{currentUserOrderInformation.user.street}}, {{currentUserOrderInformation.user.city}}, {{currentUserOrderInformation.user.state}} {{currentUserOrderInformation.user.zipcode}}</li>\n\t\t\t\t\t<li ng-show=\"nonUSAddress\">Adress: {{currentUserOrderInformation.user.nonUSAddress}}</li>\n          <li>Email: {{currentUserOrderInformation.user.email}}</li>\n        </ul>\n      </p>\n    </p>\n  </div>\n  <div class=\"modal-footer grey\">\n    <a class=\"modal-action modal-close waves-effect waves-green btn-flat grey lighten-2\">Dismiss</a>\n  </div>\n</div>\n\n<script>\nvar x;\n$(window).on('scroll', function() {\n  var x = $(window).scrollTop();\n  function retY() {\n    var y = $(window).scrollTop() / $(window).height();\n    if (y < 0.85) {\n      return y;\n    } else {\n      return 0.85;\n    }\n  }\n  $('.Store-page-container').css(\n    'background-size',\n    125 + parseInt(x / 3) + 'vh'\n  );\n  $('.Store-page-content-container').css(\n    'background-color',\n    'rgba(0,0,0, ' + retY() + ')'\n  );\n});\n</script>\n";
 
 /***/ }),
 /* 98 */
@@ -47386,7 +47382,7 @@
   \******************************************************/
 /***/ (function(module, exports) {
 
-	module.exports = "<div class=\"Store-page-container\">\n  <div class=\"Store-page-content-container\">\n    <div class=\"container\">\n      <nav-bar user=\"user\"></nav-bar>\n      <div class=\"row\">\n        <div class=\"product-page\">\n          <div class=\"col s12 m12 l8 center\">\n              <img class=\"responsive-img\" ng-src=\"{{product.imgUrl}}\" alt=\"\" />\n\t\t\t\t\t\t\t<div ng-if=\"img2Toggle\">\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<img class=\"col s12 m12 l12 responsive-img\" ng-src=\"{{product.imgUrl2}}\">\n\t\t\t\t\t\t\t\t\t<img class=\"col s12 m12 l12 responsive-img\" ng-src=\"{{product.imgUrl3}}\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n          </div>\n          <apparel-dir\n          ng-if=\"product.category == 'apparel'\"\n          product=\"product\"\n          add=\"addToCart(title,size)\"\n          sizes=\"sizes\">\n          </apparel-dir>\n          <merch-dir\n          ng-if=\"product.category == 'merch'\"\n          product=\"product\"\n          add=\"addToCart\"\n          sizes=\"sizes\">\n        </merch-dir>\n        <bundle-dir\n        ng-if=\"product.category == 'bundle'\"\n        product=\"product\"\n        add=\"addToCart\"\n        sizes=\"sizes\">\n      </bundle-dir>\n          <!-- <div class=\"col s12 m12 l4  product-page-text\">\n              <div style=\"padding-top: 10px; white-space: pre-line;\">  <u>Product</u>:             {{product.title}}</div>\n              <div style=\"padding-top: 10px; white-space: pre-line;\">  <u>Description</u>:             {{product.description}}</div>\n              <div style=\"padding-top: 10px; white-space: pre-line;\"><u>Color</u>:             {{product.color}}</div>\n              <div style=\"padding-top: 10px; white-space: pre-line;\">  <u>Price</u>:             ${{product.price}}</div>\n\t\t\t\t\t\t\t<div ng-hide=\"toggle\" style=\"padding-top: 10px; white-space: pre-line;\">  <u>Size</u>:\n\t\t\t\t\t\t\t</div>\n              <div ng-hide=\"toggle\" style=\"padding-top: 10px;\">\n                <select ng-model=\"size\" class=\"browser-default black\">\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.small\" value=\"small\">Small</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.medium\" value=\"medium\">Medium</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.large\" value=\"large\">Large</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.xLarge\" value=\"xLarge\">X-Large</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.xxLarge\" value=\"xxLarge\">XX-Large</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.xxxLarge\" value=\"xxxLarge\">XXX-Large</option>\n                </select>\n              </div>\n              <div style=\"padding-top: 10px;\">\n                <button ng-click=\"addToCart(product.title, size)\" type=\"button\" class=\"button black\"  name=\"button\" onclick=\"Materialize.toast('Item added to cart', 2000, 'teal rounded')\">Add to Cart</button>\n              </div>\n          </div> -->\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<script>\n$(window).ready(function() {\n  $('.carousel').carousel();\n});\n$(document).ready(function() {\n  $('select').material_select();\n});\nvar x;\n$(window).on('scroll', function() {\n  var x = $(window).scrollTop();\n  function retY() {\n    var y = $(window).scrollTop() / $(window).height();\n    if (y < 0.85) {\n      return y;\n    } else {\n      return 0.85;\n    }\n  }\n  $('.Store-page-container').css(\n    'background-size',\n    125 + parseInt(x / 3) + 'vh'\n  );\n  $('.Store-page-content-container').css(\n    'background-color',\n    'rgba(0,0,0, ' + retY() + ')'\n  );\n});\n</script>\n";
+	module.exports = "<div class=\"Store-page-container\">\n  <div class=\"Store-page-content-container\">\n    <div class=\"container\">\n      <nav-bar user=\"user\"></nav-bar>\n      <div class=\"row\">\n        <div class=\"product-page\">\n          <div class=\"col s12 m12 l8 center\">\n              <img class=\"responsive-img\" ng-src=\"{{product.imgUrl}}\" alt=\"\" />\n\t\t\t\t\t\t\t<div ng-if=\"img2Toggle\">\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<img class=\"col s12 m12 l12 responsive-img\" ng-src=\"{{product.imgUrl2}}\">\n\t\t\t\t\t\t\t\t\t<img class=\"col s12 m12 l12 responsive-img\" ng-src=\"{{product.imgUrl3}}\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n          </div>\n          <apparel-dir\n            ng-if=\"product.category == 'apparel'\"\n            product=\"product\"\n            add=\"addToCart(title,size)\"\n            sizes=\"sizes\">\n          </apparel-dir>\n          <merch-dir\n            ng-if=\"product.category == 'merch'\"\n            product=\"product\"\n            add=\"addToCart(title,size)\"\n            sizes=\"sizes\">\n          </merch-dir>\n          <bundle-dir\n            ng-if=\"product.category == 'bundle'\"\n            product=\"product\"\n            add=\"addToCart(title,size)\"\n            sizes=\"sizes\">\n          </bundle-dir>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<script>\n$(window).ready(function() {\n  $('.carousel').carousel();\n});\n$(document).ready(function() {\n  $('select').material_select();\n});\nvar x;\n$(window).on('scroll', function() {\n  var x = $(window).scrollTop();\n  function retY() {\n    var y = $(window).scrollTop() / $(window).height();\n    if (y < 0.85) {\n      return y;\n    } else {\n      return 0.85;\n    }\n  }\n  $('.Store-page-container').css(\n    'background-size',\n    125 + parseInt(x / 3) + 'vh'\n  );\n  $('.Store-page-content-container').css(\n    'background-color',\n    'rgba(0,0,0, ' + retY() + ')'\n  );\n});\n</script>\n";
 
 /***/ }),
 /* 99 */
@@ -47429,12 +47425,43 @@
 	  value: true
 	});
 	exports.default = bundleDir;
-	function bundleDir() {
+	function bundleDir(storeService) {
 	  return {
-	    templateUrl: './bundleTmpl.html',
-	    scope: {},
-	    controller: function controller($scope) {},
-	    link: function link(scope, element, attrs) {}
+	    templateUrl: './src/components/directives/bundleDir/bundleTmpl.html',
+	    scope: {
+	      add: '&',
+	      product: '=',
+	      sizes: '='
+	    },
+	    controller: function controller($scope) {
+	      if ($scope.product.options.includes('shirts')) {
+	        $scope.product.designs = storeService.products.filter(function (c) {
+	          return c.category == 'apparel';
+	        }).map(function (c) {
+	          return c.title;
+	        }).filter(function (c, i, a) {
+	          return a.indexOf(c) == i;
+	        });
+	      }
+	      if ($scope.product.options.includes('albums')) {
+	        $scope.product.albums = storeService.products.filter(function (c) {
+	          return c.category == 'merch';
+	        }).filter(function (c) {
+	          return c.description.includes('tracks');
+	        }).map(function (c) {
+	          return c.title;
+	        });
+	      }
+	      $scope.$watch('selectedDesign', function () {
+	        $scope.product.sizes = storeService.products.filter(function (c) {
+	          return c.title == $scope.selectedDesign;
+	        }).filter(function (c) {
+	          return c.available;
+	        }).map(function (c) {
+	          return c.size;
+	        });
+	      });
+	    }
 	  };
 	}
 
@@ -47455,7 +47482,7 @@
 	  return {
 	    template: templ,
 	    scope: {
-	      add: '=',
+	      add: '&',
 	      product: '=',
 	      sizes: '='
 	    },

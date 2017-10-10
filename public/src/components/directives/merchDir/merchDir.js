@@ -2,7 +2,7 @@ export default function merchDir() {
   return {
     template: templ,
     scope: {
-      add: '=',
+      add: '&',
       product: '=',
       sizes: '='
     },

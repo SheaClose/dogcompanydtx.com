@@ -12,16 +12,8 @@ const express = require('express'),
 
 app.use(session({ secret: serverConfig.secret }));
 app.use('/', express.static(__dirname + '/public'));
-mongoose
-  .connect(mongoUri)
-  .then(response => {
-    console.log(response);
-  })
-  .catch(err => {
-    console.log('////////////////////////');
-    console.log(err);
-    console.log('////////////////////////');
-  });
+mongoose.connect(mongoUri);
+
 app.use(json());
 app.use(cors());
 masterRoutes(app);

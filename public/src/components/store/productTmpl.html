@@ -12,47 +12,25 @@
 									<img class="col s12 m12 l12 responsive-img" ng-src="{{product.imgUrl3}}">
 								</div>
 							</div>
-
           </div>
           <apparel-dir
-          ng-if="product.category == 'apparel'"
-          product="product"
-          add="addToCart(title,size)"
-          sizes="sizes">
+            ng-if="product.category == 'apparel'"
+            product="product"
+            add="addToCart(title,size)"
+            sizes="sizes">
           </apparel-dir>
           <merch-dir
-          ng-if="product.category == 'merch'"
-          product="product"
-          add="addToCart"
-          sizes="sizes">
-        </merch-dir>
-        <bundle-dir
-        ng-if="product.category == 'bundle'"
-        product="product"
-        add="addToCart"
-        sizes="sizes">
-      </bundle-dir>
-          <!-- <div class="col s12 m12 l4  product-page-text">
-              <div style="padding-top: 10px; white-space: pre-line;">  <u>Product</u>:             {{product.title}}</div>
-              <div style="padding-top: 10px; white-space: pre-line;">  <u>Description</u>:             {{product.description}}</div>
-              <div style="padding-top: 10px; white-space: pre-line;"><u>Color</u>:             {{product.color}}</div>
-              <div style="padding-top: 10px; white-space: pre-line;">  <u>Price</u>:             ${{product.price}}</div>
-							<div ng-hide="toggle" style="padding-top: 10px; white-space: pre-line;">  <u>Size</u>:
-							</div>
-              <div ng-hide="toggle" style="padding-top: 10px;">
-                <select ng-model="size" class="browser-default black">
-									<option ng-show="sizes.small" value="small">Small</option>
-									<option ng-show="sizes.medium" value="medium">Medium</option>
-									<option ng-show="sizes.large" value="large">Large</option>
-									<option ng-show="sizes.xLarge" value="xLarge">X-Large</option>
-									<option ng-show="sizes.xxLarge" value="xxLarge">XX-Large</option>
-									<option ng-show="sizes.xxxLarge" value="xxxLarge">XXX-Large</option>
-                </select>
-              </div>
-              <div style="padding-top: 10px;">
-                <button ng-click="addToCart(product.title, size)" type="button" class="button black"  name="button" onclick="Materialize.toast('Item added to cart', 2000, 'teal rounded')">Add to Cart</button>
-              </div>
-          </div> -->
+            ng-if="product.category == 'merch'"
+            product="product"
+            add="addToCart(title,size)"
+            sizes="sizes">
+          </merch-dir>
+          <bundle-dir
+            ng-if="product.category == 'bundle'"
+            product="product"
+            add="addToCart(title,size)"
+            sizes="sizes">
+          </bundle-dir>
         </div>
       </div>
     </div>
