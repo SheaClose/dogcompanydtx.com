@@ -5,9 +5,7 @@ export default function merchDir() {
       add: '&',
       product: '=',
       sizes: '='
-    },
-    controller: function($scope) {},
-    link: function(scope, element, attrs) {}
+    }
   };
 }
 

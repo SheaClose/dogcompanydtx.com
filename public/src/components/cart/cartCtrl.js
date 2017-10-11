@@ -98,7 +98,7 @@ function cartCtrl($scope, $window, cartService) {
     cartService.submitOrder(order).then(response => {
       window.currentUserOrderInformation = response.data;
       cartService.deleteUser().then(response => {
-        $window.location.href = 'http://dogcompanydtx.com/#/store';
+        $window.location.hash = '#!/store';
         // $window.location.href = "http://127.0.0.1:4000/#/store";
       });
     });

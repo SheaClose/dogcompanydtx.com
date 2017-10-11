@@ -35,63 +35,80 @@ import productTmpl from './components/store/productTmpl.html';
 
 angular
   .module('app', ['ui.router'])
-  .service('adminService', adminService)
-  .service('cartService', cartService)
-  .service('homeService', homeService)
-  .service('showsService', showsService)
-  .service('storeService', storeService)
-  .controller('adminCtrl', adminCtrl)
-  .controller('cartCtrl', cartCtrl)
-  .controller('homeCtrl', homeCtrl)
-  .controller('showsCtrl', showsCtrl)
-  .controller('productCtrl', productCtrl)
-  .controller('storeCtrl', storeCtrl)
-  .config(function($stateProvider, $urlRouterProvider, $compileProvider) {
-    $compileProvider.debugInfoEnabled(false);
-    $urlRouterProvider.otherwise('/');
-    $stateProvider
-      .state('home', {
-        url: '/',
-        template: homeTmpl,
-        controller: homeCtrl
-      })
-      .state('store', {
-        url: '/store',
-        template: storeTmpl,
-        controller: storeCtrl
-      })
-      .state('product', {
-        url: '/product/:id',
-        template: productTmpl,
-        controller: productCtrl
-      })
-      .state('shows', {
-        url: '/shows',
-        template: showsTmpl,
-        controller: showsCtrl
-      })
-      .state('about', {
-        url: '/about',
-        template: aboutTmpl
-      })
-      .state('media', {
-        url: '/media',
-        template: mediaTmpl
-      })
-      .state('admin', {
-        //url: "/map/:lat/:lng"
-        url: '/admin/:adminId/:pass',
-        controller: adminCtrl,
-        template: adminTmpl
-      })
-      .state('cart', {
-        url: '/cart',
-        controller: cartCtrl,
-        template: cartTmpl
-      });
-  })
+  .service('adminService', ['$http', adminService])
+  .service('cartService', ['$http', cartService])
+  .service('homeService', ['$http', homeService])
+  .service('showsService', ['$http', showsService])
+  .service('storeService', ['$http', storeService])
+  .controller('adminCtrl', [
+    '$scope',
+    'adminService',
+    '$state',
+    '$location',
+    adminCtrl
+  ])
+  .controller('cartCtrl', ['$scope', '$window', 'cartService', cartCtrl])
+  .controller('homeCtrl', ['$scope', 'homeService', homeCtrl])
+  .controller('showsCtrl', ['$scope', '$window', 'showsService', showsCtrl])
+  .controller('productCtrl', ['$scope', '$state', 'storeService', productCtrl])
+  .controller('storeCtrl', [
+    '$scope',
+    '$stateParams',
+    '$state',
+    'storeService',
+    storeCtrl
+  ])
+  .config([
+    '$stateProvider',
+    '$urlRouterProvider',
+    '$compileProvider',
+    function($stateProvider, $urlRouterProvider, $compileProvider) {
+      $compileProvider.debugInfoEnabled(false);
+      $urlRouterProvider.otherwise('/');
+      $stateProvider
+        .state('home', {
+          url: '/',
+          template: homeTmpl,
+          controller: homeCtrl
+        })
+        .state('store', {
+          url: '/store',
+          template: storeTmpl,
+          controller: storeCtrl
+        })
+        .state('product', {
+          url: '/product/:id',
+          template: productTmpl,
+          controller: productCtrl
+        })
+        .state('shows', {
+          url: '/shows',
+          template: showsTmpl,
+          controller: showsCtrl
+        })
+        .state('about', {
+          url: '/about',
+          template: aboutTmpl
+        })
+        .state('media', {
+          url: '/media',
+          template: mediaTmpl
+        })
+        .state('admin', {
+          //url: "/map/:lat/:lng"
+          url: '/admin/:adminId/:pass',
+          controller: adminCtrl,
+          template: adminTmpl
+        })
+        .state('cart', {
+          url: '/cart',
+          controller: cartCtrl,
+          template: cartTmpl
+        });
+    }
+  ])
   .directive('apparelDir', apparelDir)
-  .directive('bundleDir', bundleDir)
+  .directive('bundleDir', ['storeService', bundleDir])
   .directive('merchDir', merchDir)
   .directive('navBar', function() {
     return {
@@ -99,10 +116,14 @@ angular
       scope: {
         user: '='
       },
-      controller: function($http, $scope) {
-        $http.get('/api/cart').then(response => {
-          $scope.user = response.data.pop();
-        });
-      }
+      controller: [
+        '$http',
+        '$scope',
+        function($http, $scope) {
+          $http.get('/api/cart').then(response => {
+            $scope.user = response.data.pop();
+          });
+        }
+      ]
     };
   });
