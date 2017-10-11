@@ -1,3 +1,5 @@
 serverConfig.js
 private
 webpack.config.js
+node_modules
+public/Assets/photos

@@ -13,6 +13,7 @@
     "angular": "^1.5.8",
     "angular-ui-router": "^0.3.1",
     "angularjs": "0.0.1",
+    "axios": "^0.16.2",
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
     "css-loader": "^0.25.0",
