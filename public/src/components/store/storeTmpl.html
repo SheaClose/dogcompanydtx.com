@@ -4,7 +4,9 @@
       <nav-bar user="user"></nav-bar>
       <div class="row">
         <div ng-click="goTo(product.title)" ng-repeat="product in products" class="col s12 m12 l4 center product-repeat pointer prodrow">
-            <img class="product-img" ng-src="{{product.imgUrl}}" alt="" />
+            <img
+              class="product-img" ng-src="{{product.imgUrl}}" alt="product.title" 
+            />
             <ul class="product-text">
             <li>{{product.title}}</li>
             <li>${{product.price}}</li>
@@ -60,19 +62,24 @@
 </div>
 
 <script>
-  var x;
-  $(window).on('scroll', function() {
-      var x = $(window).scrollTop();
-      function retY() {
-        var y = (($(window).scrollTop() / $(window).height()));
-        if (y < .85){
-          return y
-        }
-        else {
-          return .85
-        }
-      }
-      $('.Store-page-container').css('background-size', 125 + parseInt(x / 3) + 'vh');
-      $('.Store-page-content-container').css('background-color', "rgba(0,0,0, " + retY() + ")");
-  });
+var x;
+$(window).on('scroll', function() {
+  var x = $(window).scrollTop();
+  function retY() {
+    var y = $(window).scrollTop() / $(window).height();
+    if (y < 0.85) {
+      return y;
+    } else {
+      return 0.85;
+    }
+  }
+  $('.Store-page-container').css(
+    'background-size',
+    125 + parseInt(x / 3) + 'vh'
+  );
+  $('.Store-page-content-container').css(
+    'background-color',
+    'rgba(0,0,0, ' + retY() + ')'
+  );
+});
 </script>

@@ -1,0 +1,40 @@
+<div class="col s12 m12 l4  product-page-text">
+  <div class="">
+    <div style="padding-top: 10px;">
+      <u>Product</u>: {{product.title}}
+    </div>
+    <div style="padding-top: 10px;">
+      <u>Description</u>: {{product.description}}
+    </div>
+    <div style="padding-top: 10px;">
+      <u>Color</u>: {{product.color}}
+    </div>
+    <div style="padding-top: 10px;">
+    <u>Price</u>: ${{product.price}}
+  </div>
+  </div>
+  <div style="min-height:45px;"  class="input-field">
+    <select ng-show="product.albums" class="t_shirt_select" ng-model="selectedAlbum" name="" ng-options="item as item | uppercase for item in product.albums">
+      <option value="">--- Select an Album ---</option>
+    </select>
+  </div>
+  <div class="input-field" style="min-height:45px;">
+    <select class="t_shirt_select" ng-model="selectedDesign" name="" ng-show="product.designs"  ng-options="item as item | uppercase for item in product.designs">
+      <option value="">--- Select a Shirt Design ---</option>
+    </select>
+  </div>
+  <div class="input-field" style="min-height:45px;">
+    <select ng-show="selectedDesign" class="t_shirt_select" ng-model="selectedSize" name="" ng-options="item as item | uppercase for item in product.sizes">
+      <option value="">--- Select a Shirt Size ---</option>
+    </select>
+  </div>
+  <div  style="padding-top: 10px; display:flex; justify-content:center;">
+    <button
+      ng-click="add({title: product.title, size: size, bundle:{selectedAlbum, selectedDesign, selectedSize}})"
+      type="button"
+      class="button black"
+      name="button"
+      onclick="Materialize.toast('Item added to cart', 2000, 'teal rounded')"
+    >Add to Cart</button>
+  </div>
+</div>

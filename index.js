@@ -10,9 +10,16 @@ const express = require('express'),
   session = require('express-session'),
   axios = require('axios');
 
-app.use(session({ secret: serverConfig.secret }));
+app.use(
+  session({
+    secret: serverConfig.secret,
+    resave: true,
+    saveUninitialized: true
+  })
+);
 app.use('/', express.static(__dirname + '/public'));
 mongoose.connect(mongoUri);
+
 app.use(json());
 app.use(cors());
 masterRoutes(app);
@@ -26,32 +33,30 @@ app.get(`/api/admin`, function(req, res) {
     return res.status(200).json('true');
   }
 });
-app.post('/api/proxyServer', function(req, res) {
-  axios
-    .get(req.body.base_url + req.body.query_string, {
-      headers: {
-        Authorization: req.body.access_token
-      }
-    })
-    .then(function(response) {
-      return res.send(response.data);
-    })
-    .catch(err => {
-      return res.send(err);
-    });
-});
-app.put('/api/proxyServer', (req, res) => {
-  axios
-    .get(req.body.base_url)
-    .then(response => {
-      console.log(response);
-      return res.json(response.data);
-    })
-    .catch(err => {
-      console.log(err);
-      return res.json(err);
-    });
-});
+// app.post('/api/proxyServer', function(req, res) {
+//   axios
+//     .get(req.body.base_url + req.body.query_string, {
+//       headers: {
+//         Authorization: req.body.access_token
+//       }
+//     })
+//     .then(function(response) {
+//       return res.send(response.data);
+//     })
+//     .catch(err => {
+//       return res.send(err);
+//     });
+// });
+// app.put('/api/proxyServer', (req, res) => {
+//   axios
+//     .get(req.body.base_url)
+//     .then(response => {
+//       return res.json(response.data);
+//     })
+//     .catch(err => {
+//       return res.json(err);
+//     });
+// });
 app.listen(port, () => {
   console.log(`This is Dr. Crane... I'm listening. Port:${port}`);
 });

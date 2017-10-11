@@ -8104,6 +8104,18 @@
 	
 	var _storeCtrl2 = _interopRequireDefault(_storeCtrl);
 	
+	var _apparelDir = __webpack_require__(/*! ./components/directives/apparelDir/apparelDir.js */ 99);
+	
+	var _apparelDir2 = _interopRequireDefault(_apparelDir);
+	
+	var _bundleDir = __webpack_require__(/*! ./components/directives/bundleDir/bundleDir.js */ 100);
+	
+	var _bundleDir2 = _interopRequireDefault(_bundleDir);
+	
+	var _merchDir = __webpack_require__(/*! ./components/directives/merchDir/merchDir.js */ 101);
+	
+	var _merchDir2 = _interopRequireDefault(_merchDir);
+	
 	var _adminService = __webpack_require__(/*! ./components/admin/adminService.js */ 85);
 	
 	var _adminService2 = _interopRequireDefault(_adminService);
@@ -8164,10 +8176,6 @@
 	
 	// import myStyles from "../public/styleSheet/myStyles.css"
 	
-	// import jquery from "../jquery.js"
-	
-	// import $ from "jquery";
-	// import materialize from "materialize-css";
 	_angular2.default.module('app', ['ui.router']).service('adminService', _adminService2.default).service('cartService', _cartService2.default).service('homeService', _homeService2.default).service('showsService', _homeService4.default).service('storeService', _storeService2.default).controller('adminCtrl', _adminCtrl2.default).controller('cartCtrl', _cartCtrl2.default).controller('homeCtrl', _homeCtrl2.default).controller('showsCtrl', _homeCtrl4.default).controller('productCtrl', _productCtrl2.default).controller('storeCtrl', _storeCtrl2.default).config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
 	  $compileProvider.debugInfoEnabled(false);
 	  $urlRouterProvider.otherwise('/');
@@ -8203,7 +8211,7 @@
 	    controller: _cartCtrl2.default,
 	    template: _cartTmpl2.default
 	  });
-	}).directive('navBar', function () {
+	}).directive('apparelDir', _apparelDir2.default).directive('bundleDir', _bundleDir2.default).directive('merchDir', _merchDir2.default).directive('navBar', function () {
 	  return {
 	    template: _navbar2.default,
 	    scope: {
@@ -8216,6 +8224,11 @@
 	    }
 	  };
 	});
+	
+	// import jquery from "../jquery.js"
+	
+	// import $ from "jquery";
+	// import materialize from "materialize-css";
 
 /***/ }),
 /* 76 */
@@ -46749,14 +46762,13 @@
   \**************************************************/
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	function adminCtrl($scope, adminService, $state, $location) {
 	  $scope.userIsAdmin = false;
-	  console.log($state.params.adminId, $state.params.pass);
 	  if (!$state.params.adminId || !$state.params.pass) {
 	    $location.path('/');
 	  } else {
@@ -46764,7 +46776,7 @@
 	  }
 	  $scope.submitNewProduct = function () {
 	    if ($scope.title === undefined || $scope.price === undefined) {
-	      return alert("Please ensure the title and price fields are complete");
+	      return alert('Please ensure the title and price fields are complete');
 	    }
 	    var product = {
 	      title: $scope.title,
@@ -46777,14 +46789,14 @@
 	      size: $scope.size
 	    };
 	    adminService.submitNewProduct(product).then(function (response) {
-	      $scope.title = "";
-	      $scope.description = "";
-	      $scope.price = "";
-	      $scope.category = "";
-	      $scope.color = "";
-	      $scope.imgUrl = "";
-	      $scope.url = "";
-	      $scope.size = "";
+	      $scope.title = '';
+	      $scope.description = '';
+	      $scope.price = '';
+	      $scope.category = '';
+	      $scope.color = '';
+	      $scope.imgUrl = '';
+	      $scope.url = '';
+	      $scope.size = '';
 	    });
 	  };
 	  $scope.editProduct = function () {
@@ -46793,47 +46805,47 @@
 	    };
 	    if ($scope.title) {
 	      product.title = $scope.title;
-	    };
+	    }
 	    if ($scope.description) {
 	      product.description = $scope.description;
-	    };
+	    }
 	    if ($scope.price) {
 	      product.price = $scope.price;
-	    };
+	    }
 	    if ($scope.category) {
 	      product.category = $scope.category;
-	    };
+	    }
 	    if ($scope.color) {
 	      product.color = $scope.color;
-	    };
+	    }
 	    if ($scope.imgUrl) {
 	      product.imgUrl = $scope.imgUrl;
-	    };
+	    }
 	    if ($scope.url) {
 	      product.url = $scope.url;
-	    };
+	    }
 	    if ($scope.size) {
 	      product.size = $scope.size;
-	    };
+	    }
 	
 	    adminService.editProduct(product).then(function (response) {
 	      if (response.status == 200) {
-	        $scope.title = "";
-	        $scope.description = "";
-	        $scope.price = "";
-	        $scope.category = "";
-	        $scope.color = "";
-	        $scope.imgUrl = "";
-	        $scope.url = "";
-	        $scope.size = "";
-	        $scope.objId = "";
+	        $scope.title = '';
+	        $scope.description = '';
+	        $scope.price = '';
+	        $scope.category = '';
+	        $scope.color = '';
+	        $scope.imgUrl = '';
+	        $scope.url = '';
+	        $scope.size = '';
+	        $scope.objId = '';
 	      }
 	    });
 	  };
 	  $scope.deleteProduct = function (objId) {
 	    adminService.deleteProduct(objId).then(function (response) {
 	      if (response.status == 200) {
-	        $scope.objId = "";
+	        $scope.objId = '';
 	      }
 	    });
 	  };
@@ -46845,9 +46857,9 @@
 	    };
 	    adminService.addBlogPost(blogObj).then(function (response) {
 	      if (response.status == 200) {
-	        $scope.body = "";
-	        $scope.title = "";
-	        $scope.imgUrl = "";
+	        $scope.body = '';
+	        $scope.title = '';
+	        $scope.imgUrl = '';
 	      }
 	    });
 	  };
@@ -46859,20 +46871,20 @@
 	    };
 	    adminService.editBlogPost(blogObj).then(function (response) {
 	      if (response.status == 200) {
-	        $scope.body = "";
-	        $scope.title = "";
-	        $scope.objId = "";
+	        $scope.body = '';
+	        $scope.title = '';
+	        $scope.objId = '';
 	      }
 	    });
 	  };
 	  $scope.deleteBlog = function (objId) {
 	    adminService.deleteBlog(objId).then(function (response) {
-	      $scope.objId = "";
+	      $scope.objId = '';
 	    });
 	  };
 	  function checkPass(user, pass) {
 	    adminService.checkPass(user, pass).then(function (res) {
-	      $scope.userIsAdmin = res.data !== "false";
+	      $scope.userIsAdmin = res.data !== 'false';
 	    });
 	  }
 	}
@@ -46885,7 +46897,7 @@
   \************************************************/
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -46952,7 +46964,7 @@
 	    var userInfo = {};
 	    if ($scope.unitedStatesAddress) {
 	      if ($scope.first_name === undefined || $scope.last_name === undefined || $scope.email === undefined || $scope.street === undefined || $scope.city === undefined || $scope.state === undefined || $scope.zipcode === undefined) {
-	        alert("Please ensure all fields are complete. We can not complete your order without this information.\n\n\t\t\t\t\tIf you are having trouble completing an order, Please contact us at DogCompanyDtx@gmail.com");
+	        alert('Please ensure all fields are complete. We can not complete your order without this information.\n\n\t\t\t\t\tIf you are having trouble completing an order, Please contact us at DogCompanyDtx@gmail.com');
 	        return;
 	      }
 	      userInfo = {
@@ -46978,10 +46990,9 @@
 	      user: userInfo
 	    };
 	    cartService.submitOrder(order).then(function (response) {
-	      console.log(response);
 	      window.currentUserOrderInformation = response.data;
 	      cartService.deleteUser().then(function (response) {
-	        $window.location.href = "http://dogcompanydtx.com/#/store";
+	        $window.location.href = 'http://dogcompanydtx.com/#/store';
 	        // $window.location.href = "http://127.0.0.1:4000/#/store";
 	      });
 	    });
@@ -47045,63 +47056,66 @@
   \****************************************************/
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	function productCtrl($scope, $state, storeService) {
-	  console.log($state.params);
 	  $scope.toggle = false;
+	
 	  $scope.img2Toggle = false;
-	  $scope.sizes = { small: false, medium: false, large: false, xLarge: false, xxLarge: false, xxxLarge: false };
-	  (function () {
-	    storeService.getAllProducts().then(function (response) {
-	      var product = response.data;
-	      product.forEach(function (cv, i, a) {
-	        console.log(cv._id == $state.params.id);
-	        if (cv.title === $state.params.id) {
-	          for (var key in $scope.sizes) {
-	            var num = 0;
-	            if (key === cv.size) {
-	              $scope.sizes[key] = cv.available;
-	            }
-	          }
-	          $scope.product = {
-	            _id: cv._id,
-	            category: cv.category,
-	            color: cv.color,
-	            description: cv.description,
-	            imgUrl: cv.imgUrl,
-	            price: cv.price,
-	            title: cv.title
-	          };
-	          if (cv.imgUrl2) {
-	            $scope.product.imgUrl2 = cv.imgUrl2;
-	            $scope.img2Toggle = true;
-	          }
-	          if (cv.imgUrl3) {
-	            $scope.product.imgUrl3 = cv.imgUrl3;
-	          }
-	          if (cv.category !== "merch") {
-	            $scope.product.size = cv.size;
-	          }
-	          if (cv.category == "merch") {
-	            $scope.toggle = true;
+	
+	  $scope.sizes = {
+	    small: false,
+	    medium: false,
+	    large: false,
+	    xLarge: false,
+	    xxLarge: false,
+	    xxxLarge: false
+	  };
+	
+	  storeService.getAllProducts().then(function (response) {
+	    var product = response.data;
+	    product.forEach(function (cv, i, a) {
+	      if (cv.title === $state.params.id) {
+	        for (var key in $scope.sizes) {
+	          var num = 0;
+	          if (key === cv.size) {
+	            $scope.sizes[key] = cv.available;
 	          }
 	        }
-	      });
+	        $scope.product = {
+	          _id: cv._id,
+	          category: cv.category,
+	          color: cv.color,
+	          description: cv.description,
+	          imgUrl: cv.imgUrl,
+	          price: cv.price,
+	          title: cv.title,
+	          options: cv.options
+	        };
+	        if (cv.imgUrl2) {
+	          $scope.product.imgUrl2 = cv.imgUrl2;
+	          $scope.img2Toggle = true;
+	        }
+	        if (cv.imgUrl3) {
+	          $scope.product.imgUrl3 = cv.imgUrl3;
+	        }
+	        if (cv.category !== 'merch') {
+	          $scope.product.size = cv.size;
+	        }
+	        if (cv.category == 'merch') {
+	          $scope.toggle = true;
+	        }
+	      }
 	    });
-	  })();
-	  $scope.addToCart = function (title, size) {
-	    if (!size) {
-	      size = "small";
-	    }
-	    storeService.addToCart(title, size).then(function (response) {
+	  });
+	  $scope.addToCart = function (title, size, bundle) {
+	    storeService.addToCart(title, size || 'small', bundle).then(function (response) {
 	      $scope.user = response.data;
 	    });
 	  };
-	  // getAllProducts();
 	}
 	exports.default = productCtrl;
 
@@ -47112,32 +47126,38 @@
   \**************************************************/
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	
 	function storeCtrl($scope, $stateParams, $state, storeService) {
 	  $scope.nonUSAddress = false;
 	  var getAllProducts = function getAllProducts() {
 	    storeService.getAllProducts().then(function (response) {
-	      var product = response.data;
-	      $scope.products = [];
-	      product.forEach(function (cv, i, a) {
-	        if (cv.size === "small" && cv.category === "apparel") {
-	          $scope.products.unshift(cv);
-	        } else if (cv.size === "small") {
-	          $scope.products.push(cv);
-	        }
+	      var products = response.data.filter(function (cv) {
+	        return cv.size === 'small';
 	      });
+	      var apparel = products.filter(function (c) {
+	        return c.category == 'apparel';
+	      });
+	      var merch = products.filter(function (c) {
+	        return c.category == 'merch';
+	      });
+	      var bundle = products.filter(function (c) {
+	        return c.category == 'bundle';
+	      });
+	      $scope.products = [].concat(_toConsumableArray(apparel), _toConsumableArray(merch), _toConsumableArray(bundle));
 	    });
 	  };
 	  $scope.goTo = function (id) {
-	    $state.go('product', { 'id': id });
+	    $state.go('product', { id: id });
 	  };
 	  getAllProducts();
 	  if (window.currentUserOrderInformation) {
-	    console.log(window.currentUserOrderInformation);
 	    if (window.currentUserOrderInformation.user.nonUSAddress) {
 	      $scope.nonUSAddress = true;
 	    }
@@ -47272,19 +47292,23 @@
   \*****************************************************/
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	function storeService($http) {
+	  var _this = this;
+	
+	  this.products = [];
 	  this.getAllProducts = function () {
-	    return $http.get("/api/products").then(function (response) {
+	    return $http.get('/api/products').then(function (response) {
+	      _this.products = response.data;
 	      return response;
 	    });
 	  };
-	  this.addToCart = function (ttl, sz) {
-	    return $http.post("/api/cart", { title: ttl, size: sz });
+	  this.addToCart = function (title, size, bundle) {
+	    return $http.post('/api/cart', { title: title, size: size, bundle: bundle });
 	  };
 	}
 	exports.default = storeService;
@@ -47323,7 +47347,7 @@
   \**************************************************/
 /***/ (function(module, exports) {
 
-	module.exports = "<div class=\"Home-page-container\">\n  <div class=\"home-page-content-container\">\n    <div class=\"container\">\n      <nav-bar></nav-bar>\n        <div class=\"valign-wrapper container-center\" style=\"height: 70vh;\">\n            <img class=\"responsive-img valign\" style=\"opacity: .8; height: 100%;\"\n             ng-src=\"./Assets/photos/DogCoLogo.png\" alt=\"\" />\n        </div>\n      <ul class=\"\" ng-repeat=\"blog in blogs\">\n        <p>\n          <ul class=\"\">\n            <div class=\"valign-wrapper row\">\n              <li class=\"col s10 m10 l10 valign\" style=\"font-size: 2em\"><u>{{blog.title}}</u></li></u>\n              <li style=\"font-size: 1.25em\" class=\" col s2 m2 l2 right\">{{blog.date | date: medium}}\n              </li>\n            </div>\n\n            <br>\n            <li>\n              <div class=\"center\">\n              <img class=\"responsive-img\" style=\"opacity: .8; max-width: 80%\" ng-if=\"blog.imgUrl\" ng-src=\"{{blog.imgUrl}}\" alt=\"\" />\n              </div>\n            </li>\n            <br>\n            <li style=\"white-space: pre-line; font-size: 1.5em;\">\n              {{blog.body}}\n            </li>\n          <hr>\n        </p>\n      </ul>\n    </div>\n  </div>\n</div>\n\n\n<script>\nvar x;\n$(window).on('scroll', function() {\n  var x = $(window).scrollTop();\n  function retY() {\n    var y = $(window).scrollTop() / $(window).height();\n    if (y < 0.85) {\n      return y;\n    } else {\n      return 0.85;\n    }\n  }\n  $('.Home-page-container').css(\n    'background-size',\n    125 + parseInt(x / 5, 0) + 'vh'\n  );\n  $('.home-page-content-container').css(\n    'background-color',\n    'rgba(0,0,0, ' + retY() + ')'\n  );\n});\n</script>\n";
+	module.exports = "<div class=\"Home-page-container\">\n  <div class=\"home-page-content-container\">\n    <div class=\"container\">\n      <nav-bar></nav-bar>\n        <div class=\"valign-wrapper container-center\" style=\"height: 70vh;\">\n            <img class=\"responsive-img valign\" style=\"opacity: .8; height: 100%;\"\n             ng-src=\"https://s3-us-west-2.amazonaws.com/dogcompany/DogCoLogo.png\" alt=\"\" />\n        </div>\n      <ul class=\"\" ng-repeat=\"blog in blogs\">\n        <p>\n          <ul class=\"\">\n            <div class=\"valign-wrapper row\">\n              <li class=\"col s10 m10 l10 valign\" style=\"font-size: 2em\"><u>{{blog.title}}</u></li></u>\n              <li style=\"font-size: 1.25em\" class=\" col s2 m2 l2 right\">{{blog.date | date: medium}}\n              </li>\n            </div>\n\n            <br>\n            <li>\n              <div class=\"center\">\n              <img class=\"responsive-img\" style=\"opacity: .8; max-width: 80%\" ng-if=\"blog.imgUrl\" ng-src=\"{{blog.imgUrl}}\" alt=\"\" />\n              </div>\n            </li>\n            <br>\n            <li style=\"white-space: pre-line; font-size: 1.5em;\">\n              {{blog.body}}\n            </li>\n          <hr>\n        </p>\n      </ul>\n    </div>\n  </div>\n</div>\n\n\n<script>\nvar x;\n$(window).on('scroll', function() {\n  var x = $(window).scrollTop();\n  function retY() {\n    var y = $(window).scrollTop() / $(window).height();\n    if (y < 0.85) {\n      return y;\n    } else {\n      return 0.85;\n    }\n  }\n  $('.Home-page-container').css(\n    'background-size',\n    125 + parseInt(x / 5, 0) + 'vh'\n  );\n  $('.home-page-content-container').css(\n    'background-color',\n    'rgba(0,0,0, ' + retY() + ')'\n  );\n});\n</script>\n";
 
 /***/ }),
 /* 94 */
@@ -47332,7 +47356,7 @@
   \****************************************************/
 /***/ (function(module, exports) {
 
-	module.exports = "<div class=\"media-page-container\">\n    <div class=\"media-page-content-container\">\n      <div class=\"container\">\n        <nav-bar></nav-bar>\n        <!-- Songs -->\n        <div class=\"row\">\n          <div class=\"col s12 m12 l5 left  responsive-img \">\n            <img class=\"Album-Art\" ng-src=\"Assets/photos/SongsofDisc.jpg\") alt=\"\" />\n            <div class=\"container-fluid2\">\n              <a href=\"https://itunes.apple.com/bz/album/songs-of-discontent/id284712750\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/apple-logotype-white.svg\") style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"https://amazon.com/gp/product/B001CV359E/ref=dm_ws_sp_ps_dp\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/Amazon.svg\") style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"https://www.youtube.com/watch?v=E4dYFYCdThw&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/youtube-play-button-white.svg\") style=\"height: 5vh; color: white;\" /></a>\n            </div>\n          </div>\n          <div class=\"col s12 m7 l7\">\n              <p>\n                <span style=\"font-size: 3em; font-family: Lobster,cursive,Georgia;\">\n                  Songs of Discontent\n                </span>\n                <br>\n                <span>\n                  Released 2007 on <a href=\"http://www.slab-o-wax.com/\">Slab O' Wax Records</a>\n                </span>\n              </p>\n              <ol>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=E4dYFYCdThw&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=1\">Content American</a><i class=\"material-icons material-icons-music\">headset</i></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=HRb06G_MgqQ&index=2&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb\">Lost Weapons<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=WC-tITg_Wr4&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=3\">Commercial Blitz<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=pz6WTZMrGc4&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=4\">Product and Demand<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=Q5WcO4dzj8Q&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=5\">Famine<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=q1VdQ-Ovbbs&index=6&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb\">Saturday<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=4_y61z3gQ-Y&index=7&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb\">Battle Fatigue<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\">John Tucker</li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=zAGhs0TYgn4&index=9&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb\">Song of Discontent<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=5uOpQjcHp1w&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=10\">Reason to Hate<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=DGD6jM6fImY&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=11\">Nothing Left<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=r06uMfgVw9c&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=12\">Merchants of Cool<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=MZ0Ei4mcyJM&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=13\">Close Your Eyes<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=sPPQrLHQQwo&index=8&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb\">Beat Down<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=e1tBfzR5Qew&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=15\">The Last Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=axdHO6akkAs&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=14\">Targets<i class=\"material-icons material-icons-music\">headset</i></a></li>\n              </ol>\n\n          </div>\n        </div>\n        <hr>\n        <!-- Bullet for every lie -->\n        <div class=\"row\">\n          <div class=\"col s12 m12 l5 left  responsive-img \">\n            <img class=\"Album-Art\" ng-src=\"Assets/photos/Bullet.jpg\") alt=\"\" />\n            <div class=\"container-fluid2\">\n              <a href=\"https://dogcompany.bandcamp.com/album/a-bullet-for-every-lie\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/band-camp-white.svg\") style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"http://www.contra-net.com/shop/product_info.php?info=p3983_Dog-Company---A-bullet-for-every-lie-12-LP-CD.html\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/Contra-white.svg\") style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"https://www.youtube.com/watch?v=Z1x-S-0jrbA&list=PLYz0g7A2PTeBH61-N2wPpCepztZvy4_q0\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/youtube-play-button-white.svg\") style=\"height: 5vh; color: white;\" /></a>\n            </div>\n          </div>\n          <div class=\"col s12 m7 l7\">\n              <p>\n                <span style=\"font-size: 3em; font-family: Lobster,cursive,Georgia;\">\n                  A Bullet for Every Lie\n                </span>\n                <br>\n                <span>\n                  Released 2010 on <a href=\"http://www.contra-net.de/record/index.html\">Contra Records</a>\n                </span>\n              </p>\n              <ol>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/JybQ7YH4Fe8\">We Are The Invisible<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/Z1x-S-0jrbA\">A Bullet For Every Lie <i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/3E2FczOhN7M\">Change What Change?<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/Iw_uKHwb0Yw\">Closer Than You Think<i class=\"material-icons material-icons-music\">headset</i></a>\t</li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/yoQZkzqc_8Q\">Che<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/-89lgjIDzAM\">Magic Pill<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/29LElTmnpfM\">Germs<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/BuykZ_e32-E\">Sean Flynn<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/c-yOnwyuqqM\">Skinhead Girl<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/BnAmCztg1rk\">I Am A Human Bomb<i class=\"material-icons material-icons-music\">headset</i></a></li>\n              </ol>\n          </div>\n        </div>\n        <hr>\n        <!-- cashing christmas vol 2 -->\n        <div class=\"row\">\n          <div class=\"col s12 m12 l5 left  responsive-img \">\n            <img class=\"Album-Art\" ng-src=\"Assets/photos/CashingInOnChristmasVol2.jpg\")}/>\n            <div class=\"container-fluid2\">\n              <a href=\"https://blackholerecs.bandcamp.com/album/cashing-in-on-christmas-volume-2\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/band-camp-white.svg\") style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"http://blackholerecords.bigcartel.com/product/cashing-in-on-christmas-volume-2\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/BlackHole-white.svg\") style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"https://itunes.apple.com/us/album/cashing-in-on-christmas-volume/id406229780\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/apple-logotype-white.svg\") style=\"height: 5vh; color: white;\" /></a>\n\n            </div>\n\n          </div>\n          <div class=\"col s12 m7 l7\">\n              <p>\n                <span style=\"font-size: 3em; font-family: Lobster,cursive,Georgia;\">\n                  Cashing in on Christmas Vol. II\n                </span>\n                <br>\n                <span>\n                  Released 2010 on <a href=\"https://blackholerecs.bandcamp.com/\">Black Hole Records</a>\n                </span>\n              </p>\n              <ol>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/holly-jolly-christmas\">The Sheckies - Holly Jolly Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/this-xmas\">45 Adapters - This Xmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/blue-christmas\">CH3 - Blue Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/winterland\">Revilers - Winterland<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/merry-christmas-better-new-year\">Dog Company - Merry Christmas, Better New Year</a><i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/yuletide-girl\">Doomed To Obscurity - Yuletide Girl<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/christmas-in-the-city-aint-too-pretty\">Jukebox Zeros - Christmas In The City (Ain't Too Pretty)<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/merry-christmas-everybody\">Hateful - Merry Christmas Everybody<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/i-ruined-christmas\">Mean Streets - I Ruined Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/the-christmas-song\">Fed Up! - The Christmas Song<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/santas-a-boozer\">Missile Toads - Santa's A Boozer<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/let-it-snow\">Knocked Out Cold - Let It Snow<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/white-christmas\">Antibodies - White Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/foul-mouthed-elf\">Nothing But Enemies - Foul Mouthed Elf<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/santa-thats-my-wife\">Pressure 28 - Santa, That's My Wife<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/fired-in-christmas\">Secret Army - Fired In Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/oi-to-the-world\">Cunt Sparrer - Oi! To The World<i class=\"material-icons material-icons-music\">headset</i></a></li>\n              </ol>\n          </div>\n        </div>\n        <hr>\n        <!-- BlackHole split 7\" -->\n        <div class=\"row\">\n          <div class=\"col s12 m12 l5 left  responsive-img \">\n            <img class=\"Album-Art\" ng-src=\"Assets/photos/BlackHoleSplit.jpg\")}/>\n\n            <div class=\"container-fluid2\">\n              <a href=\"https://blackholerecs.bandcamp.com/album/glass-heroes-mean-streets-strongbow-dog-company\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/band-camp-white.svg\") style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"http://blackholerecords.bigcartel.com/product/hudson-falcons-dog-company-split-7\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/BlackHole-white.svg\") style=\"height: 5vh; color: white;\" /></a>\n            </div>\n\n\n          </div>\n          <div class=\"col s12 m7 l7\">\n              <p>\n                <span style=\"font-size: 3em; font-family: Lobster,cursive,Georgia;\">\n                  Glass Heroes - Mean Streets - Strongbow - Dog Company\n                </span>\n                <br>\n                <span>\n                  Released 2012 on <a href=\"https://blackholerecs.bandcamp.com/\">Black Hole Records</a>\n                </span>\n              </p>\n              <ol>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/back-biter\">Glass Heroes - Back Biter<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/for-you\">Glass Heroes - For You<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/new-moves\">Mean Streets - New Moves<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/turn-it-around\">Mean Streets - Turn It Around<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/blind\">Strongbow - Blind<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/these-nights\">Strongbow - These Nights<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/everybodys-your-best-friend\">Dog Company - Everybody's Your Best Friend<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/not-dead-yet\">Dog Company - Not Dead Yet<i class=\"material-icons material-icons-music\">headset</i></a></li>\n              </ol>\n          </div>\n        </div>\n        <hr>\n        <!-- cashing in on christmas vol 4 -->\n        <div class=\"row\">\n          <div class=\"col s12 m12 l5 left  responsive-img \">\n            <img class=\"Album-Art\" ng-src=\"Assets/photos/CashingInOnChristmasVol4.jpg\")}/>\n              <div class=\"container-fluid2\">\n                <a href=\"https://blackholerecs.bandcamp.com/album/cashing-in-on-christmas-vol-4\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/band-camp-white.svg\") style=\"height: 5vh; color: white;\" /></a>\n                <a href=\"http://www.cdbaby.com/cd/cashinginonchristmasvolu2\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/BlackHole-white.svg\") style=\"height: 5vh; color: white;\" /></a>\n              </div>\n          </div>\n          <div class=\"col s12 m7 l7\">\n              <p>\n                <span style=\"font-size: 3em; font-family: Lobster,cursive,Georgia;\">\n                  Cashing in on Christmas Vol. IV\n                </span>\n                <br>\n                <span>\n                  Released 2012 on <a href=\"https://blackholerecs.bandcamp.com/\">Black Hole Records</a>\n                </span>\n              </p>\n              <ol>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/o-come-emmanuel\">The Authority - O Come Emmanuel<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/blessed-christmas\">Blessed Muthas - Blessed Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/new-tradition\">Broken Heroes - New Tradition<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/johnny-thunders-x-mas\">The Dirty Shirleys - Johnny Thunders X-Mas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/snoopys-christmas\">Dog Company - Snoopy's Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/all-i-want-for-christmas\">Explosive Head - All I Want For Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/santas-on-acid\">The Flyswatters - Santa's On Acid<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/the-greatest-cockney-christmas\">The Gonads - The Greatest Cockney Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/christmas-time-is-here-oh-shit\">Guitar Gangsters - Christmas Time Is Here (Oh Shit)<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/hateful-merry-christmas\">Hateful - Hateful Merry Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/christmas-to-me\">Jenny Woo - Christmas To Me<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/city-of-nightmares\">Mad Pigs - City Of Nightmares<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/ultra-christmas\">Missile Toads - Ultra Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/hey-santa\">Plan Of Attack - Hey Santa<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/fairytale-of-mongolia\">Splodgenessabounds - Fairytale Of Mongolia<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/it-could-be-worse\">Toughskins - It Could Be Worse<i class=\"material-icons material-icons-music\">headset</i></a></li>\n              </ol>\n          </div>\n        </div>\n        <hr>\n        <!-- War Stories -->\n        <div class=\"row\">\n          <div class=\"col s12 m12 l5 left  responsive-img \">\n            <img class=\"Album-Art\" ng-src=\"Assets/photos/WarStories.jpg\") alt=\"\" />\n            <div class=\"container-fluid2\">\n              <a href=\"https://itunes.apple.com/us/album/war-stories/id833984446\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/apple-logotype-white.svg\") style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"https://www.amazon.com/War-Stories-Dog-Company/dp/B00IS180Q4/ref=sr_1_1?s=dmusic&ie=UTF8&qid=1476570275&sr=1-1-mp3-albums-bar-strip-0&keywords=war+stories+dog+company\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/Amazon.svg\") style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"https://www.youtube.com/watch?v=3qEdTZvsHLk&list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/youtube-play-button-white.svg\") style=\"height: 5vh; color: white;\" /></a>\n            </div>\n          </div>\n          <div class=\"col s12 m7 l7\">\n              <p>\n                <span style=\"font-size: 3em; font-family: Lobster,cursive,Georgia;\">\n                  War Stories\n                </span>\n                <br>\n                <span>\n                  Released 2014 on <a href=\"https://www.facebook.com/cadreprod/\">Cadre Records</a> and <a href=\"http://rebelsoundmusic.limitedrun.com/\">Rebel Sound</a>\n                </span>\n              </p>\n              <ol>\n                <li class=\"album-song-title\">Intro</li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/3qEdTZvsHLk?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\">Elected Enemy\t<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/A6jrBYkXOoc?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\">For Our Friends\t<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/trFbEixMidI?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\">Printed Word\t\t<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/Ekwl7G_Eado?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\">Battle Fatigue\t<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/yxsK0g3XjXk?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\">Combat Zone\t<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/6-uumIXfawA?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\">Not Dead Yet\t\t<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/uKexLBOWPok?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\">Last Call\t<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/hACX0aqJOD4?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\">Can't Keep Me Down\t\t<i class=\"material-icons material-icons-music\">headset</i></a></li>\n              </ol>\n          </div>\n        </div>\n        <hr>\n        <!-- Hard Ev Dog Co -->\n        <div class=\"row\">\n          <div class=\"col s12 m12 l5 left  responsive-img \">\n            <img class=\"Album-Art\" ng-src=\"Assets/photos/HardEvDogCo.jpg\") alt=\"\">\n            <div class=\"container-fluid2\">\n              <a href=\"http://www.oitheboat.com/products/570666-hard-evidence-dog-company-split-7\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/oi-the-boat-white.svg\") style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"https://www.youtube.com/watch?v=0suko6OEByQ\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/youtube-play-button-white.svg\") style=\"height: 5vh; color: white;\" /></a>\n            </div>\n          </div>\n          <div class=\"col s12 m7 l7\">\n              <p>\n                <span style=\"font-size: 3em; font-family: Lobster,cursive,Georgia;\">\n                  Hard Evidence - Dog Company\n                </span>\n                <br>\n                <span>\n                  Released 2016 on <a href=\"https://www.facebook.com/cadreprod/\">Cadre Records</a>/<a href=\"http://www.oitheboat.com/\">Oi! The Boat Records</a>\n                </span>\n              </p>\n              <ol>\n                <li class=\"album-song-title\">Dog Company - Vengeance</li>\n                <li class=\"album-song-title\">Dog Company - Guilty of Nothing</li>\n                <li class=\"album-song-title\">Hard Evidence - I Wanna Know</li>\n                <li class=\"album-song-title\"><a href=\"https://www.youtube.com/watch?v=qgXo-Qt0L6I&list=PLzWFl7ZpXuGbbVlaNXGJAQvdEYE3mD5Qh&index=4\">Hard Evidence - Someday<i class=\"material-icons material-icons-music\">headset</i></a></li>\n              </ol>\n          </div>\n        </div>\n        <hr>\n      </div>\n    </div>\n</div>\n\n<script>\nvar x;\n$(window).on('scroll', function() {\n  var x = $(window).scrollTop();\n  function retY() {\n    var y = $(window).scrollTop() / $(window).height();\n    if (y < 0.85) {\n      return y;\n    } else {\n      return 0.85;\n    }\n  }\n  $('.media-page-container').css(\n    'background-size',\n    80 + parseInt(x / 3) + 'vw'\n  );\n  $('.media-page-content-container').css(\n    'background-color',\n    'rgba(0,0,0, ' + retY() + ')'\n  );\n});\n</script>\n";
+	module.exports = "<div class=\"media-page-container\">\n    <div class=\"media-page-content-container\">\n      <div class=\"container\">\n        <nav-bar></nav-bar>\n        <!-- Songs -->\n        <div class=\"row\">\n          <div class=\"col s12 m12 l5 left  responsive-img \">\n            <img class=\"Album-Art\" src=\"https://s3-us-west-2.amazonaws.com/dogcompany/SongsofDisc.jpg\" alt=\"\" />\n            <div class=\"container-fluid2\">\n              <a href=\"https://itunes.apple.com/bz/album/songs-of-discontent/id284712750\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/apple-logotype-white.svg\" style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"https://amazon.com/gp/product/B001CV359E/ref=dm_ws_sp_ps_dp\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/Amazon.svg\" style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"https://www.youtube.com/watch?v=E4dYFYCdThw&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/youtube-play-button-white.svg\" style=\"height: 5vh; color: white;\" /></a>\n            </div>\n          </div>\n          <div class=\"col s12 m7 l7\">\n              <p>\n                <span style=\"font-size: 3em; font-family: Lobster,cursive,Georgia;\">\n                  Songs of Discontent\n                </span>\n                <br>\n                <span>\n                  Released 2007 on <a href=\"http://www.slab-o-wax.com/\">Slab O' Wax Records</a>\n                </span>\n              </p>\n              <ol>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=E4dYFYCdThw&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=1\">Content American</a><i class=\"material-icons material-icons-music\">headset</i></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=HRb06G_MgqQ&index=2&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb\">Lost Weapons<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=WC-tITg_Wr4&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=3\">Commercial Blitz<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=pz6WTZMrGc4&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=4\">Product and Demand<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=Q5WcO4dzj8Q&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=5\">Famine<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=q1VdQ-Ovbbs&index=6&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb\">Saturday<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=4_y61z3gQ-Y&index=7&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb\">Battle Fatigue<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\">John Tucker</li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=zAGhs0TYgn4&index=9&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb\">Song of Discontent<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=5uOpQjcHp1w&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=10\">Reason to Hate<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=DGD6jM6fImY&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=11\">Nothing Left<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=r06uMfgVw9c&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=12\">Merchants of Cool<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=MZ0Ei4mcyJM&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=13\">Close Your Eyes<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=sPPQrLHQQwo&index=8&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb\">Beat Down<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=e1tBfzR5Qew&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=15\">The Last Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a class=\"\" href=\"https://www.youtube.com/watch?v=axdHO6akkAs&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=14\">Targets<i class=\"material-icons material-icons-music\">headset</i></a></li>\n              </ol>\n\n          </div>\n        </div>\n        <hr>\n        <!-- Bullet for every lie -->\n        <div class=\"row\">\n          <div class=\"col s12 m12 l5 left  responsive-img \">\n            <img class=\"Album-Art\" src=\"https://s3-us-west-2.amazonaws.com/dogcompany/Bullet.jpg\" alt=\"\" />\n            <div class=\"container-fluid2\">\n              <a href=\"https://dogcompany.bandcamp.com/album/a-bullet-for-every-lie\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/band-camp-white.svg\" style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"http://www.contra-net.com/shop/product_info.php?info=p3983_Dog-Company---A-bullet-for-every-lie-12-LP-CD.html\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/Contra-white.svg\" style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"https://www.youtube.com/watch?v=Z1x-S-0jrbA&list=PLYz0g7A2PTeBH61-N2wPpCepztZvy4_q0\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/youtube-play-button-white.svg\" style=\"height: 5vh; color: white;\" /></a>\n            </div>\n          </div>\n          <div class=\"col s12 m7 l7\">\n              <p>\n                <span style=\"font-size: 3em; font-family: Lobster,cursive,Georgia;\">\n                  A Bullet for Every Lie\n                </span>\n                <br>\n                <span>\n                  Released 2010 on <a href=\"http://www.contra-net.de/record/index.html\">Contra Records</a>\n                </span>\n              </p>\n              <ol>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/JybQ7YH4Fe8\">We Are The Invisible<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/Z1x-S-0jrbA\">A Bullet For Every Lie <i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/3E2FczOhN7M\">Change What Change?<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/Iw_uKHwb0Yw\">Closer Than You Think<i class=\"material-icons material-icons-music\">headset</i></a>\t</li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/yoQZkzqc_8Q\">Che<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/-89lgjIDzAM\">Magic Pill<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/29LElTmnpfM\">Germs<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/BuykZ_e32-E\">Sean Flynn<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/c-yOnwyuqqM\">Skinhead Girl<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/BnAmCztg1rk\">I Am A Human Bomb<i class=\"material-icons material-icons-music\">headset</i></a></li>\n              </ol>\n          </div>\n        </div>\n        <hr>\n        <!-- cashing christmas vol 2 -->\n        <div class=\"row\">\n          <div class=\"col s12 m12 l5 left  responsive-img \">\n            <img class=\"Album-Art\" ng-src=\"https://s3-us-west-2.amazonaws.com/dogcompany/CashingInOnChristmasVol2.jpg\"/>\n            <div class=\"container-fluid2\">\n              <a href=\"https://blackholerecs.bandcamp.com/album/cashing-in-on-christmas-volume-2\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/band-camp-white.svg\" style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"http://blackholerecords.bigcartel.com/product/cashing-in-on-christmas-volume-2\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/BlackHole-white.svg\" style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"https://itunes.apple.com/us/album/cashing-in-on-christmas-volume/id406229780\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/apple-logotype-white.svg\" style=\"height: 5vh; color: white;\" /></a>\n\n            </div>\n\n          </div>\n          <div class=\"col s12 m7 l7\">\n              <p>\n                <span style=\"font-size: 3em; font-family: Lobster,cursive,Georgia;\">\n                  Cashing in on Christmas Vol. II\n                </span>\n                <br>\n                <span>\n                  Released 2010 on <a href=\"https://blackholerecs.bandcamp.com/\">Black Hole Records</a>\n                </span>\n              </p>\n              <ol>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/holly-jolly-christmas\">The Sheckies - Holly Jolly Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/this-xmas\">45 Adapters - This Xmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/blue-christmas\">CH3 - Blue Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/winterland\">Revilers - Winterland<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/merry-christmas-better-new-year\">Dog Company - Merry Christmas, Better New Year</a><i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/yuletide-girl\">Doomed To Obscurity - Yuletide Girl<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/christmas-in-the-city-aint-too-pretty\">Jukebox Zeros - Christmas In The City (Ain't Too Pretty)<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/merry-christmas-everybody\">Hateful - Merry Christmas Everybody<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/i-ruined-christmas\">Mean Streets - I Ruined Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/the-christmas-song\">Fed Up! - The Christmas Song<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/santas-a-boozer\">Missile Toads - Santa's A Boozer<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/let-it-snow\">Knocked Out Cold - Let It Snow<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/white-christmas\">Antibodies - White Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/foul-mouthed-elf\">Nothing But Enemies - Foul Mouthed Elf<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/santa-thats-my-wife\">Pressure 28 - Santa, That's My Wife<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/fired-in-christmas\">Secret Army - Fired In Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/oi-to-the-world\">Cunt Sparrer - Oi! To The World<i class=\"material-icons material-icons-music\">headset</i></a></li>\n              </ol>\n          </div>\n        </div>\n        <hr>\n        <!-- BlackHole split 7\" -->\n        <div class=\"row\">\n          <div class=\"col s12 m12 l5 left  responsive-img \">\n            <img class=\"Album-Art\" ng-src=\"https://s3-us-west-2.amazonaws.com/dogcompany/BlackHoleSplit.jpg\"/>\n\n            <div class=\"container-fluid2\">\n              <a href=\"https://blackholerecs.bandcamp.com/album/glass-heroes-mean-streets-strongbow-dog-company\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/band-camp-white.svg\" style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"http://blackholerecords.bigcartel.com/product/hudson-falcons-dog-company-split-7\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/BlackHole-white.svg\" style=\"height: 5vh; color: white;\" /></a>\n            </div>\n\n\n          </div>\n          <div class=\"col s12 m7 l7\">\n              <p>\n                <span style=\"font-size: 3em; font-family: Lobster,cursive,Georgia;\">\n                  Glass Heroes - Mean Streets - Strongbow - Dog Company\n                </span>\n                <br>\n                <span>\n                  Released 2012 on <a href=\"https://blackholerecs.bandcamp.com/\">Black Hole Records</a>\n                </span>\n              </p>\n              <ol>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/back-biter\">Glass Heroes - Back Biter<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/for-you\">Glass Heroes - For You<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/new-moves\">Mean Streets - New Moves<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/turn-it-around\">Mean Streets - Turn It Around<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/blind\">Strongbow - Blind<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/these-nights\">Strongbow - These Nights<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/everybodys-your-best-friend\">Dog Company - Everybody's Your Best Friend<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/not-dead-yet\">Dog Company - Not Dead Yet<i class=\"material-icons material-icons-music\">headset</i></a></li>\n              </ol>\n          </div>\n        </div>\n        <hr>\n        <!-- cashing in on christmas vol 4 -->\n        <div class=\"row\">\n          <div class=\"col s12 m12 l5 left  responsive-img \">\n            <img class=\"Album-Art\" ng-src=\"https://s3-us-west-2.amazonaws.com/dogcompany/CashingInOnChristmasVol4.jpg\"/>\n              <div class=\"container-fluid2\">\n                <a href=\"https://blackholerecs.bandcamp.com/album/cashing-in-on-christmas-vol-4\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/band-camp-white.svg\" style=\"height: 5vh; color: white;\" /></a>\n                <a href=\"http://www.cdbaby.com/cd/cashinginonchristmasvolu2\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/BlackHole-white.svg\" style=\"height: 5vh; color: white;\" /></a>\n              </div>\n          </div>\n          <div class=\"col s12 m7 l7\">\n              <p>\n                <span style=\"font-size: 3em; font-family: Lobster,cursive,Georgia;\">\n                  Cashing in on Christmas Vol. IV\n                </span>\n                <br>\n                <span>\n                  Released 2012 on <a href=\"https://blackholerecs.bandcamp.com/\">Black Hole Records</a>\n                </span>\n              </p>\n              <ol>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/o-come-emmanuel\">The Authority - O Come Emmanuel<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/blessed-christmas\">Blessed Muthas - Blessed Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/new-tradition\">Broken Heroes - New Tradition<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/johnny-thunders-x-mas\">The Dirty Shirleys - Johnny Thunders X-Mas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/snoopys-christmas\">Dog Company - Snoopy's Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/all-i-want-for-christmas\">Explosive Head - All I Want For Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/santas-on-acid\">The Flyswatters - Santa's On Acid<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/the-greatest-cockney-christmas\">The Gonads - The Greatest Cockney Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/christmas-time-is-here-oh-shit\">Guitar Gangsters - Christmas Time Is Here (Oh Shit)<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/hateful-merry-christmas\">Hateful - Hateful Merry Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/christmas-to-me\">Jenny Woo - Christmas To Me<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/city-of-nightmares\">Mad Pigs - City Of Nightmares<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/ultra-christmas\">Missile Toads - Ultra Christmas<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/hey-santa\">Plan Of Attack - Hey Santa<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/fairytale-of-mongolia\">Splodgenessabounds - Fairytale Of Mongolia<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://blackholerecs.bandcamp.com/track/it-could-be-worse\">Toughskins - It Could Be Worse<i class=\"material-icons material-icons-music\">headset</i></a></li>\n              </ol>\n          </div>\n        </div>\n        <hr>\n        <!-- War Stories -->\n        <div class=\"row\">\n          <div class=\"col s12 m12 l5 left  responsive-img \">\n            <img\n              class=\"Album-Art\"\n              src=\"https://s3-us-west-2.amazonaws.com/dogcompany/WarStories.jpg\"\n              alt=\"Photo of War Stories Album\"\n            />\n            <div class=\"container-fluid2\">\n              <a href=\"https://itunes.apple.com/us/album/war-stories/id833984446\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/apple-logotype-white.svg\" style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"https://www.amazon.com/War-Stories-Dog-Company/dp/B00IS180Q4/ref=sr_1_1?s=dmusic&ie=UTF8&qid=1476570275&sr=1-1-mp3-albums-bar-strip-0&keywords=war+stories+dog+company\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/Amazon.svg\" style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"https://www.youtube.com/watch?v=3qEdTZvsHLk&list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/youtube-play-button-white.svg\" style=\"height: 5vh; color: white;\" /></a>\n            </div>\n          </div>\n          <div class=\"col s12 m7 l7\">\n              <p>\n                <span style=\"font-size: 3em; font-family: Lobster,cursive,Georgia;\">\n                  War Stories\n                </span>\n                <br>\n                <span>\n                  Released 2014 on <a href=\"https://www.facebook.com/cadreprod/\">Cadre Records</a> and <a href=\"http://rebelsoundmusic.limitedrun.com/\">Rebel Sound</a>\n                </span>\n              </p>\n              <ol>\n                <li class=\"album-song-title\">Intro</li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/3qEdTZvsHLk?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\">Elected Enemy\t<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/A6jrBYkXOoc?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\">For Our Friends\t<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/trFbEixMidI?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\">Printed Word\t\t<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/Ekwl7G_Eado?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\">Battle Fatigue\t<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/yxsK0g3XjXk?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\">Combat Zone\t<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/6-uumIXfawA?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\">Not Dead Yet\t\t<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/uKexLBOWPok?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\">Last Call\t<i class=\"material-icons material-icons-music\">headset</i></a></li>\n                <li class=\"album-song-title\"><a href=\"https://youtu.be/hACX0aqJOD4?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ\">Can't Keep Me Down\t\t<i class=\"material-icons material-icons-music\">headset</i></a></li>\n              </ol>\n          </div>\n        </div>\n        <hr>\n        <!-- Hard Ev Dog Co -->\n        <div class=\"row\">\n          <div class=\"col s12 m12 l5 left  responsive-img \">\n            <img class=\"Album-Art\" src=\"https://s3-us-west-2.amazonaws.com/dogcompany/HardEvDogCo.jpg\" alt=\"\">\n            <div class=\"container-fluid2\">\n              <a href=\"http://www.oitheboat.com/products/570666-hard-evidence-dog-company-split-7\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/oi-the-boat-white.svg\" style=\"height: 5vh; color: white;\" /></a>\n              <a href=\"https://www.youtube.com/watch?v=0suko6OEByQ\"><img ng-src=\"./Assets/fonts/110971-simpleicon-social-media/svg/youtube-play-button-white.svg\" style=\"height: 5vh; color: white;\" /></a>\n            </div>\n          </div>\n          <div class=\"col s12 m7 l7\">\n              <p>\n                <span style=\"font-size: 3em; font-family: Lobster,cursive,Georgia;\">\n                  Hard Evidence - Dog Company\n                </span>\n                <br>\n                <span>\n                  Released 2016 on <a href=\"https://www.facebook.com/cadreprod/\">Cadre Records</a>/<a href=\"http://www.oitheboat.com/\">Oi! The Boat Records</a>\n                </span>\n              </p>\n              <ol>\n                <li class=\"album-song-title\">Dog Company - Vengeance</li>\n                <li class=\"album-song-title\">Dog Company - Guilty of Nothing</li>\n                <li class=\"album-song-title\">Hard Evidence - I Wanna Know</li>\n                <li class=\"album-song-title\"><a href=\"https://www.youtube.com/watch?v=qgXo-Qt0L6I&list=PLzWFl7ZpXuGbbVlaNXGJAQvdEYE3mD5Qh&index=4\">Hard Evidence - Someday<i class=\"material-icons material-icons-music\">headset</i></a></li>\n              </ol>\n          </div>\n        </div>\n        <hr>\n      </div>\n    </div>\n</div>\n\n<script>\nvar x;\n$(window).on('scroll', function() {\n  var x = $(window).scrollTop();\n  function retY() {\n    var y = $(window).scrollTop() / $(window).height();\n    if (y < 0.85) {\n      return y;\n    } else {\n      return 0.85;\n    }\n  }\n  $('.media-page-container').css(\n    'background-size',\n    80 + parseInt(x / 3) + 'vw'\n  );\n  $('.media-page-content-container').css(\n    'background-color',\n    'rgba(0,0,0, ' + retY() + ')'\n  );\n});\n</script>\n";
 
 /***/ }),
 /* 95 */
@@ -47359,7 +47383,7 @@
   \****************************************************/
 /***/ (function(module, exports) {
 
-	module.exports = "<div class=\"Store-page-container\">\n  <div class=\"Store-page-content-container\">\n    <div class=\"container\">\n      <nav-bar user=\"user\"></nav-bar>\n      <div class=\"row\">\n        <div ng-click=\"goTo(product.title)\" ng-repeat=\"product in products\" class=\"col s12 m12 l4 center product-repeat pointer prodrow\">\n            <img class=\"product-img\" ng-src=\"{{product.imgUrl}}\" alt=\"\" />\n            <ul class=\"product-text\">\n            <li>{{product.title}}</li>\n            <li>${{product.price}}</li>\n            </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!-- ORDER COMPLETION CONFIRMATION -->\n<div id=\"modal1\" class=\"modal modal-fixed-footer grey darken-4\">\n  <div class=\"modal-content grey darken-2\">\n    <h4>Order Complete!</h4>\n    <p>Thank you for placing an order with Dog Company. We have now received your order. Due to frequently changing availability of inventory, we must first verify we can fulfill your order. Please allow us a day or two to check inventory and we will contact you with confirmation and a payment request.</p>\n    <p>\n    You should recieve an e-mail shortly. Please hold on to this as confirmation of your order until you have received and are happy with your order. Should a problem arise, the Order Number will greatly assist us in locating your order.</p>\n    <hr>\n\n    <p>\n      Order Number: {{currentUserOrderInformation._id}}\n      <br>\n      Order Total (before shipping): ${{currentUserOrderInformation.total}}\n      <br>\n      Order Date: {{currentUserOrderInformation.date | date:'medium'}}\n      <p>\n        <h5>Order:</h5>\n      </p>\n      <hr>\n      <p>\n        <ul ng-repeat=\"cartItem in currentUserOrderInformation.cart\">\n\t\t\t\t\t<li>Product: {{cartItem.product.title}}</li>\n          <li>Quantity: {{cartItem.quantity}}</li>\n          <li ng-hide=\"cartItem.product.category !== 'apparel'\">Size: {{cartItem.product.size}}</li>\n          <li ng-hide=\"cartItem.product.category !== 'apparel'\">Color: {{cartItem.product.color}}</li>\n          <li style=\"border-bottom: 1px solid black;\">Unit Price: ${{cartItem.product.price}}</li>\n        </ul>\n      </p>\n      <p>\n        <ul>\n          <h5>Confirm User Data:</h5>\n          <hr>\n          <li>Name: {{currentUserOrderInformation.user.last_name}}, {{currentUserOrderInformation.user.first_name}}</li>\n          <li ng-hide=\"nonUSAddress\">Adress: {{currentUserOrderInformation.user.street}}, {{currentUserOrderInformation.user.city}}, {{currentUserOrderInformation.user.state}} {{currentUserOrderInformation.user.zipcode}}</li>\n\t\t\t\t\t<li ng-show=\"nonUSAddress\">Adress: {{currentUserOrderInformation.user.nonUSAddress}}</li>\n          <li>Email: {{currentUserOrderInformation.user.email}}</li>\n        </ul>\n      </p>\n    </p>\n  </div>\n  <div class=\"modal-footer grey\">\n    <a class=\"modal-action modal-close waves-effect waves-green btn-flat grey lighten-2\">Dismiss</a>\n  </div>\n</div>\n\n<script>\n  var x;\n  $(window).on('scroll', function() {\n      var x = $(window).scrollTop();\n      function retY() {\n        var y = (($(window).scrollTop() / $(window).height()));\n        if (y < .85){\n          return y\n        }\n        else {\n          return .85\n        }\n      }\n      $('.Store-page-container').css('background-size', 125 + parseInt(x / 3) + 'vh');\n      $('.Store-page-content-container').css('background-color', \"rgba(0,0,0, \" + retY() + \")\");\n  });\n</script>\n";
+	module.exports = "<div class=\"Store-page-container\">\n  <div class=\"Store-page-content-container\">\n    <div class=\"container\">\n      <nav-bar user=\"user\"></nav-bar>\n      <div class=\"row\">\n        <div ng-click=\"goTo(product.title)\" ng-repeat=\"product in products\" class=\"col s12 m12 l4 center product-repeat pointer prodrow\">\n            <img\n              class=\"product-img\" ng-src=\"{{product.imgUrl}}\" alt=\"product.title\" \n            />\n            <ul class=\"product-text\">\n            <li>{{product.title}}</li>\n            <li>${{product.price}}</li>\n            </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!-- ORDER COMPLETION CONFIRMATION -->\n<div id=\"modal1\" class=\"modal modal-fixed-footer grey darken-4\">\n  <div class=\"modal-content grey darken-2\">\n    <h4>Order Complete!</h4>\n    <p>Thank you for placing an order with Dog Company. We have now received your order. Due to frequently changing availability of inventory, we must first verify we can fulfill your order. Please allow us a day or two to check inventory and we will contact you with confirmation and a payment request.</p>\n    <p>\n    You should recieve an e-mail shortly. Please hold on to this as confirmation of your order until you have received and are happy with your order. Should a problem arise, the Order Number will greatly assist us in locating your order.</p>\n    <hr>\n\n    <p>\n      Order Number: {{currentUserOrderInformation._id}}\n      <br>\n      Order Total (before shipping): ${{currentUserOrderInformation.total}}\n      <br>\n      Order Date: {{currentUserOrderInformation.date | date:'medium'}}\n      <p>\n        <h5>Order:</h5>\n      </p>\n      <hr>\n      <p>\n        <ul ng-repeat=\"cartItem in currentUserOrderInformation.cart\">\n\t\t\t\t\t<li>Product: {{cartItem.product.title}}</li>\n          <li>Quantity: {{cartItem.quantity}}</li>\n          <li ng-hide=\"cartItem.product.category !== 'apparel'\">Size: {{cartItem.product.size}}</li>\n          <li ng-hide=\"cartItem.product.category !== 'apparel'\">Color: {{cartItem.product.color}}</li>\n          <li style=\"border-bottom: 1px solid black;\">Unit Price: ${{cartItem.product.price}}</li>\n        </ul>\n      </p>\n      <p>\n        <ul>\n          <h5>Confirm User Data:</h5>\n          <hr>\n          <li>Name: {{currentUserOrderInformation.user.last_name}}, {{currentUserOrderInformation.user.first_name}}</li>\n          <li ng-hide=\"nonUSAddress\">Adress: {{currentUserOrderInformation.user.street}}, {{currentUserOrderInformation.user.city}}, {{currentUserOrderInformation.user.state}} {{currentUserOrderInformation.user.zipcode}}</li>\n\t\t\t\t\t<li ng-show=\"nonUSAddress\">Adress: {{currentUserOrderInformation.user.nonUSAddress}}</li>\n          <li>Email: {{currentUserOrderInformation.user.email}}</li>\n        </ul>\n      </p>\n    </p>\n  </div>\n  <div class=\"modal-footer grey\">\n    <a class=\"modal-action modal-close waves-effect waves-green btn-flat grey lighten-2\">Dismiss</a>\n  </div>\n</div>\n\n<script>\nvar x;\n$(window).on('scroll', function() {\n  var x = $(window).scrollTop();\n  function retY() {\n    var y = $(window).scrollTop() / $(window).height();\n    if (y < 0.85) {\n      return y;\n    } else {\n      return 0.85;\n    }\n  }\n  $('.Store-page-container').css(\n    'background-size',\n    125 + parseInt(x / 3) + 'vh'\n  );\n  $('.Store-page-content-container').css(\n    'background-color',\n    'rgba(0,0,0, ' + retY() + ')'\n  );\n});\n</script>\n";
 
 /***/ }),
 /* 98 */
@@ -47368,7 +47392,116 @@
   \******************************************************/
 /***/ (function(module, exports) {
 
-	module.exports = "<div class=\"Store-page-container\">\n  <div class=\"Store-page-content-container\">\n    <div class=\"container\">\n      <nav-bar user=\"user\"></nav-bar>\n      <div class=\"row\">\n        <div class=\"product-page\">\n          <div class=\"col s12 m12 l8 center\">\n              <img class=\"responsive-img\" ng-src=\"{{product.imgUrl}}\" alt=\"\" />\n\t\t\t\t\t\t\t<div ng-if=\"img2Toggle\">\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<img class=\"col s12 m12 l12 responsive-img\" ng-src=\"{{product.imgUrl2}}\">\n\t\t\t\t\t\t\t\t\t<img class=\"col s12 m12 l12 responsive-img\" ng-src=\"{{product.imgUrl3}}\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n          </div>\n          <div class=\"col s12 m12 l4  product-page-text\">\n              <div style=\"padding-top: 10px; white-space: pre-line;\">  <u>Product</u>:             {{product.title}}</div>\n              <div style=\"padding-top: 10px; white-space: pre-line;\">  <u>Description</u>:             {{product.description}}</div>\n              <div style=\"padding-top: 10px; white-space: pre-line;\"><u>Color</u>:             {{product.color}}</div>\n              <div style=\"padding-top: 10px; white-space: pre-line;\">  <u>Price</u>:             ${{product.price}}</div>\n\t\t\t\t\t\t\t<div ng-hide=\"toggle\" style=\"padding-top: 10px; white-space: pre-line;\">  <u>Size</u>:\n\t\t\t\t\t\t\t</div>\n              <div ng-hide=\"toggle\" style=\"padding-top: 10px;\">\n                <select ng-model=\"size\" class=\"browser-default black\">\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.small\" value=\"small\">Small</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.medium\" value=\"medium\">Medium</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.large\" value=\"large\">Large</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.xLarge\" value=\"xLarge\">X-Large</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.xxLarge\" value=\"xxLarge\">XX-Large</option>\n\t\t\t\t\t\t\t\t\t<option ng-show=\"sizes.xxxLarge\" value=\"xxxLarge\">XXX-Large</option>\n                </select>\n              </div>\n              <div style=\"padding-top: 10px;\">\n                <button ng-click=\"addToCart(product.title, size)\" type=\"button\" class=\"button black\"  name=\"button\" onclick=\"Materialize.toast('Item added to cart', 2000, 'teal rounded')\">Add to Cart</button>\n              </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<script>\n  $(window).ready(function(){\n    $('.carousel').carousel();\n  });\n  $(document).ready(function() {\n    $('select').material_select();\n  });\n  var x;\n  $(window).on('scroll', function() {\n      var x = $(window).scrollTop();\n      function retY() {\n        var y = (($(window).scrollTop() / $(window).height()));\n        if (y < .85){\n          return y\n        }\n        else {\n          return .85\n        }\n      }\n      $('.Store-page-container').css('background-size', 125 + parseInt(x / 3) + 'vh');\n      $('.Store-page-content-container').css('background-color', \"rgba(0,0,0, \" + retY() + \")\");\n  });\n\n</script>\n";
+	module.exports = "<div class=\"Store-page-container\">\n  <div class=\"Store-page-content-container\">\n    <div class=\"container\">\n      <nav-bar user=\"user\"></nav-bar>\n      <div class=\"row\">\n        <div class=\"product-page\">\n          <div class=\"col s12 m12 l8 center\">\n              <img class=\"responsive-img\" ng-src=\"{{product.imgUrl}}\" alt=\"\" />\n\t\t\t\t\t\t\t<div ng-if=\"img2Toggle\">\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<img class=\"col s12 m12 l12 responsive-img\" ng-src=\"{{product.imgUrl2}}\">\n\t\t\t\t\t\t\t\t\t<img class=\"col s12 m12 l12 responsive-img\" ng-src=\"{{product.imgUrl3}}\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n          </div>\n          <apparel-dir\n            ng-if=\"product.category == 'apparel'\"\n            product=\"product\"\n            add=\"addToCart(title,size)\"\n            sizes=\"sizes\">\n          </apparel-dir>\n          <merch-dir\n            ng-if=\"product.category == 'merch'\"\n            product=\"product\"\n            add=\"addToCart(title,size)\"\n            sizes=\"sizes\">\n          </merch-dir>\n          <bundle-dir\n            ng-if=\"product.category == 'bundle'\"\n            product=\"product\"\n            add=\"addToCart(title,size, bundle)\"\n            sizes=\"sizes\">\n          </bundle-dir>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<script>\n$(window).ready(function() {\n  $('.carousel').carousel();\n});\n$(document).ready(function() {\n  $('select').material_select();\n});\nvar x;\n$(window).on('scroll', function() {\n  var x = $(window).scrollTop();\n  function retY() {\n    var y = $(window).scrollTop() / $(window).height();\n    if (y < 0.85) {\n      return y;\n    } else {\n      return 0.85;\n    }\n  }\n  $('.Store-page-container').css(\n    'background-size',\n    125 + parseInt(x / 3) + 'vh'\n  );\n  $('.Store-page-content-container').css(\n    'background-color',\n    'rgba(0,0,0, ' + retY() + ')'\n  );\n});\n</script>\n";
+
+/***/ }),
+/* 99 */
+/*!*******************************************************************!*\
+  !*** ./public/src/components/directives/apparelDir/apparelDir.js ***!
+  \*******************************************************************/
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = apparelDir;
+	function apparelDir() {
+	  return {
+	    template: templ,
+	    scope: {
+	      add: '&',
+	      product: '=',
+	      sizes: '='
+	    },
+	    controller: function controller($scope) {},
+	    link: function link(scope, element, attrs) {}
+	  };
+	}
+	
+	var templ = '<div class="col s12 m12 l4  product-page-text">\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Product</u>:             {{product.title}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Description</u>:             {{product.description}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;"><u>Color</u>:             {{product.color}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Price</u>:             ${{product.price}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Size</u>:\n    </div>\n    <div style="padding-top: 10px;">\n      <select ng-model="size" class="browser-default black">\n        <option value="">--- Select a Shirt Size ---</option>\n        <option ng-show="sizes.small" value="small">Small</option>\n        <option ng-show="sizes.medium" value="medium">Medium</option>\n        <option ng-show="sizes.large" value="large">Large</option>\n        <option ng-show="sizes.xLarge" value="xLarge">X-Large</option>\n        <option ng-show="sizes.xxLarge" value="xxLarge">XX-Large</option>\n        <option ng-show="sizes.xxxLarge" value="xxxLarge">XXX-Large</option>\n      </select>\n    </div>\n    <div style="padding-top: 10px;">\n      <button ng-click="add({title: product.title, size: size})" type="button" class="button black"  name="button" onclick="Materialize.toast(\'Item added to cart\', 2000, \'teal rounded\')">Add to Cart</button>\n    </div>\n</div>\n';
+
+/***/ }),
+/* 100 */
+/*!*****************************************************************!*\
+  !*** ./public/src/components/directives/bundleDir/bundleDir.js ***!
+  \*****************************************************************/
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = bundleDir;
+	function bundleDir(storeService) {
+	  return {
+	    templateUrl: './src/components/directives/bundleDir/bundleTmpl.html',
+	    scope: {
+	      add: '&',
+	      product: '=',
+	      sizes: '='
+	    },
+	    controller: function controller($scope) {
+	      if ($scope.product.options.includes('shirts')) {
+	        $scope.product.designs = storeService.products.filter(function (c) {
+	          return c.category == 'apparel';
+	        }).map(function (c) {
+	          return c.title;
+	        }).filter(function (c, i, a) {
+	          return a.indexOf(c) == i;
+	        });
+	      }
+	      if ($scope.product.options.includes('albums')) {
+	        $scope.product.albums = ['Songs of Discontent - cd', 'War Stories - Album'];
+	      }
+	      $scope.$watch('selectedDesign', function () {
+	        var orderedSizes = ['small', 'medium', 'large', 'xLarge', 'xxLarge', 'xxxLarge'];
+	
+	        var sizes = storeService.products.filter(function (c) {
+	          return c.title == $scope.selectedDesign;
+	        }).filter(function (c) {
+	          return c.available;
+	        }).map(function (c) {
+	          return c.size;
+	        });
+	
+	        $scope.product.sizes = orderedSizes.filter(function (c) {
+	          return sizes.includes(c);
+	        });
+	      });
+	    }
+	  };
+	}
+
+/***/ }),
+/* 101 */
+/*!***************************************************************!*\
+  !*** ./public/src/components/directives/merchDir/merchDir.js ***!
+  \***************************************************************/
+/***/ (function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = merchDir;
+	function merchDir() {
+	  return {
+	    template: templ,
+	    scope: {
+	      add: '&',
+	      product: '=',
+	      sizes: '='
+	    },
+	    controller: function controller($scope) {},
+	    link: function link(scope, element, attrs) {}
+	  };
+	}
+	
+	var templ = '<div class="col s12 m12 l4  product-page-text">\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Product</u>:             {{product.title}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Description</u>:             {{product.description}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Price</u>:             ${{product.price}}</div>\n    <div style="padding-top: 10px;">\n      <button ng-click="add({title: product.title, size: size})" type="button" class="button black"  name="button" onclick="Materialize.toast(\'Item added to cart\', 2000, \'teal rounded\')">Add to Cart</button>\n    </div>\n</div>\n';
 
 /***/ })
 /******/ ]);

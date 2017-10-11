@@ -11,6 +11,9 @@ import homeCtrl from './components/home/homeCtrl.js';
 import showsCtrl from './components/shows/homeCtrl.js';
 import productCtrl from './components/store/productCtrl.js';
 import storeCtrl from './components/store/storeCtrl.js';
+import apparelDir from './components/directives/apparelDir/apparelDir.js';
+import bundleDir from './components/directives/bundleDir/bundleDir.js';
+import merchDir from './components/directives/merchDir/merchDir.js';
 
 import adminService from './components/admin/adminService.js';
 import cartService from './components/cart/cartService.js';
@@ -87,6 +90,9 @@ angular
         template: cartTmpl
       });
   })
+  .directive('apparelDir', apparelDir)
+  .directive('bundleDir', bundleDir)
+  .directive('merchDir', merchDir)
   .directive('navBar', function() {
     return {
       template: navbarTmpl,
