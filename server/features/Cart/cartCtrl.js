@@ -1,77 +1,96 @@
-const Cart = require("./Cart.js")
-      , Product = require("../Product/Product.js")
-      , request = require("request")
-      , User = require("../User/User.js")
+const Cart = require('./Cart.js'),
+  Product = require('../Product/Product.js'),
+  request = require('request'),
+  User = require('../User/User.js');
 
 module.exports = {
   addToCart: (req, res) => {
-    let prodObj = {};
-    const product = req.body
-    Product.find({title: product.title, size: product.size}, (err, prod)=>{
-      if (err){
-        return res.status(500).json(err)}
-      else {
-        prod.forEach((cv, i , arr)=>{prodObj = cv})
-        User.findOne({sessionID: req.sessionID}, (err, foundUser) => {
-          if (!foundUser){
-            new User({sessionID: req.sessionID, cart:{product: prodObj._id }}).save((req, newUser) => {
+    let product = {};
+    const { title, size, bundle } = req.body;
+    if (bundle) {
+      var { selectedAlbum, selectedDesign, selectedSize } = bundle;
+    }
+    Product.find({ title, size }, (err, prod) => {
+      if (err) {
+        return res.status(500).json(err);
+      } else {
+        product = prod.pop();
+        if (bundle) {
+          product.description = `${selectedAlbum
+            ? selectedAlbum
+            : ''} ${selectedSize ? selectedSize : ''} ${selectedDesign
+            ? selectedDesign
+            : ''}`.trim();
+          if (selectedSize) {
+            product.size = selectedSize;
+          }
+        }
+        User.findOne({ sessionID: req.sessionID }, (err, foundUser) => {
+          if (!foundUser) {
+            // console.log(product);
+            new User({
+              sessionID: req.sessionID,
+              cart: { product }
+            }).save((err, newUser) => {
               if (err) {
                 return res.status(500).json(err);
-              }
-              else {
+              } else {
                 return res.status(200).json(newUser);
               }
-            })
-          }
-          else {
+            });
+          } else {
             for (var i = 0; i < foundUser.cart.length; i++) {
-              if (foundUser.cart[i].product.toString() == prodObj._id.toString()) {
+              if (
+                foundUser.cart[i].product._id.toString() ==
+                product._id.toString()
+              ) {
                 foundUser.cart[i].quantity += 1;
                 foundUser.save();
                 return res.status(200).json(foundUser);
               }
             }
-            foundUser.cart.push({product: prodObj._id});
+            foundUser.cart.push({ product });
             foundUser.save();
             return res.status(200).json(foundUser);
           }
-        })
+        });
       }
-    })
-  }
-  , getCart: (req, res) => {
-    User.find({sessionID: req.sessionID}, (err, user)=>{
-      if (err){return res.status(500).json(err)}
-      else{
-        return res.status(200).json(user)
+    });
+  },
+  getCart: (req, res) => {
+    User.find({ sessionID: req.sessionID }, (err, user) => {
+      if (err) {
+        return res.status(500).json(err);
+      } else {
+        return res.status(200).json(user);
       }
-    })
-  }
-  , fillCart: (req, res) => {
-    User.findById({_id: req.params.id})
-        .populate("cart.product")
-        .exec(function(err, suc){
-          var user = suc;
-          if (err){
-            res.json(err)
+    });
+  },
+  fillCart: (req, res) => {
+    User.findById({ _id: req.params.id })
+      .populate('cart.product')
+      .exec(function(err, suc) {
+        var user = suc;
+        if (err) {
+          res.json(err);
+        } else {
+          return res.status(200).json(user);
+        }
+      });
+  },
+  deleteItem: (req, res) => {
+    User.findById({ _id: req.params.id }, (err, user) => {
+      if (err) {
+        return res.status(500).json(err);
+      } else {
+        user.cart.forEach((cv, i, arr) => {
+          if (cv.product._id == req.body._id) {
+            user.cart.splice(i, 1);
           }
-      else{
-        return res.status(200).json(user)
-      }
-    })
-  }
-  , deleteItem: (req, res) => {
-    User.findById({_id: req.params.id}, (err, user)=>{
-      if (err){ return res.status(500).json(err)}
-      else{
-        user.cart.forEach((cv, i, arr)=>{
-          if (cv.product.toString() === req.body._id.toString() ){
-            user.cart.splice(i, 1)
-          }
-        })
+        });
         user.save();
-        return res.status(200).json(user)
+        return res.status(200).json(user);
       }
-    })
+    });
   }
-}
+};

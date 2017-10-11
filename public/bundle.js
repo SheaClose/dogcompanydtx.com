@@ -47063,7 +47063,9 @@
 	});
 	function productCtrl($scope, $state, storeService) {
 	  $scope.toggle = false;
+	
 	  $scope.img2Toggle = false;
+	
 	  $scope.sizes = {
 	    small: false,
 	    medium: false,
@@ -47072,6 +47074,7 @@
 	    xxLarge: false,
 	    xxxLarge: false
 	  };
+	
 	  storeService.getAllProducts().then(function (response) {
 	    var product = response.data;
 	    product.forEach(function (cv, i, a) {
@@ -47108,8 +47111,8 @@
 	      }
 	    });
 	  });
-	  $scope.addToCart = function (title, size) {
-	    storeService.addToCart(title, size || 'small').then(function (response) {
+	  $scope.addToCart = function (title, size, bundle) {
+	    storeService.addToCart(title, size || 'small', bundle).then(function (response) {
 	      $scope.user = response.data;
 	    });
 	  };
@@ -47128,19 +47131,26 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	
 	function storeCtrl($scope, $stateParams, $state, storeService) {
 	  $scope.nonUSAddress = false;
 	  var getAllProducts = function getAllProducts() {
 	    storeService.getAllProducts().then(function (response) {
-	      var product = response.data;
-	      $scope.products = [];
-	      product.forEach(function (cv, i, a) {
-	        if (cv.size === 'small' && cv.category === 'apparel') {
-	          $scope.products.unshift(cv);
-	        } else if (cv.size === 'small') {
-	          $scope.products.push(cv);
-	        }
+	      var products = response.data.filter(function (cv) {
+	        return cv.size === 'small';
 	      });
+	      var apparel = products.filter(function (c) {
+	        return c.category == 'apparel';
+	      });
+	      var merch = products.filter(function (c) {
+	        return c.category == 'merch';
+	      });
+	      var bundle = products.filter(function (c) {
+	        return c.category == 'bundle';
+	      });
+	      $scope.products = [].concat(_toConsumableArray(apparel), _toConsumableArray(merch), _toConsumableArray(bundle));
 	    });
 	  };
 	  $scope.goTo = function (id) {
@@ -47297,8 +47307,8 @@
 	      return response;
 	    });
 	  };
-	  this.addToCart = function (ttl, sz) {
-	    return $http.post('/api/cart', { title: ttl, size: sz });
+	  this.addToCart = function (title, size, bundle) {
+	    return $http.post('/api/cart', { title: title, size: size, bundle: bundle });
 	  };
 	}
 	exports.default = storeService;
@@ -47382,7 +47392,7 @@
   \******************************************************/
 /***/ (function(module, exports) {
 
-	module.exports = "<div class=\"Store-page-container\">\n  <div class=\"Store-page-content-container\">\n    <div class=\"container\">\n      <nav-bar user=\"user\"></nav-bar>\n      <div class=\"row\">\n        <div class=\"product-page\">\n          <div class=\"col s12 m12 l8 center\">\n              <img class=\"responsive-img\" ng-src=\"{{product.imgUrl}}\" alt=\"\" />\n\t\t\t\t\t\t\t<div ng-if=\"img2Toggle\">\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<img class=\"col s12 m12 l12 responsive-img\" ng-src=\"{{product.imgUrl2}}\">\n\t\t\t\t\t\t\t\t\t<img class=\"col s12 m12 l12 responsive-img\" ng-src=\"{{product.imgUrl3}}\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n          </div>\n          <apparel-dir\n            ng-if=\"product.category == 'apparel'\"\n            product=\"product\"\n            add=\"addToCart(title,size)\"\n            sizes=\"sizes\">\n          </apparel-dir>\n          <merch-dir\n            ng-if=\"product.category == 'merch'\"\n            product=\"product\"\n            add=\"addToCart(title,size)\"\n            sizes=\"sizes\">\n          </merch-dir>\n          <bundle-dir\n            ng-if=\"product.category == 'bundle'\"\n            product=\"product\"\n            add=\"addToCart(title,size)\"\n            sizes=\"sizes\">\n          </bundle-dir>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<script>\n$(window).ready(function() {\n  $('.carousel').carousel();\n});\n$(document).ready(function() {\n  $('select').material_select();\n});\nvar x;\n$(window).on('scroll', function() {\n  var x = $(window).scrollTop();\n  function retY() {\n    var y = $(window).scrollTop() / $(window).height();\n    if (y < 0.85) {\n      return y;\n    } else {\n      return 0.85;\n    }\n  }\n  $('.Store-page-container').css(\n    'background-size',\n    125 + parseInt(x / 3) + 'vh'\n  );\n  $('.Store-page-content-container').css(\n    'background-color',\n    'rgba(0,0,0, ' + retY() + ')'\n  );\n});\n</script>\n";
+	module.exports = "<div class=\"Store-page-container\">\n  <div class=\"Store-page-content-container\">\n    <div class=\"container\">\n      <nav-bar user=\"user\"></nav-bar>\n      <div class=\"row\">\n        <div class=\"product-page\">\n          <div class=\"col s12 m12 l8 center\">\n              <img class=\"responsive-img\" ng-src=\"{{product.imgUrl}}\" alt=\"\" />\n\t\t\t\t\t\t\t<div ng-if=\"img2Toggle\">\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<img class=\"col s12 m12 l12 responsive-img\" ng-src=\"{{product.imgUrl2}}\">\n\t\t\t\t\t\t\t\t\t<img class=\"col s12 m12 l12 responsive-img\" ng-src=\"{{product.imgUrl3}}\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n          </div>\n          <apparel-dir\n            ng-if=\"product.category == 'apparel'\"\n            product=\"product\"\n            add=\"addToCart(title,size)\"\n            sizes=\"sizes\">\n          </apparel-dir>\n          <merch-dir\n            ng-if=\"product.category == 'merch'\"\n            product=\"product\"\n            add=\"addToCart(title,size)\"\n            sizes=\"sizes\">\n          </merch-dir>\n          <bundle-dir\n            ng-if=\"product.category == 'bundle'\"\n            product=\"product\"\n            add=\"addToCart(title,size, bundle)\"\n            sizes=\"sizes\">\n          </bundle-dir>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<script>\n$(window).ready(function() {\n  $('.carousel').carousel();\n});\n$(document).ready(function() {\n  $('select').material_select();\n});\nvar x;\n$(window).on('scroll', function() {\n  var x = $(window).scrollTop();\n  function retY() {\n    var y = $(window).scrollTop() / $(window).height();\n    if (y < 0.85) {\n      return y;\n    } else {\n      return 0.85;\n    }\n  }\n  $('.Store-page-container').css(\n    'background-size',\n    125 + parseInt(x / 3) + 'vh'\n  );\n  $('.Store-page-content-container').css(\n    'background-color',\n    'rgba(0,0,0, ' + retY() + ')'\n  );\n});\n</script>\n";
 
 /***/ }),
 /* 99 */
@@ -47410,7 +47420,7 @@
 	  };
 	}
 	
-	var templ = '<div class="col s12 m12 l4  product-page-text">\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Product</u>:             {{product.title}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Description</u>:             {{product.description}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;"><u>Color</u>:             {{product.color}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Price</u>:             ${{product.price}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Size</u>:\n    </div>\n    <div style="padding-top: 10px;">\n      <select ng-model="size" class="browser-default black">\n        <option ng-show="sizes.small" value="small">Small</option>\n        <option ng-show="sizes.medium" value="medium">Medium</option>\n        <option ng-show="sizes.large" value="large">Large</option>\n        <option ng-show="sizes.xLarge" value="xLarge">X-Large</option>\n        <option ng-show="sizes.xxLarge" value="xxLarge">XX-Large</option>\n        <option ng-show="sizes.xxxLarge" value="xxxLarge">XXX-Large</option>\n      </select>\n    </div>\n    <div style="padding-top: 10px;">\n      <button ng-click="add({title: product.title, size: size})" type="button" class="button black"  name="button" onclick="Materialize.toast(\'Item added to cart\', 2000, \'teal rounded\')">Add to Cart</button>\n    </div>\n</div>\n';
+	var templ = '<div class="col s12 m12 l4  product-page-text">\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Product</u>:             {{product.title}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Description</u>:             {{product.description}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;"><u>Color</u>:             {{product.color}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Price</u>:             ${{product.price}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Size</u>:\n    </div>\n    <div style="padding-top: 10px;">\n      <select ng-model="size" class="browser-default black">\n        <option value="">--- Select a Shirt Size ---</option>\n        <option ng-show="sizes.small" value="small">Small</option>\n        <option ng-show="sizes.medium" value="medium">Medium</option>\n        <option ng-show="sizes.large" value="large">Large</option>\n        <option ng-show="sizes.xLarge" value="xLarge">X-Large</option>\n        <option ng-show="sizes.xxLarge" value="xxLarge">XX-Large</option>\n        <option ng-show="sizes.xxxLarge" value="xxxLarge">XXX-Large</option>\n      </select>\n    </div>\n    <div style="padding-top: 10px;">\n      <button ng-click="add({title: product.title, size: size})" type="button" class="button black"  name="button" onclick="Materialize.toast(\'Item added to cart\', 2000, \'teal rounded\')">Add to Cart</button>\n    </div>\n</div>\n';
 
 /***/ }),
 /* 100 */
@@ -47444,21 +47454,21 @@
 	        });
 	      }
 	      if ($scope.product.options.includes('albums')) {
-	        $scope.product.albums = storeService.products.filter(function (c) {
-	          return c.category == 'merch';
-	        }).filter(function (c) {
-	          return c.description.includes('tracks');
-	        }).map(function (c) {
-	          return c.title;
-	        });
+	        $scope.product.albums = ['Songs of Discontent - cd', 'War Stories - Album'];
 	      }
 	      $scope.$watch('selectedDesign', function () {
-	        $scope.product.sizes = storeService.products.filter(function (c) {
+	        var orderedSizes = ['small', 'medium', 'large', 'xLarge', 'xxLarge', 'xxxLarge'];
+	
+	        var sizes = storeService.products.filter(function (c) {
 	          return c.title == $scope.selectedDesign;
 	        }).filter(function (c) {
 	          return c.available;
 	        }).map(function (c) {
 	          return c.size;
+	        });
+	
+	        $scope.product.sizes = orderedSizes.filter(function (c) {
+	          return sizes.includes(c);
 	        });
 	      });
 	    }
@@ -47491,7 +47501,7 @@
 	  };
 	}
 	
-	var templ = '<div class="col s12 m12 l4  product-page-text">\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Product</u>:             {{product.title}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Description</u>:             {{product.description}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;"><u>Color</u>:             {{product.color}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Price</u>:             ${{product.price}}</div>\n    <div style="padding-top: 10px;">\n      <button ng-click="add({title: product.title, size: size})" type="button" class="button black"  name="button" onclick="Materialize.toast(\'Item added to cart\', 2000, \'teal rounded\')">Add to Cart</button>\n    </div>\n</div>\n';
+	var templ = '<div class="col s12 m12 l4  product-page-text">\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Product</u>:             {{product.title}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Description</u>:             {{product.description}}</div>\n    <div style="padding-top: 10px; white-space: pre-line;">  <u>Price</u>:             ${{product.price}}</div>\n    <div style="padding-top: 10px;">\n      <button ng-click="add({title: product.title, size: size})" type="button" class="button black"  name="button" onclick="Materialize.toast(\'Item added to cart\', 2000, \'teal rounded\')">Add to Cart</button>\n    </div>\n</div>\n';
 
 /***/ })
 /******/ ]);

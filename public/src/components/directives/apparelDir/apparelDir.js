@@ -20,6 +20,7 @@ const templ = `<div class="col s12 m12 l4  product-page-text">
     </div>
     <div style="padding-top: 10px;">
       <select ng-model="size" class="browser-default black">
+        <option value="">--- Select a Shirt Size ---</option>
         <option ng-show="sizes.small" value="small">Small</option>
         <option ng-show="sizes.medium" value="medium">Medium</option>
         <option ng-show="sizes.large" value="large">Large</option>

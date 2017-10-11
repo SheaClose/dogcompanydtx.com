@@ -1,6 +1,8 @@
 function productCtrl($scope, $state, storeService) {
   $scope.toggle = false;
+
   $scope.img2Toggle = false;
+
   $scope.sizes = {
     small: false,
     medium: false,
@@ -9,6 +11,7 @@ function productCtrl($scope, $state, storeService) {
     xxLarge: false,
     xxxLarge: false
   };
+
   storeService.getAllProducts().then(response => {
     let product = response.data;
     product.forEach((cv, i, a) => {
@@ -45,8 +48,8 @@ function productCtrl($scope, $state, storeService) {
       }
     });
   });
-  $scope.addToCart = (title, size) => {
-    storeService.addToCart(title, size || 'small').then(response => {
+  $scope.addToCart = (title, size, bundle) => {
+    storeService.addToCart(title, size || 'small', bundle).then(response => {
       $scope.user = response.data;
     });
   };

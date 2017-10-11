@@ -6,8 +6,8 @@ function storeService($http) {
       return response;
     });
   };
-  this.addToCart = (ttl, sz) => {
-    return $http.post('/api/cart', { title: ttl, size: sz });
+  this.addToCart = (title, size, bundle) => {
+    return $http.post('/api/cart', { title, size, bundle });
   };
 }
 export default storeService;
