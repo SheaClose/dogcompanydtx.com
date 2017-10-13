@@ -3,3 +3,4 @@ private
 webpack.config.js
 node_modules
 public/Assets/photos
+public/bundle.js.map
