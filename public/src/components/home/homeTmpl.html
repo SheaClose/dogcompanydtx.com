@@ -8,26 +8,31 @@
         </div>
       <ul class="" ng-repeat="blog in blogs">
         <p>
-          <ul class="">
+          <div class="">
             <div class="valign-wrapper row">
-              <li class="col s10 m10 l10 valign" style="font-size: 2em"><u>{{blog.title}}</u></li></u>
-              <li style="font-size: 1.25em" class=" col s2 m2 l2 right">{{blog.date | date: medium}}
-              </li>
+              <div class="col s10 m10 l10 valign" style="font-size: 2.2em; font-family: sans-serif; text-align: center; margin:auto;">{{blog.title}}</div>
+              <br>
+              <!-- <div style="font-size: 1.25em" class=" right">{{blog.date | date: medium}}
+              </div> -->
             </div>
 
             <br>
-            <li>
+            <div>
               <div class="center">
-              <img class="responsive-img" style="opacity: .8; max-width: 80%" ng-if="blog.imgUrl" ng-src="{{blog.imgUrl}}" alt="" />
+              <img class="responsive-img image-style" style="opacity: .8; max-width: 80%" ng-if="blog.imgUrl" ng-src="{{blog.imgUrl}}" alt="" />
               </div>
-            </li>
+            </div>
             <br>
-            <li style="white-space: pre-line; font-size: 1.5em;">
-              {{blog.body}}
-            </li>
+            <div style="white-space: pre-line; font-size: 1.5em; text-align: center">
+            {{blog.body}}
+          </div>
+            <br>
+            <div class="date">{{blog.date | date: medium}}
+            </div>
+
           <hr>
         </p>
-      </ul>
+      </div>
     </div>
   </div>
 </div>
