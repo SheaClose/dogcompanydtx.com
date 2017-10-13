@@ -28,7 +28,7 @@ const templ = `<div class="col s12 m12 l4  product-page-text">
       </select>
     </div>
     <div style="padding-top: 10px;">
-      <button ng-click="add({title: product.title, size: size})" type="button" class="button black"  name="button" onclick="Materialize.toast('Item added to cart', 2000, 'teal rounded')">Add to Cart</button>
+      <button ng-click="add({title: product.title, size: size})" type="button" class="button black"  name="button" onclick="Materialize.toast('Item added to cart', 2000, 'teal darken-4 rounded')">Add to Cart</button>
     </div>
 </div>
 `;
