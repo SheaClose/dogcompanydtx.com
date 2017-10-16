@@ -1,0 +1,22 @@
+<div class="col s12 m12 l4  product-page-text">
+    <div style="padding-top: 10px; white-space: pre-line;">  <u>Product</u>:             {{product.title}}</div>
+    <div style="padding-top: 10px; white-space: pre-line;">  <u>Description</u>:             {{product.description}}</div>
+    <div style="padding-top: 10px; white-space: pre-line;"><u>Color</u>:             {{product.color}}</div>
+    <div style="padding-top: 10px; white-space: pre-line;">  <u>Price</u>:             \${{product.price}}</div>
+    <div style="padding-top: 10px; white-space: pre-line;">  <u>Size</u>:
+    </div>
+    <div style="padding-top: 10px;">
+      <select ng-model="size" class="browser-default black">
+        <option value="">--- Select a Shirt Size ---</option>
+        <option ng-show="sizes.small" value="small">Small</option>
+        <option ng-show="sizes.medium" value="medium">Medium</option>
+        <option ng-show="sizes.large" value="large">Large</option>
+        <option ng-show="sizes.xLarge" value="xLarge">X-Large</option>
+        <option ng-show="sizes.xxLarge" value="xxLarge">XX-Large</option>
+        <option ng-show="sizes.xxxLarge" value="xxxLarge">XXX-Large</option>
+      </select>
+    </div>
+    <div style="padding-top: 10px;">
+      <button ng-click="add({title: product.title, size: size})" type="button" class="button black"  name="button" onclick="Materialize.toast('Item added to cart', 2000, 'teal darken-4 rounded')">Add to Cart</button>
+    </div>
+</div>
