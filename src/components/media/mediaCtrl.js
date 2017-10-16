@@ -13,7 +13,7 @@ angular.module('app').controller('mediaCtrl', function($scope) {
       }
       $('.media-page-container').css(
         'background-size',
-        80 + parseInt(x / 3) + 'vw'
+        80 + parseInt(x / 6) + 'vw'
       );
       $('.media-page-content-container').css(
         'background-color',

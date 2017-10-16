@@ -16,7 +16,7 @@ app.controller('homeCtrl', [
         }
         $('.Home-page-container').css(
           'background-size',
-          125 + parseInt(x / 5, 0) + 'vh'
+          125 + parseInt(x / 6) + 'vh'
         );
         $('.home-page-content-container').css(
           'background-color',

@@ -13,7 +13,7 @@ angular.module('app').controller('aboutCtrl', function($scope) {
       }
       $('.about-page-container').css(
         'background-size',
-        70 + parseInt(x / 3) + 'vh'
+        70 + parseInt(x / 6) + 'vh'
       );
       $('.about-page-content-container').css(
         'background-color',

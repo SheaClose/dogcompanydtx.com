@@ -17,7 +17,7 @@ app.controller('storeCtrl', [
         }
         $('.Store-page-container').css(
           'background-size',
-          125 + parseInt(x / 3) + 'vh'
+          125 + parseInt(x / 6) + 'vh'
         );
         $('.Store-page-content-container').css(
           'background-color',
