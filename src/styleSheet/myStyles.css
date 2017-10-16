@@ -231,17 +231,17 @@ body {
         rgba(0, 0, 0, 0),
         rgba(0, 0, 0, 1) 70%
       ),
-      url('https://s3-us-west-2.amazonaws.com/dogcompany/MidwestDogCo.jpg')
+      url('https://s3-us-west-2.amazonaws.com/dogcompany/Cadillac_lounge.jpg')
         no-repeat fixed;
     background: radial-gradient(
         ellipse at center,
         rgba(0, 0, 0, 0),
         rgba(0, 0, 0, 1) 70%
       ),
-      url('https://s3-us-west-2.amazonaws.com/dogcompany/MidwestDogCo.jpg')
+      url('https://s3-us-west-2.amazonaws.com/dogcompany/Cadillac_lounge.jpg')
         no-repeat fixed;
     background-attachment: fixed;
-    background-position: center 10vh;
+    background-position: center center;
     background-size: 80vw;
     -o-object-fit: fill;
     object-fit: fill;
