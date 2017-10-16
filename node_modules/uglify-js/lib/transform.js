@@ -64,13 +64,13 @@ TreeTransformer.prototype = new TreeWalker;
                     x = this;
                     descend(x, tw);
                 } else {
-                    tw.stack[tw.stack.length - 1] = x = this;
+                    tw.stack[tw.stack.length - 1] = x = this.clone();
                     descend(x, tw);
                     y = tw.after(x, in_list);
                     if (y !== undefined) x = y;
                 }
             }
-            tw.pop(this);
+            tw.pop();
             return x;
         });
     };
