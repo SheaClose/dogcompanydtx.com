@@ -17,7 +17,7 @@ app.controller('showsCtrl', [
         }
         $('.shows-page-container').css(
           'background-size',
-          125 + parseInt(x / 3) + 'vh'
+          125 + parseInt(x / 6) + 'vh'
         );
         $('.shows-page-content-container').css(
           'background-color',
