@@ -139,7 +139,6 @@ body {
   left: auto !important;
   bottom: 15vh;
   right: 1%;
-  color:red !important;
 }
 
 .Store-page-container {
@@ -428,7 +427,7 @@ time {
   opacity: 1;
 }
 
-.`nav`-bar a:link {
+.nav-bar a:link {
   color: white;
 }
 
