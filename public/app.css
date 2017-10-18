@@ -139,7 +139,6 @@ body {
   left: auto !important;
   bottom: 15vh;
   right: 1%;
-  color: rgba(82, 106, 83, 0.95) !important;
 }
 
 .Store-page-container {
@@ -209,6 +208,13 @@ body {
 }
 
 .product-page-text {
+}
+
+.cartHeader {
+  color: black;
+  font-weight: bold;
+  font-size: 3.5em;
+
 }
 
 .media-page-container {
@@ -435,10 +441,14 @@ time {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-  justify-content: space-around;
+  justify-content: space-between;
   font-family: 'Black Ops One', cursive;
   font-size: 2em;
   margin: 1vh 0vh 5vh;
+  /*position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 1000;*/
 }
 
 .nav-bar a {
