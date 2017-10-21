@@ -12,4 +12,4 @@ app.service('storeService', [
       return $http.post('/api/cart', { title, size, bundle });
     };
   }
-]); // export default storeService;
+]);
