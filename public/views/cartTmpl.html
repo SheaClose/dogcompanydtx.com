@@ -16,8 +16,8 @@
             </ul>
             <hr>
             <ul class="row" ng-repeat="product in cart">
-              <li class="col s12 m1 l1"><img class="hide-on-small-only responsive-img" style="width: 10vw" ng-src="{{product.product.imgUrl}}"/></li>
-              <li class="col s12 m2 l2">{{product.product.title}}</li>
+              <li ng-click="reviewProduct(product.product)" class="col s12 m1 l1 pointer"><img class="hide-on-small-only responsive-img" style="width: 10vw" ng-src="{{product.product.imgUrl}}"/></li>
+              <li ng-click="reviewProduct(product.product)" class="col s12 m2 l2 pointer">{{product.product.title}}</li>
               <li class="col s12 m4 l4">{{product.product.description}}</li>
               <li class="col s12 m1 l1">${{product.product.price}}</li>
               <li class="col s12 m1 l1 center">{{product.product.size}}</li>

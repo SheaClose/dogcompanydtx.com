@@ -2,7 +2,9 @@ app.controller('cartCtrl', [
   '$scope',
   '$window',
   'cartService',
-  function cartCtrl($scope, $window, cartService) {
+  'storeService',
+  '$state',
+  function cartCtrl($scope, $window, cartService, storeService, $state) {
     angular.element(document).ready(() => {
       var x;
       $(window).on('scroll', function() {
@@ -26,6 +28,12 @@ app.controller('cartCtrl', [
       });
       $('.modal-trigger').leanModal();
     });
+    $scope.reviewProduct = function(product) {
+      let selectedItem = storeService.products.find(
+        cur => cur._id == product._id
+      );
+      $state.go('product', { id: selectedItem.title });
+    };
     $scope.unitedStatesAddress = true;
     const fillCart = id => {
       cartService.fillCart(id).then(function(response) {
