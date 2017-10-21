@@ -2,7 +2,7 @@ body {
   background-color: black;
   color: white;
 }
-
+/*//////////////////////Home Page//////////////////////*/
 .Home-page-container {
   background: black;
   background-attachment: fixed;
@@ -58,6 +58,7 @@ body {
   justify-content: center;
 }
 
+/*//////////////////////About Page//////////////////////*/
 .about-page-container {
   background: black;
   background-attachment: fixed;
@@ -69,7 +70,7 @@ body {
 @media only screen and (min-width: 960px) {
   .about-page-container {
     background: url('https://s3-us-west-2.amazonaws.com/dogcompany/DogCoLogo.png')
-      no-repeat fixed;
+      no-repeat;
     background-attachment: fixed;
     background-position: center center;
     background-size: 70vh;
@@ -77,6 +78,7 @@ body {
   }
 }
 
+/*//////////////////////Shows Page//////////////////////*/
 .shows-page-container {
   background: black;
   background-attachment: fixed;
@@ -130,17 +132,13 @@ body {
   margin-top: 50px;
 }
 
-.centered-object {
-  margin-top: 25px;
-}
-
 #toast-container {
   top: auto !important;
   left: auto !important;
   bottom: 15vh;
   right: 1%;
 }
-
+/*//////////////////////Store Page//////////////////////*/
 .Store-page-container {
   background: black;
   background-attachment: fixed;
@@ -207,16 +205,14 @@ body {
   height: 80vh;
 }
 
-.product-page-text {
-}
-
+/*//////////////////////Cart Page//////////////////////*/
 .cartHeader {
   color: black;
   font-weight: bold;
   font-size: 3.5em;
-
 }
 
+/*//////////////////////Media Page//////////////////////*/
 .media-page-container {
   background: black;
   background-attachment: fixed;
@@ -427,6 +423,7 @@ time {
   opacity: 1;
 }
 
+/*//////////////////////Nav Page//////////////////////*/
 .nav-bar a:link {
   color: white;
 }
@@ -445,10 +442,6 @@ time {
   font-family: 'Black Ops One', cursive;
   font-size: 2em;
   margin: 1vh 0vh 5vh;
-  /*position: fixed;
-  left: 50%;
-  transform: translate(-50%, 0);
-  z-index: 1000;*/
 }
 
 .nav-bar a {
