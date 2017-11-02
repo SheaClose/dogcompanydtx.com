@@ -1,4 +1,6 @@
-const Blog = require('./Blog.js');
+"use strict";
+
+const Blog = require("./Blog.js");
 
 module.exports = {
   postBlog: (req, res) => {

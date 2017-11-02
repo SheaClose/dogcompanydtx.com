@@ -1,7 +1,9 @@
-const Cart = require('./Cart.js'),
-  Product = require('../Product/Product.js'),
-  request = require('request'),
-  User = require('../User/User.js');
+"use strict";
+
+const Cart = require("./Cart.js"),
+  Product = require("../Product/Product.js"),
+  request = require("request"),
+  User = require("../User/User.js");
 
 module.exports = {
   addToCart: (req, res) => {
@@ -18,9 +20,9 @@ module.exports = {
         if (bundle) {
           product.description = `${selectedAlbum
             ? selectedAlbum
-            : ''} ${selectedSize ? selectedSize : ''} ${selectedDesign
+            : ""} ${selectedSize ? selectedSize : ""} ${selectedDesign
             ? selectedDesign
-            : ''}`.trim();
+            : ""}`.trim();
           if (selectedSize) {
             product.size = selectedSize;
           }
@@ -68,7 +70,7 @@ module.exports = {
   },
   fillCart: (req, res) => {
     User.findById({ _id: req.params.id })
-      .populate('cart.product')
+      .populate("cart.product")
       .exec(function(err, suc) {
         var user = suc;
         if (err) {

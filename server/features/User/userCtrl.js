@@ -1,12 +1,17 @@
-const User = require("./User.js")
+"use strict";
 
-module.exports= {
+const User = require("./User.js");
+
+module.exports = {
   deleteUser: (req, res) => {
-    User.find({sessionID: req.sessionID}).remove().exec((err, suc) =>{
-      if (err) { return res.status(500).json(err)}
-      else {
-        return res.status(200).json(suc)
-      }
-    })
+    User.find({ sessionID: req.sessionID })
+      .remove()
+      .exec((err, suc) => {
+        if (err) {
+          return res.status(500).json(err);
+        } else {
+          return res.status(200).json(suc);
+        }
+      });
   }
-}
+};

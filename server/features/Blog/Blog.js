@@ -1,4 +1,6 @@
-const mongoose = require('mongoose');
+"use strict";
+
+const mongoose = require("mongoose");
 
 const Blog = new mongoose.Schema({
   title: { type: String, required: true },
@@ -6,4 +8,4 @@ const Blog = new mongoose.Schema({
   imgUrl: { type: String },
   date: { type: Date, default: new Date() }
 });
-module.exports = mongoose.model('Blog', Blog);
+module.exports = mongoose.model("Blog", Blog);

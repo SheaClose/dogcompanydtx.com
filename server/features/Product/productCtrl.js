@@ -1,4 +1,6 @@
-const Product = require('./Product.js');
+"use strict";
+
+const Product = require("./Product.js");
 
 module.exports = {
   getProducts: (req, res) => {
