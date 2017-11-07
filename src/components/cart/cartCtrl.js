@@ -37,14 +37,12 @@ app.controller('cartCtrl', [
     $scope.unitedStatesAddress = true;
     const fillCart = id => {
       cartService.fillCart(id).then(function(response) {
-        $scope.cart = [];
-        response.data.cart.forEach((cv, i, arr) => {
-          let cartObj = {
+        $scope.cart = response.data.cart.map((cv) => {
+          return {
             product: cv.product,
             quantity: cv.quantity,
             total: cv.quantity * cv.product.price
           };
-          $scope.cart.push(cartObj);
         });
         getOrderTotal();
       });

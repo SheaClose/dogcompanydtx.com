@@ -27,14 +27,16 @@ module.exports = {
 						Color: ${c.product.color},
 						Size: ${c.product.size},
 						Quantity: ${c.quantity},
-						Total: ${c.total}
+            Total: ${c.total},
+            description: ${c.product.description}
 						\n`;
           } else {
             tempProduct = `
 						Product: ${c.product.title},
 						Price: ${c.product.price},
 						Quantity: ${c.quantity},
-						Total: ${c.total}
+            Total: ${c.total},
+            description: ${c.product.description}
 						\n`;
           }
 

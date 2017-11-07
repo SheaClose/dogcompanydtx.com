@@ -29,7 +29,6 @@ module.exports = {
         }
         User.findOne({ sessionID: req.sessionID }, (err, foundUser) => {
           if (!foundUser) {
-            // console.log(product);
             new User({
               sessionID: req.sessionID,
               cart: { product }
