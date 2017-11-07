@@ -1,14 +1,16 @@
-const express = require('express'),
-  { json } = require('body-parser'),
-  cors = require('cors'),
-  mongoose = require('mongoose'),
-  serverConfig = require('./serverConfig.js'),
+"use strict";
+
+const express = require("express"),
+  { json } = require("body-parser"),
+  cors = require("cors"),
+  mongoose = require("mongoose"),
+  serverConfig = require("./serverConfig.js"),
   port = serverConfig.port,
   app = express(),
   mongoUri = serverConfig.mongoUri,
-  masterRoutes = require('./masterRoutes.js'),
-  session = require('express-session'),
-  axios = require('axios');
+  masterRoutes = require("./masterRoutes.js"),
+  session = require("express-session"),
+  axios = require("axios");
 
 app.use(
   session({
@@ -17,7 +19,7 @@ app.use(
     saveUninitialized: true
   })
 );
-app.use('/', express.static(__dirname + '/public'));
+app.use("/", express.static(__dirname + "/public"));
 mongoose.connect(mongoUri);
 
 app.use(json());
@@ -28,12 +30,12 @@ app.get(`/api/admin`, function(req, res) {
     req.query.user !== serverConfig.admin ||
     req.query.pass !== serverConfig.pass
   ) {
-    return res.status(200).json('false');
+    return res.status(200).json("false");
   } else {
-    return res.status(200).json('true');
+    return res.status(200).json("true");
   }
 });
-app.post('/api/proxyServer', function(req, res) {
+app.post("/api/proxyServer", function(req, res) {
   axios
     .get(req.body.base_url + req.body.query_string, {
       headers: {
@@ -47,7 +49,7 @@ app.post('/api/proxyServer', function(req, res) {
       return res.send(err);
     });
 });
-app.put('/api/proxyServer', (req, res) => {
+app.put("/api/proxyServer", (req, res) => {
   axios
     .get(req.body.base_url)
     .then(response => {

@@ -1,4 +1,6 @@
-const mongoose = require('mongoose');
+"use strict";
+
+const mongoose = require("mongoose");
 
 const Product = new mongoose.Schema({
   title: { type: String, trim: true, required: true },
@@ -6,13 +8,13 @@ const Product = new mongoose.Schema({
   price: { type: Number, required: true },
   category: { type: String, trim: true },
   color: { type: String, trim: true },
-  imgUrl: { type: String, trim: true, default: 'https://http.cat/404' },
+  imgUrl: { type: String, trim: true, default: "https://http.cat/404" },
   url: { type: String, trim: true },
   size: {
     type: String,
-    enum: ['small', 'medium', 'large', 'xLarge', 'xxLarge', 'xxxLarge']
+    enum: ["small", "medium", "large", "xLarge", "xxLarge", "xxxLarge"]
   },
   available: { type: Boolean, default: true }
 });
 
-module.exports = mongoose.model('Product', Product);
+module.exports = mongoose.model("Product", Product);

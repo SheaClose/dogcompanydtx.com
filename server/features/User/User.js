@@ -1,5 +1,7 @@
-const mongoose = require('mongoose'),
-  Cart = require('../Cart/Cart.js');
+"use strict";
+
+const mongoose = require("mongoose"),
+  Cart = require("../Cart/Cart.js");
 const User = new mongoose.Schema({
   sessionID: { type: String, required: true },
   cart: [
@@ -11,4 +13,4 @@ const User = new mongoose.Schema({
   orders: []
 });
 
-module.exports = mongoose.model('User', User);
+module.exports = mongoose.model("User", User);
