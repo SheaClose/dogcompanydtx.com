@@ -2,108 +2,113 @@
   <div class="Store-page-content-container">
     <div class="container">
       <nav-bar user="user"></nav-bar>
-      <div class="blue-grey lighten-1  cart-title"><center><h2 class=" cartHeader">Your Cart</h2></center></div>
-          <div>
-            <ul class="row">
-              <li class="hide-on-small-only col s12 m1 l1">Image:</li>
-              <li class="hide-on-small-only col s12 m2 l2">Title:</li>
-              <li class="hide-on-small-only col s12 m4 l4">Description:</li>
-              <li class="hide-on-small-only col s12 m1 l1">Price:</li>
-              <li class="hide-on-small-only col s12 m1 l1 center">Size:</li>
-              <li class="hide-on-small-only col s12 m1 l1 center">Total:</li>
-              <li class="hide-on-small-only col s12 m1 l1 center">Quantity:</li>
-              <li class="hide-on-small-only col s12 m1 l1 center">Remove:</li>
-            </ul>
-            <hr>
-            <ul class="row" ng-repeat="product in cart">
-              <li ng-click="reviewProduct(product.product)" class="col s12 m1 l1 pointer"><img class="hide-on-small-only responsive-img" style="width: 10vw" ng-src="{{product.product.imgUrl}}"/></li>
-              <li ng-click="reviewProduct(product.product)" class="col s12 m2 l2 pointer">{{product.product.title}}</li>
-              <li class="col s12 m4 l4">{{product.product.description}}</li>
-              <li class="col s12 m1 l1">${{product.product.price}}</li>
-              <li class="col s12 m1 l1 center">{{product.product.size}}</li>
-              <li class="col s12 m1 l1 center">${{product.total}}</li>
-              <div class="col s12 m1 l1 center">
-                <div >
-                  {{product.quantity}}
-                  <div class="row">
-                    <i ng-click="increaseQuantity(product.product._id)" class="material-icons pointer">add</i>
-                    <i ng-click="decreaseQuantity(product.product._id)" class="material-icons pointer">remove</i>
-                  </div>
-                </div>
-              </div>
-              <div class="col s12 m1 l1 center">
-                <div class=" pointer" ng-click="removeFromCart(product.product._id)">
-                  <i class="material-icons pointer">delete</i>
-                </div>
-              </div>
-            </ul>
-        </div>
+      <div class="blue-grey lighten-1  cart-title">
+        <center>
+          <h2 class=" cartHeader">Your Cart</h2>
+        </center>
+      </div>
+      <div>
+        <ul class="row">
+          <li class="hide-on-small-only col s12 m1 l1">Image:</li>
+          <li class="hide-on-small-only col s12 m2 l2">Title:</li>
+          <li class="hide-on-small-only col s12 m4 l4">Description:</li>
+          <li class="hide-on-small-only col s12 m1 l1">Price:</li>
+          <li class="hide-on-small-only col s12 m1 l1 center">Size:</li>
+          <li class="hide-on-small-only col s12 m1 l1 center">Total:</li>
+          <li class="hide-on-small-only col s12 m1 l1 center">Quantity:</li>
+          <li class="hide-on-small-only col s12 m1 l1 center">Remove:</li>
+        </ul>
         <hr>
-        <div class="right-align">
-          Total: ${{total}}
-        </div>
-        <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn modal-trigger blue-grey lighten-1 right" href="#modal1">Check Out</a>
-        <!-- Modal1 -->
-        <div  id="modal1" class="modal modal-fixed-footer grey darken-4">
-          <div  class="modal-content grey darken-2">
-            <div class="row">
-              <form class="col s12">
-                <div class="row">
-                  <div class="input-field col s6">
-                    <input ng-model="first_name" id="first_name" type="text" class="validate">
-                    <label for="first_name">First Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input ng-model="last_name" id="last_name" type="text" class="validate">
-                    <label for="last_name">Last Name</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input ng-model="email" id="email" type="email" class="validate">
-                    <label for="email">Email</label>
-                  </div>
-                </div>
-								<div class="row">
-									<div class="input-field col s12">
-										<input type="button" ng-click="click()">Address not located in the United States?</input>
-									</div>
-								</div>
-								<div class="row">
-                  <div class="input-field col s12">
-										<input type="text" ng-show="!unitedStatesAddress" ng-model="nonUsAddress" id="nonUsAddress">
-										<label ng-show="!unitedStatesAddress" for="nonUsAddress">Input Non-United States Address</label>
-                  </div>
-                </div>
-                <div class="row" ng-show="unitedStatesAddress">
-                  <div class="input-field col s6">
-                    <input ng-model="street" id="street" type="text" class="validate">
-                    <label for="street">Street</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input ng-model="city" id="city" type="text" class="validate">
-                    <label for="city">City</label>
-                  </div>
-                </div>
-                <div class="row" ng-show="unitedStatesAddress">
-                  <div class="input-field col s6">
-                    <input ng-model="state" id="state" type="text" class="validate">
-                    <label for="state">State</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input ng-model="zipcode" id="zipcode" type="text" class="validate">
-                    <label for="zipcode">Zip Code</label>
-                  </div>
-                </div>
-              </form>
+        <ul class="row" ng-repeat="product in cart">
+          <li ng-click="reviewProduct(product.product)" class="col s12 m1 l1 pointer">
+            <img class="hide-on-small-only responsive-img" style="width: 10vw" ng-src="{{product.product.imgUrl}}" />
+          </li>
+          <li ng-click="reviewProduct(product.product)" class="col s12 m2 l2 pointer">{{product.product.title}}</li>
+          <li class="col s12 m4 l4">{{product.product.description}}</li>
+          <li class="col s12 m1 l1">${{product.product.price}}</li>
+          <li class="col s12 m1 l1 center">{{product.product.size}}</li>
+          <li class="col s12 m1 l1 center">${{product.total}}</li>
+          <div class="col s12 m1 l1 center">
+            <div>
+              {{product.quantity}}
+              <div class="row">
+                <i ng-click="increaseQuantity(product.product._id)" class="material-icons pointer">add</i>
+                <i ng-click="decreaseQuantity(product.product._id)" class="material-icons pointer">remove</i>
+              </div>
             </div>
           </div>
-          <div class="modal-footer grey">
-            <a ng-click="submitOrder()"
-            class=" modal-action modal-close waves-effect waves-green btn-flat grey lighten-2">Submit Order</a>
+          <div class="col s12 m1 l1 center">
+            <div class=" pointer" ng-click="removeFromCart(product.product._id)">
+              <i class="material-icons pointer">delete</i>
+            </div>
+          </div>
+        </ul>
+      </div>
+      <hr>
+      <div class="right-align">
+        Total: ${{total}}
+      </div>
+      <!-- Modal Trigger -->
+      <a class="waves-effect waves-light btn modal-trigger blue-grey lighten-1 right" href="#modal1">Check Out</a>
+      <!-- Modal1 -->
+      <div id="modal1" class="modal modal-fixed-footer grey darken-4">
+        <div class="modal-content grey darken-2">
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input ng-model="first_name" id="first_name" type="text" class="validate">
+                  <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <input ng-model="last_name" id="last_name" type="text" class="validate">
+                  <label for="last_name">Last Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input ng-model="email" id="email" type="email" class="validate">
+                  <label for="email">Email</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="checkbox" name="vehicle1" ng-model="foreignAddress" /> Address not located in the United States?
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" ng-show="foreignAddress" ng-model="nonUsAddress" id="nonUsAddress">
+                  <label ng-show="foreignAddress" for="nonUsAddress">Input Non-United States Address</label>
+                </div>
+              </div>
+              <div class="row" ng-show="!foreignAddress">
+                <div class="input-field col s6">
+                  <input ng-model="street" id="street" type="text" class="validate">
+                  <label for="street">Street</label>
+                </div>
+                <div class="input-field col s6">
+                  <input ng-model="city" id="city" type="text" class="validate">
+                  <label for="city">City</label>
+                </div>
+              </div>
+              <div class="row" ng-show="!foreignAddress">
+                <div class="input-field col s6">
+                  <input ng-model="state" id="state" type="text" class="validate">
+                  <label for="state">State</label>
+                </div>
+                <div class="input-field col s6">
+                  <input ng-model="zipcode" id="zipcode" type="text" class="validate">
+                  <label for="zipcode">Zip Code</label>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
+        <div class="modal-footer grey">
+          <a ng-click="submitOrder()" class=" modal-action modal-close waves-effect waves-green btn-flat grey lighten-2">Submit Order</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

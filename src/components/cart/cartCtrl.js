@@ -1,13 +1,12 @@
-app.controller('cartCtrl', [
-  '$scope',
-  '$window',
-  'cartService',
-  'storeService',
-  '$state',
-  function cartCtrl($scope, $window, cartService, storeService, $state) {
+app.controller("cartCtrl", [
+  "$scope",
+  "cartService",
+  "storeService",
+  "$state",
+  function cartCtrl($scope, cartService, storeService, $state) {
     angular.element(document).ready(() => {
       var x;
-      $(window).on('scroll', function() {
+      $(window).on("scroll", function() {
         var x = $(window).scrollTop();
         function retY() {
           var y = $(window).scrollTop() / $(window).height();
@@ -17,27 +16,26 @@ app.controller('cartCtrl', [
             return 0.85;
           }
         }
-        $('.Store-page-container').css(
-          'background-size',
-          125 + parseInt(x / 3) + 'vh'
+        $(".Store-page-container").css(
+          "background-size",
+          125 + parseInt(x / 3) + "vh"
         );
-        $('.Store-page-content-container').css(
-          'background-color',
-          'rgba(0,0,0, ' + retY() + ')'
+        $(".Store-page-content-container").css(
+          "background-color",
+          "rgba(0,0,0, " + retY() + ")"
         );
       });
-      $('.modal-trigger').leanModal();
+      $(".modal-trigger").leanModal();
     });
     $scope.reviewProduct = function(product) {
       let selectedItem = storeService.products.find(
         cur => cur._id == product._id
       );
-      $state.go('product', { id: selectedItem.title });
+      $state.go("product", { id: selectedItem.title });
     };
-    $scope.unitedStatesAddress = true;
     const fillCart = id => {
       cartService.fillCart(id).then(function(response) {
-        $scope.cart = response.data.cart.map((cv) => {
+        $scope.cart = response.data.cart.map(cv => {
           return {
             product: cv.product,
             quantity: cv.quantity,
@@ -46,9 +44,6 @@ app.controller('cartCtrl', [
         });
         getOrderTotal();
       });
-    };
-    $scope.click = () => {
-      $scope.unitedStatesAddress = !$scope.unitedStatesAddress;
     };
     const getCart = () => {
       cartService.getCart().then(function(response) {
@@ -89,21 +84,24 @@ app.controller('cartCtrl', [
         getCart();
       });
     };
-    $scope.submitOrder = () => {
-      let userInfo = {};
-      if ($scope.unitedStatesAddress) {
-        if (
-          $scope.first_name === undefined ||
-          $scope.last_name === undefined ||
-          $scope.email === undefined ||
-          $scope.street === undefined ||
-          $scope.city === undefined ||
-          $scope.state === undefined ||
-          $scope.zipcode === undefined
-        ) {
-          alert(`Please ensure all fields are complete. We can not complete your order without this information.
 
-					If you are having trouble completing an order, Please contact us at DogCompanyDtx@gmail.com`);
+    $scope.submitOrder = () => {
+      let userInfo;
+      if (!$scope.foreignAddress) {
+        if (
+          !$scope.first_name ||
+          !$scope.last_name ||
+          !$scope.email ||
+          !$scope.street ||
+          !$scope.city ||
+          !$scope.state ||
+          !$scope.zipcode
+        ) {
+          alert(
+            `Please ensure all fields are complete. We can not complete your order without this information.
+
+If you are having trouble completing an order, Please contact us at DogCompanyDtx@gmail.com`
+          );
           return;
         }
         userInfo = {
@@ -116,12 +114,20 @@ app.controller('cartCtrl', [
           zipcode: $scope.zipcode
         };
       } else {
-        userInfo = {
-          first_name: $scope.first_name,
-          last_name: $scope.last_name,
-          email: $scope.email,
-          nonUSAddress: $scope.nonUsAddress
-        };
+        if (!$scope.nonUsAddress) {
+          alert(
+            `Please ensure all fields are complete. We can not complete your order without this information.
+If you are having trouble completing an order, Please contact us at DogCompanyDtx@gmail.com`
+          );
+          return;
+        } else {
+          userInfo = {
+            first_name: $scope.first_name,
+            last_name: $scope.last_name,
+            email: $scope.email,
+            nonUSAddress: $scope.nonUsAddress
+          };
+        }
       }
       const order = {
         cart: $scope.cart,
@@ -131,11 +137,11 @@ app.controller('cartCtrl', [
       cartService.submitOrder(order).then(response => {
         window.currentUserOrderInformation = response.data;
         cartService.deleteUser().then(response => {
-          $window.location.hash = '#!/store';
-          // $window.location.href = "http://127.0.0.1:4000/#/store";
+          $state.go("store");
         });
       });
     };
+
     getCart();
   }
 ]);
