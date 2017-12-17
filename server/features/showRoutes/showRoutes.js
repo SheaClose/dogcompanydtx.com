@@ -7,9 +7,9 @@ module.exports = app => {
       "http://api.bandsintown.com/artists/Dog%20Company/events?format=json&api_version=2.0&app_id=dogcompanywebsite&date=all",
       function(error, response, body) {
         if (error) {
-          res.json(error);
+          return res.json(error);
         } else {
-          res.send(body);
+          return res.send(body);
         }
       }
     );

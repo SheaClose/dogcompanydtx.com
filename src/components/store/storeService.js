@@ -1,15 +1,14 @@
-app.service('storeService', [
-  '$http',
+app.service("storeService", [
+  "$http",
   function storeService($http) {
     this.products = [];
     this.getAllProducts = () => {
-      return $http.get('/api/products').then(response => {
+      return $http.get("/api/products").then(response => {
         this.products = response.data;
         return response;
       });
     };
-    this.addToCart = (title, size, bundle) => {
-      return $http.post('/api/cart', { title, size, bundle });
-    };
+    this.addToCart = (title, size, bundle) =>
+      $http.post("/api/cart", { title, size, bundle });
   }
 ]);

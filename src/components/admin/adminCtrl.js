@@ -1,132 +1,104 @@
-app.controller('adminCtrl', [
-  '$scope',
-  'adminService',
-  '$state',
-  '$location',
-  function($scope, adminService, $state, $location) {
+app.controller("adminCtrl", [
+  "$scope",
+  "adminService",
+  "admin",
+  function($scope, adminService, admin) {
+    $scope.userIsAdmin = admin;
     angular.element(document).ready(() => {
       $(document).ready(function() {
-        $('.collapsible').collapsible({ accordion: false });
+        $(".collapsible").collapsible({ accordion: false });
       });
     });
-    $scope.userIsAdmin = false;
-    if (!$state.params.adminId || !$state.params.pass) {
-      $location.path('/');
-    } else {
-      checkPass($state.params.adminId, $state.params.pass);
-    }
     $scope.submitNewProduct = () => {
-      if ($scope.title === undefined || $scope.price === undefined) {
-        return alert('Please ensure the title and price fields are complete');
-      }
-      const product = {
-        title: $scope.title,
-        description: $scope.description,
-        price: $scope.price,
-        category: $scope.category,
-        color: $scope.color,
-        imgUrl: $scope.imgUrl,
-        url: $scope.url,
-        size: $scope.size
-      };
-      adminService.submitNewProduct(product).then(function(response) {
-        $scope.title = '';
-        $scope.description = '';
-        $scope.price = '';
-        $scope.category = '';
-        $scope.color = '';
-        $scope.imgUrl = '';
-        $scope.url = '';
-        $scope.size = '';
+      !$scope.title || !$scope.price
+        ? alert("Please ensure the title and price fields are complete")
+        : null;
+      const product = ({
+        title,
+        description,
+        price,
+        category,
+        color,
+        imgUrl,
+        url,
+        size
+      } = $scope);
+      adminService.submitNewProduct(product).then(() => {
+        $scope.title = "";
+        $scope.description = "";
+        $scope.price = "";
+        $scope.category = "";
+        $scope.color = "";
+        $scope.imgUrl = "";
+        $scope.url = "";
+        $scope.size = "";
       });
     };
     $scope.editProduct = () => {
-      const product = {
-        objId: $scope.objId
-      };
-      if ($scope.title) {
-        product.title = $scope.title;
-      }
-      if ($scope.description) {
-        product.description = $scope.description;
-      }
-      if ($scope.price) {
-        product.price = $scope.price;
-      }
-      if ($scope.category) {
-        product.category = $scope.category;
-      }
-      if ($scope.color) {
-        product.color = $scope.color;
-      }
-      if ($scope.imgUrl) {
-        product.imgUrl = $scope.imgUrl;
-      }
-      if ($scope.url) {
-        product.url = $scope.url;
-      }
-      if ($scope.size) {
-        product.size = $scope.size;
-      }
+      let {
+        objId,
+        title,
+        description,
+        price,
+        category,
+        color,
+        imgUrl,
+        url,
+        size
+      } = $scope;
+      const product = { objId };
+      title ? (product.title = title) : null;
+      description ? (product.description = description) : null;
+      price ? (product.price = price) : null;
+      category ? (product.category = category) : null;
+      color ? (product.color = color) : null;
+      imgUrl ? (product.imgUrl = imgUrl) : null;
+      url ? (product.url = url) : null;
+      size ? (product.size = size) : null;
 
       adminService.editProduct(product).then(response => {
         if (response.status == 200) {
-          $scope.title = '';
-          $scope.description = '';
-          $scope.price = '';
-          $scope.category = '';
-          $scope.color = '';
-          $scope.imgUrl = '';
-          $scope.url = '';
-          $scope.size = '';
-          $scope.objId = '';
+          $scope.title = "";
+          $scope.description = "";
+          $scope.price = "";
+          $scope.category = "";
+          $scope.color = "";
+          $scope.imgUrl = "";
+          $scope.url = "";
+          $scope.size = "";
+          $scope.objId = "";
         }
       });
     };
     $scope.deleteProduct = objId => {
       adminService.deleteProduct(objId).then(response => {
         if (response.status == 200) {
-          $scope.objId = '';
+          $scope.objId = "";
         }
       });
     };
-    $scope.addBlogPost = (bdy, ttl, img) => {
-      const blogObj = {
-        title: ttl,
-        body: bdy,
-        imgUrl: img
-      };
+    $scope.addBlogPost = (body, title, imgUrl) => {
+      const blogObj = { title, body, imgUrl };
       adminService.addBlogPost(blogObj).then(response => {
         if (response.status == 200) {
-          $scope.body = '';
-          $scope.title = '';
-          $scope.imgUrl = '';
+          $scope.body = "";
+          $scope.title = "";
+          $scope.imgUrl = "";
         }
       });
     };
-    $scope.editBlogPost = (id, bdy, ttl) => {
-      blogObj = {
-        title: ttl,
-        body: bdy,
-        objId: id
-      };
+    $scope.editBlogPost = (objId, body, title) => {
+      blogObj = { title, body, objId };
       adminService.editBlogPost(blogObj).then(response => {
         if (response.status == 200) {
-          $scope.body = '';
-          $scope.title = '';
-          $scope.objId = '';
+          $scope.body = "";
+          $scope.title = "";
+          $scope.objId = "";
         }
       });
     };
     $scope.deleteBlog = objId => {
-      adminService.deleteBlog(objId).then(response => {
-        $scope.objId = '';
-      });
+      adminService.deleteBlog(objId).then(response => ($scope.objId = ""));
     };
-    function checkPass(user, pass) {
-      adminService.checkPass(user, pass).then(res => {
-        $scope.userIsAdmin = res.data !== 'false';
-      });
-    }
   }
 ]);

@@ -5,7 +5,6 @@ app.controller("cartCtrl", [
   "$state",
   function cartCtrl($scope, cartService, storeService, $state) {
     angular.element(document).ready(() => {
-      var x;
       $(window).on("scroll", function() {
         var x = $(window).scrollTop();
         function retY() {
@@ -27,30 +26,20 @@ app.controller("cartCtrl", [
       });
       $(".modal-trigger").leanModal();
     });
-    $scope.reviewProduct = function(product) {
+    $scope.reviewProduct = product => {
       let selectedItem = storeService.products.find(
-        cur => cur._id == product._id
+        ({ _id }) => _id == product._id
       );
       $state.go("product", { id: selectedItem.title });
     };
     const fillCart = id => {
       cartService.fillCart(id).then(function(response) {
-        $scope.cart = response.data.cart.map(cv => {
-          return {
-            product: cv.product,
-            quantity: cv.quantity,
-            total: cv.quantity * cv.product.price
-          };
-        });
-        getOrderTotal();
-      });
-    };
-    const getCart = () => {
-      cartService.getCart().then(function(response) {
-        response.data.forEach(function(cv, i, arr) {
-          $scope.user = cv;
-          fillCart($scope.user._id);
-        });
+        $scope.cart = response.data.cart.map(cv => ({
+          product: cv.product,
+          quantity: cv.quantity,
+          total: cv.quantity * cv.product.price
+        }));
+        $scope.total = getOrderTotal();
       });
     };
     $scope.increaseQuantity = id => {
@@ -60,7 +49,7 @@ app.controller("cartCtrl", [
           cv.total = cv.quantity * cv.product.price;
         }
       });
-      getOrderTotal();
+      $scope.total = getOrderTotal();
     };
     $scope.decreaseQuantity = id => {
       $scope.cart.forEach((cv, i, arr) => {
@@ -71,13 +60,7 @@ app.controller("cartCtrl", [
           }
         }
       });
-      getOrderTotal();
-    };
-    const getOrderTotal = () => {
-      $scope.total = 0;
-      $scope.cart.forEach((cv, i, arr) => {
-        $scope.total += cv.total;
-      });
+      $scope.total = getOrderTotal();
     };
     $scope.removeFromCart = prodId => {
       cartService.removeFromCart(prodId, $scope.user._id).then(response => {
@@ -143,5 +126,18 @@ If you are having trouble completing an order, Please contact us at DogCompanyDt
     };
 
     getCart();
+
+    function getOrderTotal() {
+      return $scope.cart.reduce((acc, cv) => acc + cv.total, 0);
+    }
+
+    function getCart() {
+      cartService.getCart().then(function(response) {
+        response.data.forEach(function(cv, i, arr) {
+          $scope.user = cv;
+          fillCart($scope.user._id);
+        });
+      });
+    }
   }
 ]);

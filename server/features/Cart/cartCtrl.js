@@ -18,11 +18,9 @@ module.exports = {
       } else {
         product = prod.pop();
         if (bundle) {
-          product.description = `${selectedAlbum
-            ? selectedAlbum
-            : ""} ${selectedSize ? selectedSize : ""} ${selectedDesign
-            ? selectedDesign
-            : ""}`.trim();
+          product.description = `${selectedAlbum ? selectedAlbum : ""} ${
+            selectedSize ? selectedSize : ""
+          } ${selectedDesign ? selectedDesign : ""}`.trim();
           if (selectedSize) {
             product.size = selectedSize;
           }
@@ -71,11 +69,10 @@ module.exports = {
     User.findById({ _id: req.params.id })
       .populate("cart.product")
       .exec(function(err, suc) {
-        var user = suc;
         if (err) {
           res.json(err);
         } else {
-          return res.status(200).json(user);
+          return res.status(200).json(suc);
         }
       });
   },
@@ -84,11 +81,7 @@ module.exports = {
       if (err) {
         return res.status(500).json(err);
       } else {
-        user.cart.forEach((cv, i, arr) => {
-          if (cv.product._id == req.body._id) {
-            user.cart.splice(i, 1);
-          }
-        });
+        user.cart = user.cart.filter((cv, i) => cv.product._id != req.body._id);
         user.save();
         return res.status(200).json(user);
       }

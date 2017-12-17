@@ -1,10 +1,10 @@
 "use strict";
 
-const blogCtrl = require("./blogCtrl.js");
+const { postBlog, getBlog, editBlog, deleteBlog } = require("./blogCtrl.js");
 module.exports = app => {
-  app.post("/api/blogs", blogCtrl.postBlog);
-  app.get("/api/blogs", blogCtrl.getBlog);
-  app.get("/api/blogs/:id", blogCtrl.getBlog);
-  app.put("/api/blogs/:id", blogCtrl.editBlog);
-  app.delete("/api/blogs/:id", blogCtrl.deleteBlog);
+  app.post("/api/blogs", postBlog);
+  app.get("/api/blogs", getBlog);
+  app.get("/api/blogs/:id", getBlog);
+  app.put("/api/blogs/:id", editBlog);
+  app.delete("/api/blogs/:id", deleteBlog);
 };
