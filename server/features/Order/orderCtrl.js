@@ -87,10 +87,12 @@ Order Details:
             ]
           }
         });
-        sg.API(request, function(error, response) {
-          if (error) {
-          }
-        });
+        if (process.env.NODE_ENV !== "development") {
+          sg.API(request, function(error, response) {
+            if (error) {
+            }
+          });
+        }
         return res.status(200).json(order);
       }
     });

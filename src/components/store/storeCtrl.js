@@ -3,29 +3,24 @@ app.controller("storeCtrl", [
   "$state",
   "storeService",
   function($scope, $state, storeService) {
+    $scope.nonUSAddress = false;
+
     angular.element(document).ready(() => {
+      var win = $(window);
       var x;
-      $(window).on("scroll", function() {
-        var x = $(window).scrollTop();
-        function retY() {
-          var y = $(window).scrollTop() / $(window).height();
-          if (y < 0.85) {
-            return y;
-          } else {
-            return 0.85;
-          }
-        }
+      win.on("scroll", function() {
+        var x = win.scrollTop();
         $(".Store-page-container").css(
           "background-size",
           125 + parseInt(x / 6) + "vh"
         );
         $(".Store-page-content-container").css(
           "background-color",
-          "rgba(0,0,0, " + retY() + ")"
+          "rgba(0,0,0, " + retY(win) + ")"
         );
       });
     });
-    $scope.nonUSAddress = false;
+
     storeService.getAllProducts().then(response => {
       let products = response.data
         .reduce(
@@ -45,7 +40,9 @@ app.controller("storeCtrl", [
       let bundle = products.filter(c => c.category == "bundle");
       $scope.products = [...apparel, ...merch, ...bundle];
     });
+
     $scope.goTo = id => $state.go("product", { id: id });
+
     if (window.currentUserOrderInformation) {
       if (window.currentUserOrderInformation.user.nonUSAddress) {
         $scope.nonUSAddress = true;
@@ -56,3 +53,12 @@ app.controller("storeCtrl", [
     }
   }
 ]); // export default storeCtrl;
+
+function retY(win) {
+  var y = win.scrollTop() / win.height();
+  if (y < 0.85) {
+    return y;
+  } else {
+    return 0.85;
+  }
+}
