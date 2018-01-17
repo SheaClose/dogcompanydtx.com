@@ -55,6 +55,7 @@ describe("Check all of the views!!!!", function() {
     cy.url().should("include", "/store");
     cy.visit("http://localhost:4000/#!/cart");
     cy.get('[href="#modal1"]').click();
+    cy.get("[type='email']").type("test@test.com");
     cy.get("input[type=text]").then(inputs => {
       inputs.map((_, input) => {
         if (input.className.indexOf("ng-hide") == -1) {
@@ -62,7 +63,28 @@ describe("Check all of the views!!!!", function() {
         }
       });
     });
-    cy.get("[type='email']").type("test@test.com");
     cy.get('[ng-click="submitOrder()"]').click();
+    /** verify some stuff before closing modal */
+    cy.get("#dismiss").click();
+  });
+  it(".should verify all views are showing", function() {
+    cy.visit("http://localhost:4000");
+    cy.get("[ui-sref=shows]").click();
+    cy.get("footer").scrollIntoView({ duration: 1500 });
+    cy.get("nav-bar").scrollIntoView({ duration: 1500 });
+    cy.get("[ui-sref=about]").click();
+    cy.get("footer").scrollIntoView({ duration: 1500 });
+    cy.get("nav-bar").scrollIntoView({ duration: 1500 });
+    cy.get("[ui-sref=media]").click({ duration: 1500 });
+    cy.get("footer").scrollIntoView({ duration: 1500 });
+    cy.get("nav-bar").scrollIntoView({ duration: 1500 });
+    cy.get("[ui-sref=home]").click();
+    cy.get("nav-bar").scrollIntoView({ duration: 500 });
+    cy.get("footer").scrollIntoView({ duration: 1500 });
+    cy.get("nav-bar").scrollIntoView({ duration: 1500 });
+    cy.get("[ui-sref=store]").click();
+    cy.get("nav-bar").scrollIntoView({ duration: 500 });
+    cy.get("footer").scrollIntoView({ duration: 1500 });
+    cy.get("nav-bar").scrollIntoView({ duration: 1500 });
   });
 });
