@@ -11,6 +11,7 @@ const express = require("express"),
   masterRoutes = require("./masterRoutes.js"),
   session = require("express-session"),
   axios = require("axios");
+require("dotenv").config();
 
 app.use(
   session({
