@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp",
-    "cypress:open": "npx cypress open"
+    "cypress": "npx cypress open"
   },
   "author": "",
   "license": "ISC",
@@ -20,7 +20,8 @@
     "mongojs": "^2.4.0",
     "mongoose": "^4.6.3",
     "request": "^2.75.0",
-    "sendgrid": "^4.7.0"
+    "sendgrid": "^4.7.0",
+    "uglify-js": "^3.3.7"
   },
   "devDependencies": {
     "babel-core": "^6.18.0",
