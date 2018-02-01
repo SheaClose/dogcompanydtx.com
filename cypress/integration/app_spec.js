@@ -3,9 +3,27 @@ describe("Check all of the views!!!!", function() {
     cy.visit("http://localhost:4000");
     cy.title().should("include", "Dog Company Punk Rock!");
   });
+  // it(".should verify all views are showing", function() {
+  //   // cy.visit("http://localhost:4000");
+  //   cy.get("[ui-sref=shows]").click();
+  //   cy.get("footer").scrollIntoView({ duration: 500 });
+  //   cy.get("nav-bar").scrollIntoView({ duration: 500 });
+  //   cy.get("[ui-sref=about]").click();
+  //   cy.get("footer").scrollIntoView({ duration: 500 });
+  //   cy.get("nav-bar").scrollIntoView({ duration: 500 });
+  //   cy.get("[ui-sref=media]").click({ duration: 500 });
+  //   cy.get("footer").scrollIntoView({ duration: 500 });
+  //   cy.get("nav-bar").scrollIntoView({ duration: 500 });
+  //   cy.get("[ui-sref=home]").click();
+  //   cy.get("footer").scrollIntoView({ duration: 500 });
+  //   cy.get("nav-bar").scrollIntoView({ duration: 500 });
+  //   cy.get("[ui-sref=store]").click();
+  //   cy.get("footer").scrollIntoView({ duration: 500 });
+  //   cy.get("nav-bar").scrollIntoView({ duration: 500 });
+  // });
   it(".should visit store - assert that products load", function() {
-    cy.visit("http://localhost:4000");
-    cy.get("[ui-sref='store']").click();
+    // cy.visit("http://localhost:4000");
+    // cy.get("[ui-sref='store']").click();
     cy.url().should("include", "/store");
     cy
       .get(".product-img")
@@ -13,14 +31,13 @@ describe("Check all of the views!!!!", function() {
       .should("be.gt", 10);
   });
   it(".should select a product and verify products load", function() {
-    cy.get(".product-img").then(images => {
-      images[0].click();
-      cy.url().should("include", "/product");
-      cy
-        .get(".responsive-img")
-        .its("length")
-        .should("be.gte", 1);
-    });
+    // cy.visit("http://localhost:4000/#!/store");
+    cy.get(":nth-child(1) > .product-img").click();
+    cy.url().should("include", "/product");
+    cy
+      .get(".responsive-img")
+      .its("length")
+      .should("be.gte", 1);
   });
   it(".should add product to cart / remove from cart ", function() {
     let id;
@@ -43,14 +60,21 @@ describe("Check all of the views!!!!", function() {
   });
   it(".should add to cart and complete order", function() {
     cy.visit("http://localhost:4000/#!/store");
-    cy.get(".product-img").then(images => {
-      images[0].click();
-      cy.url().should("include", "/product");
-      cy
-        .get(".responsive-img")
-        .its("length")
-        .should("be.gte", 1);
-    });
+    cy.get(":nth-child(14) > .product-img").click();
+    // .select("SONGS OF DISCONTENT - CD");
+    cy
+      .get(":nth-child(2) > .t_shirt_select")
+      .select("SONGS OF DISCONTENT - CD");
+    cy.get(":nth-child(3) > .t_shirt_select").select("CREST T-SHIRT");
+    cy.get(":nth-child(4) > .t_shirt_select").select("MEDIUM");
+    cy.get(".button").click();
+    cy.get(":nth-child(1) > .product-img").click();
+    cy.url().should("include", "/product");
+    cy
+      .get(".responsive-img")
+      .its("length")
+      .should("be.gte", 1);
+
     cy.get("[type=button]").click();
     cy.url().should("include", "/store");
     cy.visit("http://localhost:4000/#!/cart");
@@ -65,26 +89,6 @@ describe("Check all of the views!!!!", function() {
     });
     cy.get('[ng-click="submitOrder()"]').click();
     /** verify some stuff before closing modal */
-    cy.get("#dismiss").click();
-  });
-  it(".should verify all views are showing", function() {
-    cy.visit("http://localhost:4000");
-    cy.get("[ui-sref=shows]").click();
-    cy.get("footer").scrollIntoView({ duration: 1500 });
-    cy.get("nav-bar").scrollIntoView({ duration: 1500 });
-    cy.get("[ui-sref=about]").click();
-    cy.get("footer").scrollIntoView({ duration: 1500 });
-    cy.get("nav-bar").scrollIntoView({ duration: 1500 });
-    cy.get("[ui-sref=media]").click({ duration: 1500 });
-    cy.get("footer").scrollIntoView({ duration: 1500 });
-    cy.get("nav-bar").scrollIntoView({ duration: 1500 });
-    cy.get("[ui-sref=home]").click();
-    cy.get("nav-bar").scrollIntoView({ duration: 500 });
-    cy.get("footer").scrollIntoView({ duration: 1500 });
-    cy.get("nav-bar").scrollIntoView({ duration: 1500 });
-    cy.get("[ui-sref=store]").click();
-    cy.get("nav-bar").scrollIntoView({ duration: 500 });
-    cy.get("footer").scrollIntoView({ duration: 1500 });
-    cy.get("nav-bar").scrollIntoView({ duration: 1500 });
+    // cy.get("#dismiss").click();
   });
 });
