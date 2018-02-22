@@ -8,8 +8,8 @@
             <img class="responsive-img" ng-src="{{product.imgUrl}}" alt="Image of merchandise" />
             <div ng-if="img2Toggle">
               <div class="row">
-                <img alt="optional additional images" class="col s12 m12 l12 responsive-img" ng-src="{{product.imgUrl2}}">
-                <img alt="optional additional images" class="col s12 m12 l12 responsive-img" ng-src="{{product.imgUrl3}}">
+                <img ng-if="product.imgUrl2" alt="optional additional images" class="col s12 m12 l12 responsive-img" ng-src="{{product.imgUrl2}}">
+                <img ng-if="product.imgUrl3" alt="optional additional images" class="col s12 m12 l12 responsive-img" ng-src="{{product.imgUrl3}}">
               </div>
             </div>
           </div>
