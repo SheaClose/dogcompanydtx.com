@@ -1,5 +1,22 @@
 import $ from "jquery";
 
+(function($) {
+  $.fn.leanModal = function(options) {
+    if ($(".modal").length > 0) {
+      $(".modal").modal(options);
+    }
+  };
+
+  $.fn.openModal = function(options) {
+    $(this).modal(options);
+    $(this).modal("open");
+  };
+
+  $.fn.closeModal = function() {
+    $(this).modal("close");
+  };
+})(jQuery);
+
 export default [
   "$scope",
   "cartService",
