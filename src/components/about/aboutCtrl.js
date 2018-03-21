@@ -1,4 +1,4 @@
-angular.module("app").controller("aboutCtrl", function($scope) {
+export default function($scope) {
   angular.element(document).ready(() => {
     $(window).on("scroll", function() {
       var x = $(window).scrollTop();
@@ -43,4 +43,4 @@ angular.module("app").controller("aboutCtrl", function($scope) {
     window.addEventListener("resize", callbackFunc);
     window.addEventListener("scroll", callbackFunc);
   });
-});
+}

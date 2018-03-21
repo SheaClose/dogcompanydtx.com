@@ -1,3 +1,5 @@
+import aboutCtrl from "./components/about/aboutCtrl";
+
 var app = angular
   .module("app", ["ui.router"])
   .config([
@@ -82,4 +84,5 @@ var app = angular
         }
       ]
     };
-  });
+  })
+  .controller("aboutCtrl", aboutCtrl);

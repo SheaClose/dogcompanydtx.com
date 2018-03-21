@@ -6,3 +6,5 @@ public/Assets/photos
 public/bundle.js.map
 node_modules
 .env
+/cypress
+cypress.json
