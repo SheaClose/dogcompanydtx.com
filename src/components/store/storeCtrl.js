@@ -1,4 +1,6 @@
-app.controller("storeCtrl", [
+import $ from "jquery";
+
+export default [
   "$scope",
   "$state",
   "storeService",
@@ -52,7 +54,7 @@ app.controller("storeCtrl", [
       window.currentUserOrderInformation = null;
     }
   }
-]); // export default storeCtrl;
+];
 
 function retY(win) {
   var y = win.scrollTop() / win.height();

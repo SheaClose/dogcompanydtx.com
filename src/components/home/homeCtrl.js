@@ -1,4 +1,6 @@
-app.controller("homeCtrl", [
+import $ from "jquery";
+
+export default [
   "$scope",
   "homeService",
   function homeCtrl($scope, homeService) {
@@ -26,4 +28,4 @@ app.controller("homeCtrl", [
     });
     homeService.getBlogs().then(response => ($scope.blogs = response));
   }
-]);
+];

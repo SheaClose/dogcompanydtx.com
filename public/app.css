@@ -190,6 +190,11 @@ body {
 .product-img {
   height: 35vh;
   max-width: 100%;
+  transition: transform 250ms ease-out;
+}
+
+.product-img:hover {
+  transform: scale(1.05);
 }
 
 .product-text {

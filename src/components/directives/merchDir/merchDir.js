@@ -1,10 +1,10 @@
-app.directive('merchDir', function merchDir() {
+export default function merchDir() {
   return {
-    templateUrl: './views/merchTmpl.html',
+    templateUrl: "./views/merchTmpl.html",
     scope: {
-      add: '&',
-      product: '=',
-      sizes: '='
+      add: "&",
+      product: "=",
+      sizes: "="
     }
   };
-});
+}

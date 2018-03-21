@@ -1,10 +1,10 @@
-app.directive('apparelDir', function apparelDir() {
+export default function apparelDir() {
   return {
-    templateUrl: './views/apparelTmpl.html',
+    templateUrl: "./views/apparelTmpl.html",
     scope: {
-      add: '&',
-      product: '=',
-      sizes: '='
+      add: "&",
+      product: "=",
+      sizes: "="
     }
   };
-});
+}

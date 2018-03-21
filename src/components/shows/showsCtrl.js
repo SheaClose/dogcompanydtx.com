@@ -1,4 +1,6 @@
-app.controller("showsCtrl", [
+import $ from "jquery";
+
+export default [
   "$scope",
   "$window",
   "showsService",
@@ -30,4 +32,4 @@ app.controller("showsCtrl", [
       .then(res => ($scope.shows = res.data.slice(1, 49).reverse()));
     $scope.goToThere = url => ($window.location.href = url);
   }
-]);
+];
