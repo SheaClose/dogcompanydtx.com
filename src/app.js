@@ -1,5 +1,6 @@
 import angular from "angular";
 import angularUiRouter from "angular-ui-router";
+import Material from "materialize-css";
 
 import config from "./config";
 

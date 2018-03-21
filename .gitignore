@@ -1,10 +1,9 @@
 serverConfig.js
-cypress
 private
 webpack.config.js
 public/Assets/photos
 public/bundle.js.map
 node_modules
 .env
-/cypress
+cypress
 cypress.json

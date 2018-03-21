@@ -13,17 +13,20 @@
     "angular": "^1.6.9",
     "angular-ui-router": "^1.0.3",
     "axios": "^0.16.2",
+    "babel-minify-webpack-plugin": "^0.3.1",
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
     "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
     "jquery": "^3.3.1",
+    "materialize-css": "^0.100.2",
     "mongojs": "^2.4.0",
     "mongoose": "^4.6.3",
     "request": "^2.75.0",
     "sendgrid": "^4.7.0",
-    "uglify-js": "^3.3.7"
+    "uglify-js": "^3.3.7",
+    "uglifyjs-webpack-plugin": "^1.2.4"
   },
   "devDependencies": {
     "babel-core": "^6.18.0",

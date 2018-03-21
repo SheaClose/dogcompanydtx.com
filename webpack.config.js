@@ -1,4 +1,13 @@
+const MinifyPlugin = require("babel-minify-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+
 module.exports = {
+  plugins: [
+    new MinifyPlugin(),
+    new UglifyJsPlugin({
+      test: /\.js($|\?)/i
+    })
+  ],
   entry: "./src/app.js",
   module: {
     loaders: [
@@ -6,6 +15,15 @@ module.exports = {
         test: /\.js/,
         exclude: /node_modules/,
         loader: "babel"
+      }
+    ],
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "babel-loader"
+        }
       }
     ]
   },
