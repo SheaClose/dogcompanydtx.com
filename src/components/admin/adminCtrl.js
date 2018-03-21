@@ -1,4 +1,6 @@
-app.controller("adminCtrl", [
+import $ from "jquery";
+
+export default [
   "$scope",
   "adminService",
   "admin",
@@ -101,4 +103,4 @@ app.controller("adminCtrl", [
       adminService.deleteBlog(objId).then(response => ($scope.objId = ""));
     };
   }
-]);
+];

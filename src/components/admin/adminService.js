@@ -1,4 +1,4 @@
-app.service("adminService", [
+export default [
   "$http",
   function($http) {
     this.submitNewProduct = productObj =>
@@ -19,4 +19,4 @@ app.service("adminService", [
     this.checkPass = (user, pass) =>
       $http.get(`/api/admin/?user=${user}&pass=${pass}`);
   }
-]);
+];

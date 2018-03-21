@@ -1,36 +1,36 @@
-app.directive('bundleDir', [
-  'storeService',
+export default [
+  "storeService",
   function bundleDir(storeService) {
     return {
-      templateUrl: './views/bundleTmpl.html',
+      templateUrl: "./views/bundleTmpl.html",
       scope: {
-        add: '&',
-        product: '=',
-        sizes: '='
+        add: "&",
+        product: "=",
+        sizes: "="
       },
       controller: [
-        '$scope',
+        "$scope",
         function($scope) {
-          if ($scope.product.options.includes('shirts')) {
+          if ($scope.product.options.includes("shirts")) {
             $scope.product.designs = storeService.products
-              .filter(c => c.category == 'apparel')
+              .filter(c => c.category == "apparel")
               .map(c => c.title)
               .filter((c, i, a) => a.indexOf(c) == i);
           }
-          if ($scope.product.options.includes('albums')) {
+          if ($scope.product.options.includes("albums")) {
             $scope.product.albums = [
-              'Songs of Discontent - cd',
-              'War Stories - Album'
+              "Songs of Discontent - cd",
+              "War Stories - Album"
             ];
           }
-          $scope.$watch('selectedDesign', function() {
+          $scope.$watch("selectedDesign", function() {
             const orderedSizes = [
-              'small',
-              'medium',
-              'large',
-              'xLarge',
-              'xxLarge',
-              'xxxLarge'
+              "small",
+              "medium",
+              "large",
+              "xLarge",
+              "xxLarge",
+              "xxxLarge"
             ];
 
             const sizes = storeService.products
@@ -44,4 +44,4 @@ app.directive('bundleDir', [
       ]
     };
   }
-]);
+];

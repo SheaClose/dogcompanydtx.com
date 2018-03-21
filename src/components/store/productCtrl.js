@@ -1,4 +1,6 @@
-app.controller("productCtrl", [
+import $ from "jquery";
+
+export default [
   "$scope",
   "$state",
   "storeService",
@@ -98,4 +100,4 @@ app.controller("productCtrl", [
       });
     };
   }
-]);
+];

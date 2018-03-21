@@ -1,4 +1,4 @@
-app.service("storeService", [
+export default [
   "$http",
   function storeService($http) {
     this.products = [];
@@ -11,4 +11,4 @@ app.service("storeService", [
     this.addToCart = (title, size, bundle) =>
       $http.post("/api/cart", { title, size, bundle });
   }
-]);
+];

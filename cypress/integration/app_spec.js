@@ -22,8 +22,8 @@ describe("Check all of the views!!!!", function() {
   //   cy.get("nav-bar").scrollIntoView({ duration: 500 });
   // });
   it(".should visit store - assert that products load", function() {
-    // cy.visit("http://localhost:4000");
-    // cy.get("[ui-sref='store']").click();
+    cy.visit("http://localhost:4000");
+    cy.get("[ui-sref='store']").click();
     cy.url().should("include", "/store");
     cy
       .get(".product-img")
@@ -60,7 +60,7 @@ describe("Check all of the views!!!!", function() {
   });
   it(".should add to cart and complete order", function() {
     cy.visit("http://localhost:4000/#!/store");
-    cy.get(":nth-child(14) > .product-img").click();
+    cy.get(":nth-child(15) > .product-img").click();
     // .select("SONGS OF DISCONTENT - CD");
     cy
       .get(":nth-child(2) > .t_shirt_select")

@@ -5,18 +5,20 @@
   "private": true,
   "scripts": {
     "cypress": "npx cypress open",
-    "start": "webpack --watch"
+    "start": "webpack --config ./webpack.config.js --watch"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.6.9",
+    "angular-ui-router": "^1.0.3",
     "axios": "^0.16.2",
-    "babel-preset-env": "^1.6.0",
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
     "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
+    "jquery": "^3.3.1",
     "mongojs": "^2.4.0",
     "mongoose": "^4.6.3",
     "request": "^2.75.0",

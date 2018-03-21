@@ -1,4 +1,4 @@
-app.service("homeService", [
+export default [
   "$http",
   function homeService($http) {
     this.getBlogs = () =>
@@ -6,4 +6,4 @@ app.service("homeService", [
         .get("/api/blogs")
         .then(res => res.data.sort((a, b) => a.date < b.date));
   }
-]);
+];

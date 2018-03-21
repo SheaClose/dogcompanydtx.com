@@ -1,4 +1,6 @@
-app.controller("cartCtrl", [
+import $ from "jquery";
+
+export default [
   "$scope",
   "cartService",
   "storeService",
@@ -140,4 +142,4 @@ If you are having trouble completing an order, Please contact us at DogCompanyDt
       });
     }
   }
-]);
+];

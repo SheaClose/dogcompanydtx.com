@@ -1,9 +1,19 @@
-const path = require("path");
-
 module.exports = {
   entry: "./src/app.js",
+  module: {
+    loaders: [
+      {
+        test: /\.js/,
+        exclude: /node_modules/,
+        loader: "babel"
+      }
+    ]
+  },
+  resolve: {
+    extensions: ["", ".js"]
+  },
   output: {
-    filename: "app.min.js",
-    path: path.resolve(__dirname, "public")
+    path: __dirname + "/public",
+    filename: "app.min.js"
   }
 };
