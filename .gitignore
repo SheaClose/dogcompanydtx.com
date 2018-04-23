@@ -4,6 +4,5 @@ serverConfig.js
 private
 webpack.config.js
 public/Assets/photos
-public/app.min.js
 node_modules
 .env
