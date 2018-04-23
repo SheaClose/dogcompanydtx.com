@@ -25,6 +25,8 @@ describe("Check all of the views!!!!", function() {
     cy.visit("http://localhost:4000");
     cy.get("[ui-sref='store']").click();
     cy.url().should("include", "/store");
+
+    
     cy
       .get(".product-img")
       .its("length")
