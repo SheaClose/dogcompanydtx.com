@@ -44,7 +44,6 @@ export default [
     });
 
     $scope.goTo = id => $state.go("product", { id: id });
-
     if (window.currentUserOrderInformation) {
       if (window.currentUserOrderInformation.user.nonUSAddress) {
         $scope.nonUSAddress = true;

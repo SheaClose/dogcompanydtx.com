@@ -5,7 +5,7 @@ const Order = require("./Order.js"),
   sg = require("sendgrid")(serverConfig.SENDGRID_API_KEY);
 
 module.exports = {
-  submitOrder: (req, res) => {
+  submitOrder: ({ body }, res) => {
     let {
       email,
       first_name,
@@ -15,10 +15,10 @@ module.exports = {
       city,
       state,
       zipcode
-    } = req.body.user;
-    let { cart, total } = req.body;
+    } = body.user;
+    let { cart, total } = body;
 
-    new Order(req.body).save((err, order) => {
+    new Order(body).save((err, order) => {
       if (err) {
         return res.status(500).json(err);
       } else {
@@ -59,7 +59,7 @@ Total: ${total}
               {
                 to: [
                   {
-                    email: email
+                    email
                   }
                 ],
                 subject: `Your Dog Company Merchandise Order(${order._id})`
@@ -93,7 +93,7 @@ Order Details:
             }
           });
         }
-        return res.status(200).json(order);
+        return res.status(200).json(Object.assign(body, order));
       }
     });
   }
