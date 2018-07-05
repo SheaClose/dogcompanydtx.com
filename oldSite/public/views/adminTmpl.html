@@ -1,0 +1,411 @@
+<nav-bar></nav-bar>
+<div ng-show="userIsAdmin" class="">
+	<!-- ///////////////
+	//Add Product//
+	/////////////// -->
+	<ul  class="collapsible grey" data-collapsible="accordion">
+		<li>
+			<div class="collapsible-header grey">Add Product</div>
+			<div class="collapsible-body">
+				<div class=" admin-tmpl">
+					<div class="">
+						<div class="row">
+
+							<form class="col s12">
+								<div class="row">
+									<div class="input-field col s6">
+										<input ng-model="title" id="first_name" type="text" class="validate">
+										<label for="first_name">Title - required</label>
+									</div>
+
+									<div class="input-field col s6">
+										<input ng-model="description" id="last_name" type="text" class="validate">
+										<label for="last_name">description</label>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="input-field col s6">
+										<input ng-model="price" id="first_name" type="text" class="validate">
+										<label for="first_name">Price - required</label>
+									</div>
+
+									<div class="input-field col s6">
+										<input ng-model="category" id="last_name" type="text" class="validate">
+										<label for="last_name">category</label>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="input-field col s6">
+										<input ng-model="color" id="first_name" type="text" class="validate">
+										<label for="first_name">color</label>
+									</div>
+
+									<div class="input-field col s6">
+										<input ng-model="imgUrl" id="last_name" type="text" class="validate">
+										<label for="last_name">Image location</label>
+									</div>
+
+									<div class="input-field col s6">
+
+										<select ng-model="size" class="browser-default grey darken-2">
+											<option value="" disabled selected>Size</option>
+											<option value="small"> small </option>
+											<option value="medium"> medium </option>
+											<option value="large"> large </option>
+											<option value="xLarge"> x-large </option>
+											<option value="xxLarge"> xx-large </option>
+											<option value="xxxLarge"> xxx-large </option>
+
+										</select>
+									</div>
+								</div>
+
+								<div class="row center-align">
+									<button ng-click="submitNewProduct()" class="center-align" type="submit" name="button">Submit</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+	<!-- ////////////////
+	//Edit Product//
+	//////////////// -->
+	<ul class="collapsible grey" data-collapsible="accordion">
+		<li>
+			<div class="collapsible-header grey">Edit Product</div>
+			<div class="collapsible-body">
+				<div class=" admin-tmpl">
+					<div class="">
+						<div class="row"><form class="col s12">
+							<div class="input-field">
+								<input ng-model="objId" id="first_name" type="text" class="validate">
+								<label for="first_name">Object Id</label>
+							</div>
+						</form>
+						<form class="col s12">
+							<div class="row">
+								<div class="input-field col s6">
+									<input ng-model="title" id="first_name" type="text" class="validate">
+									<label for="first_name">Title - required</label>
+								</div>
+
+								<div class="input-field col s6">
+									<input ng-model="description" id="last_name" type="text" class="validate">
+									<label for="last_name">description</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="input-field col s6">
+									<input ng-model="price" id="first_name" type="text" class="validate">
+									<label for="first_name">Price - required</label>
+								</div>
+
+								<div class="input-field col s6">
+									<input ng-model="category" id="last_name" type="text" class="validate">
+									<label for="last_name">category</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="input-field col s6">
+									<input ng-model="color" id="first_name" type="text" class="validate">
+									<label for="first_name">color</label>
+								</div>
+
+								<div class="input-field col s6">
+									<input ng-model="imgUrl" id="last_name" type="text" class="validate">
+									<label for="last_name">Image location</label>
+								</div>
+
+								<div class="input-field col s6">
+									<input ng-model="url" id="last_name" type="text" class="validate">
+									<label for="last_name">url</label>
+								</div>
+
+								<div class="input-field col s6">
+
+									<select ng-model="size" class="browser-default grey darken-2">
+										<option value="" disabled selected>Size</option>
+										<option value="small"> small </option>
+										<option value="medium"> medium </option>
+										<option value="large"> large </option>
+										<option value="x-large"> x-large </option>
+										<option value="xx-large"> xx-large </option>
+										<option value="xxx-large"> xxx-large </option>
+
+									</select>
+								</div>
+							</div>
+
+							<div class="row center-align">
+								<button ng-click="editProduct()" class="center-align" type="submit" name="button">Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</li>
+</ul>
+<!-- //////////////////
+//Delete Product//
+////////////////// -->
+<ul class="collapsible grey" data-collapsible="accordion">
+	<li>
+		<div class="collapsible-header grey">Delete Product</div>
+		<div class="collapsible-body">
+			<div class=" admin-tmpl">
+				<div class="">
+					<div class="row">
+						<form class="col s12">
+							<div class="input-field">
+								<input ng-model="objId" id="first_name" type="text" class="validate">
+								<label for="first_name">Object Id</label>
+							</div>
+						</form>
+					</div>
+					<div class="row center-align">
+						<button ng-click="deleteProduct(objId)" class="center-align" type="submit" name="button">Delete</button>
+					</div>
+				</div>
+			</div>
+		</div>
+</li>
+</ul>
+<!-- ///////////////
+//Create Blog//
+/////////////// -->
+<ul class="collapsible grey" data-collapsible="accordion">
+	<li>
+		<div class="collapsible-header grey">Add New Blog Post</div>
+		<div class="collapsible-body">
+			<div class=" admin-tmpl">
+				<div class="">
+					<div class="row">
+						<form class="col s12">
+							<div class="input-field">
+								<input ng-model="title" id="first_name" type="text" class="validate">
+								<label for="first_name">Title</label>
+							</div>
+							<div class="input-field col s12">
+								<textarea ng-model="body" id="textarea1" class="materialize-textarea"></textarea>
+								<label for="textarea1">Body</label>
+							</div>
+							<div class="input-field col s12">
+								<input ng-model="imgUrl" id="textarea1" class="validate"></input>
+								<label for="textarea1">imgUrl</label>
+							</div>
+							<button ng-click="addBlogPost(body, title, imgUrl)" class="" type="submit" name="button">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+</li>
+</ul>
+<!-- /////////////
+//Edit Blog//
+///////////// -->
+<ul class="collapsible grey" data-collapsible="accordion">
+	<li>
+		<div class="collapsible-header grey">Edit Blog Post</div>
+		<div class="collapsible-body">
+			<div class=" admin-tmpl">
+				<div class="">
+					<div class="row">
+						<form class="col s12">
+							<div class="input-field">
+								<input ng-model="objId" id="first_name" type="text" class="validate">
+								<label for="first_name">ObjectId</label>
+							</div>
+							<div class="input-field">
+								<input ng-model="title" id="first_name" type="text" class="validate">
+								<label for="first_name">Title</label>
+							</div>
+							<div class="input-field col s12">
+								<textarea ng-model="body" id="textarea1" class="materialize-textarea"></textarea>
+								<label for="textarea1">Body</label>
+							</div>
+							<button ng-click="editBlogPost(objId, body, title)" class="center-align" type="submit" name="button">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+</li>
+</ul>
+<!-- ///////////////
+//Delete Blog//
+/////////////// -->
+<ul class="collapsible grey" data-collapsible="accordion">
+	<li>
+		<div class="collapsible-header grey">Delete Blog Post</div>
+		<div class="collapsible-body">
+			<div class=" admin-tmpl">
+				<div class="">
+					<div class="row">
+						<form class="col s12">
+							<div class="input-field">
+								<input ng-model="objId" id="first_name" type="text" class="validate">
+								<label for="first_name">Object Id</label>
+							</div>
+							<button ng-click="deleteBlog(objId)" class="center-align" type="submit" name="button">Delete</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+</li>
+</ul>
+<!-- /////////////
+//Add Media//
+///////////// -->
+<ul class="collapsible grey" data-collapsible="accordion">
+	<li>
+		<div class="collapsible-header grey">Add Media</div>
+		<div class="collapsible-body">
+			<div class=" admin-tmpl">
+				<div class="">
+					<div class="row">
+
+						<form class="col s12">
+							<div class="row">
+								<div class="input-field col s6">
+									<input ng-model="albumName" id="first_name" type="text" class="validate">
+									<label for="first_name">Album</label>
+								</div>
+
+								<div class="input-field col s6">
+									<input ng-model="releaseDate" id="last_name" type="text" class="validate">
+									<label for="last_name">Release Date (month, year)</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="input-field col s6">
+									<input ng-model="recordLabel" id="first_name" type="text" class="validate">
+									<label for="first_name">Record Label</label>
+								</div>
+
+								<div class="input-field col s6">
+									<input ng-model="imgUrl" id="last_name" type="text" class="validate">
+									<label for="last_name">imgUrl</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="input-field col s6">
+									<input ng-model="iTunes" id="first_name" type="text" class="validate">
+									<label for="first_name">Itunes</label>
+								</div>
+
+								<div class="input-field col s6">
+									<input ng-model="amazon" id="last_name" type="text" class="validate">
+									<label for="last_name">Amazon</label>
+								</div>
+
+								<div class="input-field col s6">
+									<input ng-model="youTube" id="last_name" type="text" class="validate">
+									<label for="last_name">youTube</label>
+								</div>
+
+								<div class="input-field col s6">
+									<input ng-model="track1 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 1</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track2 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 2</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track3 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 3</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track4 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 4</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track5 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 5</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track6 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 6</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track7 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 7</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track8 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 8</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track9 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 9</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track10 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 10</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track11 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 11</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track12 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 12</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track13 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 13</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track14 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 14</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track15 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 15</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track16 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 16</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track17 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 17</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track18 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 18</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track19 " id="last_name" type="text" class="validate">
+									<label for="last_name">track 19</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="track20" id="last_name" type="text" class="validate">
+									<label for="last_name">track 20</label>
+								</div>
+
+							</div>
+
+							<div class="row center-align">
+								<button ng-click="submitNewMedia()" class="center-align" type="submit" name="button">Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</li>
+</ul>
+</div>

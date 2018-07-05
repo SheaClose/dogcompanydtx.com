@@ -24,9 +24,8 @@ import homeService from "./components/home/homeService";
 import showsService from "./components/shows/showsService";
 import storeService from "./components/store/storeService";
 
-angular.module("app", ["ui.router"]);
 angular
-  .module("app")
+  .module("app", ["ui.router"])
   .config(config)
   .directive("navBar", Navbar)
   .directive("apparelDir", apparelDir)
