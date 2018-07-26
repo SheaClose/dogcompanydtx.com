@@ -21,7 +21,10 @@ app.use(
   })
 );
 app.use("/", express.static(__dirname + "/public"));
-mongoose.connect(mongoUri, { useMongoClient: true });
+mongoose.connect(
+  mongoUri,
+  { useMongoClient: true }
+);
 
 app.use(json());
 app.use(cors());
