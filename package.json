@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "cypress": "npx cypress open",
-    "start": "webpack --config ./webpack.config.js --watch"
+    "start": "webpack --config ./webpack.config.js --watch",
+    "deploy": "webpack --config ./webpack.config.js && forever start index.js"
   },
   "author": "",
   "license": "ISC",
