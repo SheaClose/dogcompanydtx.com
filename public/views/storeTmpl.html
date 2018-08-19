@@ -28,9 +28,17 @@
     <hr>
 
     <p>
-      Order Number: {{currentUserOrderInformation._id}}
-      <br> Order Total (before shipping): ${{currentUserOrderInformation.total}}
-      <br> Order Date: {{currentUserOrderInformation.date | date:'medium'}}
+      <span ng-if="currentUserOrderInformation._id">
+        Order Number: {{currentUserOrderInformation._id}}
+      </span>
+      <br>
+      <span ng-if="currentUserOrderInformation.total">
+        Order Total (before shipping): ${{currentUserOrderInformation.total}}
+      </span>
+      <br>
+      <span ng-if="currentUserOrderInformation.date">
+        Order Date: {{currentUserOrderInformation.date | date:'medium'}}
+      </span>
       <p>
         <h5>Order:</h5>
       </p>
@@ -49,8 +57,8 @@
           <h5>Confirm User Data:</h5>
           <hr>
           <li>Name: {{currentUserOrderInformation.user.last_name}}, {{currentUserOrderInformation.user.first_name}}</li>
-          <li ng-hide="nonUSAddress">Adress: {{currentUserOrderInformation.user.street}}, {{currentUserOrderInformation.user.city}}, {{currentUserOrderInformation.user.state}}
-            {{currentUserOrderInformation.user.zipcode}}
+          <li ng-hide="nonUSAddress">Adress: {{currentUserOrderInformation.user.street}}, {{currentUserOrderInformation.user.city}},
+            {{currentUserOrderInformation.user.state}} {{currentUserOrderInformation.user.zipcode}}
           </li>
           <li ng-show="nonUSAddress">Adress: {{currentUserOrderInformation.user.nonUSAddress}}</li>
           <li>Email: {{currentUserOrderInformation.user.email}}</li>

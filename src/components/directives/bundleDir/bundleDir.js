@@ -20,7 +20,8 @@ export default [
           if ($scope.product.options.includes("albums")) {
             $scope.product.albums = [
               "Songs of Discontent - cd",
-              "War Stories - Album"
+              "War Stories - Vinyl",
+              "High Hopes in Hard Times - Vinyl"
             ];
           }
           $scope.$watch("selectedDesign", function() {
