@@ -7,5 +7,5 @@ const Blog = new mongoose.Schema({
   body: { type: String, required: true },
   imgUrl: { type: String },
   date: { type: Date, default: new Date() }
-});
+}, { usePushEach: true });
 module.exports = mongoose.model("Blog", Blog);
