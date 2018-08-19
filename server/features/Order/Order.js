@@ -2,9 +2,12 @@
 
 const mongoose = require("mongoose");
 
-const Order = new mongoose.Schema({
-  cart: { type: Array, required: true },
-  total: { type: Number, required: true },
-  date: { type: Date, default: new Date() }
-});
+const Order = new mongoose.Schema(
+  {
+    cart: { type: Array, required: true },
+    total: { type: Number, required: true },
+    date: { type: Date, default: new Date() }
+  },
+  { usePushEach: true }
+);
 module.exports = mongoose.model("Order", Order);
