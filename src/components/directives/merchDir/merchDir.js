@@ -5,6 +5,15 @@ export default function merchDir() {
       add: "&",
       product: "=",
       sizes: "="
-    }
+    },
+    controller: [
+      "$scope",
+      "$sce",
+      function($scope, $sce) {
+        $scope.product_description = $sce.trustAsHtml(
+          $scope.product.description
+        );
+      }
+    ]
   };
 }

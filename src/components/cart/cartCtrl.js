@@ -22,7 +22,8 @@ export default [
   "cartService",
   "storeService",
   "$state",
-  function cartCtrl($scope, cartService, storeService, $state) {
+  "$sce",
+  function cartCtrl($scope, cartService, storeService, $state, $sce) {
     angular.element(document).ready(() => {
       $(window).on("scroll", function() {
         var x = $(window).scrollTop();
@@ -53,11 +54,15 @@ export default [
     };
     const fillCart = id => {
       cartService.fillCart(id).then(function(response) {
-        $scope.cart = response.data.cart.map(cv => ({
-          product: cv.product,
-          quantity: cv.quantity,
-          total: cv.quantity * cv.product.price
-        }));
+        $scope.cart = response.data.cart.map(cv => {
+          return {
+            product: Object.assign(cv.product, {
+              description: $sce.trustAsHtml(cv.product.description)
+            }),
+            quantity: cv.quantity,
+            total: cv.quantity * cv.product.price
+          };
+        });
         $scope.total = getOrderTotal();
       });
     };
