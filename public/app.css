@@ -448,7 +448,9 @@ time {
   font-size: 2em;
   margin: 1vh 0vh 5vh;
 }
-
+a {
+  color: deepskyblue;
+}
 .nav-bar a {
   color: white;
 }
