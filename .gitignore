@@ -1,3 +1,4 @@
+# dependencies
 cypress
 cypress.json
 serverConfig.js
@@ -6,3 +7,12 @@ public/Assets/photos
 node_modules
 .env
 public/app.min.js
+
+# logs
+npm-debug.log
+
+# Nuxt build
+.nuxt
+
+# Nuxt generate
+dist
