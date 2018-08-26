@@ -61,7 +61,6 @@ export default [
         ) => {
           if (title === $state.params.id) {
             for (var key in $scope.sizes) {
-              var num = 0;
               if (key === size) {
                 $scope.sizes[key] = available;
               }

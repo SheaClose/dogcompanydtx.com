@@ -47,42 +47,19 @@
 
 <script>
 import NavBar from '@/components/NavBar.vue'
+import scroll from '@/mixins/scroll'
+
 export default {
   components: {NavBar},
+  mixins:[scroll],
   data(){
     return {
-      blogs: [],
-      location:0,
-      scroll: 0
-    }
-  },
-  methods:{
-    handleEvent(e){        
-      let body = document.body, 
-          html = document.documentElement,
-          docHeight = Math.max( 
-            body.scrollHeight, 
-            body.offsetHeight, 
-            html.clientHeight, 
-            html.scrollHeight, 
-            html.offsetHeight 
-          ),
-          scroll = window.scrollY,
-          windowHeight = window.innerHeight,
-          fullHeight = docHeight - windowHeight,
-          percent = Math.ceil((scroll * 100) / fullHeight) / 100,
-          maxPercent = percent < .85 ? percent : .85;
-      this.location = maxPercent 
-      this.scroll = scroll
+      blogs: []
     }
   },
   async mounted(){
-    window.addEventListener("scroll", this.handleEvent);
     let {data} = await this.$axios.get("/api/blogs");
     this.blogs = data.sort((a, b) => a.date < b.date)
-  },
-  destroyed(){
-    window.removeEventListener('scroll', this.handleEvent);
   }
 }
 </script>

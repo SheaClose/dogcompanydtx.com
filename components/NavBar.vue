@@ -20,9 +20,12 @@
         </div>
         <nuxt-link to="/Media">Media</nuxt-link>
         <div v-if="user.cart" class="fixed-action-btn" style="bottom: 25px; right: 35px;">
+          <v-alert class="alert" transition="scale-transition" :value="alert" type="success">
+            Item added to cart
+          </v-alert>
           <nuxt-link to="/cart">
             <span v-if="user.cart.length" class="btn-floating btn-large blue-grey lighten-1">
-              <div style="font-size:.5em; color: black; position: absolute; width: 100%; top:-4px; " class="black-text floating">{{user.cart.length}}</div>
+              <div style="font-size:.5em; color: black; position: absolute; width: 100%; top:-4px; right:0; " class="black-text floating">{{user.cart.length}}</div>
               <i style="font-size: 1.3em; position: relative;; z-index:-100" class="material-icons">shopping_cart</i>
             </span>
           </nuxt-link>
@@ -43,6 +46,32 @@ export default {
     let {data} = await this.$axios.get("/api/cart")
     let [user] = data;
     this.user = user ? user : {}
+  },
+  computed:{
+    alert(){
+      console.log('this.$store.state.alert: ', this.$store.state.alert);
+      return this.$store.state.alert;
+    }
   }
 }
 </script>
+
+
+<style scoped>
+  .alert {
+    font-size: 0.5em;
+    color: black;
+    position: absolute;
+    top: -4px;
+    right: 50vw;
+    width: 25vw;
+    transform: translate(65%, 50%);
+    text-align: center;
+  }
+  @media (max-width: 860px) {
+    .alert {
+      width: 50vw;
+      transform: translate(60%, 50%);
+    }
+  }
+</style>
