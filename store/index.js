@@ -8,13 +8,15 @@ export default () =>
     state: {
       products: [],
       allProducts: [],
-      alert: false
+      alert: false,
+      alertMsg: "",
+      alertColor: ""
     },
     mutations: {
-      setAlert(state) {
-        state.alert = true;
+      setAlert(state, { alertMsg, alertColor }) {
+        Object.assign(state, { alert: true, alertMsg, alertColor });
         setTimeout(() => {
-          state.alert = false;
+          Object.assign(state, { alert: false, alertMsg: "", alertColor: "" });
         }, 2000);
       },
       setProducts(state, products) {

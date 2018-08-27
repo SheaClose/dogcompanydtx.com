@@ -17,9 +17,9 @@
             {{product.title}}
             <Apparel v-if="product.category == 'apparel'" :product="product" @added="addToCart" :sizes="sizes">
             </Apparel>
-            <Merch v-if="product.category == 'merch'" :product="product" :add="addToCart" :sizes="sizes">
+            <Merch v-if="product.category == 'merch'" :product="product" @added="addToCart" :sizes="sizes">
             </Merch>
-            <Bundle v-if="product.category == 'bundle'" :product="product" :add="addToCart" :sizes="sizes">
+            <Bundle v-if="product.category == 'bundle'" :product="product" @added="addToCart" :sizes="sizes">
             </Bundle>
 
           </div>
@@ -69,10 +69,20 @@ export default {
     }
   },
   methods:{
-    async addToCart({title, size = "small", bundle}){
-      this.$store.commit('setAlert');
-      let {data} = await this.$axios.post("/api/cart", { title, size, bundle })
-      this.$router.history.push('/store')
+    async addToCart({title, size, bundle}){
+      if (!size){
+        if(!bundle){
+          /** size wasn't selected, throw error */
+          return this.$store.commit('setAlert', {alertMsg:'Please select a size', alertColor: 'red'})
+        } 
+        else if(typeof bundle == "object" && !Object.values(bundle).filter(c=>c).length) {
+          /** bundle selected without selections */
+          return this.$store.commit('setAlert', {alertMsg:'Please make a selection', alertColor: 'red'})
+        }
+      }
+        this.$store.commit('setAlert', {alertMsg:'Item added to cart', alertColor: 'rgba(82, 106, 83, 0.95)'});
+        let {data} = await this.$axios.post("/api/cart", { title, size: size || 'small', bundle })
+        this.$router.history.push('/store')
     }
   }
 }
