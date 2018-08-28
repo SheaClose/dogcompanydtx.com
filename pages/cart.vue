@@ -73,79 +73,86 @@
           Total: $ {{orderTotal}}
         </div>
         <!-- Modal Trigger -->
-        <!-- TODO: COME HERE AND START THE MODAL -->
-        <a class="waves-effect waves-light btn modal-trigger blue-grey lighten-1 right" href="#modal1">Check Out</a>
-        <!-- Modal1 -->
-        <div id="modal1" class="modal modal-fixed-footer grey darken-4">
-          <div class="modal-content grey darken-2">
-            <div class="row">
-              <form class="col s12">
-                <div class="row">
-                  <div class="input-field col s6">
-                    <input v-model="first_name" id="first_name" type="text" class="validate">
-                    <label for="first_name">First Name</label>
+        <Modal v-if="showModal" @close="showModal = false">
+          <slot slot="body" id="modal1" class="modal modal-fixed-footer grey darken-4">
+            <div class="modal-content grey darken-2">
+              <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input autoFocus v-model="first_name" id="first_name" type="text" class="validate">
+                      <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input v-model="last_name" id="last_name" type="text" class="validate">
+                      <label for="last_name">Last Name</label>
+                    </div>
                   </div>
-                  <div class="input-field col s6">
-                    <input v-model="last_name" id="last_name" type="text" class="validate">
-                    <label for="last_name">Last Name</label>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input v-model="email" id="email" type="email" class="validate">
+                      <label for="email">Email</label>
+                    </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input v-model="email" id="email" type="email" class="validate">
-                    <label for="email">Email</label>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input type="checkbox" name="vehicle1" v-model="foreignAddress" /> Address not located in the United States?
+                    </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input type="checkbox" name="vehicle1" v-model="foreignAddress" /> Address not located in the United States?
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input type="text" v-show="foreignAddress" v-model="nonUsAddress" id="nonUsAddress">
+                      <label v-show="foreignAddress" for="nonUsAddress">Input Non-United States Address</label>
+                    </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input type="text" v-show="foreignAddress" v-model="nonUsAddress" id="nonUsAddress">
-                    <label v-show="foreignAddress" for="nonUsAddress">Input Non-United States Address</label>
+                  <div class="row" v-show="!foreignAddress">
+                    <div class="input-field col s6">
+                      <input v-model="street" id="street" type="text" class="validate">
+                      <label for="street">Street</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input v-model="city" id="city" type="text" class="validate">
+                      <label for="city">City</label>
+                    </div>
                   </div>
-                </div>
-                <div class="row" v-show="!foreignAddress">
-                  <div class="input-field col s6">
-                    <input v-model="street" id="street" type="text" class="validate">
-                    <label for="street">Street</label>
+                  <div class="row" v-show="!foreignAddress">
+                    <div class="input-field col s6">
+                      <input v-model="state" id="state" type="text" class="validate">
+                      <label for="state">State</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input v-model="zipcode" id="zipcode" type="text" class="validate">
+                      <label for="zipcode">Zip Code</label>
+                    </div>
                   </div>
-                  <div class="input-field col s6">
-                    <input v-model="city" id="city" type="text" class="validate">
-                    <label for="city">City</label>
-                  </div>
-                </div>
-                <div class="row" v-show="!foreignAddress">
-                  <div class="input-field col s6">
-                    <input v-model="state" id="state" type="text" class="validate">
-                    <label for="state">State</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input v-model="zipcode" id="zipcode" type="text" class="validate">
-                    <label for="zipcode">Zip Code</label>
-                  </div>
-                </div>
-              </form>
+                </form>
+              </div>
+              <div>
+
+                <v-btn @click="showModal = false" color="error">cancel
+                </v-btn>
+                <v-btn @click="submitOrder" color="primary">Submit Order
+                </v-btn>
+              </div>
             </div>
-          </div>
-          <div class="modal-footer grey">
-            <a ng-click="submitOrder()" class=" modal-action modal-close waves-effect waves-green btn-flat grey lighten-2">Submit Order
-            </a>
-          </div>
-        </div>
+          </slot>
+        </Modal>
+
+        <a class="waves-effect waves-light btn modal-trigger blue-grey lighten-1 right" @click="triggerModal">Check Out</a>
+        <!-- Modal1 -->
       </div>
     </div>
   </div>
 </template>
 <script>
 import NavBar from '@/components/NavBar'
+import Modal from '@/components/Modal'
 import scroll from '@/mixins/scroll'
 
 export default {
   components: {
-    NavBar
+    NavBar,
+    Modal
   },
   mixins:[scroll],
   data(){
@@ -161,18 +168,24 @@ export default {
       city:'',
       state: '',
       zipcode:'',
+      showModal: false
 
     }
   },
   mounted(){
+    window.addEventListener('keydown', this.keyDownHandler)
     let {_id} = this.$store.state.user
     if (_id){
       this.fillCart(_id);
     }
   },
-  updated(){
+  beforeDestroy(){
+    window.removeEventListener('keydown', this.keyDownHandler)
   },
   methods:{
+    keyDownHandler({key}){
+      if (key==="Escape") this.showModal = false
+    },
     reviewProduct (product){
       let selectedItem = this.$store.state.allProducts.find(
         ({ _id }) => _id == product._id
@@ -198,13 +211,12 @@ export default {
       this.fillCart(data._id)
     },
     increaseQuantity(id){
-      this.cart.forEach((item, i, arr) => {
+      this.cart = this.cart.map((item) => {
         if (item.product._id === id) {
-          item.quantity += 1;
-          item.total = item.quantity * item.product.price;
+          return Object.assign(item, {quantity: item.quantity + 1, total: (item.quantity + 1) * item.product.price });
         }
       });
-      this.total = this.getOrderTotal();
+      this.orderTotal = this.getOrderTotal();
     },
     decreaseQuantity(id) {
       this.cart.forEach((item, i, arr) => {
@@ -215,26 +227,18 @@ export default {
           }
         }
       });
-      this.total = this.getOrderTotal();
+      this.orderTotal = this.getOrderTotal();
+    },
+    triggerModal(){
+      this.showModal = true;
     },
     async submitOrder() {
-
       let userInfo;
       if (!this.foreignAddress) {
-        if (
-          !this.first_name ||
-          !this.last_name ||
-          !this.email ||
-          !this.street ||
-          !this.city ||
-          !this.state ||
-          !this.zipcode
-        ) {
-          alert(
-            `Please ensure all fields are complete. We can not complete your order without this information.
+        if ( !this.first_name ||!this.last_name || !this.email || !this.street || !this.city ||!this.state || !this.zipcode ) {
+          alert(`Please ensure all fields are complete. We can not complete your order without this information.
 
-If you are having trouble completing an order, Please contact us at DogCompanyDtx@gmail.com`
-          );
+If you are having trouble completing an order, Please contact us at DogCompanyDtx@gmail.com`);
           return;
         }
         userInfo = {
@@ -264,14 +268,13 @@ If you are having trouble completing an order, Please contact us at DogCompanyDt
       }
       const order = {
         cart: this.cart,
-        total: this.total,
+        total: this.orderTotal,
         user: userInfo
       };
       let {data} = await this.$axios.post(`/api/order`, order)
-      console.log('data: ', data);
-      // window.currentUserOrderInformation = response.data;
+      this.$store.commit('completeOrder', data);
       await this.$axios.delete("/api/User")
-      // this.$router.push("store");
+      this.$router.push("store");
     }
   }
 }
@@ -315,5 +318,10 @@ If you are having trouble completing an order, Please contact us at DogCompanyDt
       width: 90%;
       margin: auto;
     }
+  }
+  .modal-content {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
   }
 </style>

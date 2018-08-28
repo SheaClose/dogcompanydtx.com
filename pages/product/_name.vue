@@ -77,11 +77,11 @@ export default {
         } 
         else if(typeof bundle == "object" && !Object.values(bundle).filter(c=>c).length) {
           /** bundle selected without selections */
-          return this.$store.commit('setAlert', {alertMsg:'Please make a selection', alertColor: 'red'})
+          return this.$store.commit('setAlert', {alertMsg:'Please make a selection', alertColor: 'error'})
         }
       }
         let {data} = await this.$axios.post("/api/cart", { title, size: size || 'small', bundle })
-        this.$store.commit('setAlert', {alertMsg:'Item added to cart', alertColor: 'rgba(82, 106, 83, 0.95)'});
+        this.$store.commit('setAlert', {alertMsg:'Item added to cart', alertColor: 'primary'});
         this.$store.commit('setUser', data);
         this.$router.history.push('/store')
     }

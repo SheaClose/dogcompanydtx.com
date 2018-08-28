@@ -11,9 +11,16 @@ export default () =>
       alert: false,
       alertMsg: "",
       alertColor: "",
-      user: {}
+      user: {},
+      order: null
     },
     mutations: {
+      deleteOrder(state) {
+        Object.assign(state, { order: null });
+      },
+      completeOrder(state, order) {
+        Object.assign(state, { order, user: {} });
+      },
       setAlert(state, { alertMsg, alertColor }) {
         Object.assign(state, { alert: true, alertMsg, alertColor });
         setTimeout(() => {
