@@ -10,7 +10,8 @@ export default () =>
       allProducts: [],
       alert: false,
       alertMsg: "",
-      alertColor: ""
+      alertColor: "",
+      user: {}
     },
     mutations: {
       setAlert(state, { alertMsg, alertColor }) {
@@ -20,10 +21,13 @@ export default () =>
         }, 2000);
       },
       setProducts(state, products) {
-        state.products = products;
+        Object.assign(state, { products });
       },
-      setAllProducts(state, products) {
-        state.allProducts = products;
+      setAllProducts(state, allProducts) {
+        Object.assign(state, { allProducts });
+      },
+      setUser(state, user) {
+        Object.assign(state, { user });
       }
     },
     actions: {

@@ -80,8 +80,9 @@ export default {
           return this.$store.commit('setAlert', {alertMsg:'Please make a selection', alertColor: 'red'})
         }
       }
-        this.$store.commit('setAlert', {alertMsg:'Item added to cart', alertColor: 'rgba(82, 106, 83, 0.95)'});
         let {data} = await this.$axios.post("/api/cart", { title, size: size || 'small', bundle })
+        this.$store.commit('setAlert', {alertMsg:'Item added to cart', alertColor: 'rgba(82, 106, 83, 0.95)'});
+        this.$store.commit('setUser', data);
         this.$router.history.push('/store')
     }
   }

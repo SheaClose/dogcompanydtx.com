@@ -206,6 +206,8 @@
   }
 
   .Store-page-content-container {
+    min-height: 100vh;
+    text-align: center;
     color: white;
     background-color: rgba(0, 0, 0, 0.1);
   }
@@ -420,7 +422,7 @@
   }
 
   /* EFFECTS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+        –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
   .timeline ul li::after {
     -webkit-transition: background 0.5s ease-in-out;

@@ -19,7 +19,7 @@
           <a class="pointer">/</a>
         </div>
         <nuxt-link to="/Media">Media</nuxt-link>
-        <div v-if="user.cart" class="fixed-action-btn" style="bottom: 25px; right: 35px;">
+        <div v-if="user && user.cart && store" class="fixed-action-btn" style="bottom: 25px; right: 35px;">
           <nuxt-link to="/cart">
             <span v-if="user.cart.length" class="btn-floating btn-large blue-grey lighten-1">
               <div style="font-size:.5em; color: black; position: absolute; width: 100%; top:-4px; right:0; " class="black-text floating">{{user.cart.length}}</div>
@@ -37,19 +37,22 @@
 
 <script>
 export default {
-  data(){
-    return {
-      user:{}
-    }
-  },
   async mounted(){
+    if (!this.$store.state.user){
     let {data} = await this.$axios.get("/api/cart")
     let [user] = data;
-    this.user = user ? user : {}
+    this.$store.commit('setUser', user || {});
+    }
   },
   computed:{
     alert(){
       return !!this.$store.state.alert;
+    },
+    user(){
+      return this.$store.state.user
+    },
+    store(){
+      return this.$route.name.toLowerCase().includes('store') || this.$route.name.toLowerCase().includes('product')
     }
   }
 }

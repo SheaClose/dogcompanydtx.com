@@ -24,48 +24,6 @@ export default [
   "$state",
   "$sce",
   function cartCtrl($scope, cartService, storeService, $state, $sce) {
-    angular.element(document).ready(() => {
-      $(window).on("scroll", function() {
-        var x = $(window).scrollTop();
-        function retY() {
-          var y = $(window).scrollTop() / $(window).height();
-          if (y < 0.85) {
-            return y;
-          } else {
-            return 0.85;
-          }
-        }
-        $(".Store-page-container").css(
-          "background-size",
-          125 + parseInt(x / 3) + "vh"
-        );
-        $(".Store-page-content-container").css(
-          "background-color",
-          "rgba(0,0,0, " + retY() + ")"
-        );
-      });
-      $(".modal-trigger").leanModal();
-    });
-    $scope.reviewProduct = product => {
-      let selectedItem = storeService.products.find(
-        ({ _id }) => _id == product._id
-      );
-      $state.go("product", { id: selectedItem.title });
-    };
-    const fillCart = id => {
-      cartService.fillCart(id).then(function(response) {
-        $scope.cart = response.data.cart.map(cv => {
-          return {
-            product: Object.assign(cv.product, {
-              description: $sce.trustAsHtml(cv.product.description)
-            }),
-            quantity: cv.quantity,
-            total: cv.quantity * cv.product.price
-          };
-        });
-        $scope.total = getOrderTotal();
-      });
-    };
     $scope.increaseQuantity = id => {
       $scope.cart.forEach((cv, i, arr) => {
         if (cv.product._id === id) {
@@ -75,6 +33,7 @@ export default [
       });
       $scope.total = getOrderTotal();
     };
+
     $scope.decreaseQuantity = id => {
       $scope.cart.forEach((cv, i, arr) => {
         if (cv.product._id === id) {
@@ -86,6 +45,7 @@ export default [
       });
       $scope.total = getOrderTotal();
     };
+
     $scope.removeFromCart = prodId => {
       cartService.removeFromCart(prodId, $scope.user._id).then(response => {
         getCart();
@@ -150,10 +110,6 @@ If you are having trouble completing an order, Please contact us at DogCompanyDt
     };
 
     getCart();
-
-    function getOrderTotal() {
-      return $scope.cart.reduce((acc, cv) => acc + cv.total, 0);
-    }
 
     function getCart() {
       cartService.getCart().then(function(response) {
