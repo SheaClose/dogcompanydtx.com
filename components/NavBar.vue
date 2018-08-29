@@ -10,10 +10,10 @@
         <div class="card transparent">
           <a class="pointer">/</a>
         </div>
-        <nuxt-link to="/Show">Show</nuxt-link>
+        <!-- <nuxt-link to="/Show">Show</nuxt-link>
         <div class="card transparent">
           <a class="pointer">/</a>
-        </div>
+        </div> -->
         <nuxt-link to="/About">About</nuxt-link>
         <div class="card transparent">
           <a class="pointer">/</a>

@@ -169,6 +169,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    cssSourceMap: false,
     /*
     ** You can extend webpack config here
     */
