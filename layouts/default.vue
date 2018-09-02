@@ -105,66 +105,6 @@
     }
   }
 
-  /*//////////////////////Shows Page//////////////////////*/
-  .shows-page-container {
-    background: black;
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: 125vh;
-    -o-object-fit: fill;
-    object-fit: fill;
-    -o-object-position: center;
-    object-position: center;
-    color: white;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
-  }
-
-  @media only screen and (min-width: 960px) {
-    .shows-page-container {
-      background: -webkit-radial-gradient(
-          center,
-          ellipse,
-          rgba(0, 0, 0, 0),
-          rgba(0, 0, 0, 1) 65%
-        ),
-        url("https://s3-us-west-2.amazonaws.com/dogcompany/DogwMisfits.jpg")
-          no-repeat fixed;
-      background: radial-gradient(
-          ellipse at center,
-          rgba(0, 0, 0, 0),
-          rgba(0, 0, 0, 1) 65%
-        ),
-        url("https://s3-us-west-2.amazonaws.com/dogcompany/DogwMisfits.jpg")
-          no-repeat fixed;
-      background-attachment: fixed;
-      background-position: center center;
-      background-size: 125vh;
-      -o-object-fit: fill;
-      object-fit: fill;
-      -o-object-position: center;
-      object-position: center;
-      color: white;
-      -ms-flex-pack: distribute;
-      justify-content: space-around;
-    }
-  }
-
-  .shows-page-content-container {
-    background-color: transparent;
-    font-family: arial, helvetica, sans-serif;
-  }
-
-  .Past-events-header {
-    margin-top: 50px;
-  }
-
-  #toast-container {
-    top: auto !important;
-    left: auto !important;
-    bottom: 15vh;
-    right: 1%;
-  }
   /*//////////////////////Store Page//////////////////////*/
   .Store-page-container {
     background: black;

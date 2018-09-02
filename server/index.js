@@ -27,10 +27,11 @@ app.use(
     saveUninitialized: true
   })
 );
-// app.use("/", express.static(__dirname + "/public"));
+app.use("/", express.static(__dirname + "/public"));
 mongoose.connect(
   mongoUri,
-  { useMongoClient: true }
+  { useMongoClient: true },
+  () => console.log("Connected to mongo database.")
 );
 app.use(json());
 app.use(cors());

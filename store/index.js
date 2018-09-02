@@ -39,26 +39,26 @@ export default () =>
     },
     actions: {
       async nuxtServerInit({ commit }, { $axios }) {
-        let { data } = await $axios.get("/api/products");
-        let products = data
-          .reduce(
-            (acc, cur) =>
-              !acc.includes(cur.title) ? [...acc, cur.title] : acc,
-            []
-          )
-          .map(c => {
-            var avail = data.find(
-              product => c == product.title && product.available
-            );
-            return avail ? avail : null;
-          })
-          .filter(c => c);
-        let apparel = products.filter(c => c.category == "apparel");
-        let merch = products.filter(c => c.category == "merch");
-        let bundle = products.filter(c => c.category == "bundle");
-        let sortedProducts = [...apparel, ...merch, ...bundle];
-        commit("setProducts", sortedProducts);
-        commit("setAllProducts", data);
+        // let { data } = await $axios.get("/api/products");
+        // let products = data
+        //   .reduce(
+        //     (acc, cur) =>
+        //       !acc.includes(cur.title) ? [...acc, cur.title] : acc,
+        //     []
+        //   )
+        //   .map(c => {
+        //     var avail = data.find(
+        //       product => c == product.title && product.available
+        //     );
+        //     return avail ? avail : null;
+        //   })
+        //   .filter(c => c);
+        // let apparel = products.filter(c => c.category == "apparel");
+        // let merch = products.filter(c => c.category == "merch");
+        // let bundle = products.filter(c => c.category == "bundle");
+        // let sortedProducts = [...apparel, ...merch, ...bundle];
+        // commit("setProducts", sortedProducts);
+        // commit("setAllProducts", data);
       }
     }
   });
