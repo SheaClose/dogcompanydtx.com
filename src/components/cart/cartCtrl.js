@@ -57,12 +57,14 @@ export default [
         $scope.cart = response.data.cart.map(cv => {
           return {
             product: Object.assign(cv.product, {
-              description: $sce.trustAsHtml(cv.product.description)
+              htmlDescription: $sce.trustAsHtml(cv.product.description)
             }),
             quantity: cv.quantity,
             total: cv.quantity * cv.product.price
           };
         });
+
+        console.log("$scope.cart: ", $scope.cart);
         $scope.total = getOrderTotal();
       });
     };

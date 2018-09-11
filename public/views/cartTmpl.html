@@ -21,11 +21,10 @@
         <hr>
         <ul class="row" ng-repeat="product in cart">
           <li ng-click="reviewProduct(product.product)" class="col s12 m1 l1 pointer">
-            <img alt="product image" class="hide-on-small-only responsive-img" style="width: 10vw" ng-src="{{product.product.imgUrl}}"
-            />
+            <img alt="product image" class="hide-on-small-only responsive-img" style="width: 10vw" ng-src="{{product.product.imgUrl}}" />
           </li>
           <li ng-click="reviewProduct(product.product)" class="col s12 m2 l2 pointer">{{product.product.title}}</li>
-          <li class="col s12 m4 l4" ng-bind-html="product.product.description">{{product.product.description}}</li>
+          <li class="col s12 m4 l4" ng-bind-html="product.product.htmlDescription">{{product.product.htmlDescription}}</li>
           <li class="col s12 m1 l1">${{product.product.price}}</li>
           <li class="col s12 m1 l1 center">{{product.product.size}}</li>
           <li class="col s12 m1 l1 center">${{product.total}}</li>
@@ -74,7 +73,8 @@
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input type="checkbox" name="vehicle1" ng-model="foreignAddress" /> Address not located in the United States?
+                  <input type="checkbox" name="vehicle1" ng-model="foreignAddress" /> Address not located in the United
+                  States?
                 </div>
               </div>
               <div class="row">
