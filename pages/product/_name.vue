@@ -14,7 +14,6 @@
                 </div>
               </div>
             </div>
-            {{product.title}}
             <Apparel v-if="product.category == 'apparel'" :product="product" @added="addToCart" :sizes="sizes">
             </Apparel>
             <Merch v-if="product.category == 'merch'" :product="product" @added="addToCart" :sizes="sizes">

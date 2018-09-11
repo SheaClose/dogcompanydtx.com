@@ -6,19 +6,19 @@
         <div class="card transparent">
           <a class="pointer">/</a>
         </div>
-        <nuxt-link to="/Store">Store</nuxt-link>
+        <nuxt-link to="/store">Store</nuxt-link>
         <div class="card transparent">
           <a class="pointer">/</a>
         </div>
-        <nuxt-link to="/Shows">Shows</nuxt-link>
+        <!-- <nuxt-link to="/shows">Shows</nuxt-link>
+        <div class="card transparent">
+          <a class="pointer">/</a>
+        </div> -->
+        <nuxt-link to="/about">About</nuxt-link>
         <div class="card transparent">
           <a class="pointer">/</a>
         </div>
-        <nuxt-link to="/About">About</nuxt-link>
-        <div class="card transparent">
-          <a class="pointer">/</a>
-        </div>
-        <nuxt-link to="/Media">Media</nuxt-link>
+        <nuxt-link to="/media">Media</nuxt-link>
         <div v-if="user && user.cart && store" class="fixed-action-btn" style="bottom: 25px; right: 35px;">
           <nuxt-link to="/cart">
             <span v-if="user.cart.length" class="btn-floating btn-large blue-grey lighten-1">
