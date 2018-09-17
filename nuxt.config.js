@@ -33,7 +33,6 @@ module.exports = {
     ],
     link: [
       { rel: "preconnect", href: "https://s3-us-west-2.amazonaws.com/" },
-      { rel: "prerender", href: "http://localhost:4000/#!/store" },
       {
         rel: "stylesheet",
         href:
@@ -161,7 +160,12 @@ module.exports = {
   ** Axios module configuration
   */
   axios: {
-    baseURL: `http://localhost:${process.env.PORT}`
+    baseURL:
+      process.env.NODE_ENV === "production"
+        ? "https://dogcompanydtx.com"
+        : process.env.NODE_ENV === "staging"
+          ? "http://sheaclose.com:4002"
+          : `http://localhost:${process.env.PORT}`
   },
 
   /*
