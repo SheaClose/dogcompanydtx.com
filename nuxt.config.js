@@ -164,7 +164,7 @@ module.exports = {
       process.env.NODE_ENV === "production"
         ? "https://dogcompanydtx.com"
         : process.env.NODE_ENV === "staging"
-          ? "http://sheaclose.com:4002"
+          ? "https://staging.dogcompanydtx.com"
           : `http://localhost:${process.env.PORT}`
   },
 
