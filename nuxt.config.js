@@ -1,5 +1,4 @@
 const pkg = require("./package");
-
 const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
@@ -162,7 +161,7 @@ module.exports = {
   ** Axios module configuration
   */
   axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+    baseURL: `http://localhost:${process.env.PORT}`
   },
 
   /*
