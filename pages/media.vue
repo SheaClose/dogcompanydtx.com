@@ -1,11 +1,13 @@
 <template>
-  <div class="media-page-container">
-    <div class="media-page-content-container">
+  <div class="media-page-container" :style="{
+      backgroundSize:`${120 + parseInt(scroll / 6)}vh`
+    }">
+    <div class="media-page-content-container" :style="{backgroundColor: `rgba(0,0,0,${this.location})`}">
       <div class="container">
-        <nav-bar></nav-bar>
+        <NavBar></NavBar>
         <!-- Songs -->
         <div class="row">
-          <div class="col s12 m12 l5 left  responsive-img ">
+          <div class="col s12 m12 l5 left responsive-img img-container">
             <img class="Album-Art" src="https://s3-us-west-2.amazonaws.com/dogcompany/SongsofDisc.jpg" alt="Songs of Discontent Cover image" />
             <div class="container-fluid2">
               <a target="_blank" href="https://itunes.apple.com/bz/album/songs-of-discontent/id284712750">
@@ -114,7 +116,7 @@
         <hr>
         <!-- Bullet for every lie -->
         <div class="row">
-          <div class="col s12 m12 l5 left  responsive-img ">
+          <div class="col s12 m12 l5 left responsive-img img-container">
             <img class="Album-Art" src="https://s3-us-west-2.amazonaws.com/dogcompany/Bullet.jpg" alt="Bullet for every lie Cover image" />
             <div class="container-fluid2">
               <a target="_blank" href="https://dogcompany.bandcamp.com/album/a-bullet-for-every-lie">
@@ -196,7 +198,7 @@
         <hr>
         <!-- cashing christmas vol 2 -->
         <div class="row">
-          <div class="col s12 m12 l5 left  responsive-img ">
+          <div class="col s12 m12 l5 left responsive-img img-container">
             <img class="Album-Art" src="https://s3-us-west-2.amazonaws.com/dogcompany/CashingInOnChristmasVol2.jpg" />
             <div class="container-fluid2">
               <a target="_blank" href="https://blackholerecs.bandcamp.com/album/cashing-in-on-christmas-volume-2">
@@ -315,7 +317,7 @@
         <hr>
         <!-- BlackHole split 7" -->
         <div class="row">
-          <div class="col s12 m12 l5 left  responsive-img ">
+          <div class="col s12 m12 l5 left responsive-img img-container">
             <img class="Album-Art" src="https://s3-us-west-2.amazonaws.com/dogcompany/BlackHoleSplit.jpg" />
 
             <div class="container-fluid2">
@@ -386,7 +388,7 @@
         <hr>
         <!-- cashing in on christmas vol 4 -->
         <div class="row">
-          <div class="col s12 m12 l5 left  responsive-img ">
+          <div class="col s12 m12 l5 left responsive-img img-container">
             <img class="Album-Art" alt="Cashing in on Christmas Cover image" src="https://s3-us-west-2.amazonaws.com/dogcompany/CashingInOnChristmasVol4.jpg" />
             <div class="container-fluid2">
               <a target="_blank" href="https://blackholerecs.bandcamp.com/album/cashing-in-on-christmas-vol-4">
@@ -495,7 +497,7 @@
         <hr>
         <!-- War Stories -->
         <div class="row">
-          <div class="col s12 m12 l5 left  responsive-img ">
+          <div class="col s12 m12 l5 left responsive-img img-container">
             <img class="Album-Art" src="https://s3-us-west-2.amazonaws.com/dogcompany/WarStories.jpg" alt="Photo of War Stories Album" />
             <div class="container-fluid2">
               <a target="_blank" href="https://itunes.apple.com/us/album/war-stories/id833984446">
@@ -569,7 +571,7 @@
         <hr>
         <!-- Hard Ev Dog Co -->
         <div class="row">
-          <div class="col s12 m12 l5 left  responsive-img ">
+          <div class="col s12 m12 l5 left responsive-img img-container">
             <img class="Album-Art" src="https://s3-us-west-2.amazonaws.com/dogcompany/HardEvDogCo.jpg" alt="Dog Company / Hard Evidence compilation Cover image">
             <div class="container-fluid2">
               <a target="_blank" href="http://www.oitheboat.com/products/570666-hard-evidence-dog-company-split-7">
@@ -607,7 +609,7 @@
         <hr>
         <!-- AMERICAN OI TX EDITION -->
         <div class="row">
-          <div class="col s12 m12 l5 left  responsive-img ">
+          <div class="col s12 m12 l5 left responsive-img img-container">
             <img class="Album-Art" src="https://s3-us-west-2.amazonaws.com/dogcompany/Screen+Shot+2018-02-22+at+10.29.59+AM.png" alt="AMERICAN OI TX EDITION">
             <div class="container-fluid2">
               <a target="_blank" href="http://crowdcontrolmedia.limitedrun.com/products/607950-v-a-american-oi-texas-edition-lp">
@@ -678,3 +680,88 @@
     </div>
   </div>
 </template>
+
+<script>
+import NavBar from '@/components/NavBar.vue'
+import scroll from "@/mixins/scroll"
+export default {
+  components:{
+    NavBar
+  },
+  mixins:[scroll]
+}
+</script>
+
+<style>
+  div[class*="content-container"] .container {
+    width: 70%;
+    margin: auto;
+  }
+  .media-page-container {
+    background: black;
+    background-attachment: fixed;
+    background-position: center 10vh;
+    background-size: 100vw;
+    -o-object-fit: fill;
+    object-fit: fill;
+    -o-object-position: center;
+    object-position: center;
+    color: white;
+  }
+
+  @media only screen and (min-width: 960px) {
+    .media-page-container {
+      background: -webkit-radial-gradient(
+          center,
+          ellipse,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 1) 70%
+        ),
+        url("https://s3-us-west-2.amazonaws.com/dogcompany/Cadillac_lounge.jpg")
+          no-repeat fixed;
+      background: radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 1) 70%
+        ),
+        url("https://s3-us-west-2.amazonaws.com/dogcompany/Cadillac_lounge.jpg")
+          no-repeat fixed;
+      background-attachment: fixed;
+      background-position: center center;
+      background-size: 80vw;
+      -o-object-fit: fill;
+      object-fit: fill;
+      -o-object-position: center;
+      object-position: center;
+      color: white;
+    }
+  }
+
+  .Album-Art {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  .album-song-title a {
+    color: white;
+    font-size: 1.4em;
+  }
+
+  .album-song-title {
+    font-size: 1.9vh;
+  }
+
+  .material-icons-music {
+    font-size: 1.1em;
+  }
+  ol {
+    padding-inline-start: 40px;
+  }
+  .container-fluid2 {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .row {
+    margin-top: 20px;
+  }
+</style>

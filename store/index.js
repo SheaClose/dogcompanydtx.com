@@ -59,6 +59,13 @@ export default () =>
         let sortedProducts = [...apparel, ...merch, ...bundle];
         commit("setProducts", sortedProducts);
         commit("setAllProducts", data);
+      },
+      async getUser({ state, commit }) {
+        if (!Object.keys(state.user).length) {
+          let { data } = await this.$axios.get("/api/cart");
+          let [user] = data;
+          commit("setUser", user || {});
+        }
       }
     }
   });

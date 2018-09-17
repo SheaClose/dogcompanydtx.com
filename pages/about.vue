@@ -177,77 +177,13 @@ export default {
 </script>
 
 <style>
-  .media-page-container {
-    background: black;
-    background-attachment: fixed;
-    background-position: center 10vh;
-    background-size: 100vw;
-    -o-object-fit: fill;
-    object-fit: fill;
-    -o-object-position: center;
-    object-position: center;
-    color: white;
+  div[class*="content-container"] .container {
+    width: 70%;
+    margin: auto;
   }
-
-  @media only screen and (min-width: 960px) {
-    .media-page-container {
-      background: -webkit-radial-gradient(
-          center,
-          ellipse,
-          rgba(0, 0, 0, 0),
-          rgba(0, 0, 0, 1) 70%
-        ),
-        url("https://s3-us-west-2.amazonaws.com/dogcompany/Cadillac_lounge.jpg")
-          no-repeat fixed;
-      background: radial-gradient(
-          ellipse at center,
-          rgba(0, 0, 0, 0),
-          rgba(0, 0, 0, 1) 70%
-        ),
-        url("https://s3-us-west-2.amazonaws.com/dogcompany/Cadillac_lounge.jpg")
-          no-repeat fixed;
-      background-attachment: fixed;
-      background-position: center center;
-      background-size: 80vw;
-      -o-object-fit: fill;
-      object-fit: fill;
-      -o-object-position: center;
-      object-position: center;
-      color: white;
-    }
-  }
-
-  .Album-Art {
+  .container.about-body.center {
     width: 100%;
-    border-radius: 15px;
   }
-
-  .album-song-title a {
-    color: white;
-    font-size: 1.4em;
-  }
-
-  .album-song-title {
-    font-size: 1.9vh;
-  }
-
-  .material-icons-music {
-    font-size: 1.1em;
-  }
-
-  .admin-tmpl {
-    background-color: grey;
-  }
-
-  table.highlight > tbody > tr:hover {
-    background-color: rgba(0, 150, 136, 0.8);
-  }
-
-  .timeline ul {
-    background: transparent;
-    padding: 35px 0;
-  }
-
   .about-body {
     border-radius: 15px;
     color: white;
@@ -352,7 +288,7 @@ export default {
   }
 
   /* EFFECTS
-                      –––––––––––––––––––––––––––––––––––––––––––––––––– */
+                                                            –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
   .timeline ul li::after {
     -webkit-transition: background 0.5s ease-in-out;
@@ -385,5 +321,23 @@ export default {
     transform: none;
     visibility: visible;
     opacity: 1;
+  }
+  .about-page-container {
+    /* background: black; */
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: 70vh;
+    color: white;
+  }
+
+  @media only screen and (min-width: 960px) {
+    .about-page-container {
+      background: url("https://s3-us-west-2.amazonaws.com/dogcompany/DogCoLogo.png")
+        no-repeat;
+      background-attachment: fixed;
+      background-position: center center;
+      background-size: 70vh;
+      color: white;
+    }
   }
 </style>

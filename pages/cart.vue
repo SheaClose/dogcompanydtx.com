@@ -1,8 +1,6 @@
 <template>
-  <div class="Store-page-container" :style="{
-      backgroundSize:`${125 + (+scroll / 4)}vh`
-    }">
-    <div class="Store-page-content-container" :style="{backgroundColor: `rgba(0,0,0,${this.location})`}">
+  <div class="Store-page-container">
+    <div class="Store-page-content-container">
       <div class="container">
         <NavBar></NavBar>
         <div class="blue-grey lighten-1  cart-title">
@@ -147,14 +145,12 @@
 <script>
 import NavBar from '@/components/NavBar'
 import Modal from '@/components/Modal'
-import scroll from '@/mixins/scroll'
 
 export default {
   components: {
     NavBar,
     Modal
   },
-  mixins:[scroll],
   data(){
     return {
       cart: [],
@@ -172,12 +168,15 @@ export default {
 
     }
   },
-  mounted(){
+  async mounted(){
     window.addEventListener('keydown', this.keyDownHandler)
     let {_id} = this.$store.state.user
-    if (_id){
-      this.fillCart(_id);
+    
+    if (!_id){
+      await this.$store.dispatch('getUser')
+      _id = this.$store.state.user._id
     }
+      this.fillCart(_id);
   },
   beforeDestroy(){
     window.removeEventListener('keydown', this.keyDownHandler)
@@ -204,6 +203,7 @@ export default {
         this.orderTotal = this.getOrderTotal();
     },
     getOrderTotal(){
+      
       return this.cart.reduce((acc,{total})=>acc+total, 0)
     },
     async removeFromCart(_id){
@@ -215,6 +215,7 @@ export default {
         if (item.product._id === id) {
           return Object.assign(item, {quantity: item.quantity + 1, total: (item.quantity + 1) * item.product.price });
         }
+        return item
       });
       this.orderTotal = this.getOrderTotal();
     },
@@ -323,5 +324,13 @@ If you are having trouble completing an order, Please contact us at DogCompanyDt
     width: 90%;
     margin: auto;
     padding: 20px;
+  }
+  .cartHeader {
+    color: black;
+    font-weight: bold;
+    font-size: 3.5em;
+  }
+  .Store-page-content-container {
+    background-color: rgba(0, 0, 0, 0.25);
   }
 </style>

@@ -10,10 +10,10 @@
         <div class="card transparent">
           <a class="pointer">/</a>
         </div>
-        <!-- <nuxt-link to="/shows">Shows</nuxt-link>
+        <nuxt-link to="/shows">Shows</nuxt-link>
         <div class="card transparent">
           <a class="pointer">/</a>
-        </div> -->
+        </div>
         <nuxt-link to="/about">About</nuxt-link>
         <div class="card transparent">
           <a class="pointer">/</a>
@@ -38,10 +38,8 @@
 <script>
 export default {
   async mounted(){
-    if (!this.$store.state.user){
-    let {data} = await this.$axios.get("/api/cart")
-    let [user] = data;
-    this.$store.commit('setUser', user || {});
+    if (!Object.keys(this.$store.state.user).length){
+      await this.$store.dispatch('getUser')
     }
   },
   computed:{
@@ -78,5 +76,57 @@ export default {
     .alert {
       width: 50vw;
     }
+  }
+  .nav-bar a:link {
+    color: white;
+  }
+
+  .nav-bar a:visited {
+    color: white;
+  }
+
+  .nav-bar {
+    background: transparent;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-between;
+    font-family: "Black Ops One", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2em;
+    margin: 1vh 0vh 5vh;
+  }
+  .nav-bar a[data-v-0957edea]:link {
+    font-size: 1.25em;
+  }
+
+  a {
+    color: deepskyblue;
+  }
+  .nav-bar a {
+    color: white;
+  }
+
+  .pointer {
+    cursor: pointer;
+  }
+
+  @-ms-viewport {
+    width: device-width;
+  }
+
+  .prodrow {
+    max-height: 50vh;
+  }
+
+  .t_shirt_select {
+    display: block;
+    background-color: #444;
+  }
+  [type="checkbox"]:not(:checked),
+  [type="checkbox"]:checked {
+    position: static;
+    left: 0;
+    opacity: 1;
   }
 </style>

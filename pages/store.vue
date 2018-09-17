@@ -109,10 +109,86 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+  div[class*="content-container"] .container {
+    width: 70%;
+    margin: auto;
+  }
   .modal-content {
     width: 90%;
     margin: auto;
     padding: 20px;
+  }
+  .Store-page-container {
+    background: black;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: 125vh;
+    -o-object-fit: fill;
+    object-fit: fill;
+    -o-object-position: center;
+    object-position: center;
+  }
+
+  @media only screen and (min-width: 960px) {
+    .Store-page-container {
+      min-height: 99vh;
+      background: -webkit-radial-gradient(
+          center,
+          ellipse,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 1) 70%
+        ),
+        url("https://s3-us-west-2.amazonaws.com/dogcompany/PastorJoe.jpg")
+          no-repeat fixed;
+      background: radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 1) 70%
+        ),
+        url("https://s3-us-west-2.amazonaws.com/dogcompany/PastorJoe.jpg")
+          no-repeat fixed;
+      background-attachment: fixed;
+      background-position: center center;
+      background-size: 125vh;
+      -o-object-fit: fill;
+      object-fit: fill;
+      -o-object-position: center;
+      object-position: center;
+    }
+  }
+
+  .Store-page-content-container {
+    min-height: 100vh;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .product-repeat {
+    margin-top: 20px;
+  }
+
+  .product-img {
+    height: 35vh;
+    max-width: 100%;
+    transition: transform 250ms ease-out;
+  }
+
+  .product-img:hover {
+    transform: scale(1.05);
+  }
+
+  .product-text {
+    font-size: 2.05vh;
+  }
+
+  .product-page {
+    height: 80vh;
+    font-size: 1.5em;
+  }
+
+  .product-page-img {
+    height: 80vh;
   }
 </style>

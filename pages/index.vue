@@ -33,7 +33,7 @@
                 </div>
                 <br />
                 <div class="date">
-                  {{blog.date}}
+                  {{blog.date | formatDate}}
                 </div>
                 <hr />
               </div>
@@ -62,4 +62,66 @@ export default {
     this.blogs = data.sort((a, b) => a.date < b.date)
   }
 }
+
 </script>
+
+<style>
+  div[class*="content-container"] .container {
+    width: 70%;
+    margin: auto;
+  }
+  .Home-page-container {
+    background: black;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: 125vh;
+    color: white;
+  }
+
+  .image-style {
+    border: 4px solid #8b8552;
+    border-radius: 20px;
+  }
+
+  .date {
+    text-align: right;
+    font-size: 0.85em;
+  }
+
+  @media only screen and (min-width: 960px) {
+    .Home-page-container {
+      background: -webkit-radial-gradient(
+          center,
+          ellipse,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 1) 70%
+        ),
+        url("https://s3-us-west-2.amazonaws.com/dogcompany/DogCoAmps.jpg")
+          no-repeat fixed;
+
+      background: radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 1) 70%
+        ),
+        url("https://s3-us-west-2.amazonaws.com/dogcompany/DogCoAmps.jpg")
+          no-repeat fixed;
+      background-attachment: fixed;
+      background-position: center center;
+      background-size: 125vh;
+      color: white;
+    }
+  }
+
+  .container-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+</style>
