@@ -1,7 +1,7 @@
 "use strict";
 
 const Order = require("./Order.js"),
-  serverConfig = require("../../../serverConfig.js"),
+  serverConfig = require("../../serverConfig.js"),
   sg = require("sendgrid")(serverConfig.SENDGRID_API_KEY);
 
 module.exports = {

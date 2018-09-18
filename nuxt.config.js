@@ -26,7 +26,7 @@ module.exports = {
         name: "msapplication-TileImage",
         content: "Assets/favico/ms-icon-144x144.png"
       },
-      // { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#ffffff" },
       { name: "msapplication", content: "#ffffff" },
       { hid: "description", name: "description", content: pkg.description }

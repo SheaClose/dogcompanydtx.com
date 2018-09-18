@@ -1,7 +1,7 @@
 # dependencies
 cypress
 cypress.json
-serverConfig.js
+server/serverConfig.js
 private
 public/Assets/photos
 node_modules
