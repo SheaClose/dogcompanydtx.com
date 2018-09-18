@@ -72,11 +72,6 @@ export default {
     text-align: center;
     background: rgba(82, 106, 83, 0.95);
   }
-  @media (max-width: 860px) {
-    .alert {
-      width: 50vw;
-    }
-  }
   .nav-bar a:link {
     color: white;
   }
@@ -96,9 +91,6 @@ export default {
     font-size: 2em;
     margin: 1vh 0vh 5vh;
   }
-  .nav-bar a[data-v-0957edea]:link {
-    font-size: 1.25em;
-  }
 
   a {
     color: deepskyblue;
@@ -109,10 +101,6 @@ export default {
 
   .pointer {
     cursor: pointer;
-  }
-
-  @-ms-viewport {
-    width: device-width;
   }
 
   .prodrow {
@@ -128,5 +116,20 @@ export default {
     position: static;
     left: 0;
     opacity: 1;
+  }
+
+  @viewport {
+    width: device-width;
+  }
+  @media (max-width: 960px) {
+    .alert {
+      width: 50vw;
+    }
+    .fixed-action-btn {
+      font-size: 2em;
+    }
+    .nav-bar {
+      font-size: 14px;
+    }
   }
 </style>
