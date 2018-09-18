@@ -87,7 +87,7 @@ Order Details:
             ]
           }
         });
-        if (process.env.NODE_ENV !== "development") {
+        if (process.env.NODE_ENV === "production") {
           sg.API(request, function(error, response) {
             if (error) {
             }
