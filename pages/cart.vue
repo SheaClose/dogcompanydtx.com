@@ -208,6 +208,7 @@ export default {
     },
     async removeFromCart(_id){
       let {data} = await this.$axios.put(`/api/cart/deleteItem/${this.$store.state.user._id}`, { _id });
+      if (!data.cart.length)this.$store.commit('setUser', data)
       this.fillCart(data._id)
     },
     increaseQuantity(id){
