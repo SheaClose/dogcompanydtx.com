@@ -64,6 +64,14 @@
         </div>
       </slot>
     </Modal>
+    <div v-if="user && user.cart && user.cart.length" class="fixed-action-btn">
+      <nuxt-link to="/cart">
+        <span v-if="user.cart.length" class="btn-floating btn-large blue-grey lighten-1">
+          <div style="font-size:1em; color: black; position: absolute; width: 100%; top:-4px; right:0; " class="black-text floating">{{user.cart.length}}</div>
+          <i style="font-size: 2.5em; position: relative;; z-index:-100" class="material-icons">shopping_cart</i>
+        </span>
+      </nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -80,6 +88,7 @@ export default {
   data(){
     return {
       products: this.$store.state.products,
+      user: this.$store.state.user,
       showModal: false,
       currentUserOrderInformation: null
     }
@@ -196,5 +205,15 @@ export default {
 
   .product-page-img {
     height: 80vh;
+  }
+  .fixed-action-btn {
+    top: 85vh;
+    right: 5vw;
+    position: fixed;
+  }
+  .nav-bar {
+    font-family: "Black Ops One", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2em;
+    z-index: 1;
   }
 </style>

@@ -19,14 +19,6 @@
           <a class="pointer">/</a>
         </div>
         <nuxt-link to="/media">Media</nuxt-link>
-        <div v-if="user && user.cart && store" class="fixed-action-btn" style="bottom: 25px; right: 35px;">
-          <nuxt-link to="/cart">
-            <span v-if="user.cart.length" class="btn-floating btn-large blue-grey lighten-1">
-              <div style="font-size:.5em; color: black; position: absolute; width: 100%; top:-4px; right:0; " class="black-text floating">{{user.cart.length}}</div>
-              <i style="font-size: 1.3em; position: relative;; z-index:-100" class="material-icons">shopping_cart</i>
-            </span>
-          </nuxt-link>
-        </div>
       </div>
     </div>
     <v-alert type="info" class="alert" transition="scale-transition" :value="alert" :color="$store.state.alertColor">
@@ -58,11 +50,6 @@ export default {
 
 
 <style scoped>
-  .fixed-action-btn {
-    top: 85vh;
-    right: 0px;
-    position: absolute;
-  }
   .success {
     background: rgba(82, 106, 83, 0.95);
   }
@@ -114,21 +101,6 @@ export default {
 
   .pointer {
     cursor: pointer;
-  }
-
-  .prodrow {
-    max-height: 50vh;
-  }
-
-  .t_shirt_select {
-    display: block;
-    background-color: #444;
-  }
-  [type="checkbox"]:not(:checked),
-  [type="checkbox"]:checked {
-    position: static;
-    left: 0;
-    opacity: 1;
   }
 
   @viewport {
