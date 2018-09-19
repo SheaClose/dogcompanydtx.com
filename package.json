@@ -8,7 +8,7 @@
     "dev": "NODE_ENV=development nodemon server/index.js --watch server",
     "build": "nuxt build",
     "deploy": "nuxt build && NODE_ENV=production forever start server/index.js",
-    "staging": "NODE_ENV=staging nuxt build && forever start server/index.js",
+    "staging": "NODE_ENV=staging forever start server/index.js",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
