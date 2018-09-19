@@ -114,10 +114,13 @@ export default {
     width: 70%;
     margin: auto;
   }
+
   .modal-content {
     width: 90%;
+    max-height: 90vh;
     margin: auto;
     padding: 20px;
+    overflow-x: auto;
   }
   .Store-page-container {
     background: black;

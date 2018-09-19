@@ -1,8 +1,8 @@
 <template>
   <div class="Store-page-container">
+    <NavBar></NavBar>
     <div class="Store-page-content-container">
       <div class="container">
-        <NavBar></NavBar>
         <div class="blue-grey lighten-1  cart-title">
           <center>
             <h2 class="cartHeader">Your Cart</h2>
@@ -285,6 +285,9 @@ If you are having trouble completing an order, Please contact us at DogCompanyDt
 <style scoped>
   * {
     box-sizing: border-box;
+  }
+  .Store-page-content-container > .container {
+    padding-top: 10vh;
   }
   .center {
     align-items: center;

@@ -58,6 +58,11 @@ export default {
 
 
 <style scoped>
+  .fixed-action-btn {
+    top: 85vh;
+    right: 0px;
+    position: absolute;
+  }
   .success {
     background: rgba(82, 106, 83, 0.95);
   }
@@ -93,7 +98,6 @@ export default {
     margin: 1vh 0vh 5vh;
     width: 85vw;
     position: absolute;
-    top: 0;
     margin: auto;
     left: 50%;
     transform: translate(-50%);
