@@ -2,9 +2,9 @@
   <div class="Store-page-container" :style="{
       backgroundSize:`${125 + (+scroll / 4)}vh`
     }">
+    <NavBar></NavBar>
     <div class="Store-page-content-container" :style="{backgroundColor: `rgba(0,0,0,${this.location})`}">
       <div class="container">
-        <NavBar></NavBar>
         <div class="row">
           <div @click="goTo(product.title)" :key="product._id" v-for="product in products" class="col s12 m12 l4 center product-repeat pointer prodrow">
             <img class="product-img" :src="product.imgUrl" :alt="product.title" />
@@ -128,6 +128,9 @@ export default {
     object-fit: fill;
     -o-object-position: center;
     object-position: center;
+  }
+  .Store-page-content-container > .container {
+    padding-top: 10vh;
   }
 
   @media only screen and (min-width: 960px) {

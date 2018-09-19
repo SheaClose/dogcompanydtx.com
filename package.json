@@ -5,7 +5,7 @@
   "author": "Shea Close",
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV=development nodemon --inspect server/index.js --watch server",
+    "dev": "NODE_ENV=development nodemon server/index.js --watch server",
     "build": "nuxt build",
     "deploy": "nuxt build && NODE_ENV=production forever start server/index.js",
     "staging": "NODE_ENV=staging nuxt build && forever start server/index.js",

@@ -2,9 +2,9 @@
   <div class="about-page-container" :style="{
       backgroundSize:`${70 + parseInt(scroll / 6)}vh`
     }">
+    <NavBar></NavBar>
     <div class="about-page-content-container" :style="{backgroundColor: `rgba(0,0,0,${this.location})`}">
       <div class="container">
-        <NavBar></NavBar>
         <div class="container about-body center">
           <h3>Dog Company</h3>
           <p style="font-size:2em;">
@@ -177,6 +177,9 @@ export default {
 </script>
 
 <style>
+  .about-page-content-container > .container {
+    padding-top: 10vh;
+  }
   div[class*="content-container"] .container {
     width: 70%;
     margin: auto;
@@ -288,7 +291,7 @@ export default {
   }
 
   /* EFFECTS
-                                                            –––––––––––––––––––––––––––––––––––––––––––––––––– */
+                                                                  –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
   .timeline ul li::after {
     -webkit-transition: background 0.5s ease-in-out;
@@ -338,6 +341,9 @@ export default {
       background-position: center center;
       background-size: 70vh;
       color: white;
+    }
+    .about-body {
+      font-size: 9.5px;
     }
   }
 </style>

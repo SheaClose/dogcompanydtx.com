@@ -87,9 +87,18 @@ export default {
     display: flex;
     -ms-flex-pack: distribute;
     justify-content: space-between;
+    align-items: center;
     font-family: "Black Ops One", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 2em;
     margin: 1vh 0vh 5vh;
+    width: 85vw;
+    position: absolute;
+    top: 0;
+    margin: auto;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1;
+    height: 10vh;
   }
 
   a {

@@ -2,9 +2,9 @@
   <div class="shows-page-container" :style="{
       backgroundSize:`${125 + parseInt(scroll / 6)}vh`
     }">
+    <NavBar></NavBar>
     <div class="shows-page-content-container" :style="{backgroundColor: `rgba(0,0,0,${this.location})`}">
       <div class="container">
-        <NavBar></NavBar>
         <div class="center">
           <h5 class="Past-events-header">Upcoming Events</h5>
         </div>
@@ -83,6 +83,9 @@ export default {
 }
 </script>
 <style>
+  .shows-page-content-container > .container {
+    padding-top: 10vh;
+  }
   .shows-page-container {
     background: black;
     background-attachment: fixed;

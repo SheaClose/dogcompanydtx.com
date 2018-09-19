@@ -2,9 +2,9 @@
   <div class="media-page-container" :style="{
       backgroundSize:`${120 + parseInt(scroll / 6)}vh`
     }">
+    <NavBar></NavBar>
     <div class="media-page-content-container" :style="{backgroundColor: `rgba(0,0,0,${this.location})`}">
       <div class="container">
-        <NavBar></NavBar>
         <!-- Songs -->
         <div class="row">
           <div class="col s12 m12 l5 left responsive-img img-container">
@@ -693,6 +693,9 @@ export default {
 </script>
 
 <style>
+  .media-page-content-container > .container {
+    padding-top: 10vh;
+  }
   div[class*="content-container"] .container {
     width: 70%;
     margin: auto;

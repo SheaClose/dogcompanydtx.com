@@ -1,13 +1,11 @@
 <template>
   <div>
+    <NavBar></NavBar>
     <div class="Home-page-container" :style="{
       backgroundSize:`${125 + (+scroll / 4)}vh`
     }">
       <div class="home-page-content-container" :style="{backgroundColor: `rgba(0,0,0,${this.location})`}">
         <div class="container">
-          <div>
-            <NavBar></NavBar>
-          </div>
           <div class="valign-wrapper container-center" style="height: 70vh;">
             <img class="responsive-img valign" style="opacity: .8; height: 100%;" src="https://s3-us-west-2.amazonaws.com/dogcompany/DogCoLogo.png" alt="Dog Company Logo" />
           </div>
@@ -77,6 +75,9 @@ export default {
     background-size: 125vh;
     color: white;
   }
+  .home-page-content-container > .container {
+    padding-top: 10vh;
+  }
 
   .image-style {
     border: 4px solid #8b8552;
@@ -123,5 +124,9 @@ export default {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+  }
+  img.responsive-img,
+  video.responsive-video {
+    max-width: none;
   }
 </style>
