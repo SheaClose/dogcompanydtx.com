@@ -1,8 +1,8 @@
 <template>
   <div class="Store-page-container">
+    <NavBar></NavBar>
     <div class="Store-page-content-container">
       <div class="container">
-        <NavBar></NavBar>
         <div class="row">
           <div class="product-page">
             <div class="col s12 m12 l8 center">
@@ -87,3 +87,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  .Store-page-content-container > .container {
+    padding-top: 10vh;
+  }
+</style>
