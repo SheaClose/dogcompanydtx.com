@@ -92,7 +92,9 @@ export default {
   .Store-page-content-container > .container {
     padding-top: 10vh;
   }
-  #prod_img {
-    width: 90%;
+  @media (max-width: 960px) {
+    #prod_img {
+      width: 90%;
+    }
   }
 </style>
