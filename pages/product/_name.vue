@@ -6,10 +6,10 @@
         <div class="row">
           <div class="product-page">
             <div class="col s12 m12 l8 center">
-              <img class="responsive-img" :src="product.imgUrl" alt="Image of merchandise" />
+              <img class="responsive-img" id="prod_img" :src="product.imgUrl" alt="Image of merchandise" />
               <div v-if="img2Toggle">
                 <div class="row">
-                  <img v-if="product.imgUrl2" alt="optional additional images" class="col s12 m12 l12 responsive-img prod_img" :src="product.imgUrl2">
+                  <img v-if="product.imgUrl2" alt="optional additional images" class="col s12 m12 l12 responsive-img" :src="product.imgUrl2">
                   <img v-if="product.imgUrl3" alt="optional additional images" class="col s12 m12 l12 responsive-img" :src="product.imgUrl3">
                 </div>
               </div>
@@ -92,7 +92,7 @@ export default {
   .Store-page-content-container > .container {
     padding-top: 10vh;
   }
-  img.prod_img {
-    width: 80%;
+  #prod_img {
+    width: 90%;
   }
 </style>
