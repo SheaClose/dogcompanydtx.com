@@ -31,5 +31,7 @@
   body {
     background-color: black;
     color: white;
+    max-width: 100vw;
+    overflow: hidden;
   }
 </style>

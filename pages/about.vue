@@ -7,11 +7,11 @@
       <div class="container">
         <div class="container about-body center">
           <h3>Dog Company</h3>
-          <p style="font-size:2em;">
+          <p>
             Dog company was formed in 2006 by former members of Dallas, Tx based band, "The Staggers". Joe Blow, along with long-time bassist, Matt Schrader, formed Dog Company with the hopes of returning to their more traditional punk rock roots.
           </p>
 
-          <p style="font-size:2em;">
+          <p>
             Current members include Front man, Lead Vocals and Rhythm Guitar: Joe Blow, Lead Guitar and Backing Vocals: Garrett Chapman, Bass Guitar and Backing Vocals: Shea Close, and most recent addition, Drums and Backing Vocals: Mick Villareal.
           </p>
           <div class="container-fluid">
@@ -221,7 +221,10 @@ export default {
     color: white;
     padding: 1vw;
   }
-
+  .timeline {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
   .timeline ul li {
     font-size: 1em;
     list-style-type: none;
@@ -290,9 +293,6 @@ export default {
     margin-bottom: 8px;
   }
 
-  /* EFFECTS
-                                                                  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
   .timeline ul li::after {
     -webkit-transition: background 0.5s ease-in-out;
     transition: background 0.5s ease-in-out;
@@ -332,7 +332,9 @@ export default {
     background-size: 70vh;
     color: white;
   }
-
+  .about-body {
+    font-size: 1.5rem;
+  }
   @media only screen and (min-width: 960px) {
     .about-page-container {
       background: url("https://s3-us-west-2.amazonaws.com/dogcompany/DogCoLogo.png")
@@ -343,7 +345,7 @@ export default {
       color: white;
     }
     .about-body {
-      font-size: 9.5px;
+      font-size: 2rem;
     }
   }
 </style>
