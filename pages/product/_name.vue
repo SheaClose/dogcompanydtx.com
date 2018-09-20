@@ -94,7 +94,7 @@ export default {
   }
   @media (max-width: 960px) {
     #prod_img {
-      width: 90%;
+      width: 80%;
     }
   }
 </style>
