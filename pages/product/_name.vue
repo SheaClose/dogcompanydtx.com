@@ -69,7 +69,6 @@ export default {
   },
   methods:{
     async addToCart({title, size, bundle}){
-      console.log('bundle: ', bundle);
       if (!size && !bundle){
           /** size wasn't selected, throw error */
           return this.$store.commit('setAlert', {alertMsg:'Please select a size', alertColor: 'red'})
