@@ -15,7 +15,7 @@
       <v-select v-model="size" :items="sizeList" color="grey" single-line label="--- Select a Shirt Size ---"></v-select>
     </div>
     <div style="padding-top: 10px;">
-      <button @click="$emit('added',{title: product.title, size: size})" type="button" class="btn" name="button">Add to Cart</button>
+      <button @click="$emit('added',{title: product.title, size})" type="button" class="btn" name="button">Add to Cart</button>
     </div>
   </div>
 </template>

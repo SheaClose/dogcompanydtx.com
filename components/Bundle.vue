@@ -26,7 +26,7 @@
       </v-select>
     </div>
     <div style="padding-top: 10px; display:flex; justify-content:center;">
-      <button @click="$emit('added',{title: updatedProduct.title, bundle:{selectedAlbum, selectedDesign, selectedSize}})" type="button" class="btn" name="button">Add to Cart</button>
+      <button @click="sendToParent" type="button" class="btn" name="button">Add to Cart</button>
     </div>
   </div>
 
@@ -48,6 +48,25 @@ export default {
         "Songs of Discontent - cd",
         "War Stories - Vinyl"
       ];
+    }
+  },
+  methods:{
+    sendToParent(){
+      let bundle = {}
+      this.selectedAlbum ? bundle.selectedAlbum = this.selectedAlbum : null
+      this.selectedDesign ? bundle.selectedDesign = this.selectedDesign : null
+      this.selectedSize ? bundle.selectedSize = this.selectedSize : null
+      let noOptionsSelected = Object.values(bundle).filter(c=>c).length === 0
+
+      if (this.selectedDesign && !this.selectedSize){
+        return this.$store.commit('setAlert', {alertMsg:'Please select a size', alertColor: 'red'})
+      } 
+      else if (noOptionsSelected) {
+        return this.$store.commit('setAlert', {alertMsg:'Please make a selection', alertColor: 'red'})
+      }
+      else {
+        return this.$emit('added',{title: this.updatedProduct.title, bundle})
+      }
     }
   },
   computed: {

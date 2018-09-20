@@ -337,4 +337,7 @@ If you are having trouble completing an order, Please contact us at DogCompanyDt
   .Store-page-content-container {
     background-color: rgba(0, 0, 0, 0.25);
   }
+  i {
+    cursor: pointer;
+  }
 </style>

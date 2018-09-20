@@ -69,15 +69,10 @@ export default {
   },
   methods:{
     async addToCart({title, size, bundle}){
-      if (!size){
-        if(!bundle){
+      console.log('bundle: ', bundle);
+      if (!size && !bundle){
           /** size wasn't selected, throw error */
           return this.$store.commit('setAlert', {alertMsg:'Please select a size', alertColor: 'red'})
-        } 
-        else if(typeof bundle == "object" && !Object.values(bundle).filter(c=>c).length) {
-          /** bundle selected without selections */
-          return this.$store.commit('setAlert', {alertMsg:'Please make a selection', alertColor: 'error'})
-        }
       }
         let {data} = await this.$axios.post("/api/cart", { title, size: size || 'small', bundle })
         this.$store.commit('setAlert', {alertMsg:'Item added to cart', alertColor: 'primary'});
