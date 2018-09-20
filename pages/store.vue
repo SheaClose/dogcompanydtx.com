@@ -119,11 +119,6 @@ export default {
 </script>
 
 <style>
-  div[class*="content-container"] .container {
-    width: 70%;
-    margin: auto;
-  }
-
   .modal-content {
     width: 90%;
     max-height: 90vh;
@@ -146,6 +141,10 @@ export default {
   }
 
   @media only screen and (min-width: 960px) {
+    div[class*="content-container"] .container {
+      width: 70%;
+      margin: auto;
+    }
     .Store-page-container {
       min-height: 99vh;
       background: -webkit-radial-gradient(

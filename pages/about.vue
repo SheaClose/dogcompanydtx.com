@@ -181,8 +181,9 @@ export default {
     padding-top: 10vh;
   }
   div[class*="content-container"] .container {
-    width: 70%;
+    width: 100vw;
     margin: auto;
+    font-size: 1.1em;
   }
   .container.about-body.center {
     width: 100%;
@@ -222,7 +223,7 @@ export default {
     padding: 1vw;
   }
   .timeline {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
   }
   .timeline ul li {
@@ -346,6 +347,10 @@ export default {
     }
     .about-body {
       font-size: 2rem;
+    }
+    div[class*="content-container"] .container {
+      width: 70%;
+      margin: auto;
     }
   }
 </style>

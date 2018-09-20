@@ -101,7 +101,39 @@ export default {
     align-items: center;
   }
 
+  table.highlight > tbody > tr:hover {
+    background-color: rgba(0, 150, 136, 0.8);
+  }
+  table {
+    font-size: 0.75em;
+    font-weight: 700;
+  }
+  .shows-page-content-container {
+    background-color: transparent;
+    font-family: arial, helvetica, sans-serif;
+  }
+
+  .Past-events-header {
+    margin-top: 50px;
+  }
+
+  div[class*="content-container"] .container {
+    width: 100%;
+    margin: auto;
+  }
+  .shows-page-container {
+    /* background: #000; */
+    min-height: 100vh;
+  }
   @media only screen and (min-width: 960px) {
+    div[class*="content-container"] .container {
+      width: 70%;
+      margin: auto;
+    }
+    table {
+      font-size: 1.25em;
+      font-weight: 700;
+    }
     .shows-page-container {
       background: -webkit-radial-gradient(
           center,
@@ -129,29 +161,5 @@ export default {
       -ms-flex-pack: distribute;
       justify-content: space-around;
     }
-  }
-  table.highlight > tbody > tr:hover {
-    background-color: rgba(0, 150, 136, 0.8);
-  }
-  table {
-    font-size: 1.25em;
-    font-weight: 700;
-  }
-  .shows-page-content-container {
-    background-color: transparent;
-    font-family: arial, helvetica, sans-serif;
-  }
-
-  .Past-events-header {
-    margin-top: 50px;
-  }
-
-  div[class*="content-container"] .container {
-    width: 70%;
-    margin: auto;
-  }
-  .shows-page-container {
-    /* background: #000; */
-    min-height: 100vh;
   }
 </style>

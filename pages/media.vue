@@ -697,7 +697,7 @@ export default {
     padding-top: 10vh;
   }
   div[class*="content-container"] .container {
-    width: 70%;
+    width: 100%;
     margin: auto;
   }
   .media-page-container {
@@ -713,6 +713,10 @@ export default {
   }
 
   @media only screen and (min-width: 960px) {
+    div[class*="content-container"] .container {
+      width: 70%;
+      margin: auto;
+    }
     .media-page-container {
       background: -webkit-radial-gradient(
           center,
