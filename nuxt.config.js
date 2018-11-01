@@ -3,13 +3,16 @@ const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
   mode: "universal",
-
   /*
   ** Headers of the page
   */
   head: {
+    htmlAttrs: {
+      lang: "eng-us"
+    },
     title: pkg.name,
     meta: [
+      { charset: "utf-8" },
       {
         name: "description",
         content:
@@ -21,7 +24,6 @@ module.exports = {
           "dog,company,dallas,tx,punk,rock,staggers,riot squad, Joe Blow, Shea Close, shea close, Mic Villareal, Garrett Chapman"
       },
       { name: "viewport", content: "initial-scale=.75, maximum-scale=.75" },
-      { charset: "utf-8" },
       {
         name: "msapplication-TileImage",
         content: "Assets/favico/ms-icon-144x144.png"
@@ -92,30 +94,7 @@ module.exports = {
         sizes: "180x180",
         href: "Assets/favico/apple-icon-180x180.png"
       },
-      {
-        rel: "icon",
-        type: "image/png",
-        sizes: "192x192",
-        href: "Assets/favico/android-icon-192x192.png"
-      },
-      {
-        rel: "icon",
-        type: "image/png",
-        sizes: "32x32",
-        href: "Assets/favico/favicon-32x32.png"
-      },
-      {
-        rel: "icon",
-        type: "image/png",
-        sizes: "96x96",
-        href: "Assets/favico/favicon-96x96.png"
-      },
-      {
-        rel: "icon",
-        type: "image/png",
-        sizes: "16x16",
-        href: "Assets/favico/favicon-16x16.png"
-      },
+
       {
         href: "https://fonts.googleapis.com/css?family=Black+Ops+One|Oswald",
         rel: "stylesheet"
@@ -172,7 +151,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    cssSourceMap: false,
+    cssSourceMap: true,
     /*
     ** You can extend webpack config here
     */
@@ -186,4 +165,4 @@ module.exports = {
       }
     }
   }
-};
+};  
