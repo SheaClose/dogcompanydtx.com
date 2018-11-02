@@ -777,9 +777,7 @@ export default {
 
   @media(max-width:960px){
     .row .col.album-container{
-      display: -webkit-box;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
+      display: block;
     }
   }
 </style>
