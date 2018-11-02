@@ -3,10 +3,12 @@ const express = require("express"),
   { json } = require("body-parser"),
   cors = require("cors"),
   mongoose = require("mongoose"),
-  serverConfig = require("./serverConfig.js"),
+  // serverConfig = require("./serverConfig.js"),
+  {admin, pass, secret,mongoUri,mongo: {user,
+host,
+db}} = require("./serverConfig.js"),
   port = process.env.PORT,
   app = express(),
-  mongoUri = serverConfig.mongoUri,
   masterRoutes = require("./masterRoutes.js"),
   session = require("express-session"),
   { Nuxt, Builder } = require("nuxt");
@@ -22,9 +24,18 @@ if (config.dev) {
 }
 app.use(
   session({
-    secret: serverConfig.secret,
+    secret: secret,
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    store: new (require('express-sessions'))({
+        storage: 'mongodb',
+        instance: mongoose, // optional
+        host: 'ds059516.mlab.com', // optional
+        port: 59516, // optional
+        db: 'test', // optional
+        collection: 'sessions', // optional
+        expire: 86400 // optional
+    })
   })
 );
 app.use("/", express.static(__dirname + "/public"));
@@ -42,8 +53,8 @@ app.use(nuxt.render);
 
 app.get(`/api/admin`, function(req, res) {
   if (
-    req.query.user !== serverConfig.admin ||
-    req.query.pass !== serverConfig.pass
+    req.query.user !== admin ||
+    req.query.pass !== pass
   ) {
     return res.status(200).json("false");
   } else {
