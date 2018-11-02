@@ -25,6 +25,9 @@
 </script>
 
 <style>
+p.description a.error-link.nuxt-link-active{
+  color:white;
+}
   .application.theme--dark {
     background: black;
   }

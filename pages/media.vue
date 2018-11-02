@@ -21,7 +21,7 @@
               </a>
             </div>
           </div>
-          <div class="col s12 m7 l7">
+          <div class="col s12 m7 l7 album-container">
             <p>
               <span style="font-size: 3em; font-family: Lobster,cursive,Georgia;">
                 Songs of Discontent
@@ -130,7 +130,7 @@
               </a>
             </div>
           </div>
-          <div class="col s12 m7 l7">
+          <div class="col s12 m7 l7 album-container">
             <p>
               <span style="font-size: 3em; font-family: Lobster,cursive,Georgia;">
                 A Bullet for Every Lie
@@ -214,7 +214,7 @@
             </div>
 
           </div>
-          <div class="col s12 m7 l7">
+          <div class="col s12 m7 l7 album-container">
             <p>
               <span style="font-size: 3em; font-family: Lobster,cursive,Georgia;">
                 Cashing in on Christmas Vol. II
@@ -330,7 +330,7 @@
             </div>
 
           </div>
-          <div class="col s12 m7 l7">
+          <div class="col s12 m7 l7 album-container">
             <p>
               <span style="font-size: 3em; font-family: Lobster,cursive,Georgia;">
                 Glass Heroes - Mean Streets - Strongbow - Dog Company
@@ -399,7 +399,7 @@
               </a>
             </div>
           </div>
-          <div class="col s12 m7 l7">
+          <div class="col s12 m7 l7 album-container">
             <p>
               <span style="font-size: 3em; font-family: Lobster,cursive,Georgia;">
                 Cashing in on Christmas Vol. IV
@@ -511,7 +511,7 @@
               </a>
             </div>
           </div>
-          <div class="col s12 m7 l7">
+          <div class="col s12 m7 l7 album-container">
             <p>
               <span style="font-size: 3em; font-family: Lobster,cursive,Georgia;">
                 War Stories
@@ -582,7 +582,7 @@
               </a>
             </div>
           </div>
-          <div class="col s12 m7 l7">
+          <div class="col s12 m7 l7 album-container">
             <p>
               <span style="font-size: 3em; font-family: Lobster,cursive,Georgia;">
                 Hard Evidence - Dog Company
@@ -620,7 +620,7 @@
               </a>
             </div>
           </div>
-          <div class="col s12 m7 l7">
+          <div class="col s12 m7 l7 album-container">
             <p>
               <span style="font-size: 3em; font-family: Lobster,cursive,Georgia;">
                 American Oi! Texas Edition
@@ -712,6 +712,37 @@ export default {
     color: white;
   }
 
+
+  .Album-Art {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  .album-song-title a {
+    color: white;
+    font-size: 1.4em;
+  }
+
+  .album-song-title {
+    font-size: 1.9vh;
+  }
+
+  .material-icons-music {
+    font-size: 1.1em;
+  }
+  ol {
+    padding-inline-start: 40px;
+  }
+  .container-fluid2 {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .row {
+    margin-top: 20px;
+  }
+  .row .col.album-container{
+    padding: 0 5vw;
+  }
   @media only screen and (min-width: 960px) {
     div[class*="content-container"] .container {
       width: 70%;
@@ -744,31 +775,11 @@ export default {
     }
   }
 
-  .Album-Art {
-    width: 100%;
-    border-radius: 15px;
-  }
-
-  .album-song-title a {
-    color: white;
-    font-size: 1.4em;
-  }
-
-  .album-song-title {
-    font-size: 1.9vh;
-  }
-
-  .material-icons-music {
-    font-size: 1.1em;
-  }
-  ol {
-    padding-inline-start: 40px;
-  }
-  .container-fluid2 {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  .row {
-    margin-top: 20px;
+  @media(max-width:960px){
+    .row .col.album-container{
+      display: -webkit-box;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+    }
   }
 </style>
