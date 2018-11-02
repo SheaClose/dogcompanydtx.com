@@ -7,7 +7,7 @@ public/Assets/photos
 node_modules
 .env
 public/app.min.js
-
+.DS_Store
 # logs
 npm-debug.log
 
