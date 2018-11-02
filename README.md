@@ -1,3 +1,7 @@
-# serverProject
+# dogcompanydtx.com
 
-Project uses live-reload, please check download the chrome extension for a smoother dev-experience.
+> My astonishing Nuxt.js project
+
+## Build Setup
+
+For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).

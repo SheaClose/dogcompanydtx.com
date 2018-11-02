@@ -1,7 +1,7 @@
 "use strict";
 
 const Order = require("./Order.js"),
-  serverConfig = require("../../../serverConfig.js"),
+  serverConfig = require("../../serverConfig.js"),
   sg = require("sendgrid")(serverConfig.SENDGRID_API_KEY);
 
 module.exports = {
@@ -87,7 +87,7 @@ Order Details:
             ]
           }
         });
-        if (process.env.NODE_ENV !== "development") {
+        if (process.env.NODE_ENV === "production") {
           sg.API(request, function(error, response) {
             if (error) {
             }
