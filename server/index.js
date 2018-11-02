@@ -4,7 +4,7 @@ const express = require("express"),
   cors = require("cors"),
   mongoose = require("mongoose"),
   // serverConfig = require("./serverConfig.js"),
-  {admin, pass, secret,mongoUri,mongo: {user,
+  {admin, pass, secret,mongoUri,mongo: {user,port:mongoPort,
 host,
 db}} = require("./serverConfig.js"),
   port = process.env.PORT,
@@ -30,10 +30,8 @@ app.use(
     store: new (require('express-sessions'))({
         storage: 'mongodb',
         instance: mongoose, // optional
-        host: 'ds059516.mlab.com', // optional
-        port: 59516, // optional
-        db: 'test', // optional
-        collection: 'sessions', // optional
+        host, // optional
+        port: mongoPort, // optional
         expire: 86400 // optional
     })
   })
