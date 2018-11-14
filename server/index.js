@@ -3,8 +3,7 @@ const express = require("express"),
   { json } = require("body-parser"),
   cors = require("cors"),
   mongoose = require("mongoose"),
-  // serverConfig = require("./serverConfig.js"),
-  {admin, pass, secret,mongoUri,mongo: {user,port:mongoPort,host,db}} = require("./serverConfig.js"),
+  { admin, pass, secret, mongoUri, mongo: { user, port: mongoPort, host, db } } = require("./serverConfig.js"),
   port = process.env.PORT,
   app = express(),
   masterRoutes = require("./masterRoutes.js"),
@@ -26,11 +25,10 @@ app.use(
     resave: true,
     saveUninitialized: true,
     store: new (require('express-sessions'))({
-        storage: 'mongodb',
-        instance: mongoose, // optional
-        host, // optional
-        port: mongoPort, // optional
-        expire: 86400 // optional
+      storage: 'mongodb',
+      instance: mongoose,
+      host,
+      port: mongoPort
     })
   })
 );
@@ -47,7 +45,7 @@ masterRoutes(app);
 
 app.use(nuxt.render);
 
-app.get(`/api/admin`, function(req, res) {
+app.get(`/api/admin`, function (req, res) {
   if (
     req.query.user !== admin ||
     req.query.pass !== pass
