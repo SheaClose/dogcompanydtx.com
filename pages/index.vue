@@ -27,7 +27,7 @@
                 </div>
                 <br />
                 <div style="white-space: pre-line; font-size: 1.5em; text-align: center">
-                  {{blog.body}}
+                  <span v-html="blog.body"></span>
                 </div>
                 <br />
                 <div class="date">

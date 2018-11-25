@@ -6,7 +6,7 @@
         <div class="row">
           <div class="product-page">
             <div class="col s12 m12 l8 center">
-              <img class="responsive-img" id="prod_img" :src="product.imgUrl" alt="Image of merchandise" />
+              <img height="450" class="responsive-img" id="prod_img" :src="product.imgUrl" alt="Image of merchandise" />
               <div v-if="img2Toggle">
                 <div class="row">
                   <img v-if="product.imgUrl2" alt="optional additional images" class="col s12 m12 l12 responsive-img" :src="product.imgUrl2">
@@ -86,9 +86,64 @@ export default {
   .Store-page-content-container > .container {
     padding-top: 10vh;
   }
-  @media (max-width: 960px) {
-    #prod_img {
-      width: 80%;
+  #prod_img {
+    object-fit: cover;
+  }
+  .Store-page-container {
+    background: black;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: 125vh;
+    -o-object-fit: fill;
+    object-fit: fill;
+    -o-object-position: center;
+    object-position: center;
+  }
+  .Store-page-content-container > .container {
+    padding-top: 10vh;
+  }
+
+  @media only screen and (min-width: 960px) {
+    div[class*="content-container"] .container {
+      width: 70%;
+      margin: auto;
     }
+    .Store-page-container {
+      min-height: 99vh;
+      background: -webkit-radial-gradient(
+          center,
+          ellipse,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 1) 70%
+        ),
+        url("https://s3-us-west-2.amazonaws.com/dogcompany/PastorJoe.jpg")
+          no-repeat fixed;
+      background: radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 1) 70%
+        ),
+        url("https://s3-us-west-2.amazonaws.com/dogcompany/PastorJoe.jpg")
+          no-repeat fixed;
+      background-attachment: fixed;
+      background-position: center center;
+      background-size: 125vh;
+      -o-object-fit: fill;
+      object-fit: fill;
+      -o-object-position: center;
+      object-position: center;
+    }
+  }
+
+  .Store-page-content-container {
+    min-height: 100vh;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-page {
+    height: 80vh;
+    font-size: 1.5em;
   }
 </style>

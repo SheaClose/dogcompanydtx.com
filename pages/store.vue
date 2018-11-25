@@ -196,23 +196,9 @@ export default {
   .product-text {
     font-size: 2.05vh;
   }
-
-  .product-page {
-    height: 80vh;
-    font-size: 1.5em;
-  }
-
-  .product-page-img {
-    height: 80vh;
-  }
   .fixed-action-btn {
     top: 85vh;
     right: 5vw;
     position: fixed;
-  }
-  .nav-bar {
-    font-family: "Black Ops One", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 2em;
-    z-index: 1;
   }
 </style>
