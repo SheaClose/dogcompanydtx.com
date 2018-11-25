@@ -87,7 +87,7 @@ export default {
     padding-top: 10vh;
   }
   #prod_img {
-    object-fit: cover;
+    height: 450px;
   }
   .Store-page-container {
     background: black;
