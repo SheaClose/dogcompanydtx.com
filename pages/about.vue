@@ -12,7 +12,7 @@
           </p>
 
           <p>
-            Current members include Front man, Lead Vocals and Rhythm Guitar: Joe Blow, Lead Guitar and Backing Vocals: Garrett Chapman, Bass Guitar and Backing Vocals: Shea Close, and most recent addition, Drums and Backing Vocals: Mick Villareal.
+            Current members include Front man, Lead Vocals and Rhythm Guitar: Joe Blow, Lead Guitar and Backing Vocals: Garrett Chapman, Bass Guitar and Backing Vocals: Shea Close, and most recent addition, Drums and Backing Vocals: Mic Villareal.
           </p>
           <div class="container-fluid">
             <a href="https://www.facebook.com/dogcompany/">
@@ -88,7 +88,7 @@
             </li>
             <li>
               <div>
-                <time>2013</time> Dog Company continues their Spinal Tap ways, replacing Ron Riot with current Drummer, Mick Villareal, who graciously splits his time between Dog Co and Ten Can Riot. The band is asked to play the inaugural of two, now established Festivals, "FYWROK" and "Midwest Live and Loud". The Boys hit the road for a third year straight and finish the year in the Studio.
+                <time>2013</time> Dog Company continues their Spinal Tap ways, replacing Ron Riot with current Drummer, Mic Villareal, who graciously splits his time between Dog Co and Ten Can Riot. The band is asked to play the inaugural of two, now established Festivals, "FYWROK" and "Midwest Live and Loud". The Boys hit the road for a third year straight and finish the year in the Studio.
               </div>
             </li>
             <li>

@@ -1,19 +1,40 @@
 <template>
   <div>
     <NavBar></NavBar>
-    <div class="Home-page-container" :style="{
+    <div
+      class="Home-page-container"
+      :style="{
       backgroundSize:`${125 + (+scroll / 4)}vh`
-    }">
-      <div class="home-page-content-container" :style="{backgroundColor: `rgba(0,0,0,${this.location})`}">
+    }"
+    >
+      <div
+        class="home-page-content-container"
+        :style="{backgroundColor: `rgba(0,0,0,${this.location})`}"
+      >
         <div class="container">
-          <div class="valign-wrapper container-center" style="height: 70vh;">
-            <img class="responsive-img valign" style="opacity: .8; height: 100%;" src="https://s3-us-west-2.amazonaws.com/dogcompany/DogCoLogo.png" alt="Dog Company Logo" />
+          <div
+            class="valign-wrapper container-center"
+            style="height: 70vh;"
+          >
+            <img
+              class="responsive-img valign"
+              style="opacity: .8; height: 100%;"
+              src="https://s3-us-west-2.amazonaws.com/dogcompany/DogCoLogo.png"
+              alt="Dog Company Logo"
+            />
           </div>
-          <ul class="" :key="blog._id" v-for="blog in blogs">
+          <ul
+            class=""
+            :key="blog._id"
+            v-for="blog in blogs"
+          >
             <div class="blog">
               <div class="">
                 <div class="valign-wrapper row">
-                  <div class="col s10 m10 l10 valign" style="font-size: 2.2em; font-family: sans-serif; text-align: center; margin:auto;">
+                  <div
+                    class="col s10 m10 l10 valign"
+                    style="font-size: 2.2em; font-family: sans-serif; text-align: center; margin:auto;"
+                  >
                     {{blog.title}}
                   </div>
                   <br />
@@ -22,7 +43,13 @@
                 <br />
                 <div>
                   <div class="center">
-                    <img class="responsive-img image-style" style="max-width: 80%" v-if="blog.imgUrl" :src="blog.imgUrl" alt="Blog image" />
+                    <img
+                      class="responsive-img image-style"
+                      style="max-width: 80%"
+                      v-if="blog.imgUrl"
+                      :src="blog.imgUrl"
+                      alt="Blog image"
+                    />
                   </div>
                 </div>
                 <br />
@@ -44,23 +71,24 @@
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue'
-import scroll from '@/mixins/scroll'
+import NavBar from "@/components/NavBar.vue";
+import scroll from "@/mixins/scroll";
 
 export default {
-  components: {NavBar},
-  mixins:[scroll],
-  data(){
+  components: { NavBar },
+  mixins: [scroll],
+  data() {
     return {
       blogs: []
-    }
+    };
   },
-  async mounted(){
-    let {data} = await this.$axios.get("/api/blogs");
-    this.blogs = data.sort((a, b) => a.date < b.date)
+  async mounted() {
+    let { data } = await this.$axios.get("/api/blogs");
+    this.blogs = data.sort((a, b) =>
+      new Date(a.date).getTime() < new Date(b.date).getTime() ? 1 : -1
+    );
   }
-}
-
+};
 </script>
 
 <style>
