@@ -8,11 +8,11 @@
         <div class="container about-body center">
           <h3>Dog Company</h3>
           <p>
-            Dog company was formed in 2006 by former members of Dallas, Tx based band, "The Staggers". Joe Blow, along with long-time bassist, Matt Schrader, formed Dog Company with the hopes of returning to their more traditional punk rock roots.
+            Dog company was formed in 2004 by former members of Dallas, Tx based band, "The Staggers". Joe Blow, along with long-time bassist, Matt Schrader, formed Dog Company with the hopes of returning to their more traditional punk rock roots.
           </p>
 
           <p>
-            Current members include Front man, Lead Vocals and Rhythm Guitar: Joe Blow, Lead Guitar and Backing Vocals: Garrett Chapman, Bass Guitar and Backing Vocals: Shea Close, and most recent addition, Drums and Backing Vocals: Mic Villareal.
+            Current members include Front man, Lead Vocals and Rhythm Guitar: Joe Blow, Lead Guitar and Backing Vocals: Garrett Chapman, Bass Guitar and Backing Vocals: Shea Close, and most recent addition, Drums and Backing Vocals: Mick Villarreal.
           </p>
           <div class="container-fluid">
             <a href="https://www.facebook.com/dogcompany/">
@@ -53,7 +53,7 @@
             </li>
             <li>
               <div>
-                <time>2006</time> Dog Company releases a Self Titled Demo EP, Signs with Slab O' Wax records. Kirk is replaced on Drums by Arron.
+                <time>2006</time> Dog Company releases a Self Titled Demo EP, Signs with Slab O' Wax records. Kirk is replaced on Drums by Aaron.
               </div>
             </li>
             <li>
@@ -73,7 +73,7 @@
             </li>
             <li>
               <div>
-                <time>2010</time> "Bullet for Every Lie", Dog Company's 2nd official record is released on Contra Records. Joe Aqcuires the "Hate Tank". The band says goodbye to the '91 caprice. Dog Company records "Merry Christmas, Better new year" for BlackHole Records "Cashing in on Christmas Vol II" comp.
+                <time>2010</time> "Bullet for Every Lie", Dog Company's 2nd official record is released on Contra Records. Dog Company records "Merry Christmas, Better new year" for BlackHole Records "Cashing in on Christmas Vol II" comp.
               </div>
             </li>
             <li>
@@ -88,7 +88,7 @@
             </li>
             <li>
               <div>
-                <time>2013</time> Dog Company continues their Spinal Tap ways, replacing Ron Riot with current Drummer, Mic Villareal, who graciously splits his time between Dog Co and Ten Can Riot. The band is asked to play the inaugural of two, now established Festivals, "FYWROK" and "Midwest Live and Loud". The Boys hit the road for a third year straight and finish the year in the Studio.
+                <time>2013</time> Dog Company continues their Spinal Tap ways, replacing Ron Riot with current Drummer, Mick Villarreal, who graciously splits his time between Dog Co and Ten Can Riot. The band is asked to play the inaugural of two, now established Festivals, "FYWROK" and "Midwest Live and Loud". The Boys hit the road for a third year straight and finish the year in the Studio.
               </div>
             </li>
             <li>
@@ -98,25 +98,32 @@
             </li>
             <li>
               <div>
-                <time>2015</time> The boys get asked back to "Midwest Live and Loud", This time the tour takes them through Canada where they meet Tailgunner, sparking a flourishing Bromance. "On The March w/ Dog Company" is released weekly from the road.
+                <time>2015</time> The boys get asked back to "Midwest Live and Loud". "On The March w/ Dog Company" is released weekly from the road.
               </div>
             </li>
             <li>
               <div>
-                <time>2016</time> Cadre Records in collaboration with Oi! The Boat Records release a 7" split with Dog Company and Hard Evidence. Dog Co is asked back to "FYWROK" and a weekend tour with TailGunner from Montreal is the highlight for all involved... Dog Company is currently preparing to go into the Studio for the next release.
+                <time>2016</time> Cadre Records in collaboration with Oi! The Boat Records release a 7" split with Dog Company and Hard Evidence. Dog Co is asked back to "FYWROK". 
               </div>
             </li>
             <li>
               <div>
                 <time>2017</time>
                 <p>Crowd Control Media signs Dog Company. The guys go into the studio in February to record three songs for 'American Oi! Texas Edition'.</p>
-                <p>The guys re-entered the studio in September and over the course of three weekends laid down all tracks for the upcoming release of (the as yet, not officially titled) album "High Hopes in Hard Times" </p>
+                <p>The guys re-entered the studio in September and over the course of three weekends laid down all tracks for "High Hopes in Hard Times" </p>
               </div>
             </li>
             <li>
               <div>
                 <time>2018</time>
                 <p>High Hopes in Hard Times is released August 18th. The band hit the road in late August to support the album and headed up to Midwest Live and Loud for the third time in 4 years.</p>
+                <p></p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <time>2019</time>
+                <p>The band enters the studio in Feb to record 3 songs for a 7" split with The Uppers from St Louis, MO.</p>
                 <p></p>
               </div>
             </li>
