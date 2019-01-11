@@ -84,9 +84,9 @@ export default {
   },
   async mounted() {
     let { data } = await this.$axios.get("/api/blogs");
-    this.blogs = data.sort((a, b) => {
-      return new Date(a.date).getTime() < new Date(b.date).getTime();
-    });
+    this.blogs = data.sort((a, b) =>
+      new Date(a.date).getTime() < new Date(b.date).getTime() ? 1 : -1
+    );
   }
 };
 </script>
