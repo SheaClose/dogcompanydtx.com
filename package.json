@@ -6,7 +6,6 @@
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=development nodemon server/index.js --watch server",
-    "build": "nuxt build",
     "start": "forever stop server/index.js;NODE_ENV=production forever start server/index.js",
     "staging": "forever stop server/index.js & NODE_ENV=staging forever start server/index.js",
     "generate": "nuxt generate",

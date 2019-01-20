@@ -13,11 +13,11 @@
             data-display-local-dates="true" 
             data-display-past-dates="true" 
             data-auto-style="false" 
-            data-text-color="#000000" 
+            data-text-color="#ffffff" 
             data-link-color="#526a53" 
             data-background-color="rgba(0,0,0,0)" 
             data-display-limit="50" 
-            data-link-text-color="#FFFFFF" 
+            data-link-text-color="#ffffff" 
             data-display-lineup="true" 
             data-separator-color="rgba(255, 255, 255, 0.5)"
           ></a>
