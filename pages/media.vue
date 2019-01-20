@@ -1,695 +1,102 @@
 <template>
-  <div class="media-page-container" :style="{
+  <div
+    class="media-page-container"
+    :style="{
       backgroundSize:`${120 + parseInt(scroll / 6)}vh`
-    }">
+    }"
+  >
     <NavBar></NavBar>
-    <div class="media-page-content-container" :style="{backgroundColor: `rgba(0,0,0,${this.location})`}">
+    <div
+      class="media-page-content-container"
+      :style="{backgroundColor: `rgba(0,0,0,${this.location})`}"
+    >
       <div class="container">
-        <!-- Songs -->
-        <div class="row">
-          <div class="col s12 m12 l5 left responsive-img img-container">
-            <img class="Album-Art" src="https://s3-us-west-2.amazonaws.com/dogcompany/SongsofDisc.jpg" alt="Songs of Discontent Cover image" />
-            <div class="container-fluid2">
-              <a target="_blank" href="https://itunes.apple.com/bz/album/songs-of-discontent/id284712750">
-                <img src="apple-logotype-white.svg" style="height: 5vh; color: white;" alt="apple logo" />
-              </a>
-              <a target="_blank" href="https://amazon.com/gp/product/B001CV359E/ref=dm_ws_sp_ps_dp">
-                <img src="Amazon.svg" style="height: 5vh; color: white;" />
-              </a>
-              <a target="_blank" href="https://www.youtube.com/watch?v=E4dYFYCdThw&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb">
-                <img alt="youtube logo" src="youtube-play-button-white.svg" style="height: 5vh; color: white;" />
-              </a>
+        <div
+          :key="i"
+          v-for="(al, i) in albums"
+        >
+          <div class="row">
+            <div class="col s12 m12 l5 left responsive-img img-container">
+              <img
+                class="Album-Art"
+                :src="al.album_art.img_url"
+                :alt="al.album_art.alt"
+              />
+              <div class="container-fluid2">
+                <a
+                  v-for="(dist, i) in al.distributors"
+                  :key="i"
+                  target="_blank"
+                  :href="dist.link_url"
+                >
+                  <img
+                    :src="dist.logo_url"
+                    style="height: 5vh; color: white;"
+                    :alt="dist.alt"
+                  />
+                </a>
+              </div>
+            </div>
+            <div class="col s12 m7 l7 album-container">
+              <p>
+                <span style="font-size: 3em; font-family: Lobster,cursive,Georgia;">
+                  {{al.album_info.title}}
+                </span>
+                <br>
+                <span>
+                  Released {{al.album_info.release_year}} on
+                  <a
+                    target="_blank"
+                    :href="al.album_info.label_link"
+                  >{{al.album_info.record_label}}</a>
+                </span>
+              </p>
+              <ol>
+                <li
+                  :key="i"
+                  v-for="(song, i) in al.album_info.songs"
+                  class="album-song-title"
+                >
+                  <a
+                    v-if="song.song_url"
+                    target="_blank"
+                    :href="song.song_url"
+                  >
+                    {{song.song_title}}
+                    <i class="material-icons material-icons-music">headset</i>
+                  </a>
+                  <div v-else>
+                    {{song.song_title}}
+                  </div>
+                </li>
+              </ol>
             </div>
           </div>
-          <div class="col s12 m7 l7 album-container">
-            <p>
-              <span style="font-size: 3em; font-family: Lobster,cursive,Georgia;">
-                Songs of Discontent
-              </span>
-              <br>
-              <span>
-                Released 2007 on
-                <a target="_blank" href="http://www.slab-o-wax.com/">Slab O' Wax Records</a>
-              </span>
-            </p>
-            <ol>
-              <li class="album-song-title">
-                <a target="_blank" class="" href="https://www.youtube.com/watch?v=E4dYFYCdThw&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=1">Content American
-                </a>
-                <i class="material-icons material-icons-music">headset</i>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" class="" href="https://www.youtube.com/watch?v=HRb06G_MgqQ&index=2&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb">Lost Weapons
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" class="" href="https://www.youtube.com/watch?v=WC-tITg_Wr4&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=3">Commercial Blitz
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" class="" href="https://www.youtube.com/watch?v=pz6WTZMrGc4&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=4">Product and Demand
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" class="" href="https://www.youtube.com/watch?v=Q5WcO4dzj8Q&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=5">Famine
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" class="" href="https://www.youtube.com/watch?v=q1VdQ-Ovbbs&index=6&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb">Saturday
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" class="" href="https://www.youtube.com/watch?v=4_y61z3gQ-Y&index=7&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb">Battle Fatigue
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">John Tucker</li>
-              <li class="album-song-title">
-                <a target="_blank" class="" href="https://www.youtube.com/watch?v=zAGhs0TYgn4&index=9&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb">Song of Discontent
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" class="" href="https://www.youtube.com/watch?v=5uOpQjcHp1w&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=10">Reason to Hate
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" class="" href="https://www.youtube.com/watch?v=DGD6jM6fImY&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=11">Nothing Left
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" class="" href="https://www.youtube.com/watch?v=r06uMfgVw9c&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=12">Merchants of Cool
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" class="" href="https://www.youtube.com/watch?v=MZ0Ei4mcyJM&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=13">Close Your Eyes
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" class="" href="https://www.youtube.com/watch?v=sPPQrLHQQwo&index=8&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb">Beat Down
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" class="" href="https://www.youtube.com/watch?v=e1tBfzR5Qew&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=15">The Last Christmas
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" class="" href="https://www.youtube.com/watch?v=axdHO6akkAs&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=14">Targets
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-            </ol>
-
-          </div>
+          <hr />
         </div>
-        <hr>
-        <!-- Bullet for every lie -->
-        <div class="row">
-          <div class="col s12 m12 l5 left responsive-img img-container">
-            <img class="Album-Art" src="https://s3-us-west-2.amazonaws.com/dogcompany/Bullet.jpg" alt="Bullet for every lie Cover image" />
-            <div class="container-fluid2">
-              <a target="_blank" href="https://dogcompany.bandcamp.com/album/a-bullet-for-every-lie">
-                <img src="band-camp-white.svg" style="height: 5vh; color: white;" alt="band camp image" />
-              </a>
-              <a target="_blank" href="http://www.contra-net.com/shop/product_info.php?info=p3983_Dog-Company---A-bullet-for-every-lie-12-LP-CD.html">
-                <img src="Contra-white.svg" style="height: 5vh; color: white;" alt="contra records logo" />
-              </a>
-              <a target="_blank" href="https://www.youtube.com/watch?v=Z1x-S-0jrbA&list=PLYz0g7A2PTeBH61-N2wPpCepztZvy4_q0">
-                <img src="youtube-play-button-white.svg" style="height: 5vh; color: white;" alt="youtube logo" />
-              </a>
-            </div>
-          </div>
-          <div class="col s12 m7 l7 album-container">
-            <p>
-              <span style="font-size: 3em; font-family: Lobster,cursive,Georgia;">
-                A Bullet for Every Lie
-              </span>
-              <br>
-              <span>
-                Released 2010 on
-                <a target="_blank" href="http://www.contra-net.de/record/index.html">Contra Records</a>
-              </span>
-            </p>
-            <ol>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/JybQ7YH4Fe8">We Are The Invisible
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/Z1x-S-0jrbA">A Bullet For Every Lie
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/3E2FczOhN7M">Change What Change?
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/Iw_uKHwb0Yw">Closer Than You Think
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/yoQZkzqc_8Q">Che
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/-89lgjIDzAM">Magic Pill
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/29LElTmnpfM">Germs
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/BuykZ_e32-E">Sean Flynn
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/c-yOnwyuqqM">Skinhead Girl
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/BnAmCztg1rk">I Am A Human Bomb
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-            </ol>
-          </div>
-        </div>
-        <hr>
-        <!-- cashing christmas vol 2 -->
-        <div class="row">
-          <div class="col s12 m12 l5 left responsive-img img-container">
-            <img class="Album-Art" src="https://s3-us-west-2.amazonaws.com/dogcompany/CashingInOnChristmasVol2.jpg" />
-            <div class="container-fluid2">
-              <a target="_blank" href="https://blackholerecs.bandcamp.com/album/cashing-in-on-christmas-volume-2">
-                <img src="band-camp-white.svg" style="height: 5vh; color: white;" alt="band camp logo" />
-              </a>
-              <a target="_blank" href="http://blackholerecords.bigcartel.com/product/cashing-in-on-christmas-volume-2">
-                <img src="BlackHole-white.svg" style="height: 5vh; color: white;" alt="Black hole records logo" />
-              </a>
-              <a target="_blank" href="https://itunes.apple.com/us/album/cashing-in-on-christmas-volume/id406229780">
-                <img src="apple-logotype-white.svg" style="height: 5vh; color: white;" alt="apple logo" />
-              </a>
-
-            </div>
-
-          </div>
-          <div class="col s12 m7 l7 album-container">
-            <p>
-              <span style="font-size: 3em; font-family: Lobster,cursive,Georgia;">
-                Cashing in on Christmas Vol. II
-              </span>
-              <br>
-              <span>
-                Released 2010 on
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/">Black Hole Records</a>
-              </span>
-            </p>
-            <ol>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/holly-jolly-christmas">The Sheckies - Holly Jolly Christmas
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/this-xmas">45 Adapters - This Xmas
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/blue-christmas">CH3 - Blue Christmas
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/winterland">Revilers - Winterland
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/merry-christmas-better-new-year">Dog Company - Merry Christmas, Better New Year
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/yuletide-girl">Doomed To Obscurity - Yuletide Girl
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/christmas-in-the-city-aint-too-pretty">Jukebox Zeros - Christmas In The City (Ain't Too Pretty)
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/merry-christmas-everybody">Hateful - Merry Christmas Everybody
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/i-ruined-christmas">Mean Streets - I Ruined Christmas
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/the-christmas-song">Fed Up! - The Christmas Song
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/santas-a-boozer">Missile Toads - Santa's A Boozer
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/let-it-snow">Knocked Out Cold - Let It Snow
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/white-christmas">Antibodies - White Christmas
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/foul-mouthed-elf">Nothing But Enemies - Foul Mouthed Elf
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/santa-thats-my-wife">Pressure 28 - Santa, That's My Wife
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/fired-in-christmas">Secret Army - Fired In Christmas
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/oi-to-the-world">Cunt Sparrer - Oi! To The World
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-            </ol>
-          </div>
-        </div>
-        <hr>
-        <!-- BlackHole split 7" -->
-        <div class="row">
-          <div class="col s12 m12 l5 left responsive-img img-container">
-            <img class="Album-Art" src="https://s3-us-west-2.amazonaws.com/dogcompany/BlackHoleSplit.jpg" />
-
-            <div class="container-fluid2">
-              <a target="_blank" href="https://blackholerecs.bandcamp.com/album/glass-heroes-mean-streets-strongbow-dog-company">
-                <img src="band-camp-white.svg" style="height: 5vh; color: white;" alt="band camp logo" />
-              </a>
-              <a target="_blank" href="http://blackholerecords.bigcartel.com/product/hudson-falcons-dog-company-split-7">
-                <img src="BlackHole-white.svg" style="height: 5vh; color: white;" alt="Black hole records logo" />
-              </a>
-            </div>
-
-          </div>
-          <div class="col s12 m7 l7 album-container">
-            <p>
-              <span style="font-size: 3em; font-family: Lobster,cursive,Georgia;">
-                Glass Heroes - Mean Streets - Strongbow - Dog Company
-              </span>
-              <br>
-              <span>
-                Released 2012 on
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/">Black Hole Records</a>
-              </span>
-            </p>
-            <ol>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/back-biter">Glass Heroes - Back Biter
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/for-you">Glass Heroes - For You
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/new-moves">Mean Streets - New Moves
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/turn-it-around">Mean Streets - Turn It Around
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/blind">Strongbow - Blind
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/these-nights">Strongbow - These Nights
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/everybodys-your-best-friend">Dog Company - Everybody's Your Best Friend
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/not-dead-yet">Dog Company - Not Dead Yet
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-            </ol>
-          </div>
-        </div>
-        <hr>
-        <!-- cashing in on christmas vol 4 -->
-        <div class="row">
-          <div class="col s12 m12 l5 left responsive-img img-container">
-            <img class="Album-Art" alt="Cashing in on Christmas Cover image" src="https://s3-us-west-2.amazonaws.com/dogcompany/CashingInOnChristmasVol4.jpg" />
-            <div class="container-fluid2">
-              <a target="_blank" href="https://blackholerecs.bandcamp.com/album/cashing-in-on-christmas-vol-4">
-                <img src="band-camp-white.svg" style="height: 5vh; color: white;" alt="band camp logo" />
-              </a>
-              <a target="_blank" href="http://www.cdbaby.com/cd/cashinginonchristmasvolu2">
-                <img src="BlackHole-white.svg" style="height: 5vh; color: white;" alt="Black hole records logo" />
-              </a>
-            </div>
-          </div>
-          <div class="col s12 m7 l7 album-container">
-            <p>
-              <span style="font-size: 3em; font-family: Lobster,cursive,Georgia;">
-                Cashing in on Christmas Vol. IV
-              </span>
-              <br>
-              <span>
-                Released 2012 on
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/">Black Hole Records</a>
-              </span>
-            </p>
-            <ol>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/o-come-emmanuel">The Authority - O Come Emmanuel
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/blessed-christmas">Blessed Muthas - Blessed Christmas
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/new-tradition">Broken Heroes - New Tradition
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/johnny-thunders-x-mas">The Dirty Shirleys - Johnny Thunders X-Mas
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/snoopys-christmas">Dog Company - Snoopy's Christmas
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/all-i-want-for-christmas">Explosive Head - All I Want For Christmas
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/santas-on-acid">The Flyswatters - Santa's On Acid
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/the-greatest-cockney-christmas">The Gonads - The Greatest Cockney Christmas
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/christmas-time-is-here-oh-shit">Guitar Gangsters - Christmas Time Is Here (Oh Shit)
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/hateful-merry-christmas">Hateful - Hateful Merry Christmas
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/christmas-to-me">Jenny Woo - Christmas To Me
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/city-of-nightmares">Mad Pigs - City Of Nightmares
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/ultra-christmas">Missile Toads - Ultra Christmas
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/hey-santa">Plan Of Attack - Hey Santa
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/fairytale-of-mongolia">Splodgenessabounds - Fairytale Of Mongolia
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://blackholerecs.bandcamp.com/track/it-could-be-worse">Toughskins - It Could Be Worse
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-            </ol>
-          </div>
-        </div>
-        <hr>
-        <!-- War Stories -->
-        <div class="row">
-          <div class="col s12 m12 l5 left responsive-img img-container">
-            <img class="Album-Art" src="https://s3-us-west-2.amazonaws.com/dogcompany/WarStories.jpg" alt="Photo of War Stories Album" />
-            <div class="container-fluid2">
-              <a target="_blank" href="https://itunes.apple.com/us/album/war-stories/id833984446">
-                <img src="apple-logotype-white.svg" style="height: 5vh; color: white;" alt="apple logo" />
-              </a>
-              <a target="_blank" href="https://www.amazon.com/War-Stories-Dog-Company/dp/B00IS180Q4/ref=sr_1_1?s=dmusic&ie=UTF8&qid=1476570275&sr=1-1-mp3-albums-bar-strip-0&keywords=war+stories+dog+company">
-                <img src="Amazon.svg" style="height: 5vh; color: white;" alt="Amazon logo" />
-              </a>
-              <a target="_blank" href="https://www.youtube.com/watch?v=3qEdTZvsHLk&list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ">
-                <img src="youtube-play-button-white.svg" style="height: 5vh; color: white;" alt="youtube logo" />
-              </a>
-            </div>
-          </div>
-          <div class="col s12 m7 l7 album-container">
-            <p>
-              <span style="font-size: 3em; font-family: Lobster,cursive,Georgia;">
-                War Stories
-              </span>
-              <br>
-              <span>
-                Released 2014 on
-                <a target="_blank" href="https://www.facebook.com/cadreprod/">Cadre Records</a> and
-                <a target="_blank" href="http://rebelsoundmusic.limitedrun.com/">Rebel Sound</a>
-              </span>
-            </p>
-            <ol>
-              <li class="album-song-title">Intro</li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/3qEdTZvsHLk?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ">Elected Enemy
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/A6jrBYkXOoc?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ">For Our Friends
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/trFbEixMidI?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ">Printed Word
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/Ekwl7G_Eado?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ">Battle Fatigue
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/yxsK0g3XjXk?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ">Combat Zone
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/6-uumIXfawA?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ">Not Dead Yet
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/uKexLBOWPok?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ">Last Call
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://youtu.be/hACX0aqJOD4?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ">Can't Keep Me Down
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-            </ol>
-          </div>
-        </div>
-        <hr>
-        <!-- Hard Ev Dog Co -->
-        <div class="row">
-          <div class="col s12 m12 l5 left responsive-img img-container">
-            <img class="Album-Art" src="https://s3-us-west-2.amazonaws.com/dogcompany/HardEvDogCo.jpg" alt="Dog Company / Hard Evidence compilation Cover image">
-            <div class="container-fluid2">
-              <a target="_blank" href="http://www.oitheboat.com/products/570666-hard-evidence-dog-company-split-7">
-                <img src="oi-the-boat-white.svg" style="height: 5vh; color: white;" alt="Oi the boat logo" />
-              </a>
-              <a target="_blank" href="https://www.youtube.com/watch?v=0suko6OEByQ">
-                <img src="youtube-play-button-white.svg" style="height: 5vh; color: white;" alt="youtube logo" />
-              </a>
-            </div>
-          </div>
-          <div class="col s12 m7 l7 album-container">
-            <p>
-              <span style="font-size: 3em; font-family: Lobster,cursive,Georgia;">
-                Hard Evidence - Dog Company
-              </span>
-              <br>
-              <span>
-                Released 2016 on
-                <a target="_blank" href="https://www.facebook.com/cadreprod/">Cadre Records</a>/
-                <a target="_blank" href="http://www.oitheboat.com/">Oi! The Boat Records</a>
-              </span>
-            </p>
-            <ol>
-              <li class="album-song-title">Dog Company - Vengeance</li>
-              <li class="album-song-title">Dog Company - Guilty of Nothing</li>
-              <li class="album-song-title">Hard Evidence - I Wanna Know</li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://www.youtube.com/watch?v=qgXo-Qt0L6I&list=PLzWFl7ZpXuGbbVlaNXGJAQvdEYE3mD5Qh&index=4">Hard Evidence - Someday
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-            </ol>
-          </div>
-        </div>
-        <hr>
-        <!-- AMERICAN OI TX EDITION -->
-        <div class="row">
-          <div class="col s12 m12 l5 left responsive-img img-container">
-            <img class="Album-Art" src="https://s3-us-west-2.amazonaws.com/dogcompany/Screen+Shot+2018-02-22+at+10.29.59+AM.png" alt="AMERICAN OI TX EDITION">
-            <div class="container-fluid2">
-              <a target="_blank" href="http://crowdcontrolmedia.limitedrun.com/products/607950-v-a-american-oi-texas-edition-lp">
-                <img src="https://s3-us-west-2.amazonaws.com/dogcompany/CCMLONGLOGOaa.jpg" style="height: 5vh; color: white;" alt="Crowd Control Media" />
-              </a>
-              <a target="_blank" href="https://www.youtube.com/channel/UCOUoSPl3MTj3LoVGJqXtSYg/search?query=American+Oi+texas+edition">
-                <img src="youtube-play-button-white.svg" style="height: 5vh; color: white;" alt="youtube logo" />
-              </a>
-            </div>
-          </div>
-          <div class="col s12 m7 l7 album-container">
-            <p>
-              <span style="font-size: 3em; font-family: Lobster,cursive,Georgia;">
-                American Oi! Texas Edition
-              </span>
-              <br>
-              <span>
-                Released 2018 on
-                <a target="_blank" href="http://crowdcontrolmedia.limitedrun.com/">Crowd Control Media</a>/
-              </span>
-            </p>
-            <ol>
-              <li class="album-song-title">A1. Thug Boots - My Tribe </li>
-              <li class="album-song-title">A2. Thug Boots - Elite Breed </li>
-              <li class="album-song-title">A3. Thug Boots - Urban Warfare </li>
-
-              <li class="album-song-title">
-                <a target="_blank" href="https://www.youtube.com/watch?v=KO3ed8TGEkk">A4. Thug Boots - You're Dumb
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-
-              <li class="album-song-title">A5. Drastic Actions - America The Beautiful </li>
-              <li class="album-song-title">A6. Drastic Actions - On The Attack </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://www.youtube.com/watch?v=H4oe0Y17ys8">A7. Drastic Actions - Trouble Bound
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">A8. The Booked - New Resistance </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://www.youtube.com/watch?v=cLo0B4LLwR8">A9. The Booked - All Laced Up
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">B1 Dog Company - World Gone Mad </li>
-              <li class="album-song-title">B2. Dog Company - Pick Me Up </li>
-
-              <li class="album-song-title">
-                <a target="_blank" href="https://www.youtube.com/watch?v=ux1UA6stDg8">B3. Dog Company - Burn Washington Burn
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">
-                <a target="_blank" href="https://www.youtube.com/watch?v=ug7Aksdc19Q">B4. SMÄRT BOYZ - Dozer
-                  <i class="material-icons material-icons-music">headset</i>
-                </a>
-              </li>
-              <li class="album-song-title">B5. SMÄRT BOYZ - Volcano </li>
-              <li class="album-song-title">B6. No Resistance - Ready To Go </li>
-              <li class="album-song-title">B7. No Resistance - $4.50 </li>
-              <li class="album-song-title">B8. No Resistance - Contrary To Popular Belief</li>
-            </ol>
-          </div>
-        </div>
-        <hr>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue'
-import scroll from "@/mixins/scroll"
+import NavBar from "@/components/NavBar.vue";
+import scroll from "@/mixins/scroll";
 export default {
-  components:{
+  components: {
     NavBar
   },
-  mixins:[scroll]
-}
+  mixins: [scroll],
+  async mounted() {
+    let { data: albums } = await this.$axios.get("./media.json");
+    Object.assign(this, { albums });
+  },
+  data() {
+    return {
+      albums: []
+    };
+  }
+};
 </script>
 
 <style>
@@ -712,7 +119,6 @@ export default {
     color: white;
   }
 
-
   .Album-Art {
     width: 100%;
     border-radius: 15px;
@@ -720,11 +126,10 @@ export default {
 
   .album-song-title a {
     color: white;
-    font-size: 1.4em;
+    font-size: 1.4rem;
   }
-
   .album-song-title {
-    font-size: 1.9vh;
+    font-size: 1.4rem;
   }
 
   .material-icons-music {
@@ -740,7 +145,7 @@ export default {
   .row {
     margin-top: 20px;
   }
-  .row .col.album-container{
+  .row .col.album-container {
     padding: 0 5vw;
   }
   @media only screen and (min-width: 960px) {
@@ -775,8 +180,8 @@ export default {
     }
   }
 
-  @media(max-width:960px){
-    .row .col.album-container{
+  @media (max-width: 960px) {
+    .row .col.album-container {
       display: block;
     }
   }
