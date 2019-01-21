@@ -201,7 +201,7 @@ export default {
     font-family: "Black Ops One", cursive;
     font-size: 13.5px;
     padding: 10px;
-    background-color: rgba(82, 106, 83, 0.95);
+    background-color: #4b5320;
     margin-bottom: -50px;
     width: 100%;
   }
@@ -239,7 +239,7 @@ export default {
     position: relative;
     width: 6px;
     margin: 0 auto;
-    background: rgba(82, 106, 83, 1);
+    background: #4b5320;
     padding-top: 20px;
   }
 
@@ -262,7 +262,7 @@ export default {
     bottom: 0;
     width: 30vw;
     padding: 7.5px;
-    background: rgba(82, 106, 83, 1);
+    background: #4b5320;
   }
 
   .timeline ul li div::before {
@@ -281,7 +281,7 @@ export default {
   .timeline ul li:nth-child(odd) div::before {
     left: -15px;
     border-width: 8px 16px 8px 0;
-    border-color: transparent rgba(82, 106, 83, 1) transparent transparent;
+    border-color: transparent #4b5320;
   }
 
   .timeline ul li:nth-child(even) div {
@@ -291,7 +291,7 @@ export default {
   .timeline ul li:nth-child(even) div::before {
     right: -15px;
     border-width: 8px 0 8px 16px;
-    border-color: transparent transparent transparent rgba(82, 106, 83, 1);
+    border-color: transparent transparent transparent #4b5320;
   }
 
   time {

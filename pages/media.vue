@@ -99,7 +99,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
   .media-page-content-container > .container {
     padding-top: 10vh;
   }

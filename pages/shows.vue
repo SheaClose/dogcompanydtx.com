@@ -14,7 +14,7 @@
             data-display-past-dates="true" 
             data-auto-style="false" 
             data-text-color="#ffffff" 
-            data-link-color="#8b8552" 
+            data-link-color="#656f2b" 
             data-background-color="rgba(0,0,0,0)" 
             data-display-limit="50" 
             data-link-text-color="#ffffff" 

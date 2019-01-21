@@ -104,7 +104,7 @@ export default {
   }
 
   .image-style {
-    border: 4px solid #8b8552;
+    border: 4px solid #656f2b;
     border-radius: 20px;
   }
 
