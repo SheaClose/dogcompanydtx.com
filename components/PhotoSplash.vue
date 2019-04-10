@@ -5,7 +5,7 @@
   >
     <h2>New Video, "Raise Your Glass", Out Now! <i
         class="material-icons"
-        style="float: right; cursor: pointer; font-weight: 700; font-size: .75em;"
+        style="float: right; cursor: pointer; font-weight: 700; font-size: 24px;"
       >close</i></h2>
     <iframe
       :width="width * .8"
@@ -46,6 +46,7 @@ export default {
 
 <style scoped>
 h2 {
+  font-size: 20px;
   width: 80%;
   text-align: center;
   color: white;
