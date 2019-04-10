@@ -12,7 +12,8 @@ export default () =>
       alertMsg: "",
       alertColor: "",
       user: {},
-      order: null
+      order: null,
+      showVideo: true
     },
     mutations: {
       deleteOrder(state) {
@@ -35,6 +36,9 @@ export default () =>
       },
       setUser(state, user) {
         Object.assign(state, { user });
+      },
+      turnOffVideo(state, showVideo) {
+        Object.assign(state, { showVideo });
       }
     },
     actions: {

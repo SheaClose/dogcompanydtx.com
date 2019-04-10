@@ -1,5 +1,6 @@
 <template>
   <div>
+    <PhotoSplash :show="show" />
     <NavBar></NavBar>
     <div
       class="Home-page-container"
@@ -72,14 +73,16 @@
 
 <script>
 import NavBar from "@/components/NavBar.vue";
+import PhotoSplash from "@/components/PhotoSplash.vue";
 import scroll from "@/mixins/scroll";
 
 export default {
-  components: { NavBar },
+  components: { NavBar, PhotoSplash },
   mixins: [scroll],
   data() {
     return {
-      blogs: []
+      blogs: [],
+      show: this.$store.state.showVideo
     };
   },
   async mounted() {
@@ -87,74 +90,83 @@ export default {
     this.blogs = data.sort((a, b) =>
       new Date(a.date).getTime() < new Date(b.date).getTime() ? 1 : -1
     );
+    document.addEventListener("click", this.handleClick);
+  },
+  beforeDestroy() {
+    document.removeEventListener("click", this.handleClick);
+  },
+  methods: {
+    handleClick(e) {
+      this.$store.commit("turnOffVideo", false);
+    }
   }
 };
 </script>
 
 <style>
+.Home-page-container {
+  background: black;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: 125vh;
+  color: white;
+}
+.home-page-content-container > .container {
+  padding-top: 10vh;
+}
+
+.image-style {
+  border: 4px solid #8b8552;
+  border-radius: 20px;
+}
+
+.date {
+  text-align: right;
+  font-size: 0.85em;
+}
+
+@media only screen and (min-width: 960px) {
+  div[class*="content-container"] .container {
+    width: 70%;
+    margin: auto;
+  }
   .Home-page-container {
-    background: black;
+    background: -webkit-radial-gradient(
+        center,
+        ellipse,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 1) 70%
+      ),
+      url("https://s3-us-west-2.amazonaws.com/dogcompany/DogCoAmps.jpg")
+        no-repeat fixed;
+
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 1) 70%
+      ),
+      url("https://s3-us-west-2.amazonaws.com/dogcompany/DogCoAmps.jpg")
+        no-repeat fixed;
     background-attachment: fixed;
     background-position: center center;
     background-size: 125vh;
     color: white;
   }
-  .home-page-content-container > .container {
-    padding-top: 10vh;
-  }
+}
 
-  .image-style {
-    border: 4px solid #8b8552;
-    border-radius: 20px;
-  }
-
-  .date {
-    text-align: right;
-    font-size: 0.85em;
-  }
-
-  @media only screen and (min-width: 960px) {
-    div[class*="content-container"] .container {
-      width: 70%;
-      margin: auto;
-    }
-    .Home-page-container {
-      background: -webkit-radial-gradient(
-          center,
-          ellipse,
-          rgba(0, 0, 0, 0),
-          rgba(0, 0, 0, 1) 70%
-        ),
-        url("https://s3-us-west-2.amazonaws.com/dogcompany/DogCoAmps.jpg")
-          no-repeat fixed;
-
-      background: radial-gradient(
-          ellipse at center,
-          rgba(0, 0, 0, 0),
-          rgba(0, 0, 0, 1) 70%
-        ),
-        url("https://s3-us-west-2.amazonaws.com/dogcompany/DogCoAmps.jpg")
-          no-repeat fixed;
-      background-attachment: fixed;
-      background-position: center center;
-      background-size: 125vh;
-      color: white;
-    }
-  }
-
-  .container-center {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-  }
-  img.responsive-img,
-  video.responsive-video {
-    max-width: none;
-  }
+.container-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+img.responsive-img,
+video.responsive-video {
+  max-width: none;
+}
 </style>
