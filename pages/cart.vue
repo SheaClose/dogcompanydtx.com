@@ -68,8 +68,20 @@
           </v-layout>
         </div>
         <div class="right-align">
+          <div v-if="discountAmount">Discount Amount: ${{ discountAmount }}</div>
           Total: $ {{orderTotal}}
+          <v-layout row wrap>
+            <v-flex offset-xs8 xs4>
+              <input
+                class="discount"
+                placeholder="Discount Code"
+                v-model="discountCode"
+              />
+            </v-flex>
+          </v-layout>
         </div>
+
+
         <!-- Modal Trigger -->
         <Modal v-if="showModal" @close="showModal = false">
           <slot slot="body" id="modal1" class="modal modal-fixed-footer grey darken-4">
@@ -78,49 +90,42 @@
                 <form class="col s12">
                   <div class="row">
                     <div class="input-field col s6">
-                      <input autoFocus v-model="first_name" id="first_name" type="text" class="validate">
-                      <label for="first_name">First Name</label>
+                      <input autoFocus v-model="first_name" id="first_name" type="text" class="validate" placeholder="First Name">
                     </div>
                     <div class="input-field col s6">
-                      <input v-model="last_name" id="last_name" type="text" class="validate">
-                      <label for="last_name">Last Name</label>
+                      <input v-model="last_name" id="last_name" type="text" class="validate" placeholder="Last Name">
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input v-model="email" id="email" type="email" class="validate">
-                      <label for="email">Email</label>
+                      <input v-model="email" id="email" type="email" class="validate" placeholder="Email">
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input type="checkbox" name="vehicle1" v-model="foreignAddress" /> Address not located in the United States?
+                      <input type="checkbox" id="foreignAddress" v-model="foreignAddress" /> 
+                      <label id="foreignAddress" for="foreignAddress">Address not located in the United States?</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input type="text" v-show="foreignAddress" v-model="nonUsAddress" id="nonUsAddress">
-                      <label v-show="foreignAddress" for="nonUsAddress">Input Non-United States Address</label>
+                      <input type="text" v-show="foreignAddress" v-model="nonUsAddress" id="nonUsAddress" placeholder="Input Non-United States Address">
                     </div>
                   </div>
                   <div class="row" v-show="!foreignAddress">
                     <div class="input-field col s6">
-                      <input v-model="street" id="street" type="text" class="validate">
-                      <label for="street">Street</label>
+                      <input v-model="street" id="street" type="text" class="validate" placeholder="Street">
                     </div>
                     <div class="input-field col s6">
-                      <input v-model="city" id="city" type="text" class="validate">
-                      <label for="city">City</label>
+                      <input v-model="city" id="city" type="text" class="validate" placeholder="City">
                     </div>
                   </div>
                   <div class="row" v-show="!foreignAddress">
                     <div class="input-field col s6">
-                      <input v-model="state" id="state" type="text" class="validate">
-                      <label for="state">State</label>
+                      <input v-model="state" id="state" type="text" class="validate" placeholder="State">
                     </div>
                     <div class="input-field col s6">
-                      <input v-model="zipcode" id="zipcode" type="text" class="validate">
-                      <label for="zipcode">Zip Code</label>
+                      <input v-model="zipcode" id="zipcode" type="text" class="validate" placeholder="Zip Code">
                     </div>
                   </div>
                 </form>
@@ -154,7 +159,7 @@ export default {
   data(){
     return {
       cart: [],
-      orderTotal: null,
+      discountAmount: 0,
       foreignAddress: false,
       first_name: '',
       last_name: '',
@@ -164,8 +169,8 @@ export default {
       city:'',
       state: '',
       zipcode:'',
-      showModal: false
-
+      showModal: false,
+      discountCode: ''
     }
   },
   async mounted(){
@@ -200,11 +205,6 @@ export default {
             total: cv.quantity * cv.product.price
           };
         });
-        this.orderTotal = this.getOrderTotal();
-    },
-    getOrderTotal(){
-      
-      return this.cart.reduce((acc,{total})=>acc+total, 0)
     },
     async removeFromCart(_id){
       let {data} = await this.$axios.put(`/api/cart/deleteItem/${this.$store.state.user._id}`, { _id });
@@ -218,7 +218,6 @@ export default {
         }
         return item
       });
-      this.orderTotal = this.getOrderTotal();
     },
     decreaseQuantity(id) {
       this.cart.forEach((item, i, arr) => {
@@ -229,7 +228,6 @@ export default {
           }
         }
       });
-      this.orderTotal = this.getOrderTotal();
     },
     triggerModal(){
       this.showModal = true;
@@ -277,6 +275,18 @@ If you are having trouble completing an order, Please contact us at DogCompanyDt
       this.$store.commit('completeOrder', data);
       await this.$axios.delete("/api/User")
       this.$router.push("store");
+    },
+  },
+  computed: {
+    orderTotal(){
+      let actualTotal = this.cart.reduce((acc,{total})=>acc+total, 0)
+      if (this.discountCode.match(/prb/gi)){
+        this.discountAmount = actualTotal * .2
+        return actualTotal * .8
+        } else {
+        this.discountAmount = 0
+        return actualTotal
+      }
     }
   }
 }
@@ -339,5 +349,20 @@ If you are having trouble completing an order, Please contact us at DogCompanyDt
   }
   i {
     cursor: pointer;
+  }
+  ::-webkit-input-placeholder { /* WebKit browsers */
+    direction: rtl;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    direction: rtl;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ but I'm not sure about working */
+    direction: rtl;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10+ */
+    direction: rtl;
+  }
+  input.discount{
+    text-align: right;
   }
 </style>

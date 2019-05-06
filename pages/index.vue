@@ -1,6 +1,5 @@
 <template>
   <div>
-    <PhotoSplash :show="show" />
     <NavBar></NavBar>
     <div
       class="Home-page-container"
@@ -73,16 +72,14 @@
 
 <script>
 import NavBar from "@/components/NavBar.vue";
-import PhotoSplash from "@/components/PhotoSplash.vue";
 import scroll from "@/mixins/scroll";
 
 export default {
-  components: { NavBar, PhotoSplash },
+  components: { NavBar },
   mixins: [scroll],
   data() {
     return {
-      blogs: [],
-      show: this.$store.state.showVideo
+      blogs: []
     };
   },
   async mounted() {
@@ -94,11 +91,6 @@ export default {
   },
   beforeDestroy() {
     document.removeEventListener("click", this.handleClick);
-  },
-  methods: {
-    handleClick(e) {
-      this.$store.commit("turnOffVideo", false);
-    }
   }
 };
 </script>
