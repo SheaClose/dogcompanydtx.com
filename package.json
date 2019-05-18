@@ -1,0 +1,28 @@
+{
+  "name": "dogcompanydtx.com",
+  "version": "1.0.0",
+  "description": "Website for the Dallas punk band, Dog Company",
+  "main": "src/index.html",
+  "dependencies": {
+    "angular": "^1.7.8",
+    "angular-ui-router": "^1.0.22",
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "sass": "^1.20.1"
+  },
+  "scripts": {
+    "start": "parcel -p 4000 src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sheaclose/dogcompanydtx.com.git"
+  },
+  "author": "sheaclose",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sheaclose/dogcompanydtx.com/issues"
+  },
+  "homepage": "https://github.com/sheaclose/dogcompanydtx.com#readme"
+}
