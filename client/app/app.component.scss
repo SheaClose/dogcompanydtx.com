@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web:700");
+
+body {
+  background-color: #212121;
+  color: white;
+  font-size: 38px;
+}
+
+.container {
+  width: 100%;
+  p {
+    text-align: center;
+    font-family: "Open Sans Condensed", sans-serif;
+  }
+}
+.main {
+  background-color: #c3002f;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  .littleGuy {
+    background-color: #888;
+    width: 20%;
+    min-width: 300px;
+    height: 350px;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    display: block;
+    text-overflow: ellipsis;
+    h1 {
+      font-size: 20px;
+      font-family: "Open Sans Condensed", sans-serif;
+    }
+
+    p {
+      font-size: 17px;
+      font-family: "Open Sans Condensed", sans-serif;
+    }
+  }
+}
