@@ -1,0 +1,16 @@
+dist: trusty
+sudo: required
+language: node_js
+notifications:
+  email: false
+node_js: "8"
+
+install:
+  - npm i
+  - pip install awscli --upgrade --user
+
+script:
+  - npm run build
+  - aws s3 rm s3://dogcompanydtx.com --recursive
+  - aws s3 cp ./dist/ s3://dogcompanydtx.com/ --recursive
+  - aws cloudfront create-invalidation --distribution-id E2B7WPT6QD9GGR --paths /*

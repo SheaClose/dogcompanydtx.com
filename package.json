@@ -8,12 +8,13 @@
     "dev": "NODE_ENV=development nodemon server/index.js --watch server",
     "start": "forever stop server/index.js;NODE_ENV=production forever start server/index.js",
     "staging": "forever stop server/index.js & NODE_ENV=staging forever start server/index.js",
-    "generate": "nuxt generate",
+    "build": "nuxt generate --spa",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
     "axios": "^0.18.0",
+    "babel-preset-env": "^1.7.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
@@ -30,13 +31,13 @@
     "webpack": "^3.11.0"
   },
   "devDependencies": {
-    "cross-env": "^5.0.1",
     "babel-eslint": "^8.2.1",
+    "cross-env": "^5.0.1",
     "eslint": "^4.15.0",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-vue": "^4.0.0",
+    "nodemon": "^1.11.0",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.1",
-    "nodemon": "^1.11.0"
+    "stylus-loader": "^3.0.1"
   }
 }
