@@ -23,7 +23,7 @@
     "express-session": "^1.15.6",
     "express-sessions": "^1.0.6",
     "moment": "^2.22.2",
-    "mongoose": "^4.6.3",
+    "mongoose": "^5.7.5",
     "nuxt": "^1.0.0",
     "request": "^2.88.0",
     "sendgrid": "^4.7.0",
