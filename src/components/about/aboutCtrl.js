@@ -1,9 +1,9 @@
-import $ from "jquery";
+import $ from 'jquery';
 export default [
-  "$scope",
+  '$scope',
   function($scope) {
     angular.element(document).ready(() => {
-      $(window).on("scroll", function() {
+      $(window).on('scroll', function() {
         var x = $(window).scrollTop();
         function retY() {
           var y = $(window).scrollTop() / $(window).height();
@@ -13,16 +13,16 @@ export default [
             return 0.85;
           }
         }
-        $(".about-page-container").css(
-          "background-size",
-          70 + parseInt(x / 6) + "vh"
+        $('.about-page-container').css(
+          'background-size',
+          70 + parseInt(x / 6) + 'vh'
         );
-        $(".about-page-content-container").css(
-          "background-color",
-          "rgba(0,0,0, " + retY() + ")"
+        $('.about-page-content-container').css(
+          'background-color',
+          'rgba(0,0,0, ' + retY() + ')'
         );
       });
-      var items = document.querySelectorAll(".timeline li");
+      var items = document.querySelectorAll('.timeline li');
       function isElementInViewport(el) {
         var { top, left, bottom, right } = el.getBoundingClientRect();
         return (
@@ -36,15 +36,15 @@ export default [
       function callbackFunc() {
         items.forEach(cur => {
           if (isElementInViewport(cur)) {
-            cur.classList.add("in-view");
+            cur.classList.add('in-view');
           } else {
-            cur.classList.remove("in-view");
+            cur.classList.remove('in-view');
           }
         });
       }
-      window.addEventListener("load", callbackFunc);
-      window.addEventListener("resize", callbackFunc);
-      window.addEventListener("scroll", callbackFunc);
+      window.addEventListener('load', callbackFunc);
+      window.addEventListener('resize', callbackFunc);
+      window.addEventListener('scroll', callbackFunc);
     });
   }
 ];
