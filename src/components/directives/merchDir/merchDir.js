@@ -1,14 +1,14 @@
-export default function merchDir() {
+angular.module('app').directive('merchDir', function merchDir() {
   return {
-    templateUrl: "./views/merchTmpl.html",
+    templateUrl: './components/directives/merchDir/merchTmpl.html',
     scope: {
-      add: "&",
-      product: "=",
-      sizes: "="
+      add: '&',
+      product: '=',
+      sizes: '='
     },
     controller: [
-      "$scope",
-      "$sce",
+      '$scope',
+      '$sce',
       function($scope, $sce) {
         $scope.product_description = $sce.trustAsHtml(
           $scope.product.description
@@ -16,4 +16,4 @@ export default function merchDir() {
       }
     ]
   };
-}
+});

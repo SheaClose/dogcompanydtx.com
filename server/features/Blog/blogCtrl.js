@@ -1,52 +1,16 @@
-"use strict";
-
-const Blog = require("./Blog.js");
+'use strict';
 
 module.exports = {
-  postBlog: (req, res) => {
-    new Blog(req.body).save((err, suc) => {
-      if (err) {
-        return res.status(500).json(err);
-      } else {
-        return res.status(200).json(suc);
-      }
-    });
-  },
   getBlog: (req, res) => {
+    const db = req.app.get('db');
     if (req.params.id) {
-      Blog.findById({ _id: req.params.id }, (err, suc) => {
-        if (err) {
-          return res.status(500).json(err);
-        } else {
-          res.status(200).json(suc);
-        }
+      db.blogs.find({ id: req.params.id }).then(blogs => {
+        return res.json(blogs);
       });
     } else {
-      Blog.find({}, (err, suc) => {
-        if (err) {
-          return res.status(500).json(err);
-        } else {
-          res.status(200).json(suc);
-        }
+      db.blogs.find().then(blogs => {
+        return res.json(blogs);
       });
     }
-  },
-  editBlog: (req, res) => {
-    Blog.findByIdAndUpdate({ _id: req.params.id }, req.body, (err, suc) => {
-      if (err) {
-        return res.status(500).json(err);
-      } else {
-        res.status(200).json(suc);
-      }
-    });
-  },
-  deleteBlog: (req, res) => {
-    Blog.findByIdAndRemove({ _id: req.params.id }, (err, suc) => {
-      if (err) {
-        return res.status(500).json(err);
-      } else {
-        res.status(200).json(suc);
-      }
-    });
   }
 };

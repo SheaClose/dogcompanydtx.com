@@ -1,17 +1,19 @@
-"use strict";
+'use strict';
+const axios = require('axios');
 
-const request = require("request");
 module.exports = app => {
-  app.get("/api/shows", function(req, res) {
-    request(
-      "http://api.bandsintown.com/artists/Dog%20Company/events?format=json&api_version=2.0&app_id=dogcompanywebsite&date=all",
-      function(error, response, body) {
-        if (error) {
-          return res.json(error);
-        } else {
-          return res.send(body);
-        }
-      }
-    );
+  app.get('/api/shows', function(req, res) {
+    axios
+      .get(
+        'https://rest.bandsintown.com/artists/dog%20company/events?format=json&api_version=2.0&app_id=dogcompanywebsite&date=all'
+      )
+      .then(res => {
+        console.info('res: ', res);
+        res.status(200).json(res);
+      })
+      .catch(err => {
+        console.info('error getting shows');
+        res.status(200);
+      });
   });
 };

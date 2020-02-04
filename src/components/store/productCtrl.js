@@ -1,15 +1,11 @@
-import $ from "jquery";
-
-export default [
-  "$scope",
-  "$state",
-  "storeService",
+angular.module('app').controller('productCtrl', [
+  '$scope',
+  '$state',
+  'storeService',
   function productCtrl($scope, $state, storeService) {
     angular.element(document).ready(() => {
-      $(".carousel").carousel();
-      $("select").material_select();
       var x;
-      $(window).on("scroll", function() {
+      $(window).on('scroll', function() {
         var x = $(window).scrollTop();
         function retY() {
           var y = $(window).scrollTop() / $(window).height();
@@ -19,13 +15,13 @@ export default [
             return 0.85;
           }
         }
-        $(".Store-page-container").css(
-          "background-size",
-          125 + parseInt(x / 3) + "vh"
+        $('.Store-page-container').css(
+          'background-size',
+          125 + parseInt(x / 3) + 'vh'
         );
-        $(".Store-page-content-container").css(
-          "background-color",
-          "rgba(0,0,0, " + retY() + ")"
+        $('.Store-page-content-container').css(
+          'background-color',
+          'rgba(0,0,0, ' + retY() + ')'
         );
       });
     });
@@ -45,14 +41,14 @@ export default [
           {
             title,
             available,
-            _id,
+            id,
             color,
             description,
-            imgUrl,
+            imgurl,
             price,
             options,
-            imgUrl2,
-            imgUrl3,
+            imgurl2,
+            imgurl3,
             size,
             category
           },
@@ -67,26 +63,26 @@ export default [
               }
             }
             $scope.product = {
-              _id,
+              id,
               category,
               color,
               description,
-              imgUrl,
+              imgurl,
               price,
               title,
               options
             };
-            if (imgUrl2) {
-              $scope.product.imgUrl2 = imgUrl2;
+            if (imgurl2) {
+              $scope.product.imgurl2 = imgurl2;
               $scope.img2Toggle = true;
             }
-            if (imgUrl3) {
-              $scope.product.imgUrl3 = imgUrl3;
+            if (imgurl3) {
+              $scope.product.imgurl3 = imgurl3;
             }
-            if (category !== "merch") {
+            if (category !== 'merch') {
               $scope.product.size = size;
             }
-            if (category == "merch") {
+            if (category == 'merch') {
               $scope.toggle = true;
             }
           }
@@ -94,10 +90,15 @@ export default [
       );
     });
     $scope.addToCart = (title, size, bundle) => {
-      storeService.addToCart(title, size || "small", bundle).then(response => {
+      M.toast({
+        displayLength: 2000,
+        html: `${title} added to cart`,
+        classes: 'green darken-4 rounded'
+      });
+      storeService.addToCart(title, size || 'small', bundle).then(response => {
         $scope.user = response.data;
-        $state.go("store");
+        // $state.go('store');
       });
     };
   }
-];
+]);

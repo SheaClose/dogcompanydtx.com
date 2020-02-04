@@ -1,90 +1,82 @@
-"use strict";
-
-const Cart = require("./Cart.js"),
-  Product = require("../Product/Product.js"),
-  request = require("request"),
-  User = require("../User/User.js");
+'use strict';
 
 module.exports = {
-  addToCart: (req, res) => {
+  addToCart: async (req, res) => {
+    const db = req.app.get('db');
     let product = {};
     const { title, size, bundle } = req.body;
     if (bundle) {
       var { selectedAlbum, selectedDesign, selectedSize } = bundle;
     }
-    Product.find({ title, size }, (err, prod) => {
-      if (err) {
-        return res.status(500).json(err);
+    const [db_product] = await db.products.find({ title, size });
+    if (bundle) {
+      db_product.description = `${selectedAlbum ? selectedAlbum : ''} ${
+        selectedSize ? selectedSize : ''
+      } ${selectedDesign ? selectedDesign : ''}`.trim();
+      if (selectedSize) {
+        db_product.size = selectedSize;
+      }
+    }
+    const cart = await db.cart.find({ session_id: req.sessionID });
+    if (!cart.length) {
+      // create new
+      await db.cart.insert({
+        quantity: 1,
+        product: JSON.stringify(db_product),
+        total: db_product.price,
+        product_id: +db_product.id,
+        session_id: req.sessionID
+      });
+      return res.status(200).json({
+        cart: [db_product],
+        sessionID: req.sessionID,
+        id: req.sessionID
+      });
+    } else {
+      let [_product] = await db.cart.find({
+        session_id: req.sessionID,
+        product_id: +db_product.id
+      });
+      if (_product) {
+        const quantity = _product.quantity + 1;
+        await db.cart.save({
+          id: _product.id,
+          quantity,
+          total: quantity * db_product.price
+        });
+        let cart = await db.cart.find({ session_id: req.sessionID });
+        return res.status(200).json({
+          cart,
+          sessionID: req.sessionID,
+          id: req.sessionID
+        });
       } else {
-        product = prod.pop();
-        if (bundle) {
-          product.description = `${selectedAlbum ? selectedAlbum : ""} ${
-            selectedSize ? selectedSize : ""
-          } ${selectedDesign ? selectedDesign : ""}`.trim();
-          if (selectedSize) {
-            product.size = selectedSize;
-          }
-        }
-        User.findOne({ sessionID: req.sessionID }, (err, foundUser) => {
-          if (!foundUser) {
-            new User({
-              sessionID: req.sessionID,
-              cart: { product }
-            }).save((err, newUser) => {
-              if (err) {
-                return res.status(500).json(err);
-              } else {
-                return res.status(200).json(newUser);
-              }
-            });
-          } else {
-            for (var i = 0; i < foundUser.cart.length; i++) {
-              if (
-                foundUser.cart[i].product._id.toString() ==
-                product._id.toString()
-              ) {
-                foundUser.cart[i].quantity += 1;
-                foundUser.save();
-                return res.status(200).json(foundUser);
-              }
-            }
-            foundUser.cart.push({ product });
-            foundUser.save();
-            return res.status(200).json(foundUser);
-          }
+        await db.cart.insert({
+          quantity: 1,
+          product: JSON.stringify(db_product),
+          total: db_product.price,
+          product_id: db_product.id,
+          session_id: req.sessionID
+        });
+        let cart = await db.cart.find({ session_id: req.sessionID });
+        return res.status(200).json({
+          cart,
+          sessionID: req.sessionID,
+          id: req.sessionID
         });
       }
-    });
+    }
   },
-  getCart: (req, res) => {
-    User.find({ sessionID: req.sessionID }, (err, user) => {
-      if (err) {
-        return res.status(500).json(err);
-      } else {
-        return res.status(200).json(user);
-      }
-    });
+  getCart: async (req, res) => {
+    const db = req.app.get('db');
+    let cart = await db.cart.find({ session_id: req.sessionID });
+    return res
+      .status(200)
+      .json({ id: req.sessionID, cart: cart, sessionID: req.sessionID });
   },
-  fillCart: (req, res) => {
-    User.findById({ _id: req.params.id })
-      .populate("cart.product")
-      .exec(function(err, suc) {
-        if (err) {
-          res.json(err);
-        } else {
-          return res.status(200).json(suc);
-        }
-      });
-  },
-  deleteItem: (req, res) => {
-    User.findById({ _id: req.params.id }, (err, user) => {
-      if (err) {
-        return res.status(500).json(err);
-      } else {
-        user.cart = user.cart.filter((cv, i) => cv.product._id != req.body._id);
-        user.save();
-        return res.status(200).json(user);
-      }
-    });
+  deleteItem: async (req, res) => {
+    const db = req.app.get('db');
+    await db.cart.destroy({ id: req.params.id });
+    return res.status(200).json('');
   }
 };

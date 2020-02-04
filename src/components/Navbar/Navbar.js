@@ -1,17 +1,17 @@
-export default function() {
+angular.module('app').directive('navBar', function() {
   return {
-    templateUrl: "./views/navbar.html",
+    templateUrl: './components/Navbar/navbar.html',
     scope: {
-      user: "="
+      user: '='
     },
     controller: [
-      "$http",
-      "$scope",
+      '$http',
+      '$scope',
       function($http, $scope) {
-        $http.get("/api/cart").then(response => {
-          $scope.user = response.data.pop();
+        $http.get('/api/cart').then(response => {
+          $scope.user = response.data;
         });
       }
     ]
   };
-}
+});

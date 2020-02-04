@@ -1,31 +1,18 @@
-import $ from "jquery";
-
-(function($) {
-  $.fn.leanModal = function(options) {
-    if ($(".modal").length > 0) {
-      $(".modal").modal(options);
-    }
-  };
-
-  $.fn.openModal = function(options) {
-    $(this).modal(options);
-    $(this).modal("open");
-  };
-
-  $.fn.closeModal = function() {
-    $(this).modal("close");
-  };
-})(jQuery);
-
-export default [
-  "$scope",
-  "cartService",
-  "storeService",
-  "$state",
-  "$sce",
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.modal');
+  var instances = M.Modal.init(elems);
+});
+angular.module('app').controller('cartCtrl', [
+  '$scope',
+  'cartService',
+  'storeService',
+  '$state',
+  '$sce',
   function cartCtrl($scope, cartService, storeService, $state, $sce) {
     angular.element(document).ready(() => {
-      $(window).on("scroll", function() {
+      var elems = document.querySelectorAll('.modal');
+      M.Modal.init(elems);
+      $(window).on('scroll', function() {
         var x = $(window).scrollTop();
         function retY() {
           var y = $(window).scrollTop() / $(window).height();
@@ -35,40 +22,13 @@ export default [
             return 0.85;
           }
         }
-        $(".Store-page-container").css(
-          "background-size",
-          125 + parseInt(x / 3) + "vh"
-        );
-        $(".Store-page-content-container").css(
-          "background-color",
-          "rgba(0,0,0, " + retY() + ")"
-        );
+        $('.Store-page-container').css('background-size', 125 + parseInt(x / 3) + 'vh');
+        $('.Store-page-content-container').css('background-color', 'rgba(0,0,0, ' + retY() + ')');
       });
-      $(".modal-trigger").leanModal();
     });
-    $scope.reviewProduct = product => {
-      let selectedItem = storeService.products.find(
-        ({ _id }) => _id == product._id
-      );
-      $state.go("product", { id: selectedItem.title });
-    };
-    const fillCart = id => {
-      cartService.fillCart(id).then(function(response) {
-        $scope.cart = response.data.cart.map(cv => {
-          return {
-            product: Object.assign(cv.product, {
-              description: $sce.trustAsHtml(cv.product.description)
-            }),
-            quantity: cv.quantity,
-            total: cv.quantity * cv.product.price
-          };
-        });
-        $scope.total = getOrderTotal();
-      });
-    };
     $scope.increaseQuantity = id => {
       $scope.cart.forEach((cv, i, arr) => {
-        if (cv.product._id === id) {
+        if (cv.product.id === id) {
           cv.quantity += 1;
           cv.total = cv.quantity * cv.product.price;
         }
@@ -77,7 +37,7 @@ export default [
     };
     $scope.decreaseQuantity = id => {
       $scope.cart.forEach((cv, i, arr) => {
-        if (cv.product._id === id) {
+        if (cv.product.id === id) {
           if (cv.quantity > 1) {
             cv.quantity -= 1;
             cv.total = cv.quantity * cv.product.price;
@@ -87,7 +47,7 @@ export default [
       $scope.total = getOrderTotal();
     };
     $scope.removeFromCart = prodId => {
-      cartService.removeFromCart(prodId, $scope.user._id).then(response => {
+      cartService.removeFromCart(prodId, $scope.user.id).then(response => {
         getCart();
       });
     };
@@ -144,7 +104,7 @@ If you are having trouble completing an order, Please contact us at DogCompanyDt
       cartService.submitOrder(order).then(response => {
         window.currentUserOrderInformation = response.data;
         cartService.deleteUser().then(response => {
-          $state.go("store");
+          $state.go('store');
         });
       });
     };
@@ -157,11 +117,21 @@ If you are having trouble completing an order, Please contact us at DogCompanyDt
 
     function getCart() {
       cartService.getCart().then(function(response) {
-        response.data.forEach(function(cv, i, arr) {
-          $scope.user = cv;
-          fillCart($scope.user._id);
+        $scope.cart = response.data.cart.map(cv => {
+          product = JSON.parse(cv.product);
+          return {
+            product: {
+              ...product,
+              ...{
+                description: $sce.trustAsHtml(product.description)
+              }
+            },
+            quantity: cv.quantity,
+            total: cv.total
+          };
         });
+        $scope.total = getOrderTotal();
       });
     }
   }
-];
+]);

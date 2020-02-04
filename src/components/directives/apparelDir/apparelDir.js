@@ -1,10 +1,10 @@
-export default function apparelDir() {
+angular.module('app').directive('apparelDir', function apparelDir() {
   return {
-    templateUrl: "./views/apparelTmpl.html",
+    templateUrl: './components/directives/apparelDir/apparelTmpl.html',
     scope: {
-      add: "&",
-      product: "=",
-      sizes: "="
+      add: '&',
+      product: '=',
+      sizes: '='
     }
   };
-}
+});

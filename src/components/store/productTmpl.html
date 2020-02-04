@@ -1,0 +1,55 @@
+<div class="Store-page-container">
+  <div class="Store-page-content-container">
+    <div class="container">
+      <nav-bar user="user"></nav-bar>
+      <div class="row">
+        <div class="product-page">
+          <div class="col s12 m12 l8 center">
+            <img
+              class="responsive-img"
+              ng-src="{{product.imgurl}}"
+              alt="Image of merchandise"
+            />
+            <div ng-if="img2Toggle">
+              <div class="row">
+                <img
+                  ng-if="product.imgurl2"
+                  alt="optional additional images"
+                  class="col s12 m12 l12 responsive-img"
+                  ng-src="{{product.imgurl2}}"
+                />
+                <img
+                  ng-if="product.imgurl3"
+                  alt="optional additional images"
+                  class="col s12 m12 l12 responsive-img"
+                  ng-src="{{product.imgurl3}}"
+                />
+              </div>
+            </div>
+          </div>
+          <apparel-dir
+            ng-if="product.category == 'apparel'"
+            product="product"
+            add="addToCart(title,size)"
+            sizes="sizes"
+          >
+          </apparel-dir>
+          <merch-dir
+            ng-if="product.category == 'merch'"
+            product="product"
+            add="addToCart(title,size)"
+            sizes="sizes"
+          >
+          </merch-dir>
+          <bundle-dir
+            ng-if="product.category == 'bundle'"
+            product="product"
+            add="addToCart(title,size, bundle)"
+            sizes="sizes"
+          >
+          </bundle-dir>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

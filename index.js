@@ -1,17 +1,16 @@
 'use strict';
 
+require('dotenv').config();
 const express = require('express'),
   { json } = require('body-parser'),
   cors = require('cors'),
-  mongoose = require('mongoose'),
   serverConfig = require('./serverConfig.js'),
   port = serverConfig.port,
   app = express(),
-  mongoUri = serverConfig.mongoUri,
+  massive = require('massive'),
   masterRoutes = require('./masterRoutes.js'),
-  session = require('express-session'),
-  axios = require('axios');
-require('dotenv').config();
+  path = require('path'),
+  session = require('express-session');
 
 app.use(json());
 app.use(cors());
@@ -22,11 +21,18 @@ app.use(
     saveUninitialized: true
   })
 );
-mongoose.connect(mongoUri, { useMongoClient: true });
-
+massive({
+  host: '127.0.0.1',
+  port: 5432,
+  database: 'sheaclose'
+})
+  .then(dbInstance => {
+    app.set('db', dbInstance);
+  })
+  .catch(err => console.warn(err));
 masterRoutes(app);
 
-app.use('/', express.static(__dirname + '/public'));
+app.use('/', express.static(path.join(__dirname + '/src')));
 app.listen(port, () => {
-  console.log(`This is Dr. Crane... I'm listening. Port:${port}`);
+  console.info(`This is Dr. Crane... I'm listening. Port:${port}`);
 });

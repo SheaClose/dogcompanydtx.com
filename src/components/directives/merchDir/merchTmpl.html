@@ -1,0 +1,22 @@
+<div class="col s12 m12 l4  product-page-text">
+  <div style="padding-top: 10px; white-space: pre-line;">
+    <u>Product</u>: {{product.title}}
+  </div>
+  <div style="padding-top: 10px; white-space: pre-line;">
+    <u>Description</u>:
+    <span ng-bind-html="product_description">{{product_description}}</span>
+  </div>
+  <div style="padding-top: 10px; white-space: pre-line;">
+    <u>Price</u>: ${{product.price}}
+  </div>
+  <div style="padding-top: 10px;">
+    <button
+      ng-click="add({title: product.title, size: size})"
+      type="button"
+      class="button black"
+      name="button"
+    >
+      Add to Cart
+    </button>
+  </div>
+</div>

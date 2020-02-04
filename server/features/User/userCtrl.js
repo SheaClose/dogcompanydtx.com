@@ -1,17 +1,8 @@
-"use strict";
-
-const User = require("./User.js");
+'use strict';
 
 module.exports = {
-  deleteUser: (req, res) => {
-    User.find({ sessionID: req.sessionID })
-      .remove()
-      .exec((err, suc) => {
-        if (err) {
-          return res.status(500).json(err);
-        } else {
-          return res.status(200).json(suc);
-        }
-      });
+  async deleteUser(req, res) {
+    await req.app.get('db').cart.destroy({ session_id: req.sessionID });
+    res.status(200).send('');
   }
 };
