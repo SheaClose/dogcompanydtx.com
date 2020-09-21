@@ -1,6 +1,5 @@
 'use strict';
-
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 const express = require('express'),
   { json } = require('body-parser'),
   cors = require('cors'),
@@ -24,6 +23,8 @@ massive({
   host: process.env.HOST,
   port: process.env.DB_PORT,
   database: process.env.DB,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
 })
   .then((dbInstance) => {
     app.set('db', dbInstance);
@@ -33,5 +34,5 @@ masterRoutes(app);
 
 app.use('/', express.static(path.join(__dirname + '/src')));
 app.listen(port, () => {
-  console.info(`This is Dr. Crane... I'm listening. Port:${port}`);
+  console.info(`Listening on Port:${port}`);
 });
