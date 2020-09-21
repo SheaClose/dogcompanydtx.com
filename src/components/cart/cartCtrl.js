@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('.modal');
   var instances = M.Modal.init(elems);
 });
@@ -12,7 +12,7 @@ angular.module('app').controller('cartCtrl', [
     angular.element(document).ready(() => {
       var elems = document.querySelectorAll('.modal');
       M.Modal.init(elems);
-      $(window).on('scroll', function() {
+      $(window).on('scroll', function () {
         var x = $(window).scrollTop();
         function retY() {
           var y = $(window).scrollTop() / $(window).height();
@@ -26,7 +26,7 @@ angular.module('app').controller('cartCtrl', [
         $('.Store-page-content-container').css('background-color', 'rgba(0,0,0, ' + retY() + ')');
       });
     });
-    $scope.increaseQuantity = id => {
+    $scope.increaseQuantity = (id) => {
       $scope.cart.forEach((cv, i, arr) => {
         if (cv.product.id === id) {
           cv.quantity += 1;
@@ -35,7 +35,7 @@ angular.module('app').controller('cartCtrl', [
       });
       $scope.total = getOrderTotal();
     };
-    $scope.decreaseQuantity = id => {
+    $scope.decreaseQuantity = (id) => {
       $scope.cart.forEach((cv, i, arr) => {
         if (cv.product.id === id) {
           if (cv.quantity > 1) {
@@ -46,8 +46,8 @@ angular.module('app').controller('cartCtrl', [
       });
       $scope.total = getOrderTotal();
     };
-    $scope.removeFromCart = prodId => {
-      cartService.removeFromCart(prodId, $scope.user.id).then(response => {
+    $scope.removeFromCart = (prodId) => {
+      cartService.removeFromCart(prodId, $scope.user.id).then((response) => {
         getCart();
       });
     };
@@ -78,7 +78,7 @@ If you are having trouble completing an order, Please contact us at DogCompanyDt
           street: $scope.street,
           city: $scope.city,
           state: $scope.state,
-          zipcode: $scope.zipcode
+          zipcode: $scope.zipcode,
         };
       } else {
         if (!$scope.nonUsAddress) {
@@ -92,18 +92,18 @@ If you are having trouble completing an order, Please contact us at DogCompanyDt
             first_name: $scope.first_name,
             last_name: $scope.last_name,
             email: $scope.email,
-            nonUSAddress: $scope.nonUsAddress
+            nonUSAddress: $scope.nonUsAddress,
           };
         }
       }
       const order = {
         cart: $scope.cart,
         total: $scope.total,
-        user: userInfo
+        user: userInfo,
       };
-      cartService.submitOrder(order).then(response => {
+      cartService.submitOrder(order).then((response) => {
         window.currentUserOrderInformation = response.data;
-        cartService.deleteUser().then(response => {
+        cartService.deleteUser().then((response) => {
           $state.go('store');
         });
       });
@@ -116,22 +116,23 @@ If you are having trouble completing an order, Please contact us at DogCompanyDt
     }
 
     function getCart() {
-      cartService.getCart().then(function(response) {
-        $scope.cart = response.data.cart.map(cv => {
-          product = JSON.parse(cv.product);
+      cartService.getCart().then(function (response) {
+        $scope.cart = response.data.cart.map((cv) => {
+          console.log('cv: ', cv);
+          product = cv.product;
           return {
             product: {
               ...product,
               ...{
-                description: $sce.trustAsHtml(product.description)
-              }
+                description: $sce.trustAsHtml(product.description),
+              },
             },
             quantity: cv.quantity,
-            total: cv.total
+            total: cv.total,
           };
         });
         $scope.total = getOrderTotal();
       });
     }
-  }
+  },
 ]);
