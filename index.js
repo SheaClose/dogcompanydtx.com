@@ -4,8 +4,7 @@ require('dotenv').config();
 const express = require('express'),
   { json } = require('body-parser'),
   cors = require('cors'),
-  serverConfig = require('./serverConfig.js'),
-  port = serverConfig.port,
+  port = 3000,
   app = express(),
   massive = require('massive'),
   masterRoutes = require('./masterRoutes.js'),
@@ -16,20 +15,20 @@ app.use(json());
 app.use(cors());
 app.use(
   session({
-    secret: serverConfig.secret,
+    secret: process.env.SECRET,
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
   })
 );
 massive({
-  host: '127.0.0.1',
-  port: 5432,
-  database: 'sheaclose'
+  host: process.env.HOST,
+  port: process.env.DB_PORT,
+  database: process.env.DB,
 })
-  .then(dbInstance => {
+  .then((dbInstance) => {
     app.set('db', dbInstance);
   })
-  .catch(err => console.warn(err));
+  .catch((err) => console.warn(err));
 masterRoutes(app);
 
 app.use('/', express.static(path.join(__dirname + '/src')));

@@ -1,8 +1,7 @@
 'use strict';
 
-const serverConfig = require(process.cwd() + '/serverConfig.js'),
-  { parseProduct, parseBody } = require('./orderStringParsers'),
-  sg = require('sendgrid')(serverConfig.SENDGRID_API_KEY);
+const { parseProduct, parseBody } = require('./orderStringParsers'),
+  sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
 
 module.exports = {
   submitOrder: ({ body }, res) => {
@@ -23,26 +22,26 @@ module.exports = {
           {
             to: [
               {
-                email
-              }
+                email,
+              },
             ],
-            subject: `Your Dog Company Merchandise Order`
-          }
+            subject: `Your Dog Company Merchandise Order`,
+          },
         ],
         from: {
-          email: 'DogCompanyDtx@gmail.com'
+          email: 'DogCompanyDtx@gmail.com',
         },
         content: [
           {
             type: 'text/plain',
-            value: parseBody({ first_name, last_name, email, address, total, orderProductString })
-          }
-        ]
-      }
+            value: parseBody({ first_name, last_name, email, address, total, orderProductString }),
+          },
+        ],
+      },
     });
 
     /** only email if in production */
     process.env.NODE_ENV !== 'development' ? sg.API(request, () => {}) : console.log(request);
     return res.status(200).json(Object.assign(body, request));
-  }
+  },
 };

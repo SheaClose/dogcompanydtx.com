@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "cypress": "npx cypress open",
-    "dev": "concurrently \"nodemon --watch server\" \"sleep 2; live-server --open=src/index.html --watch=./src --proxy=/api:http://localhost:4000/api\""
+    "dev": "nodemon index.js",
+    "start": "node ./index.js"
   },
   "author": "",
   "license": "ISC",
