@@ -3,7 +3,7 @@ if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 const express = require('express'),
   { json } = require('body-parser'),
   cors = require('cors'),
-  port = 3000,
+  port = process.env.PORT || 80,
   app = express(),
   massive = require('massive'),
   masterRoutes = require('./masterRoutes.js'),
