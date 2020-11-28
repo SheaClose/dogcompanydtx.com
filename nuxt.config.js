@@ -130,22 +130,7 @@ module.exports = {
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    // Doc: https://github.com/nuxt-community/axios-module#usage
-    "@nuxtjs/axios"
-  ],
-  /*
-   ** Axios module configuration
-   */
-  axios: {
-    baseURL:
-      process.env.NODE_ENV === "production"
-        ? "https://dogcompanydtx.com"
-        : process.env.NODE_ENV === "staging"
-        ? "https://staging.sheaclose.com"
-        : `http://localhost:${process.env.PORT}`
-  },
-
+  modules: [],
   /*
    ** Build configuration
    */

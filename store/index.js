@@ -72,7 +72,6 @@ export default () => {
         commit("setCart", _cart);
       },
       setCart({ state, commit }) {
-        console.log("setCart: ");
         return commit("setCart", getItem("cart"));
       }
     }

@@ -117,6 +117,7 @@ export default {
         alertMsg: "Item added to cart",
         alertColor: "primary"
       });
+      this.$router.history.push(`/store`);
     }
   }
 };
