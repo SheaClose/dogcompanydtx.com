@@ -1,0 +1,73 @@
+[
+  {
+    "_id": "57fff70eaad3831102690db3",
+    "title": "New Album Coming Soon",
+    "body": "Working on new stuff - heading to the studio in December, then a new record in the spring.",
+    "imgUrl": "https://s3-us-west-2.amazonaws.com/dogcompany/newAlbum.JPG",
+    "__v": 0,
+    "date": "2016-07-28T21:01:46.008Z"
+  },
+  {
+    "_id": "57fe7f9ed6b5c7819e9a9d12",
+    "title": "Tonight!!!\n",
+    "body": "",
+    "__v": 0,
+    "imgUrl": "https://s3-us-west-2.amazonaws.com/dogcompany/tonight.JPG",
+    "date": "2016-07-02T17:43:29.879Z"
+  },
+  {
+    "_id": "57fe57783ac9d77f50a07b22",
+    "title": "12 years",
+    "body": "February marks 12 years since the beginning of Dog Company. Thank you for all the support.",
+    "__v": 0,
+    "imgUrl": "https://s3-us-west-2.amazonaws.com/dogcompany/12years.JPG",
+    "date": "2016-02-05T15:30:38.091Z"
+  },
+  {
+    "_id": "5886438bb62a0c9681d1267d",
+    "title": "Welcome to the new Site!",
+    "body": "Hello All, we here at Dog Company are excited to show off the new website. We've been working hard to get the store up and running, so now you can order directly from us. You can come here to keep up with any pertinent updates, checkout our music section,  or check up on upcoming shows. \n \n So, what have we been up to recently? Well we signed with Crowd Control Media. We're currently working out a few songs for a Split with them. Soon after, we will be back in the studio for our next Full Length Album, which should be out sometime this summer. ",
+    "imgUrl": "https://s3-us-west-2.amazonaws.com/dogcompany/CCM.PNG",
+    "__v": 0,
+    "date": "2017-01-17T15:30:38.091Z"
+  },
+  {
+    "_id": "5bf9eb051f02ac06f6ac4a54",
+    "title": "PRB",
+    "body": "    Super excited to announce that we've been asked to play PRB 2019. Plans surrounding the fest are not figured out yet, but we will likely be playing some shows heading to and coming from Las Vegas. \n\r\r\n    Also pleased to have finally released our 4th album 'High Hopes in Hard Times'. Album can be streamed in all the usual places and purchased from <a href=\"https://crowdcontrolmedia.net/collections/12-vinyl/products/dog-company-high-hopes-in-hard-times-ccm-lp\" style=\"color:#0000EE\">Crowd Control Media</a>.",
+    "imgUrl": "https://s3-us-west-2.amazonaws.com/dogcompany/46499222_10156232032355735_4232931466981408768_n.jpg",
+    "date": "2018-11-24T15:58:15.845Z"
+  },
+  {
+    "_id": "5c44bf926fafad48b0e400e0",
+    "title": "High Hopes and Hard Times",
+    "body": "We just got the first version of the mastered tracks for our upcoming album \"High Hopes and Hard Times\". There may be some minor tweaks, but otherwise we look to be on track to release late this summer, right before we kick off our west coast tour!\n\n",
+    "__v": 0,
+    "imgUrl": "https://s3-us-west-2.amazonaws.com/dogcompany/High_hopes_and_Hard_times.jpg",
+    "date": "2018-05-11T15:58:15.845Z"
+  },
+  {
+    "_id": "5cb1eea0ca096505036fce30",
+    "title": "Raise Your Glass",
+    "body": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/oRigZikY8W0\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+    "__v": 0,
+    "imgUrl": "",
+    "date": "2019-04-13T10:28:15.845Z"
+  },
+  {
+    "_id": "59bbec4da2b8f20c1ecee308",
+    "title": "Weekend one of recording the new full length is in the bag!!!",
+    "body": "We're excited to announce that we are back in the Studio recording our next full length album. Mic was a champ on day one, knocking out 14 drum tracks in a single sitting (a herculean task!) Day two consisted of Mic adding something a little extra, Joe finishing up, and Shea on the Bass. We have two more weekends to go. This up coming week Garrett will be tracking Rhythm and Leads and we will be starting in on Vocal tracks. Can't wait to share this with you guys!",
+    "imgUrl": "https://s3-us-west-2.amazonaws.com/dogcompany/Screen+Shot+2017-09-15+at+9.58.21+AM.png",
+    "__v": 0,
+    "date": "2017-09-14T01:58:08.623Z"
+  },
+  {
+    "_id": "5af5bf07d5d512958ba40976",
+    "title": "One day tickets on sale for PRB",
+    "body": "Daily line-ups for Punk rock bowling have been released and we're stoked to get to annouce our day of the fest! We are beyond excited",
+    "__v": 0,
+    "imgUrl": "https://s3-us-west-2.amazonaws.com/dogcompany/PRB_one_day-min.png",
+    "date": "2019-01-20T15:58:15.845Z"
+  }
+]

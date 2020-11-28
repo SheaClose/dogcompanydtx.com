@@ -4,18 +4,15 @@
     <div
       class="Home-page-container"
       :style="{
-      backgroundSize:`${125 + (+scroll / 4)}vh`
-    }"
+        backgroundSize: `${125 + +scroll / 4}vh`
+      }"
     >
       <div
         class="home-page-content-container"
-        :style="{backgroundColor: `rgba(0,0,0,${this.location})`}"
+        :style="{ backgroundColor: `rgba(0,0,0,${this.location})` }"
       >
         <div class="container">
-          <div
-            class="valign-wrapper container-center"
-            style="height: 70vh;"
-          >
+          <div class="valign-wrapper container-center" style="height: 70vh;">
             <img
               class="responsive-img valign"
               style="opacity: .8; height: 100%;"
@@ -23,11 +20,7 @@
               alt="Dog Company Logo"
             />
           </div>
-          <ul
-            class=""
-            :key="blog._id"
-            v-for="blog in blogs"
-          >
+          <ul class="" :key="blog._id" v-for="blog in blogs">
             <div class="blog">
               <div class="">
                 <div class="valign-wrapper row">
@@ -35,7 +28,7 @@
                     class="col s10 m10 l10 valign"
                     style="font-size: 2.2em; font-family: sans-serif; text-align: center; margin:auto;"
                   >
-                    {{blog.title}}
+                    {{ blog.title }}
                   </div>
                   <br />
                 </div>
@@ -53,12 +46,14 @@
                   </div>
                 </div>
                 <br />
-                <div style="white-space: pre-line; font-size: 1.5em; text-align: center">
+                <div
+                  style="white-space: pre-line; font-size: 1.5em; text-align: center"
+                >
                   <span v-html="blog.body"></span>
                 </div>
                 <br />
                 <div class="date">
-                  {{blog.date | formatDate}}
+                  {{ blog.date | formatDate }}
                 </div>
                 <hr />
               </div>
@@ -73,7 +68,6 @@
 <script>
 import NavBar from "@/components/NavBar.vue";
 import scroll from "@/mixins/scroll";
-
 export default {
   components: { NavBar },
   mixins: [scroll],
@@ -83,8 +77,8 @@ export default {
     };
   },
   async mounted() {
-    let { data } = await this.$axios.get("/api/blogs");
-    this.blogs = data.sort((a, b) =>
+    let { blogs } = await this.$store.state;
+    this.blogs = blogs.sort((a, b) =>
       new Date(a.date).getTime() < new Date(b.date).getTime() ? 1 : -1
     );
     document.addEventListener("click", this.handleClick);

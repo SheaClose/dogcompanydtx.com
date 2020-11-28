@@ -1,0 +1,687 @@
+[
+  {
+    "album_art": {
+      "img_url": "https://s3-us-west-2.amazonaws.com/dogcompany/High_hopes_and_Hard_times.jpg",
+      "alt": "Album cover for High hopes in hard times"
+    },
+    "distributors": [
+      {
+        "logo_url": "apple-logotype-white.svg",
+        "alt": "apple logo",
+        "link_url": "https://itunes.apple.com/us/album/high-hopes-in-hard-times/1439740526"
+      },
+      {
+        "logo_url": "Amazon.svg",
+        "alt": "Amazon logo",
+        "link_url": "https://www.amazon.com/High-Hopes-Hard-Times-Explicit/dp/B07JM6FBXH"
+      },
+      {
+        "logo_url": "youtube-play-button-white.svg",
+        "alt": "youtube logo",
+        "link_url": "https://www.youtube.com/watch?v=z7ebxiDjmlo"
+      }
+    ],
+    "album_info": {
+      "title": "High Hopes in Hard Times",
+      "release_year": 2018,
+      "record_label": "Crowd Control Media",
+      "label_link": "https://crowdcontrolmedia.net",
+      "songs": [
+        {
+          "song_title": "Intro",
+          "song_url": "https://www.youtube.com/watch?v=hFWej66QA1A"
+        },
+        {
+          "song_title": "Forever Soldier",
+          "song_url": "https://www.youtube.com/watch?v=sj-1sO0ICNU"
+        },
+        {
+          "song_title": "No Fooling You",
+          "song_url": "https://www.youtube.com/watch?v=JE4lYx77oS4"
+        },
+        {
+          "song_title": "Skeletons",
+          "song_url": "https://www.youtube.com/watch?v=us2Tn_02x10"
+        },
+        {
+          "song_title": "World Gone Mad",
+          "song_url": "https://www.youtube.com/watch?v=ncQ3-z6_dWA"
+        },
+        {
+          "song_title": "Shut Your Mouth",
+          "song_url": "https://www.youtube.com/watch?v=eG3gcWytjtY"
+        },
+        {
+          "song_title": "Word Became Flesh",
+          "song_url": "https://www.youtube.com/watch?v=YqKdE0WzYpQ"
+        },
+        {
+          "song_title": "The Way",
+          "song_url": "https://www.youtube.com/watch?v=-kdAdPJ8Crg"
+        },
+        {
+          "song_title": "Where's Everybody Gone",
+          "song_url": "https://www.youtube.com/watch?v=FepEkQLnQt8"
+        },
+        {
+          "song_title": "Have a Drink",
+          "song_url": "https://www.youtube.com/watch?v=giprbtEsyHA"
+        }
+      ]
+    }
+  },
+  {
+    "album_art": {
+      "img_url": "https://s3-us-west-2.amazonaws.com/dogcompany/Screen+Shot+2018-02-22+at+10.29.59+AM.png",
+      "alt": "AMERICAN OI TX EDITION"
+    },
+    "distributors": [
+      {
+        "logo_url": "https://s3-us-west-2.amazonaws.com/dogcompany/CCMLONGLOGOaa.jpg",
+        "alt": "Crowd Control Media",
+        "link_url": "http://crowdcontrolmedia.limitedrun.com/products/607950-v-a-american-oi-texas-edition-lp"
+      },
+      {
+        "logo_url": "youtube-play-button-white.svg",
+        "alt": "youtube logo",
+        "link_url": "https://www.youtube.com/channel/UCOUoSPl3MTj3LoVGJqXtSYg/search?query=American+Oi+texas+edition"
+      }
+    ],
+    "album_info": {
+      "title": "American Oi! Texas Edition",
+      "release_year": 2018,
+      "record_label": "Crowd Control Media",
+      "label_link": "http://crowdcontrolmedia.limitedrun.com",
+      "songs": [
+        {
+          "song_title": "A1. Thug Boots - My Tribe",
+          "song_url": ""
+        },
+        {
+          "song_title": "A2. Thug Boots - Elite Breed",
+          "song_url": ""
+        },
+        {
+          "song_title": "A3. Thug Boots - Urban Warfare”",
+          "song_url": ""
+        },
+        {
+          "song_title": "A4. Thug Boots - You're Dumb",
+          "song_url": "https://www.youtube.com/watch?v=KO3ed8TGEkk"
+        },
+        {
+          "song_title": "A5. Drastic Actions - America The Beautiful",
+          "song_url": ""
+        },
+        {
+          "song_title": "A6. Drastic Actions - On The Attack",
+          "song_url": ""
+        },
+        {
+          "song_title": "A7. Drastic Actions - Trouble Bound",
+          "song_url": "https://www.youtube.com/watch?v=H4oe0Y17ys8"
+        },
+        {
+          "song_title": "A8. The Booked - New Resistance",
+          "song_url": ""
+        },
+        {
+          "song_title": "A9. The Booked - All Laced Up",
+          "song_url": "https://www.youtube.com/watch?v=cLo0B4LLwR8"
+        },
+        {
+          "song_title": "B1 Dog Company - World Gone Mad",
+          "song_url": ""
+        },
+        {
+          "song_title": "B2. Dog Company - Pick Me Up",
+          "song_url": ""
+        },
+        {
+          "song_title": "B3. Dog Company - Burn Washington Burn",
+          "song_url": "https://www.youtube.com/watch?v=ux1UA6stDg8"
+        },
+        {
+          "song_title": "B4. SMÄRT BOYZ - Dozer",
+          "song_url": "https://www.youtube.com/watch?v=ug7Aksdc19Q"
+        },
+        {
+          "song_title": "B5. SMÄRT BOYZ - Volcano",
+          "song_url": ""
+        },
+        {
+          "song_title": "B6. No Resistance - Ready To Go",
+          "song_url": ""
+        },
+        {
+          "song_title": "B7. No Resistance - $4.50",
+          "song_url": ""
+        },
+        {
+          "song_title": "B8. No Resistance - Contrary To Popular Belief",
+          "song_url": ""
+        }
+      ]
+    }
+  },
+  {
+    "album_art": {
+      "img_url": "https://s3-us-west-2.amazonaws.com/dogcompany/HardEvDogCo.jpg",
+      "alt": "Dog Company / Hard Evidence compilation Cover image"
+    },
+    "distributors": [
+      {
+        "logo_url": "oi-the-boat-white.svg",
+        "alt": "Oi the boat logo",
+        "link_url": "http://www.oitheboat.com/products/570666-hard-evidence-dog-company-split-7"
+      },
+      {
+        "logo_url": "youtube-play-button-white.svg",
+        "alt": "youtube logo",
+        "link_url": "https://www.youtube.com/watch?v=0suko6OEByQ"
+      }
+    ],
+    "album_info": {
+      "title": "Hard Evidence - Dog Company",
+      "release_year": 2016,
+      "record_label": "Oi the Boat",
+      "label_link": "http://www.oitheboat.com/",
+      "songs": [
+        {
+          "song_title": "Dog Company - Vengeance",
+          "song_url": ""
+        },
+        {
+          "song_title": "Dog Company - Guilty of Nothing",
+          "song_url": ""
+        },
+        {
+          "song_title": "Hard Evidence - I Wanna Know",
+          "song_url": ""
+        },
+        {
+          "song_title": "Hard Evidence - Someday",
+          "song_url": "https://www.youtube.com/watch?v=qgXo-Qt0L6I&list=PLzWFl7ZpXuGbbVlaNXGJAQvdEYE3mD5Qh&index=4"
+        }
+      ]
+    }
+  },
+  {
+    "album_art": {
+      "img_url": "https://s3-us-west-2.amazonaws.com/dogcompany/WarStories.jpg",
+      "alt": "Photo of War Stories Album"
+    },
+    "distributors": [
+      {
+        "logo_url": "apple-logotype-white.svg",
+        "alt": "apple logo",
+        "link_url": "https://itunes.apple.com/us/album/war-stories/id833984446"
+      },
+      {
+        "logo_url": "Amazon.svg",
+        "alt": "Amazon logo",
+        "link_url": "https://www.amazon.com/War-Stories-Dog-Company/dp/B00IS180Q4/ref=sr_1_1?s=dmusic&ie=UTF8&qid=1476570275&sr=1-1-mp3-albums-bar-strip-0&keywords=war+stories+dog+company"
+      },
+      {
+        "logo_url": "youtube-play-button-white.svg",
+        "alt": "youtube logo",
+        "link_url": "https://www.youtube.com/watch?v=3qEdTZvsHLk&list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ"
+      }
+    ],
+    "album_info": {
+      "title": "War Stories",
+      "release_year": 2014,
+      "record_label": "Cadre Records / Rebel Sound",
+      "label_link": "http://rebelsoundmusic.limitedrun.com",
+      "songs": [
+        {
+          "song_title": "Intro",
+          "song_url": ""
+        },
+        {
+          "song_title": "Elected Enemy",
+          "song_url": "https://youtu.be/3qEdTZvsHLk?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ"
+        },
+        {
+          "song_title": "For Our Friends",
+          "song_url": "https://youtu.be/A6jrBYkXOoc?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ"
+        },
+        {
+          "song_title": "Printed Word",
+          "song_url": "https://youtu.be/trFbEixMidI?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ"
+        },
+        {
+          "song_title": "Battle Fatigue",
+          "song_url": "https://youtu.be/Ekwl7G_Eado?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ"
+        },
+        {
+          "song_title": "Combat Zone",
+          "song_url": "https://youtu.be/yxsK0g3XjXk?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ"
+        },
+        {
+          "song_title": "Not Dead Yet",
+          "song_url": "https://youtu.be/6-uumIXfawA?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ"
+        },
+        {
+          "song_title": "Last Call",
+          "song_url": "https://youtu.be/uKexLBOWPok?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ"
+        },
+        {
+          "song_title": "Can't Keep Me Down",
+          "song_url": "https://youtu.be/hACX0aqJOD4?list=PLsWo4LACJx9HD-JIDNEa-iBnp9NpO5xeZ"
+        }
+      ]
+    }
+  },
+  {
+    "album_art": {
+      "img_url": "https://s3-us-west-2.amazonaws.com/dogcompany/CashingInOnChristmasVol4.jpg",
+      "alt": "Cashing in on Christmas Cover image"
+    },
+    "distributors": [
+      {
+        "logo_url": "band-camp-white.svg",
+        "alt": "band camp logo",
+        "link_url": "https://blackholerecs.bandcamp.com/album/cashing-in-on-christmas-vol-4"
+      },
+      {
+        "logo_url": "BlackHole-white.svg",
+        "alt": "Black hole records logo",
+        "link_url": "http://www.cdbaby.com/cd/cashinginonchristmasvolu2"
+      }
+    ],
+    "album_info": {
+      "title": "Cashing in on Christmas Vol. IV",
+      "release_year": 2012,
+      "record_label": "Black Hole Records",
+      "label_link": "https://blackholerecs.bandcamp.com/",
+      "songs": [
+        {
+          "song_title": "The Authority - O Come Emmanuel",
+          "song_url": "https://blackholerecs.bandcamp.com/track/o-come-emmanuel"
+        },
+        {
+          "song_title": "Blessed Muthas - Blessed Christmas",
+          "song_url": "https://blackholerecs.bandcamp.com/track/blessed-christmas"
+        },
+        {
+          "song_title": "Broken Heroes - New Tradition",
+          "song_url": "https://blackholerecs.bandcamp.com/track/new-tradition"
+        },
+        {
+          "song_title": "The Dirty Shirleys - Johnny Thunders X-Mas",
+          "song_url": "https://blackholerecs.bandcamp.com/track/johnny-thunders-x-mas"
+        },
+        {
+          "song_title": "Dog Company - Snoopy's Christmas",
+          "song_url": "https://blackholerecs.bandcamp.com/track/snoopys-christmas"
+        },
+        {
+          "song_title": "Explosive Head - All I Want For Christmas",
+          "song_url": "https://blackholerecs.bandcamp.com/track/all-i-want-for-christmas"
+        },
+        {
+          "song_title": "The Flyswatters - Santa's On Acid",
+          "song_url": "https://blackholerecs.bandcamp.com/track/santas-on-acid"
+        },
+        {
+          "song_title": "The Gonads - The Greatest Cockney Christmas",
+          "song_url": "https://blackholerecs.bandcamp.com/track/the-greatest-cockney-christmas"
+        },
+        {
+          "song_title": "Guitar Gangsters - Christmas Time Is Here (Oh Shit)",
+          "song_url": "https://blackholerecs.bandcamp.com/track/christmas-time-is-here-oh-shit"
+        },
+        {
+          "song_title": "Hateful - Hateful Merry Christmas",
+          "song_url": "https://blackholerecs.bandcamp.com/track/hateful-merry-christmas"
+        },
+        {
+          "song_title": "Jenny Woo - Christmas To Me",
+          "song_url": "https://blackholerecs.bandcamp.com/track/christmas-to-me"
+        },
+        {
+          "song_title": "Mad Pigs - City Of Nightmares",
+          "song_url": "https://blackholerecs.bandcamp.com/track/city-of-nightmares"
+        },
+        {
+          "song_title": "Missile Toads - Ultra Christmas",
+          "song_url": "https://blackholerecs.bandcamp.com/track/ultra-christmas"
+        },
+        {
+          "song_title": "Plan Of Attack - Hey Santa",
+          "song_url": "https://blackholerecs.bandcamp.com/track/hey-santa"
+        },
+        {
+          "song_title": "Splodgenessabounds - Fairytale Of Mongolia",
+          "song_url": "https://blackholerecs.bandcamp.com/track/fairytale-of-mongolia"
+        },
+        {
+          "song_title": "Toughskins - It Could Be Worse",
+          "song_url": "https://blackholerecs.bandcamp.com/track/it-could-be-worse"
+        }
+      ]
+    }
+  },
+  {
+    "album_art": {
+      "img_url": "https://s3-us-west-2.amazonaws.com/dogcompany/BlackHoleSplit.jpg",
+      "alt": ""
+    },
+    "distributors": [
+      {
+        "logo_url": "band-camp-white.svg",
+        "alt": "band camp logo",
+        "link_url": "https://blackholerecs.bandcamp.com/album/glass-heroes-mean-streets-strongbow-dog-company"
+      },
+      {
+        "logo_url": "BlackHole-white.svg",
+        "alt": "Black hole records logo",
+        "link_url": "http://blackholerecords.bigcartel.com/product/hudson-falcons-dog-company-split-7"
+      }
+    ],
+    "album_info": {
+      "title": "Glass Heroes - Mean Streets - Strongbow - Dog Company",
+      "release_year": 2012,
+      "record_label": "Black Hole Records",
+      "label_link": "https://blackholerecs.bandcamp.com",
+      "songs": [
+        {
+          "song_title": "Glass Heroes - Back Biter",
+          "song_url": "https://blackholerecs.bandcamp.com/track/back-biter"
+        },
+        {
+          "song_title": "Glass Heroes - For You",
+          "song_url": "https://blackholerecs.bandcamp.com/track/for-you"
+        },
+        {
+          "song_title": "Mean Streets - New Moves",
+          "song_url": "https://blackholerecs.bandcamp.com/track/new-moves"
+        },
+        {
+          "song_title": "Mean Streets - Turn It Around",
+          "song_url": "https://blackholerecs.bandcamp.com/track/turn-it-around"
+        },
+        {
+          "song_title": "Strongbow - Blind",
+          "song_url": "https://blackholerecs.bandcamp.com/track/blind"
+        },
+        {
+          "song_title": "Strongbow - These Nights",
+          "song_url": "https://blackholerecs.bandcamp.com/track/these-nights"
+        },
+        {
+          "song_title": "Dog Company - Everybody's Your Best Friend",
+          "song_url": "https://blackholerecs.bandcamp.com/track/everybodys-your-best-friend"
+        },
+        {
+          "song_title": "Dog Company - Not Dead Yet",
+          "song_url": "https://blackholerecs.bandcamp.com/track/not-dead-yet"
+        }
+      ]
+    }
+  },
+  {
+    "album_art": {
+      "img_url": "https://s3-us-west-2.amazonaws.com/dogcompany/CashingInOnChristmasVol2.jpg",
+      "alt": "Album art for Cashing in on Christmas Volume 2"
+    },
+    "distributors": [
+      {
+        "logo_url": "band-camp-white.svg",
+        "alt": "band camp logo",
+        "link_url": "https://blackholerecs.bandcamp.com/album/cashing-in-on-christmas-volume-2"
+      },
+      {
+        "logo_url": "BlackHole-white.svg",
+        "alt": "Black hole records logo",
+        "link_url": "http://blackholerecords.bigcartel.com/product/cashing-in-on-christmas-volume-2"
+      },
+      {
+        "logo_url": "apple-logotype-white.svg",
+        "alt": "apple logo",
+        "link_url": "https://itunes.apple.com/us/album/cashing-in-on-christmas-volume/id406229780"
+      }
+    ],
+    "album_info": {
+      "title": "Cashing in on Christmas Vol. II",
+      "release_year": 2010,
+      "record_label": "Black Hole Records",
+      "label_link": "https://blackholerecs.bandcamp.com/",
+      "songs": [
+        {
+          "song_url": "https://blackholerecs.bandcamp.com/track/holly-jolly-christmas",
+          "song_title": "The Sheckies - Holly Jolly Christmas"
+        },
+        {
+          "song_url": "https://blackholerecs.bandcamp.com/track/this-xmas",
+          "song_title": "45 Adapters - This Xmas"
+        },
+        {
+          "song_url": "https://blackholerecs.bandcamp.com/track/blue-christmas",
+          "song_title": "CH3 - Blue Christmas"
+        },
+        {
+          "song_url": "https://blackholerecs.bandcamp.com/track/winterland",
+          "song_title": "Revilers - Winterland"
+        },
+        {
+          "song_url": "https://blackholerecs.bandcamp.com/track/merry-christmas-better-new-year",
+          "song_title": "Dog Company - Merry Christmas, Better New Year"
+        },
+        {
+          "song_url": "https://blackholerecs.bandcamp.com/track/yuletide-girl",
+          "song_title": "Doomed To Obscurity - Yuletide Girl"
+        },
+        {
+          "song_url": "https://blackholerecs.bandcamp.com/track/christmas-in-the-city-aint-too-pretty",
+          "song_title": "Jukebox Zeros - Christmas In The City (Ain't Too Pretty)"
+        },
+        {
+          "song_url": "https://blackholerecs.bandcamp.com/track/merry-christmas-everybody",
+          "song_title": "Hateful - Merry Christmas Everybody"
+        },
+        {
+          "song_url": "https://blackholerecs.bandcamp.com/track/i-ruined-christmas",
+          "song_title": "Mean Streets - I Ruined Christmas"
+        },
+        {
+          "song_url": "https://blackholerecs.bandcamp.com/track/the-christmas-song",
+          "song_title": "Fed Up! - The Christmas Song"
+        },
+        {
+          "song_url": "https://blackholerecs.bandcamp.com/track/santas-a-boozer",
+          "song_title": "Missile Toads - Santa's A Boozer"
+        },
+        {
+          "song_url": "https://blackholerecs.bandcamp.com/track/let-it-snow",
+          "song_title": "Knocked Out Cold - Let It Snow"
+        },
+        {
+          "song_url": "https://blackholerecs.bandcamp.com/track/white-christmas",
+          "song_title": "Antibodies - White Christmas"
+        },
+        {
+          "song_url": "https://blackholerecs.bandcamp.com/track/foul-mouthed-elf",
+          "song_title": "Nothing But Enemies - Foul Mouthed Elf"
+        },
+        {
+          "song_url": "https://blackholerecs.bandcamp.com/track/santa-thats-my-wife",
+          "song_title": "Pressure 28 - Santa, That's My Wife"
+        },
+        {
+          "song_url": "https://blackholerecs.bandcamp.com/track/fired-in-christmas",
+          "song_title": "Secret Army - Fired In Christmas"
+        },
+        {
+          "song_url": "https://blackholerecs.bandcamp.com/track/oi-to-the-world",
+          "song_title": "Cunt Sparrer - Oi! To The World"
+        }
+      ]
+    }
+  },
+  {
+    "album_art": {
+      "img_url": "https://s3-us-west-2.amazonaws.com/dogcompany/Bullet.jpg",
+      "alt": "Bullet for every lie Cover image"
+    },
+    "distributors": [
+      {
+        "link_url": "https://dogcompany.bandcamp.com/album/a-bullet-for-every-lie",
+        "logo_url": "band-camp-white.svg",
+        "alt": "band camp image"
+      },
+      {
+        "link_url": "https://www.contra-net.com/de/dog-company-a-bullet-for-every-lie-12-lp-cd-25802.html",
+        "logo_url": "Contra-white.svg",
+        "alt": "contra records logo"
+      },
+      {
+        "link_url": "https://www.youtube.com/watch?v=Z1x-S-0jrbA&list=PLYz0g7A2PTeBH61-N2wPpCepztZvy4_q0",
+        "logo_url": "youtube-play-button-white.svg",
+        "alt": "youtube logo"
+      }
+    ],
+    "album_info": {
+      "title": "A Bullet for Every Lie",
+      "release_year": 2010,
+      "record_label": "Contra Records",
+      "label_link": "http://www.contra-net.de/record/index.html",
+      "songs": [
+        {
+          "song_url": "https://youtu.be/JybQ7YH4Fe8",
+          "song_title": "We Are The Invisible"
+        },
+        {
+          "song_url": "https://youtu.be/Z1x-S-0jrbA",
+          "song_title": "A Bullet For Every Lie"
+        },
+        {
+          "song_url": "https://youtu.be/3E2FczOhN7M",
+          "song_title": "Change What Change?"
+        },
+        {
+          "song_url": "https://youtu.be/Iw_uKHwb0Yw",
+          "song_title": "Closer Than You Think"
+        },
+        {
+          "song_url": "https://youtu.be/yoQZkzqc_8Q",
+          "song_title": "Che"
+        },
+        {
+          "song_url": "https://youtu.be/-89lgjIDzAM",
+          "song_title": "Magic Pill"
+        },
+        {
+          "song_url": "https://youtu.be/29LElTmnpfM",
+          "song_title": "Germs"
+        },
+        {
+          "song_url": "https://youtu.be/BuykZ_e32-E",
+          "song_title": "Sean Flynn"
+        },
+        {
+          "song_url": "https://youtu.be/c-yOnwyuqqM",
+          "song_title": "Skinhead Girl"
+        },
+        {
+          "song_url": "https://youtu.be/BnAmCztg1rk",
+          "song_title": "I Am A Human Bomb"
+        }
+      ]
+    }
+  },
+  {
+    "album_art": {
+      "img_url": "https://s3-us-west-2.amazonaws.com/dogcompany/SongsofDisc.jpg",
+      "alt": "Songs of Discontent Cover image"
+    },
+    "distributors": [
+      {
+        "link_url": "https://itunes.apple.com/bz/album/songs-of-discontent/id284712750",
+        "logo_url": "apple-logotype-white.svg",
+        "alt": "apple logo"
+      },
+      {
+        "link_url": "https://amazon.com/gp/product/B001CV359E/ref=dm_ws_sp_ps_dp",
+        "logo_url": "Amazon.svg"
+      },
+      {
+        "link_url": "https://www.youtube.com/watch?v=E4dYFYCdThw&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb",
+        "logo_url": "youtube-play-button-white.svg",
+        "alt": "youtube logo"
+      }
+    ],
+    "album_info": {
+      "title": "Songs of Discontent",
+      "release_year": 2007,
+      "record_label": "Slab O' Wax Records",
+      "label_link": "http://www.slab-o-wax.com/",
+      "songs": [
+        {
+          "song_url": "https://www.youtube.com/watch?v=E4dYFYCdThw&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=1",
+          "song_title": "Content American"
+        },
+        {
+          "song_url": "https://www.youtube.com/watch?v=HRb06G_MgqQ&index=2&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb",
+          "song_title": "Lost Weapons"
+        },
+        {
+          "song_url": "https://www.youtube.com/watch?v=WC-tITg_Wr4&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=3",
+          "song_title": "Commercial Blitz"
+        },
+        {
+          "song_url": "https://www.youtube.com/watch?v=pz6WTZMrGc4&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=4",
+          "song_title": "Product and Demand"
+        },
+        {
+          "song_url": "https://www.youtube.com/watch?v=Q5WcO4dzj8Q&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=5",
+          "song_title": "Famine"
+        },
+        {
+          "song_url": "https://www.youtube.com/watch?v=q1VdQ-Ovbbs&index=6&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb",
+          "song_title": "Saturday"
+        },
+        {
+          "song_url": "https://www.youtube.com/watch?v=4_y61z3gQ-Y&index=7&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb",
+          "song_title": "Battle Fatigue"
+        },
+        {
+          "song_title": "John Tucker"
+        },
+        {
+          "song_url": "https://www.youtube.com/watch?v=zAGhs0TYgn4&index=9&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb",
+          "song_title": "Song of Discontent"
+        },
+        {
+          "song_url": "https://www.youtube.com/watch?v=5uOpQjcHp1w&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=10",
+          "song_title": "Reason to Hate"
+        },
+        {
+          "song_url": "https://www.youtube.com/watch?v=DGD6jM6fImY&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=11",
+          "song_title": "Nothing Left"
+        },
+        {
+          "song_url": "https://www.youtube.com/watch?v=r06uMfgVw9c&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=12",
+          "song_title": "Merchants of Cool"
+        },
+        {
+          "song_url": "https://www.youtube.com/watch?v=MZ0Ei4mcyJM&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=13",
+          "song_title": "Close Your Eyes"
+        },
+        {
+          "song_url": "https://www.youtube.com/watch?v=sPPQrLHQQwo&index=8&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb",
+          "song_title": "Beat Down"
+        },
+        {
+          "song_url": "https://www.youtube.com/watch?v=e1tBfzR5Qew&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=15",
+          "song_title": "The Last Christmas"
+        },
+        {
+          "song_url": "https://www.youtube.com/watch?v=axdHO6akkAs&list=PLl3OMrxMF1En9JXiDqjjNdm9CRkaeBJdb&index=14",
+          "song_title": "Targets"
+        }
+      ]
+    }
+  }
+]

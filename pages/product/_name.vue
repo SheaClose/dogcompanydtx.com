@@ -87,8 +87,7 @@ export default {
   },
   async created() {
     let { name } = this.$route.params;
-    let { data } = await this.$axios.get("/api/products");
-    let product = data.filter(c => {
+    let product = this.$store.state.products.filter(c => {
       let match = c.title == name;
       if (match) {
         this.sizes[c.size] = c.available;
@@ -109,7 +108,7 @@ export default {
           alertColor: "red"
         });
       }
-      let { data } = await this.$axios.post("/api/cart", {
+      this.$store.dispatch("addToCart", {
         title,
         size: size || "small",
         bundle
@@ -118,8 +117,6 @@ export default {
         alertMsg: "Item added to cart",
         alertColor: "primary"
       });
-      this.$store.commit("setUser", data);
-      this.$router.history.push("/store");
     }
   }
 };
