@@ -11,7 +11,7 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "nuxt": "^1.0.0",
     "vuetify": "^0.17.3",
     "webpack": "^3.11.0"
