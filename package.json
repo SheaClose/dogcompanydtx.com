@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "moment": "^2.22.2",
-    "nuxt": "^1.0.0",
+    "nuxt": "^3.0.0",
     "vuetify": "^0.17.3",
     "webpack": "^3.11.0"
   },
